@@ -47,7 +47,7 @@ artfish_estimates <- function(
       EST_EFF_SUI=unif_index(days)
     )%>%
     ungroup()%>%
-    left_join(fishing_units, by="EST_BGC")%>%
+    left_join(ref_fishingunits, by="EST_BGC")%>%
     select(EST_YEAR,
            EST_MONTH,
            EST_BGC,
@@ -91,7 +91,7 @@ artfish_estimates <- function(
       EST_LND_SUI=unif_index(days)
     )%>%
     ungroup()%>%
-    left_join(fishing_units, by="EST_BGC")%>%
+    left_join(ref_fishingunits, by="EST_BGC")%>%
     select(
       EST_YEAR,
       EST_MONTH,
