@@ -2,6 +2,7 @@
 
 export(artfish_accuracy)
 export(artfish_estimates)
+export(artfish_estimates_by_fleet_segment)
 export(unif_index)
 import(dplyr)
 import(methods)
