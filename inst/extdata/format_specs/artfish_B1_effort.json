@@ -1,0 +1,48 @@
+{
+  "name": "cwp_rh_artfish_effort_survey",
+  "urn": "urn:fdi:format:generic:artfish:effort_survey",
+  "title": "CWP TG-RH artfish data exchange format - effort (survey from fisher' interview)",
+  "column_specs": [
+    {
+      "name": "year",
+      "urn": "urn:fdi:term:year",
+      "required": true,
+      "rules": [
+        {
+          "vrule": "year",
+      		"args": {}
+        }
+      ]
+    },
+    {
+      "name": "month",
+      "urn": "urn:fdi:term:month",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "day",
+      "urn": "urn:fdi:term:day",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fishing_unit",
+      "urn": "urn:fdi:term:fishing_unit",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "effort_reference_period_duration",
+      "urn": "urn:fdi:term:effort_reference_period_duration",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "effort_fishing_duration",
+      "urn": "urn:fdi:term:effort_fishing_duration",
+      "required": true,
+      "rules": []
+    }
+  ]
+}
