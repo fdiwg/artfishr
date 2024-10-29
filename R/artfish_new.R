@@ -46,56 +46,36 @@ artfish_new_by_period <- function(
   effort_source = c("survey", "registry"),
   active_days = NULL,
   landings,
-  minor_strata = NULL){
-  
-  errors <- NULL
-  validators = get_vrule_validators()
-  
-  #mandatory columns: year, month, (minor_stratum), fishing_unit
-  
-  #verify data availability
-  #active_vessels NOT NULL (through arg)
-  #effort NOT NULL (through arg)
-  #active_days IF NULL then will need autogenerate it
-  #landings NOT NULL (through arg)
+  minor_strata = NULL,
+  validate = TRUE){
   
   #validate A/B/C/D components (delegated to vrule)
-  #structure (B1/B2) will depend on the effort source
-  #active_vessels
-  active_vessels_report = validators$cwp_rh_artfish_active_vessels$validate(active_vessels)
-  if(any(active_vessels_report$type == "ERROR")){
-    stop("Data 'active_vessels' validation errors")
-  }
-  #effort
-  effort_validator = switch(effort_source,
-    "survey" = validators$cwp_rh_artfish_effort_survey,
-    "registry" = NULL #todo
+  if(validate) validate_input_datasets(
+    active_vessels = active_vessels,
+    effort = effort,
+    effort_source = effort_source,
+    active_days = active_days,
+    landings = landings
   )
-  effort_report = effort_validator$validate(effort)
-  if(any(effort_report$type == "ERROR")){
-    stop("Data 'effort' validation errors")
-  }
-  #landings
-  landings_report = validators$cwp_rh_artfish_landings$validate(landings)
-  if(any(landings_report$type == "ERROR")){
-    stop("Data 'landings' validation errors")
-  }
-  #active_days
-  if(!is.null(active_days)){
-    active_days_report = validators$cwp_rh_artfish_active_days$validate(active_days)
-    if(any(active_days_report$type == "ERROR")){
-      stop("Data 'active_days' validation errors")
-    }
-  }else{
+  
+  #active_days generation?
+  if(is.null(active_days)){
     #autogenerate active_days table
     fishing_units = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
     active_days = generate_active_days(year, month, fishing_units)
   }
   
+  #filter control period match args
+  active_vessels = subset(active_vessels, year = year, month = month)
+  effort = subset(effort, year = year, month = month)
+  active_days = subset(active_days, year = year, month = month)
+  landings = subset(landings, year = year, month = month)
+  
   #identify strata (that may include minor stratum)
+  strata <- c("year", "month", "fishing_unit")
   #-> columns that identify dimensions for grouping
   #examples
-  #- year/month/fishing_unit (minimum requirement)
+  #- year/month/fishing_unit (minimum requirement) - validated by vrule
   #- year/month/(additional minor stratum)/fishing_unit
   
   #verify that year/month is ok on all tables (except eventually active_days IF NULL)
@@ -127,4 +107,49 @@ artfish_new_by_period <- function(
   # }
   return(out)
 }
+
+#'@name compute_effort_activity_coefficient
+#'@title Computes effort activity coefficient
+#'@param effort effort data
+#'@return the activity coefficient by strata
+#'@export
+compute_effort_activity_coefficient = function(effort){
+  
+  if(any(is.na(effort$effort_fishing_duration))){
+    #TODO warnings here to be reported (to investigate how)
+    effort<-subset(effort,!is.na(effort_fishing_duration))
+  }
+  
+  out <- effort %>%
+    group_by(year, month, fishing_unit) %>%
+    summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_reference_period_duration = sum(effort_reference_period_duration))
+  
+  out$effort_activity_coefficient = out$effort_fishing_duration / out$effort_reference_period_duration
+  return(out)
+}
+
+#'@name compute_effort_estimate
+#'@title Computes effort estimate
+#'@param active_vessels active vessels
+#'@param effort effort data
+#'@param active_days active_days
+#'@export
+compute_effort_estimate = function(
+    active_vessels, effort, active_days
+){
+  
+  #complete active days by eventually filling missing or zero values for 'effort_fishable_duration'
+  active_days = complete_active_days(active_days)
+  
+  #compute effort activity coefficient
+  AC = compute_effort_activity_coefficient(effort = effort)
+  
+  dt = AC %>% 
+    dplyr::left_join(y = active_vessels) %>% 
+    dplyr::left_join(y = active_days)
+  dt$effort_estimate = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
+  
+  return(dt)
+}
+
 
