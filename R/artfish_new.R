@@ -77,7 +77,7 @@ artfish_new_by_period <- function(
   }
   #landings
   landings_report = validators$cwp_rh_artfish_landings$validate(landings)
-  if(any(landings_report$type == "ERROR"))
+  if(any(landings_report$type == "ERROR")){
     stop("Data 'landings' validation errors")
   }
   #active_days
