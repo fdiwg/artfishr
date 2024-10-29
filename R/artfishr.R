@@ -6,6 +6,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @import vrule
+#' @import lubridate
 #'
 #' @name artfishr
 #' @author Emmanuel Blondel \email{emmanuel.blondel1@@gmail.com}

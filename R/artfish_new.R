@@ -48,6 +48,9 @@ artfish_new_by_period <- function(
   landings,
   minor_strata = NULL){
   
+  errors <- NULL
+  validators = get_vrule_validators()
+  
   #mandatory columns: year, month, (minor_stratum), fishing_unit
   
   #verify data availability
@@ -56,8 +59,38 @@ artfish_new_by_period <- function(
   #active_days IF NULL then will need autogenerate it
   #landings NOT NULL (through arg)
   
-  #verify structure for A/B/C/D components (delegated to vrule)
+  #validate A/B/C/D components (delegated to vrule)
   #structure (B1/B2) will depend on the effort source
+  #active_vessels
+  active_vessels_report = validators$cwp_rh_artfish_active_vessels$validate(active_vessels)
+  if(any(active_vessels_report$type == "ERROR")){
+    stop("Data 'active_vessels' validation errors")
+  }
+  #effort
+  effort_validator = switch(effort_source,
+    "survey" = validators$cwp_rh_artfish_effort_survey,
+    "registry" = NULL #todo
+  )
+  effort_report = effort_validator$validate(effort)
+  if(any(effort_report$type == "ERROR")){
+    stop("Data 'effort' validation errors")
+  }
+  #landings
+  landings_report = validators$cwp_rh_artfish_landings$validate(landings)
+  if(any(landings_report$type == "ERROR"))
+    stop("Data 'landings' validation errors")
+  }
+  #active_days
+  if(!is.null(active_days)){
+    active_days_report = validators$cwp_rh_artfish_active_days$validate(active_days)
+    if(any(active_days_report$type == "ERROR")){
+      stop("Data 'active_days' validation errors")
+    }
+  }else{
+    #autogenerate active_days table
+    fishing_units = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
+    active_days = generate_active_days(year, month, fishing_units)
+  }
   
   #identify strata (that may include minor stratum)
   #-> columns that identify dimensions for grouping
@@ -94,3 +127,4 @@ artfish_new_by_period <- function(
   # }
   return(out)
 }
+
