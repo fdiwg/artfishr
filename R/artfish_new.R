@@ -84,24 +84,35 @@ artfish_new_by_period <- function(
   
   #verify that year/month/(minor_stratum)/fishing_unit are the same across all tables
   
-  out <- NULL
+  #effort estimate
+  effort_estimate = compute_effort_estimate(
+    active_vessels = active_vessels, 
+    effort = effort, 
+    active_days = active_days
+  )
   
-  #CURRENT CODE?
-  # focus on result (without any step attempts)
+  #cpue
+  cpue = compute_cpue(landings)
   
-  #OBJECTIVE
-  #step 1 - boat activity 
-  # bac_out = artfishr::compute_bac(...)
-  # #step 2 - effort
-  # effort_out = artfishr::compute_effort(...)
-  # #step 3 - cpu (catch)
-  # cpu_out = artfishr::compute_cpu(...)
-  # #=> result should be the same
-  # out <- list(
-  #   bac = data.frame(),
-  #   effort = data.frame(),
-  #   cpu = data.frame()
-  # )
+  #catch estimate
+  catch_estimate = compute_catch_estimate(
+    effort_estimate = effort_estimate,
+    cpue = cpue
+  )
+  
+  #catch estimate by species
+  catch_estimates_by_species = compute_catch_estimates_by_species(
+    landings = landings,
+    catch_estimate = catch_estimate
+  )
+  
+  out <- list(
+    effort = effort_estimate,
+    cpue = cpue,
+    catch = catch_estimate,
+    catch_by_species = catch_estimates_by_species
+  )
+ 
   # if(nrow(errors)>0){
   #   attr(out, "errors") <- errors
   # }
@@ -152,4 +163,70 @@ compute_effort_estimate = function(
   return(dt)
 }
 
+#'@name compute_cpue
+#'@title Computes CPUE
+#'@param landings landings
+#'@return a \link{tibble} giving CPUE per strata
+#'@export
+compute_cpue = function(landings){
+  
+  if(any(is.na(landings$catch_nominal_landed))){
+    #TODO warnings here to be reported (to investigate how)
+    landings = subset(landings, !is.na(catch_nominal_landed))
+  }
+  if(any(is.na(landings$effort_fishing_duration))){
+    #TODO warnings here to be reported (to investigate how)
+    landings = subset(landings, !is.na(effort_fishing_duration))
+  }
+  
+  out = landings %>%
+    dplyr::group_by(year, month, fishing_unit, fishing_trip, effort_fishing_duration) %>%
+    dplyr::summarize(catch_nominal_landed = sum(catch_nominal_landed, na.rm = T)) %>%
+    dplyr::ungroup(fishing_trip) %>%
+    dplyr::summarize(sum_effort_fishing_duration = sum(effort_fishing_duration, na.rm = T), sum_catch_nominal_landed = sum(catch_nominal_landed, na.rm = T))
+  out$cpue = out$sum_catch_nominal_landed / out$sum_effort_fishing_duration
+  
+  return(out)
+}
 
+#'@name compute_catch_estimate
+#'@title Computes catch estimate
+#'@param effort_estimate effort estimate
+#'@param cpue cpue
+#'@return a \link{tibble} giving the estimated catch by strata
+#'@export
+compute_catch_estimate = function(effort_estimate, cpue){
+  out = effort_estimate %>%
+    dplyr::left_join(cpue)
+  out$catch_estimate = out$effort_estimate * out$cpue
+  return(out)
+}
+
+#'@name compute_catch_estimates_by_species
+#'@title Computes catch estimates by species
+#'@param landings landings
+#'@return a \link{tibble}
+#'@export
+compute_catch_estimates_by_species = function(landings, catch_estimate){
+  
+  species_compo <- landings %>%
+    dplyr::group_by(year, month, fishing_unit, species) %>%
+    dplyr::summarize(
+      species_tot = sum(catch_nominal_landed, na.rm = T),
+      species_value = sum(trade_value, na.rm = T)
+    )
+  species_compo <- species_compo %>%
+    dplyr::left_join(catch_estimate)
+  
+  species_compo_tot <- species_compo %>%
+    dplyr::summarise(sum_species_tot = sum(species_tot, na.rm = T))
+  species_compo = species_compo %>%
+    dplyr::left_join(species_compo_tot)
+  
+  species_compo$ratio<-species_compo$species_tot / species_compo$sum_species_tot
+  species_compo$species_catch <- species_compo$ratio * species_compo$catch_estimate
+  species_compo$species_cpue <-species_compo$species_catch / species_compo$effort_estimate
+  species_compo$species_price <- species_compo$species_value /species_compo$species_tot
+  species_compo$species_tot_value <- species_compo$species_price * species_compo$species_catch
+  return(species_compo)
+}
