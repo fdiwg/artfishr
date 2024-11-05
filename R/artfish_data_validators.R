@@ -43,7 +43,7 @@ validate_input_datasets <- function(
   #effort
   effort_validator = switch(effort_source,
                             "survey" = validators$cwp_rh_artfish_effort_survey,
-                            "registry" = NULL #todo
+                            "registry" = validators$cwp_rh_artfish_effort_registry
   )
   effort_report = effort_validator$validate(effort)
   if(any(effort_report$type == "ERROR")){

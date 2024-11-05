@@ -1,0 +1,48 @@
+{
+  "name": "cwp_rh_artfish_effort_registry",
+  "urn": "urn:fdi:format:generic:artfish:effort_registry",
+  "title": "CWP TG-RH artfish data exchange format - effort (survey from boat counting)",
+  "column_specs": [
+    {
+      "name": "year",
+      "urn": "urn:fdi:term:year",
+      "required": true,
+      "rules": [
+        {
+          "vrule": "year",
+      		"args": {}
+        }
+      ]
+    },
+    {
+      "name": "month",
+      "urn": "urn:fdi:term:month",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "day",
+      "urn": "urn:fdi:term:day",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fishing_unit",
+      "urn": "urn:fdi:term:fishing_unit",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "landing_site",
+      "urn": "urn:fdi:term:landing_site",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fleet_engagement_number",
+      "urn": "urn:fdi:term:fleet_engagement_number",
+      "required": true,
+      "rules": []
+    }
+  ]
+}
