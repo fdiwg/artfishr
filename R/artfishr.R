@@ -7,6 +7,7 @@
 #' @import tidyr
 #' @import vrule
 #' @import lubridate
+#' @import ggplot2
 #'
 #' @name artfishr
 #' @author Emmanuel Blondel \email{emmanuel.blondel1@@gmail.com}

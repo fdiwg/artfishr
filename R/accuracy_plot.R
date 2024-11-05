@@ -1,3 +1,9 @@
+#'@name accuracy_plot
+#'@title Produces a plot for the accuracy
+#'@param sample sample
+#'@param population population
+#'@param method method. Default is 'higher'
+#'@export
 accuracy_plot<-function(sample=NULL,population,method="higher"){
 
 data<-do.call("rbind",lapply(1:population,function(i){data.frame(x=i,y=artfish_accuracy(n=i,N=population,method=method))}))
