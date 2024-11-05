@@ -66,10 +66,10 @@ artfish_new_by_period <- function(
   }
   
   #filter control period match args
-  active_vessels = subset(active_vessels, year = year, month = month)
-  effort = subset(effort, year = year, month = month)
-  active_days = subset(active_days, year = year, month = month)
-  landings = subset(landings, year = year, month = month)
+  active_vessels = subset(active_vessels, year == year & month == month)
+  effort = subset(effort, year == year & month == month)
+  active_days = subset(active_days, year == year & month == month)
+  landings = subset(landings, year == year & month == month)
   
   #identify strata (that may include minor stratum)
   strata <- c("year", "month", "fishing_unit")
