@@ -1,10 +1,11 @@
 Package: artfishr
 Version: 0.1
-Date: 2024-07-23
+Date: 2024-10-30
 Title: ArtFish for R
 Authors@R: c(
   person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")),
-  person("Alexandre", "Bennici", role = c("aut"), comment = c(ORCID = "0000-0003-2160-3487")))
+  person("Alexandre", "Bennici", role = c("aut"), comment = c(ORCID = "0000-0003-2160-3487")),
+  person("Johanna", "Herfaut", role = c("aut")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Depends: R (>= 4.0)
 Imports:

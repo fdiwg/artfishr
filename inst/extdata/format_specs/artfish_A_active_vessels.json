@@ -1,0 +1,36 @@
+{
+  "name": "cwp_rh_artfish_active_vessels",
+  "urn": "urn:fdi:format:generic:artfish:active_vessels",
+  "title": "CWP TG-RH artfish data exchange format - active vessels",
+  "column_specs": [
+    {
+      "name": "year",
+      "urn": "urn:fdi:term:year",
+      "required": true,
+      "rules": [
+        {
+          "vrule": "year",
+      		"args": {}
+        }
+      ]
+    },
+    {
+      "name": "month",
+      "urn": "urn:fdi:term:month",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fishing_unit",
+      "urn": "urn:fdi:term:fishing_unit",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fleet_engagement_number",
+      "urn": "urn:fdi:term:fleet_engagement_number",
+      "required": true,
+      "rules": []
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "name": "cwp_rh_artfish_landings",
+  "urn": "urn:fdi:format:generic:artfish:landings",
+  "title": "CWP TG-RH artfish data exchange format - landings",
+  "column_specs": [
+    {
+      "name": "fishing_trip",
+      "urn": "urn:fdi:term:fishing_trip",
+      "required": true,
+      "rules": []          
+    },
+    {
+      "name": "year",
+      "urn": "urn:fdi:term:year",
+      "required": true,
+      "rules": [
+        {
+          "vrule": "year",
+      		"args": {}
+        }
+      ]
+    },
+    {
+      "name": "month",
+      "urn": "urn:fdi:term:month",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "day",
+      "urn": "urn:fdi:term:day",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fishing_unit",
+      "urn": "urn:fdi:term:fishing_unit",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "effort_fishing_duration",
+      "urn": "urn:fdi:term:effort_fishing_duration",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "effort_fishing_duration_unit",
+      "urn": "urn:fdi:term:effort_fishing_duration_unit",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "species",
+      "urn": "urn:fdi:term:species",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "catch_nominal_landed",
+      "urn": "urn:fdi:term:catch_nominal_landed",
+      "required": true,
+      "rules": []
+    },
+     {
+      "name": "trade_value",
+      "urn": "urn:fdi:term:trade_value",
+      "required": true,
+      "rules": []
+    }
+  ]
+}

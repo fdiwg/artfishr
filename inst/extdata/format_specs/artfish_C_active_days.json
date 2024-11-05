@@ -1,0 +1,36 @@
+{
+  "name": "cwp_rh_artfish_active_days",
+  "urn": "urn:fdi:format:generic:artfish:active_days",
+  "title": "CWP TG-RH artfish data exchange format - active days",
+  "column_specs": [
+    {
+      "name": "year",
+      "urn": "urn:fdi:term:year",
+      "required": true,
+      "rules": [
+        {
+          "vrule": "year",
+      		"args": {}
+        }
+      ]
+    },
+    {
+      "name": "month",
+      "urn": "urn:fdi:term:month",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "fishing_unit",
+      "urn": "urn:fdi:term:fishing_unit",
+      "required": true,
+      "rules": []
+    },
+    {
+      "name": "effort_fishable_duration",
+      "urn": "urn:fdi:term:effort_fishable_duration",
+      "required": true,
+      "rules": []
+    }
+  ]
+}

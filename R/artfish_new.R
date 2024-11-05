@@ -44,23 +44,36 @@ artfish_new_by_period <- function(
   effort_source = c("survey", "registry"),
   active_days = NULL,
   landings,
-  minor_strata = NULL){
+  minor_strata = NULL,
+  validate = TRUE){
   
-  #mandatory columns: year, month, (minor_stratum), fishing_unit
+  #validate A/B/C/D components (delegated to vrule)
+  if(validate) validate_input_datasets(
+    active_vessels = active_vessels,
+    effort = effort,
+    effort_source = effort_source,
+    active_days = active_days,
+    landings = landings
+  )
   
-  #verify data availability
-  #active_vessels NOT NULL (through arg)
-  #effort NOT NULL (through arg)
-  #active_days IF NULL then will need autogenerate it
-  #landings NOT NULL (through arg)
+  #active_days generation?
+  if(is.null(active_days)){
+    #autogenerate active_days table
+    fishing_units = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
+    active_days = generate_active_days(year, month, fishing_units)
+  }
   
-  #verify structure for A/B/C/D components (delegated to vrule)
-  #structure (B1/B2) will depend on the effort source
+  #filter control period match args
+  active_vessels = subset(active_vessels, year = year, month = month)
+  effort = subset(effort, year = year, month = month)
+  active_days = subset(active_days, year = year, month = month)
+  landings = subset(landings, year = year, month = month)
   
   #identify strata (that may include minor stratum)
+  strata <- c("year", "month", "fishing_unit")
   #-> columns that identify dimensions for grouping
   #examples
-  #- year/month/fishing_unit (minimum requirement)
+  #- year/month/fishing_unit (minimum requirement) - validated by vrule
   #- year/month/(additional minor stratum)/fishing_unit
   
   #verify that year/month is ok on all tables (except eventually active_days IF NULL)
@@ -69,11 +82,29 @@ artfish_new_by_period <- function(
   
   #verify that year/month/(minor_stratum)/fishing_unit are the same across all tables
   
-  out <- NULL
+  #effort estimate
+  effort_estimate = compute_effort_estimate(
+    active_vessels = active_vessels, 
+    effort = effort, 
+    active_days = active_days
+  )
   
-  #CURRENT CODE?
-  # focus on result (without any step attempts)
+  #cpue
+  cpue = compute_cpue(landings)
   
+  #catch estimate
+  catch_estimate = compute_catch_estimate(
+    effort_estimate = effort_estimate,
+    cpue = cpue
+  )
+  
+  #catch estimate by species
+  catch_estimates_by_species = compute_catch_estimates_by_species(
+    landings = landings,
+    catch_estimate = catch_estimate
+  )
+  
+<<<<<<< HEAD
   target_active_vessels<-active_vessels%>%filter(year==.env$year & month==.env$month)
   target_effort<-effort%>%filter(year==.env$year & month==.env$month)
   target_active_days<-active_days%>%filter(year==.env$year & month==.env$month)
@@ -251,8 +282,24 @@ artfish_new_by_period <- function(
   #   effort = data.frame(),
   #   cpu = data.frame()
   # )
+=======
+  out <- list(
+    effort = effort_estimate,
+    cpue = cpue,
+    catch = catch_estimate,
+    catch_by_species = catch_estimates_by_species
+  )
+ 
+>>>>>>> 4fe91a5fad68fff965143265d49e4ef6da823c7b
   # if(nrow(errors)>0){
   #   attr(out, "errors") <- errors
   # }
   return(out)
 }
+
+
+
+
+
+
+
