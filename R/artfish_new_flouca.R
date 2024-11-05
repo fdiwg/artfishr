@@ -231,7 +231,7 @@ artfish_flouca_by_period <- function(
   #   effort = data.frame(),
   #   cpu = data.frame()
   # )
-  =======
+
  return(estimate)
 }
 
