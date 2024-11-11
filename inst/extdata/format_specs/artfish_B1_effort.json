@@ -33,8 +33,8 @@
       "rules": []
     },
     {
-      "name": "effort_reference_period_duration",
-      "urn": "urn:fdi:term:effort_reference_period_duration",
+      "name": "effort_fishing_reference_period",
+      "urn": "urn:fdi:term:effort_fishing_reference_period",
       "required": true,
       "rules": []
     },

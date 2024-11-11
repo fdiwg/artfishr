@@ -12,8 +12,8 @@ compute_effort_activity_coefficient = function(effort){
   
   out <- effort %>%
     group_by(year, month, fishing_unit) %>%
-    summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_reference_period_duration = sum(effort_reference_period_duration))
+    summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_fishing_reference_period = sum(effort_fishing_reference_period))
   
-  out$effort_activity_coefficient = out$effort_fishing_duration / out$effort_reference_period_duration
+  out$effort_activity_coefficient = out$effort_fishing_duration / out$effort_fishing_reference_period
   return(out)
 }
