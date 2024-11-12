@@ -64,6 +64,8 @@ artfish_new_by_period <- function(
   }
   
   #filter control period match args
+  #TODO manage case atemporal (no year/no month) -> case of TTO
+  #TODO manage case where active vessels is year-based select the latest for the period
   active_vessels = subset(active_vessels, year == year & month == month)
   effort = subset(effort, year == year & month == month)
   active_days = subset(active_days, year == year & month == month)
