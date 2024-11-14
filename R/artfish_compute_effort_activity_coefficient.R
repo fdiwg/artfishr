@@ -1,19 +1,34 @@
 #'@name compute_effort_activity_coefficient
 #'@title Computes effort activity coefficient
 #'@param effort effort data
+#'@param effort_source
+#'@param minor_strata minor_strata
 #'@return the activity coefficient by strata
 #'@export
-compute_effort_activity_coefficient = function(effort){
+compute_effort_activity_coefficient = function(effort, effort_source, minor_strata = NULL){
   
-  if(any(is.na(effort$effort_fishing_duration))){
+  if(effort_source == "fisher_interview") if(any(is.na(effort$effort_fishing_duration))){
     #TODO warnings here to be reported (to investigate how)
     effort<-subset(effort,!is.na(effort_fishing_duration))
   }
   
-  out <- effort %>%
-    group_by(year, month, fishing_unit) %>%
-    summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_fishing_reference_period = sum(effort_fishing_reference_period))
+  strata = c("year", "month", "fishing_unit")
+  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
-  out$effort_activity_coefficient = out$effort_fishing_duration / out$effort_fishing_reference_period
+  out <- switch(effort_source,
+    "fisher_interview" = {
+      out_fisher = effort %>%
+        group_by_at(strata) %>%
+        summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_fishing_reference_period = sum(effort_fishing_reference_period))
+      out_fisher$effort_activity_coefficient = out_fisher$effort_fishing_duration / out_fisher$effort_fishing_reference_period
+    },
+    "boat_counting" = {
+      out_boat = effort %>%
+        group_by_at(strata) %>%
+        summarize(fleet_engagement_number = sum(fleet_engagement_number), fleet_engagement_max = sum(fleet_engagement_max))
+      out_boat$effort_activity_coefficient = out_boat$fleet_engagement_number / out_boat$fleet_engagement_max
+    }
+  )
+      
   return(out)
 }

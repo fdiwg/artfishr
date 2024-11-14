@@ -43,6 +43,12 @@
       "urn": "urn:fdi:term:fleet_engagement_number",
       "required": true,
       "rules": []
+    },
+    {
+      "name": "fleet_engagement_max",
+      "urn": "urn:fdi:term:fleet_engagement_max",
+      "required": true,
+      "rules": []
     }
   ]
 }

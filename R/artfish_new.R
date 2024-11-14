@@ -3,8 +3,8 @@
 #'
 #'@param active_vessels active vessels
 #'@param effort effort
-#'@param effort_source effort source whether it's derived from survey -B1- (fishers interviews) 
-#'or registry -B2- (boat counting)
+#'@param effort_source effort source whether it's derived from -B1- (fishers interviews) 
+#'or -B2- (boat counting)
 #'@param active_days active days
 #'@param landings landings
 #'@param minor_strata minor_strata (to investigate further later)
@@ -15,7 +15,7 @@
 artfish_new <- function(
   active_vessels = NULL,
   effort = NULL,
-  effort_source = c("survey", "registry"),
+  effort_source = c("fisher_interview", "boat_counting"),
   active_days = NULL,
   landings = NULL, 
   minor_strata = NULL){
@@ -28,8 +28,8 @@ artfish_new <- function(
 #'
 #'@param active_vessels active vessels
 #'@param effort effort
-#'@param effort_source effort source whether it's derived from survey -B1- (fishers interviews) 
-#'or registry -B2- (boat counting)
+#'@param effort_source effort source whether it's derived from -B1- (fishers interviews) 
+#'or -B2- (boat counting)
 #'@param active_days active days
 #'@param landings landings
 #'@param minor_strata minor_strata (to investigate further later)
@@ -41,7 +41,7 @@ artfish_new_by_period <- function(
   year = NULL, month = NULL,  
   active_vessels,
   effort,
-  effort_source = c("survey", "registry"),
+  effort_source = c("fisher_interview", "boat_counting"),
   active_days = NULL,
   landings,
   minor_strata = NULL,
@@ -59,8 +59,12 @@ artfish_new_by_period <- function(
   #active_days generation?
   if(is.null(active_days)){
     #autogenerate active_days table
-    fishing_units = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
-    active_days = generate_active_days(year, month, fishing_units)
+    fishing_unit_values = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
+    minor_strata_values = lapply(minor_strata, function(x){
+      unique(c(active_vessels[,x], effort[,x]))
+    })
+    names(minor_strata_values) = minor_strata
+    active_days = generate_active_days(year, month, fishing_unit_values, minor_strata_values)
   }
   
   #filter control period match args
@@ -88,11 +92,13 @@ artfish_new_by_period <- function(
   effort_estimate = compute_effort_estimate(
     active_vessels = active_vessels, 
     effort = effort, 
-    active_days = active_days
+    effort_source = effort_source,
+    active_days = active_days,
+    minor_strata = minor_strata
   )
   
   #cpue
-  cpue = compute_cpue(landings)
+  cpue = compute_cpue(landings, minor_strata = minor_strata)
   
   #catch estimate
   catch_estimate = compute_catch_estimate(

@@ -21,15 +21,15 @@ get_vrule_validators = function(){
 #'@title Validate input datasets
 #'@param active_vessels active vessels
 #'@param effort effort
-#'@param effort_source effort source whether it's derived from survey -B1- (fishers interviews) 
-#'or registry -B2- (boat counting)
+#'@param effort_source effort source whether it's derived from -B1- (fishers interviews) 
+#'or -B2- (boat counting)
 #'@param active_days active days
 #'@param landings landings
 #'@export
 validate_input_datasets <- function(
     active_vessels,
     effort,
-    effort_source = c("survey", "registry"),
+    effort_source = c("fisher_interview", "boat_counting"),
     active_days = NULL,
     landings){
   errors <- NULL
@@ -42,8 +42,8 @@ validate_input_datasets <- function(
   }
   #effort
   effort_validator = switch(effort_source,
-                            "survey" = validators$cwp_rh_artfish_effort_survey,
-                            "registry" = validators$cwp_rh_artfish_effort_registry
+                            "fisher_interview" = validators$cwp_rh_artfish_effort_survey,
+                            "boat_counting" = validators$cwp_rh_artfish_effort_registry
   )
   effort_report = effort_validator$validate(effort)
   if(any(effort_report$type == "ERROR")){

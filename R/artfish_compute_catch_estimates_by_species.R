@@ -2,12 +2,16 @@
 #'@title Computes catch estimates by species
 #'@param landings landings
 #'@param catch_estimate result of catch estimate computed with \link{compute_catch_estimate}
+#'@param minor_strata minor_strata
 #'@return a \link{tibble}
 #'@export
-compute_catch_estimates_by_species = function(landings, catch_estimate){
+compute_catch_estimates_by_species = function(landings, catch_estimate, minor_strata = NULL){
+  
+  strata = c("year", "month", "fishing_unit")
+  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
   species_compo <- landings %>%
-    dplyr::group_by(year, month, fishing_unit, species) %>%
+    dplyr::group_by_at(c(strata, "species")) %>%
     dplyr::summarize(
       species_tot = sum(catch_nominal_landed, na.rm = T),
       species_value = sum(trade_value, na.rm = T)
