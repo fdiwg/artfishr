@@ -62,13 +62,11 @@ artfish_new_by_period <- function(
     active_days = NULL
   }
   if(is.null(active_days)){
-    #autogenerate active_days table
-    fishing_unit_values = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
-    minor_strata_values = lapply(minor_strata, function(x){
-      unique(c(active_vessels[,x], effort[,x]))
-    })
-    names(minor_strata_values) = minor_strata
-    active_days = generate_active_days(year, month, fishing_unit_values, minor_strata_values)
+    active_days = generate_active_days(
+      year, month, 
+      active_vessels, effort, landings,
+      minor_strata
+    )
   }
   
   #filter control period match args

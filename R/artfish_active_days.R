@@ -1,14 +1,35 @@
 #'@name generate_active_days
-#'@title Generates a \link{tibble} of active days
+#'@title Generates a \link{tibble} of active days.
+#'@description Function that generates a table of active days by year/month. The unique list
+#'of fishing units are inherited from available tables (active_vessels, effort, landings). In
+#'the same way, the list of minor strata values will be inherited based on the minor_strata
+#'columns available in data.
+#'
 #'@param year year
 #'@param month month
-#'@param fishing_unit_values one or more fishing unit(s)
-#'@param minor_strata_values named list of strata values
+#'@param active_vessels active vessels table
+#'@param effort effort table
+#'@param landings landings table
+#'@param minor_strata minor strata
 #'@return an object of class \link{tibble} give active days
 #'@export
-generate_active_days = function(year, month, fishing_unit_values, minor_strata_values){
-  dims = minor_strata_values
-  dims$fishing_unit = fishing_unit_values
+generate_active_days = function(year, month, 
+                                active_vessels,
+                                effort,
+                                landings,
+                                minor_strata = NULL){
+  
+  #autogenerate active_days table
+  fishing_unit_values = unique(c(active_vessels$fishing_unit, effort$fishing_unit, landings$fishing_unit))
+  dims = list(fishing_unit = fishing_unit_values)
+  if(!is.null(minor_strata)){
+    minor_strata_values = lapply(minor_strata, function(x){
+      unique(c(active_vessels[,x], effort[,x], landings[,x]))
+    })
+    names(minor_strata_values) = minor_strata
+    dims = minor_strata_values
+    dims$fishing_unit = fishing_unit_values
+  }
   out = tibble::tibble(
     year = year, 
     month = month,
