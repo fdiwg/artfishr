@@ -4,14 +4,24 @@
 \alias{compute_effort_estimate}
 \title{Computes effort estimate}
 \usage{
-compute_effort_estimate(active_vessels, effort, active_days)
+compute_effort_estimate(
+  active_vessels,
+  effort,
+  effort_source,
+  active_days,
+  minor_strata = NULL
+)
 }
 \arguments{
 \item{active_vessels}{active vessels}
 
 \item{effort}{effort data}
 
+\item{effort_source}{effort_source (register_interview / boat_counting)}
+
 \item{active_days}{active_days}
+
+\item{minor_strata}{minor_strata}
 }
 \description{
 Computes effort estimate

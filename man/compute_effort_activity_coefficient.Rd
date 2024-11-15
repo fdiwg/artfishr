@@ -4,10 +4,15 @@
 \alias{compute_effort_activity_coefficient}
 \title{Computes effort activity coefficient}
 \usage{
-compute_effort_activity_coefficient(effort)
+compute_effort_activity_coefficient(effort, effort_source, minor_strata = NULL)
 }
 \arguments{
 \item{effort}{effort data}
+
+\item{effort_source}{effort source whether it's derived from -B1- (fishers interviews) 
+or -B2- (boat counting)}
+
+\item{minor_strata}{minor_strata}
 }
 \value{
 the activity coefficient by strata

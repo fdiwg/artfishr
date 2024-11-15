@@ -1,7 +1,8 @@
 #'@name compute_effort_activity_coefficient
 #'@title Computes effort activity coefficient
 #'@param effort effort data
-#'@param effort_source
+#'@param effort_source effort source whether it's derived from -B1- (fishers interviews) 
+#'or -B2- (boat counting)
 #'@param minor_strata minor_strata
 #'@return the activity coefficient by strata
 #'@export

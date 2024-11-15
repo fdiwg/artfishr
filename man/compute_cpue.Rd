@@ -4,10 +4,12 @@
 \alias{compute_cpue}
 \title{Computes CPUE}
 \usage{
-compute_cpue(landings)
+compute_cpue(landings, minor_strata = NULL)
 }
 \arguments{
 \item{landings}{landings}
+
+\item{minor_strata}{minor_strata}
 }
 \value{
 a \link{tibble} giving CPUE per strata

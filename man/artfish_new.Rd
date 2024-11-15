@@ -7,7 +7,7 @@
 artfish_new(
   active_vessels = NULL,
   effort = NULL,
-  effort_source = c("survey", "registry"),
+  effort_source = c("fisher_interview", "boat_counting"),
   active_days = NULL,
   landings = NULL,
   minor_strata = NULL
@@ -18,8 +18,8 @@ artfish_new(
 
 \item{effort}{effort}
 
-\item{effort_source}{effort source whether it's derived from survey -B1- (fishers interviews) 
-or registry -B2- (boat counting)}
+\item{effort_source}{effort source whether it's derived from -B1- (fishers interviews) 
+or -B2- (boat counting)}
 
 \item{active_days}{active days}
 

@@ -4,12 +4,18 @@
 \alias{compute_catch_estimates_by_species}
 \title{Computes catch estimates by species}
 \usage{
-compute_catch_estimates_by_species(landings, catch_estimate)
+compute_catch_estimates_by_species(
+  landings,
+  catch_estimate,
+  minor_strata = NULL
+)
 }
 \arguments{
 \item{landings}{landings}
 
 \item{catch_estimate}{result of catch estimate computed with \link{compute_catch_estimate}}
+
+\item{minor_strata}{minor_strata}
 }
 \value{
 a \link{tibble}
