@@ -36,6 +36,7 @@ generate_active_days = function(year, month,
     expand.grid(dims),
     effort_fishable_duration = lubridate::days_in_month(ISOdate(year, month, 1))
   )
+  return(out)
 }
 
 #'@name complete_active_days
