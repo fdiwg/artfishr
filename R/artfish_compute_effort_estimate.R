@@ -19,6 +19,8 @@ compute_effort_estimate = function(
   #compute effort activity coefficient
   AC = compute_effort_activity_coefficient(effort = effort, effort_source = effort_source, minor_strata = minor_strata)
   
+  if(!"month" %in% colnames(active_vessels)) strata = strata[-which(strata == "month")]
+  if(!"year" %in% colnames(active_vessels)) strata = strata[-which(strata == "year")]
   active_vessels_by_strata = active_vessels %>%
     dplyr::group_by_at(strata) %>%
     dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number))
