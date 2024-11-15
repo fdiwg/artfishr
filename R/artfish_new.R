@@ -57,6 +57,10 @@ artfish_new_by_period <- function(
   )
   
   #active_days generation?
+  if(effort_source == "fisher_interview"){
+    #TODO add a warning to indicate that active_days (if provided) is ignored for fisher_interview
+    active_days = NULL
+  }
   if(is.null(active_days)){
     #autogenerate active_days table
     fishing_unit_values = unique(c(active_vessels$fishing_unit, effort$fishing_unit))
