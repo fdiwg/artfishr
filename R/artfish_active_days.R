@@ -20,11 +20,19 @@ generate_active_days = function(year, month,
                                 minor_strata = NULL){
   
   #autogenerate active_days table
-  fishing_unit_values = unique(c(active_vessels$fishing_unit, effort$fishing_unit, landings$fishing_unit))
+  fishing_unit_values = unique(c(
+    as.data.frame(active_vessels)$fishing_unit, 
+    as.data.frame(effort)$fishing_unit, 
+    as.data.frame(landings)$fishing_unit
+  ))
   dims = list(fishing_unit = fishing_unit_values)
   if(!is.null(minor_strata)){
     minor_strata_values = lapply(minor_strata, function(x){
-      unique(c(active_vessels[,x], effort[,x], landings[,x]))
+      unique(c(
+        as.data.frame(active_vessels)[,x], 
+        as.data.frame(effort)[,x], 
+        as.data.frame(landings)[,x]
+      ))
     })
     names(minor_strata_values) = minor_strata
     dims = minor_strata_values
