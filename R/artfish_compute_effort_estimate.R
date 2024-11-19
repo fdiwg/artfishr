@@ -70,7 +70,8 @@ compute_effort_estimate = function(
         #group by strata
         av_year_by_strata = av_selection %>%
           dplyr::group_by_at(strata) %>%
-          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number))
+          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+          dplylr::ungroup()
         
         dt_year = ac_year %>% dplyr::left_join(y = av_year_by_strata)
         return(dt_year)
@@ -118,7 +119,8 @@ compute_effort_estimate = function(
         #group by strata
         av_period_by_strata = av_selection %>%
           dplyr::group_by_at(strata) %>%
-          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number))
+          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+          dplyr::ungroup()
         
         dt_period = ac_period %>% dplyr::left_join(y = av_period_by_strata)
         return(dt_period)

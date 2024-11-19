@@ -19,8 +19,9 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
   out <- switch(effort_source,
     "fisher_interview" = {
       out_fisher = effort %>%
-        group_by_at(strata) %>%
-        summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_fishing_reference_period = sum(effort_fishing_reference_period))
+        dplyr::group_by_at(strata) %>%
+        dplyr::summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_fishing_reference_period = sum(effort_fishing_reference_period)) %>%
+        dplyr::ungroup()
       out_fisher$effort_activity_coefficient = out_fisher$effort_fishing_duration / out_fisher$effort_fishing_reference_period
       out_fisher$effort_fishing_duration = NULL
       out_fisher$effort_fishing_reference_period = NULL
@@ -28,8 +29,9 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
     },
     "boat_counting" = {
       out_boat = effort %>%
-        group_by_at(strata) %>%
-        summarize(fleet_engagement_number = sum(fleet_engagement_number), fleet_engagement_max = sum(fleet_engagement_max))
+        dplyr::group_by_at(strata) %>%
+        dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number), fleet_engagement_max = sum(fleet_engagement_max)) %>%
+        dplyr::ungroup()
       out_boat$effort_activity_coefficient = out_boat$fleet_engagement_number / out_boat$fleet_engagement_max
       out_boat$fleet_engagement_number = NULL
       out_boat$fleet_engagement_max = NULL
