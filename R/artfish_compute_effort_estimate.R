@@ -1,6 +1,14 @@
 #'@name compute_effort_estimate
 #'@title Computes effort estimate
 #'@param active_vessels active vessels
+#'@param active_vessels_strategy The strategy to associate the active vessels to
+#' the effort based on time. Active vessels period does not match necessarily the 
+#' periods of data, and can be reported either by year or by year/month. This parameter
+#' let decide which methodology should be used to run the temporal proximity. Can be
+#' either "latest" (taking the latest period), "closest" ie the closest active vessels
+#' in time, after or before the period. In case 2 periods before/after are equally closer,
+#' the latest in time before the data period will be taken.
+#' how active vessels based a temporal proximity
 #'@param effort effort data
 #'@param effort_source effort_source (register_interview / boat_counting)
 #'@param active_days active_days
@@ -42,13 +50,13 @@ compute_effort_estimate = function(
             if(!any(active_vessels$year <= year)){
               stop(sprintf("Active vessels strategy 'latest': no latest active_vessels available for year %s", year))
             }
-            #'latest' method we filter on active vessels (previous active vessels or current year)
+            #"latest" method we filter on active vessels (previous active vessels or current year)
             av_out = active_vessels[active_vessels$year <= year,]
             av_out = av_out[(year - av_out$year) == min(year - av_out$year),]
             av_out
           },
           "closest" = {
-            #'closest' method we don't filter on active vessels, consider those before and after year
+            #"closest" method we don't filter on active vessels, consider those before and after year
             av_out = active_vessels
             av_out = av_out[abs(year - av_out$year) == min(abs(year - av_out$year)),]
             #we check if we have 2 av periods (possible latest + closest after year)
@@ -88,14 +96,14 @@ compute_effort_estimate = function(
             if(!any(av_datetime$period_date <= period_date)){
               stop(sprintf("Active vessels strategy 'latest': no latest active_vessels available for period %s", substr(period_date, 1,7)))
             }
-            #'latest' method we filter on active vessels (previous active vessels or current year)
+            #"latest" method we filter on active vessels (previous active vessels or current year)
             av_out = av_datetime[av_datetime$period_date <= period_date,]
             av_out = av_out[(period_date - av_out$period_date) == min(period_date - av_out$period_date),]
             av_out$period_date = NULL
             av_out
           },
           "closest" = {
-            #'closest' method we don't filter on active vessels, consider those before and after year/month period
+            #"closest" method we don't filter on active vessels, consider those before and after year/month period
             av_out = av_datetime
             av_out = av_out[abs(period_date - av_out$period_date) == min(abs(period_date - av_out$period_date)),]
             #we check if we have 2 av periods (possible latest + closest after period)

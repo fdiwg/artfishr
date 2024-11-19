@@ -6,6 +6,7 @@
 \usage{
 compute_effort_estimate(
   active_vessels,
+  active_vessels_strategy = c("latest", "closest"),
   effort,
   effort_source,
   active_days,
@@ -14,6 +15,15 @@ compute_effort_estimate(
 }
 \arguments{
 \item{active_vessels}{active vessels}
+
+\item{active_vessels_strategy}{The strategy to associate the active vessels to
+the effort based on time. Active vessels period does not match necessarily the 
+periods of data, and can be reported either by year or by year/month. This parameter
+let decide which methodology should be used to run the temporal proximity. Can be
+either "latest" (taking the latest period), "closest" ie the closest active vessels
+in time, after or before the period. In case 2 periods before/after are equally closer,
+the latest in time before the data period will be taken.
+how active vessels based a temporal proximity}
 
 \item{effort}{effort data}
 
