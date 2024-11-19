@@ -21,7 +21,7 @@ compute_effort_estimate = function(
   
   active_vessels_strategy = match.arg(active_vessels_strategy)
   
-  strata = c("year", "month", "fishing_unit")
+  strata = c("fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
   #complete active days by eventually filling missing or zero values for 'effort_fishable_duration'
@@ -34,8 +34,7 @@ compute_effort_estimate = function(
   #for this, the active_vessels needs to be selected based on its temporal extent
   #2 methods possible (latest/closest)
   dt = NULL
-  if("year" %in% colnames(active_vessels)) {
-    strata = strata[!strata %in% c("year","month")]
+  if(all(c("year","month") %in% colnames(active_vessels))) {
     #=>by year
     if(all(is.na(active_vessels$month))){ #we assume that month column is mandatory, but not its content..
       effort_years =  unique(effort$year)
@@ -128,6 +127,14 @@ compute_effort_estimate = function(
         
       }))
     }
+  }else{
+    #temporary patch in case active_vessels has no year/month
+    active_vessels_by_strata = active_vessels %>%
+      dplyr::group_by_at(strata) %>%
+      dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+      dplyr::ungroup()
+    
+    dt = AC %>% dplyr::left_join(y = active_vessels_by_strata)
   }
   
   #we join with active_days
