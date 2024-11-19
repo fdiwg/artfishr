@@ -3,12 +3,12 @@
 #'@param active_vessels active vessels
 #'@param active_vessels_strategy The strategy to associate the active vessels to
 #' the effort based on time. Active vessels period does not match necessarily the 
-#' periods of data, and can be reported either by year or by year/month. This parameter
-#' let decide which methodology should be used to run the temporal proximity. Can be
-#' either "latest" (taking the latest period), "closest" ie the closest active vessels
-#' in time, after or before the period. In case 2 periods before/after are equally closer,
+#' periods of data (effort, landings), and can be reported either by year or by year/month. 
+#' This parameter let decide which methodology should be used to select the active vessels 
+#' based on time. 
+#' It can be either "latest" (taking the latest period), "closest" ie the closest active vessels
+#' in time, after or before the data period. In case 2 periods before/after are equally closer,
 #' the latest in time before the data period will be taken.
-#' how active vessels based a temporal proximity
 #'@param effort effort data
 #'@param effort_source effort_source (register_interview / boat_counting)
 #'@param active_days active_days
@@ -122,6 +122,7 @@ compute_effort_estimate = function(
           dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
           dplyr::ungroup()
         
+        ac_period$period_date = NULL
         dt_period = ac_period %>% dplyr::left_join(y = av_period_by_strata)
         return(dt_period)
         
