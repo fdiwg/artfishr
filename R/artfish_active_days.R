@@ -11,39 +11,56 @@
 #'@param effort effort table
 #'@param landings landings table
 #'@param minor_strata minor strata
+#'@param mapping_landing_site_zone optional mapping between landing sites and zones. This
+#'becomes mandatory if you specify a minor_strata that match a "zone" (as name), and that
+#'your data include 'landing_site' information
 #'@return an object of class \link{tibble} give active days
 #'@export
 generate_active_days_by_period = function(year, month, 
                                 active_vessels,
                                 effort,
                                 landings,
-                                minor_strata = NULL){
+                                minor_strata = NULL,
+                                mapping_landing_site_zone = NULL){
+  
+  get_unique_values = function(column,active_vessels,effort,landings){
+    values = unique(c(
+      as.data.frame(active_vessels)[,column], 
+      as.data.frame(effort)[,column], 
+      as.data.frame(landings)[,column]
+    ))
+    values = values[!is.na(values)]
+    return(values)
+  }
   
   #autogenerate active_days table
-  fishing_unit_values = unique(c(
-    as.data.frame(active_vessels)$fishing_unit, 
-    as.data.frame(effort)$fishing_unit, 
-    as.data.frame(landings)$fishing_unit
-  ))
+  fishing_unit_values = get_unique_values("fishing_unit", active_vessels, effort, landings)
   dims = list(fishing_unit = fishing_unit_values)
   if(!is.null(minor_strata)){
     minor_strata_values = lapply(minor_strata, function(x){
-      unique(c(
-        as.data.frame(active_vessels)[,x], 
-        as.data.frame(effort)[,x], 
-        as.data.frame(landings)[,x]
-      ))
+      get_unique_values(x, active_vessels, effort, landings)
     })
     names(minor_strata_values) = minor_strata
     dims = minor_strata_values
     dims$fishing_unit = fishing_unit_values
   }
+  if("landing_site" %in% colnames(active_vessels)){
+    dims$landing_site = get_unique_values("landing_site", active_vessels, effort, landings)
+    if(!is.null(minor_strata)) if(regexpr("zone", minor_strata) > 0 & is.null(mapping_landing_site_zone)){
+      stop(sprintf("Data including a 'landing_site' column with a minor strata '%s': The mapping between landing site and %s must be provided", 
+                   minor_strata, minor_strata))
+    }
+  }
+  
   out = tibble::tibble(
     year = year, 
     month = month,
     expand.grid(dims),
     effort_fishable_duration = lubridate::days_in_month(ISOdate(year, month, 1))
   )
+  out = out %>%
+    dplyr::right_join(mapping_landing_site_zone)
+  out = out[!is.na(out$effort_fishable_duration),]
   return(out)
 }
 
@@ -58,24 +75,38 @@ generate_active_days_by_period = function(year, month,
 #'@param effort effort table
 #'@param landings landings table
 #'@param minor_strata minor strata
+#'@param mapping_landing_site_zone optional mapping between landing sites and zones. This
+#'becomes mandatory if you specify a minor_strata that match a "zone" (as name), and that
+#'your data include 'landing_site' information
 #'@return an object of class \link{tibble} give active days
 #'@export
 generate_active_days = function(active_vessels,
                                 effort,
                                 landings,
-                                minor_strata = NULL){
+                                minor_strata = NULL,
+                                mapping_landing_site_zone = NULL){
  
-  periods = unique(rbind(active_vessels[,c("year","month")], effort[,c("year","month")], landings[,c("year","month")]))
+  periods = unique(rbind(effort[,c("year","month")], landings[,c("year","month")]))
+  if("year" %in% colnames(active_vessels) & "month" %in% colnames(active_vessels)){
+    periods = unique(rbind(periods, active_vessels[,c("year","month")]))
+  }
   
   do.call("rbind", lapply(1:nrow(periods), function(i){
     year = periods[i,]$year
     month = periods[i,]$month
     generate_active_days_by_period(
       year = year, month = month,
-      active_vessels = active_vessels[active_vessels$year == year & active_vessels$month == month,],
+      active_vessels = {
+        if("year" %in% colnames(active_vessels) & "month" %in% colnames(active_vessels)){
+          active_vessels[active_vessels$year == year & active_vessels$month == month,]
+        }else{
+          active_vessels
+        }
+      },
       effort = effort[effort$year == year & effort$month == month,],
       landings = landings[landings$year == year & landings$month == month,],
-      minor_strata = minor_strata
+      minor_strata = minor_strata,
+      mapping_landing_site_zone = mapping_landing_site_zone
     )
   })) 
   
