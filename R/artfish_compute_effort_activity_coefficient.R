@@ -12,6 +12,15 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
     #TODO warnings here to be reported (to investigate how)
     effort<-subset(effort,!is.na(effort_fishing_duration))
   }
+  if(effort_source == "boat_counting"){
+    if(any(is.na(effort$fleet_engagement_max))){
+      #TODO warnings here to be reported (to investigate how)
+      effort<-subset(effort,!is.na(fleet_engagement_max))
+    }
+    if(any(effort$fleet_engagement_max < effort$fleet_engagement_number)){
+      #TODO warnings here. What do do if fleet_engagement_max < fleet_engagement_number
+    }
+  }
   
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
