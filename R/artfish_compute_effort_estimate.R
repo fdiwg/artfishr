@@ -142,5 +142,11 @@ compute_effort_estimate = function(
   #and compute the effort estimate
   dt$effort_estimate = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
   
+  #add accuracy
+  dt$effort_spatial_accuracy = sapply(1:nrow(dt), function(x){
+    artfish_accuracy(n = dt[x,]$sample_size,N = dt[x,]$fleet_engagement_number * 4, method="higher")
+  })
+  dt$effort_temporal_accuracy = 1L
+  
   return(dt)
 }
