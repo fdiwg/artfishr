@@ -10,8 +10,7 @@ generate_active_days_by_period(
   active_vessels,
   effort,
   landings,
-  minor_strata = NULL,
-  mapping_landing_site_zone = NULL
+  minor_strata = NULL
 )
 }
 \arguments{
@@ -26,10 +25,6 @@ generate_active_days_by_period(
 \item{landings}{landings table}
 
 \item{minor_strata}{minor strata}
-
-\item{mapping_landing_site_zone}{optional mapping between landing sites and zones. This
-becomes mandatory if you specify a minor_strata that match a "zone" (as name), and that
-your data include 'landing_site' information}
 }
 \value{
 an object of class \link{tibble} give active days

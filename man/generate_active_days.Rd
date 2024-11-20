@@ -4,13 +4,7 @@
 \alias{generate_active_days}
 \title{Generates a \link{tibble} of active days.}
 \usage{
-generate_active_days(
-  active_vessels,
-  effort,
-  landings,
-  minor_strata = NULL,
-  mapping_landing_site_zone = NULL
-)
+generate_active_days(active_vessels, effort, landings, minor_strata = NULL)
 }
 \arguments{
 \item{active_vessels}{active vessels table}
@@ -20,10 +14,6 @@ generate_active_days(
 \item{landings}{landings table}
 
 \item{minor_strata}{minor strata}
-
-\item{mapping_landing_site_zone}{optional mapping between landing sites and zones. This
-becomes mandatory if you specify a minor_strata that match a "zone" (as name), and that
-your data include 'landing_site' information}
 }
 \value{
 an object of class \link{tibble} give active days
