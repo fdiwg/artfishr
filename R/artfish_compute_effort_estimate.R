@@ -3,12 +3,12 @@
 #'@param active_vessels active vessels
 #'@param active_vessels_strategy The strategy to associate the active vessels to
 #' the effort based on time. Active vessels period does not match necessarily the 
-#' periods of data, and can be reported either by year or by year/month. This parameter
-#' let decide which methodology should be used to run the temporal proximity. Can be
-#' either "latest" (taking the latest period), "closest" ie the closest active vessels
-#' in time, after or before the period. In case 2 periods before/after are equally closer,
+#' periods of data (effort, landings), and can be reported either by year or by year/month. 
+#' This parameter let decide which methodology should be used to select the active vessels 
+#' based on time. 
+#' It can be either "latest" (taking the latest period), "closest" ie the closest active vessels
+#' in time, after or before the data period. In case 2 periods before/after are equally closer,
 #' the latest in time before the data period will be taken.
-#' how active vessels based a temporal proximity
 #'@param effort effort data
 #'@param effort_source effort_source (register_interview / boat_counting)
 #'@param active_days active_days
@@ -21,7 +21,7 @@ compute_effort_estimate = function(
   
   active_vessels_strategy = match.arg(active_vessels_strategy)
   
-  strata = c("year", "month", "fishing_unit")
+  strata = c("fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
   #complete active days by eventually filling missing or zero values for 'effort_fishable_duration'
@@ -34,8 +34,7 @@ compute_effort_estimate = function(
   #for this, the active_vessels needs to be selected based on its temporal extent
   #2 methods possible (latest/closest)
   dt = NULL
-  if("year" %in% colnames(active_vessels)) {
-    strata = strata[!strata %in% c("year","month")]
+  if(all(c("year","month") %in% colnames(active_vessels))) {
     #=>by year
     if(all(is.na(active_vessels$month))){ #we assume that month column is mandatory, but not its content..
       effort_years =  unique(effort$year)
@@ -122,17 +121,32 @@ compute_effort_estimate = function(
           dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
           dplyr::ungroup()
         
+        ac_period$period_date = NULL
         dt_period = ac_period %>% dplyr::left_join(y = av_period_by_strata)
         return(dt_period)
         
       }))
     }
+  }else{
+    #temporary patch in case active_vessels has no year/month
+    active_vessels_by_strata = active_vessels %>%
+      dplyr::group_by_at(strata) %>%
+      dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+      dplyr::ungroup()
+    
+    dt = AC %>% dplyr::left_join(y = active_vessels_by_strata)
   }
   
   #we join with active_days
   dt = dt %>% dplyr::left_join(y = active_days)
   #and compute the effort estimate
   dt$effort_estimate = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
+  
+  #add accuracy
+  dt$effort_spatial_accuracy = sapply(1:nrow(dt), function(x){
+    artfish_accuracy(n = dt[x,]$sample_size,N = dt[x,]$fleet_engagement_number * 4, method="higher")
+  })
+  dt$effort_temporal_accuracy = 1L
   
   return(dt)
 }

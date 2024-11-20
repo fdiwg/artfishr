@@ -1,4 +1,4 @@
-#'@name generate_active_days
+#'@name generate_active_days_by_period
 #'@title Generates a \link{tibble} of active days.
 #'@description Function that generates a table of active days by year/month. The unique list
 #'of fishing units are inherited from available tables (active_vessels, effort, landings). In
@@ -13,7 +13,7 @@
 #'@param minor_strata minor strata
 #'@return an object of class \link{tibble} give active days
 #'@export
-generate_active_days = function(year, month, 
+generate_active_days_by_period = function(year, month, 
                                 active_vessels,
                                 effort,
                                 landings,
@@ -45,6 +45,40 @@ generate_active_days = function(year, month,
     effort_fishable_duration = lubridate::days_in_month(ISOdate(year, month, 1))
   )
   return(out)
+}
+
+#'@name generate_active_days
+#'@title Generates a \link{tibble} of active days.
+#'@description Function that generates a table of active days for all periods. The unique list
+#'of fishing units are inherited from available tables (active_vessels, effort, landings). In
+#'the same way, the list of minor strata values will be inherited based on the minor_strata
+#'columns available in data.
+#'
+#'@param active_vessels active vessels table
+#'@param effort effort table
+#'@param landings landings table
+#'@param minor_strata minor strata
+#'@return an object of class \link{tibble} give active days
+#'@export
+generate_active_days = function(active_vessels,
+                                effort,
+                                landings,
+                                minor_strata = NULL){
+ 
+  periods = unique(rbind(active_vessels[,c("year","month")], effort[,c("year","month")], landings[,c("year","month")]))
+  
+  do.call("rbind", lapply(1:nrow(periods), function(i){
+    year = periods[i,]$year
+    month = periods[i,]$month
+    generate_active_days_by_period(
+      year = year, month = month,
+      active_vessels = active_vessels[active_vessels$year == year & active_vessels$month == month,],
+      effort = effort[effort$year == year & effort$month == month,],
+      landings = landings[landings$year == year & landings$month == month,],
+      minor_strata = minor_strata
+    )
+  })) 
+  
 }
 
 #'@name complete_active_days

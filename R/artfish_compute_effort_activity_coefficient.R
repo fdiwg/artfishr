@@ -12,6 +12,15 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
     #TODO warnings here to be reported (to investigate how)
     effort<-subset(effort,!is.na(effort_fishing_duration))
   }
+  if(effort_source == "boat_counting"){
+    if(any(is.na(effort$fleet_engagement_max))){
+      #TODO warnings here to be reported (to investigate how)
+      effort<-subset(effort,!is.na(fleet_engagement_max))
+    }
+    if(any(effort$fleet_engagement_max < effort$fleet_engagement_number)){
+      #TODO warnings here. What do do if fleet_engagement_max < fleet_engagement_number
+    }
+  }
   
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
@@ -20,7 +29,11 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
     "fisher_interview" = {
       out_fisher = effort %>%
         dplyr::group_by_at(strata) %>%
-        dplyr::summarize(effort_fishing_duration = sum(effort_fishing_duration),effort_fishing_reference_period = sum(effort_fishing_reference_period)) %>%
+        dplyr::summarize(
+          sample_size = n(),
+          effort_fishing_duration = sum(effort_fishing_duration),
+          effort_fishing_reference_period = sum(effort_fishing_reference_period)
+        ) %>%
         dplyr::ungroup()
       out_fisher$effort_activity_coefficient = out_fisher$effort_fishing_duration / out_fisher$effort_fishing_reference_period
       out_fisher$effort_fishing_duration = NULL
@@ -30,7 +43,11 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
     "boat_counting" = {
       out_boat = effort %>%
         dplyr::group_by_at(strata) %>%
-        dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number), fleet_engagement_max = sum(fleet_engagement_max)) %>%
+        dplyr::summarize(
+          sample_size = n(),
+          fleet_engagement_number = sum(fleet_engagement_number), 
+          fleet_engagement_max = sum(fleet_engagement_max)
+        ) %>%
         dplyr::ungroup()
       out_boat$effort_activity_coefficient = out_boat$fleet_engagement_number / out_boat$fleet_engagement_max
       out_boat$fleet_engagement_number = NULL
