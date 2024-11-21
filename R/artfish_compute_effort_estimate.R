@@ -67,19 +67,18 @@ compute_effort_estimate = function(
           }
         )
         #group by strata
-        av_year_by_strata = av_selection %>%
+        av_year_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] %>%
           dplyr::group_by_at(strata) %>%
           dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
           dplylr::ungroup()
         
         #in case of boat_counting and the presence of landing site in active_days table
         #we first compute the weighted mean of active_days (weighted by number of vessels)
-        ad_selection = active_days #default
+        ad_selection = active_days[active_days$year == year,] #default
         if(effort_source == "boat_counting" & "landing_site" %in% colnames(active_days)){
           main_strata = c("year","month","fishing_unit")
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
-          ad_selection = active_days[active_days$year == year,]
           ad_selection = ad_selection %>% dplyr::left_join(av_selection)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection %>%
@@ -136,19 +135,19 @@ compute_effort_estimate = function(
           }
         )
         #group by strata
-        av_period_by_strata = av_selection %>%
+        av_period_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] %>%
           dplyr::group_by_at(strata) %>%
           dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
           dplyr::ungroup()
         
         #in case of boat_counting and the presence of landing site in active_days table
         #we first compute the weighted mean of active_days (weighted by number of vessels)
-        ad_selection = active_days #default
+        ad_selection = active_days[active_days$year == as.integer(format(period_date, "%Y")) &
+                                   active_days$month == as.integer(format(period_date, "%m")),] #default
         if(effort_source == "boat_counting" & "landing_site" %in% colnames(active_days)){
           main_strata = c("year","month","fishing_unit")
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
-          ad_selection = active_days[active_days$year == as.integer(format(period_date, "%Y")),]
           ad_selection = ad_selection %>% dplyr::left_join(av_selection)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection %>%
@@ -170,7 +169,7 @@ compute_effort_estimate = function(
     }
   }else{
     #temporary patch in case active_vessels has no year/month
-    active_vessels_by_strata = active_vessels %>%
+    active_vessels_by_strata = active_vessels[!is.na(active_vessels$fleet_engagement_number),] %>%
       dplyr::group_by_at(strata) %>%
       dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
       dplyr::ungroup()

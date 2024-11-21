@@ -9,6 +9,7 @@
 #'@param month month
 #'@param active_vessels active vessels table
 #'@param effort effort table
+#'@param effort_source
 #'@param landings landings table
 #'@param minor_strata minor strata
 #'@return an object of class \link{tibble} give active days
@@ -16,6 +17,7 @@
 generate_active_days_by_period = function(year, month, 
                                 active_vessels,
                                 effort,
+                                effort_source,
                                 landings,
                                 minor_strata = NULL){
   
@@ -42,7 +44,7 @@ generate_active_days_by_period = function(year, month,
     dims = minor_strata_values
     dims$fishing_unit = fishing_unit_values
   }
-  if("landing_site" %in% colnames(active_vessels)){
+  if(effort_source == "boat_counting") if("landing_site" %in% colnames(active_vessels)){
     dims$landing_site = get_unique_values("landing_site", active_vessels, effort, landings)
     if(!is.null(minor_strata)) if(regexpr("zone", minor_strata) > 0){
       mapping_landing_site_zone = unique(rbind(
@@ -50,7 +52,7 @@ generate_active_days_by_period = function(year, month,
         as.data.frame(effort)[,c("landing_site","zone")], 
         as.data.frame(landings)[,c("landing_site","zone")]
       ))
-      mapping_landing_site_zone = mapping_landing_site_zone[!is.na(mapping_landing_site_zone$zone),]
+      mapping_landing_site_zone = mapping_landing_site_zone[!is.na(mapping_landing_site_zone$zone)&!is.na(mapping_landing_site_zone$landing_site),]
     }
   }
   
@@ -77,12 +79,14 @@ generate_active_days_by_period = function(year, month,
 #'
 #'@param active_vessels active vessels table
 #'@param effort effort table
+#'@param effort_source effort source
 #'@param landings landings table
 #'@param minor_strata minor strata
 #'@return an object of class \link{tibble} give active days
 #'@export
 generate_active_days = function(active_vessels,
                                 effort,
+                                effort_source,
                                 landings,
                                 minor_strata = NULL){
  
@@ -104,6 +108,7 @@ generate_active_days = function(active_vessels,
         }
       },
       effort = effort[effort$year == year & effort$month == month,],
+      effort_source = effort_source,
       landings = landings[landings$year == year & landings$month == month,],
       minor_strata = minor_strata
     )
