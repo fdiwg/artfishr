@@ -11,7 +11,11 @@ Depends: R (>= 4.0)
 Imports:
   methods,
   dplyr,
-  tidyr
+  tidyr,
+  lubridate,
+  vrule,
+  ggplot2,
+  shiny
 Suggests: testthat
 Description: Set of functions in support of ArtFish implementation.
 License: MIT
