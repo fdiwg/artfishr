@@ -2,9 +2,10 @@
 % Please edit documentation in R/artfish_shiny.R
 \name{run_artfishr_shiny}
 \alias{run_artfishr_shiny}
+\alias{run_artfish_shiny}
 \title{Runs a Artfishr Shiny application}
 \usage{
-run_artfishr_shiny(...)
+run_artfish_shiny(...)
 }
 \description{
 Runs a Artfishr Shiny application

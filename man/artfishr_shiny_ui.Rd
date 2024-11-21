@@ -2,9 +2,10 @@
 % Please edit documentation in R/artfish_shiny.R
 \name{artfishr_shiny_ui}
 \alias{artfishr_shiny_ui}
+\alias{artfish_shiny_ui}
 \title{Artfishr shiny ui function}
 \usage{
-artfishr_shiny_ui(id)
+artfish_shiny_ui(id)
 }
 \description{
 Artfishr shiny ui function

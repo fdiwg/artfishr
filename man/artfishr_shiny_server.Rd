@@ -2,9 +2,10 @@
 % Please edit documentation in R/artfish_shiny.R
 \name{artfishr_shiny_server}
 \alias{artfishr_shiny_server}
+\alias{artfish_shiny_server}
 \title{Artfishr shiny server function}
 \usage{
-artfishr_shiny_server(input, output, session)
+artfish_shiny_server(input, output, session)
 }
 \description{
 Artfishr shiny server function
