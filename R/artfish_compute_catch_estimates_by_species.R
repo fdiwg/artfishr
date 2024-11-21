@@ -15,11 +15,13 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
     dplyr::summarize(
       species_tot = sum(catch_nominal_landed, na.rm = T),
       species_value = sum(trade_value, na.rm = T)
-    )
+    ) %>%
+    dplyr::ungroup()
   species_compo <- species_compo %>%
     dplyr::left_join(catch_estimate)
   
   species_compo_tot <- species_compo %>%
+    dplyr::group_by_at(strata) %>%
     dplyr::summarise(sum_species_tot = sum(species_tot, na.rm = T))
   species_compo = species_compo %>%
     dplyr::left_join(species_compo_tot)
