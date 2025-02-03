@@ -22,8 +22,8 @@ compute_cpue = function(landings, minor_strata = NULL){
     dplyr::group_by_at(c(strata, "fishing_trip", "effort_fishing_duration")) %>%
     dplyr::summarize(catch_nominal_landed = sum(catch_nominal_landed, na.rm = T)) %>%
     dplyr::ungroup(fishing_trip) %>%
-    dplyr::summarize(sum_effort_fishing_duration = sum(effort_fishing_duration, na.rm = T), sum_catch_nominal_landed = sum(catch_nominal_landed, na.rm = T))
-  out$cpue = out$sum_catch_nominal_landed / out$sum_effort_fishing_duration
+    dplyr::summarize(effort_fishing_duration = sum(effort_fishing_duration, na.rm = T), catch_nominal_landed = sum(catch_nominal_landed, na.rm = T))
+  out$catch_cpue = out$catch_nominal_landed / out$effort_fishing_duration
   
   return(out)
 }

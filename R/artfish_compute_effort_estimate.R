@@ -195,8 +195,8 @@ compute_effort_estimate = function(
     dt = dt %>% dplyr::left_join(y = active_days)
   }
   
-  #and compute the effort estimate
-  dt$effort_estimate = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
+  #and compute the effort nominal
+  dt$effort_nominal = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
   
   #add accuracy
   dt$effort_spatial_accuracy = sapply(1:nrow(dt), function(x){

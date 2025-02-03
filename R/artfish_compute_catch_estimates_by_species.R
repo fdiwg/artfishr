@@ -7,6 +7,10 @@
 #'@export
 compute_catch_estimates_by_species = function(landings, catch_estimate, minor_strata = NULL){
   
+  catch_estimate$effort_spatial_accuracy = NULL
+  catch_estimate$effort_temporal_accuracy = NULL
+  catch_estimate$cpue = NULL
+
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
@@ -26,10 +30,15 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
   species_compo = species_compo %>%
     dplyr::left_join(species_compo_tot)
   
-  species_compo$ratio<-species_compo$species_tot / species_compo$sum_species_tot
-  species_compo$species_catch <- species_compo$ratio * species_compo$catch_estimate
-  species_compo$species_cpue <-species_compo$species_catch / species_compo$effort_estimate
-  species_compo$species_price <- species_compo$species_value /species_compo$species_tot
-  species_compo$species_tot_value <- species_compo$species_price * species_compo$species_catch
+  species_compo$catch_species_ratio<-species_compo$species_tot / species_compo$sum_species_tot
+  species_compo$catch_nominal_landed <- species_compo$catch_species_ratio * species_compo$catch_nominal #catch_nominal_landed
+  species_compo$catch_cpue <-species_compo$catch_nominal_landed / species_compo$effort_nominal #catch_cpue
+  species_compo$trade_price <- species_compo$species_value /species_compo$species_tot #trade_price
+  species_compo$trade_value <- species_compo$trade_price * species_compo$catch_nominal_landed #trade_value
+  species_compo$species_tot = NULL
+  species_compo$species_value = NULL
+  species_compo$sum_species_tot = NULL
+  species_compo$effort_nominal = NULL
+  species_compo$catch_nominal = NULL
   return(species_compo)
 }
