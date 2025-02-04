@@ -27,6 +27,12 @@
       "rules": []
     },
     {
+      "name": "landing_site",
+      "urn": "urn:fdi:term:landing_site",
+      "required": true,
+      "rules": []          
+    },
+    {
       "name": "fishing_unit",
       "urn": "urn:fdi:term:fishing_unit",
       "required": true,

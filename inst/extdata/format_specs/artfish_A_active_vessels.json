@@ -6,7 +6,7 @@
     {
       "name": "year",
       "urn": "urn:fdi:term:year",
-      "required": true,
+      "required": false,
       "rules": [
         {
           "vrule": "year",
@@ -17,8 +17,14 @@
     {
       "name": "month",
       "urn": "urn:fdi:term:month",
-      "required": true,
+      "required": false,
       "rules": []
+    },
+    {
+      "name": "landing_site",
+      "urn": "urn:fdi:term:landing_site",
+      "required": false,
+      "rules": []          
     },
     {
       "name": "fishing_unit",
