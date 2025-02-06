@@ -16,7 +16,7 @@
 #'@export
 compute_effort_estimate = function(
     active_vessels, active_vessels_strategy = c("latest", "closest"),
-    effort, effort_source = c("fisher_interview", "boat_counting"), active_days, minor_strata = NULL
+    effort, effort_source = c("fisher_interview", "boat_counting"), active_days = NULL, minor_strata = NULL
 ){
   
   active_vessels_strategy = match.arg(active_vessels_strategy)
@@ -35,6 +35,12 @@ compute_effort_estimate = function(
       landings = landings,
       minor_strata = "minor_stratum"
     )
+  }else{
+    if(is.null(active_days)){
+        errMsg = "Active days are required as input data"
+        ERROR(errMsg)
+        stop(errMsg)
+    }
   }
   active_days = complete_active_days(active_days)
   
