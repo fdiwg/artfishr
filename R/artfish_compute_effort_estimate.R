@@ -16,19 +16,34 @@
 #'@export
 compute_effort_estimate = function(
     active_vessels, active_vessels_strategy = c("latest", "closest"),
-    effort, effort_source, active_days, minor_strata = NULL
+    effort, effort_source = c("fisher_interview", "boat_counting"), active_days, minor_strata = NULL
 ){
   
   active_vessels_strategy = match.arg(active_vessels_strategy)
+  effort_source = match.arg(effort_source)
   
   strata = c("fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
   #complete active days by eventually filling missing or zero values for 'effort_fishable_duration'
+  if(effort_source == "fisher_interview"){
+    INFO("Effort source set to 'fisher_interview' - force use of generated active days (number of days in the month)")
+    active_days = generate_active_days(
+      active_vessels = active_vessels, 
+      effort = effort,
+      effort_source = "fisher_interview",
+      landings = landings,
+      minor_strata = "minor_stratum"
+    )
+  }
   active_days = complete_active_days(active_days)
   
   #compute effort activity coefficient
   AC = compute_effort_activity_coefficient(effort = effort, effort_source = effort_source, minor_strata = minor_strata)
+  AC$effort_fishing_duration = NULL
+  AC$effort_fishing_reference_period = NULL
+  AC$fleet_engagement_number = NULL
+  AC$fleet_engagement_max = NULL
   
   #derivate join AC with active_vessels
   #for this, the active_vessels needs to be selected based on its temporal extent
