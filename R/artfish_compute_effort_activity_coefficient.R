@@ -36,8 +36,6 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
         ) %>%
         dplyr::ungroup()
       out_fisher$effort_activity_coefficient = out_fisher$effort_fishing_duration / out_fisher$effort_fishing_reference_period
-      out_fisher$effort_fishing_duration = NULL
-      out_fisher$effort_fishing_reference_period = NULL
       out_fisher
     },
     "boat_counting" = {
@@ -50,8 +48,6 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
         ) %>%
         dplyr::ungroup()
       out_boat$effort_activity_coefficient = out_boat$fleet_engagement_number / out_boat$fleet_engagement_max
-      out_boat$fleet_engagement_number = NULL
-      out_boat$fleet_engagement_max = NULL
       out_boat
     }
   )
