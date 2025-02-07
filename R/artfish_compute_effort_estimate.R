@@ -11,7 +11,7 @@
 #'
 #'\strong{Active vessels}:
 #'
-#'\The \code{active_vessels} can be either time-dependent,ie given by \code{year}/\code{month}, \code{year} only
+#'The \code{active_vessels} can be either time-dependent,ie given by \code{year}/\code{month}, \code{year} only
 #'or be atemporal, mainly depending on how and at which frequency the vessels census/survey is
 #'operated in the country.
 #'
