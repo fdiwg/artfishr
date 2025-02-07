@@ -1,5 +1,34 @@
 #'@name compute_effort_estimate
-#'@title Computes effort estimate
+#'@title Computes nominal effort estimate
+#'@description
+#'The effort estimate is computed as the product of the \code{fleet_engagement_number}
+#'(derived from the \code{active_vessels}), the \code{effort_fishable_duration} (derivated from
+#'the \code{active_days}, and the \code{effort_activity_coefficient} computed with the 
+#'\link{compute_effort_activity_coefficient} function.
+#'
+#'The computation of the nominal effort estimate is done grouped by strata compound of \code{year}, \code{month}
+#'and \code{fishing_unit}. This strata can be extended with additional columns with the \code{minor_strata} argument.
+#'
+#'\strong{Active vessels}:
+#'
+#'\The \code{active_vessels} can be either time-dependent,ie given by \code{year}/\code{month}, \code{year} only
+#'or be atemporal, mainly depending on how and at which frequency the vessels census/survey is
+#'operated in the country.
+#'
+#'An additional argument called \code{active_vessels_strategy} controls how to select  the \code{active_vessels} data in time, 
+#'when this data is time-dependent. The \code{latest} strategy will select the latest data acquired in time, while the \code{closest} 
+#'will select the closest data acquired in time, which could be data acquired after the effort data considered.
+#'
+#'As example, a vessel census is performed each five years, and data is available for 2007 and 2012. Effort data for 2011
+#'needs to be computed. Which \code{active_vessels} data should be used? In case of a \code{latest} strategy, in 2011, 
+#'the latest data available is 2007, so this one will be used. In the case of a \code{closest} strategy, in 2011, we used
+#'the closest vessel data (ie 2012), assuming it betters characterizes the fleet engagement for the year considered.
+#'
+#'\strong{Active days}:
+#'
+#'In case of 'fisher_interview' (as source of the effort data), the \code{active_days} data should be ignored, as the days
+#'of the month will be used (and generated automatically by the function)
+#'
 #'@param active_vessels active vessels
 #'@param active_vessels_strategy The strategy to associate the active vessels to
 #' the effort based on time. Active vessels period does not match necessarily the 
