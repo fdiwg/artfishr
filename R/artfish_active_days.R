@@ -9,7 +9,7 @@
 #'@param month month
 #'@param active_vessels active vessels table
 #'@param effort effort table
-#'@param effort_source
+#'@param effort_source effort source 
 #'@param landings landings table
 #'@param minor_strata minor strata
 #'@return an object of class \link{tibble} give active days
@@ -17,9 +17,11 @@
 generate_active_days_by_period = function(year, month, 
                                 active_vessels,
                                 effort,
-                                effort_source,
+                                effort_source = c("fisher_interview", "boat_counting"),
                                 landings,
                                 minor_strata = NULL){
+  
+  effort_source = match.arg(effort_source)
   
   mapping_landing_site_zone = NULL
   

@@ -1,12 +1,27 @@
 #'@name compute_effort_activity_coefficient
 #'@title Computes effort activity coefficient
+#'@description
+#'The activity coefficient is computed from the effort. Depending on the source of
+#'effort data, the source information used is different:
+#'- In the case of 'fisher_interview' the coefficient of activity is computed as the ratio 
+#'between the \code{effort_fishing_duration} and the \code{effort_fishing_reference_period}.
+#'- In the case of 'boat_counting' the coefficient of activity is computed as the ratio 
+#'between the \code{fleet_engagement_number} and the \code{fleet_engagement_max}
+#'
+#'The computation is performed grouped by a strata compound at minimum by the \code{year},
+#'\code{month} and \code{fishing_unit}. This strata can be extended by adding one or more
+#'columns with the \code{minor_strata} argument.
+#'
+#'Note: Additional check are performed to remove data with NAs, and ensure data consistency
+#'
 #'@param effort effort data
-#'@param effort_source effort source whether it's derived from -B1- (fishers interviews) 
-#'or -B2- (boat counting)
+#'@param effort_source effort 
 #'@param minor_strata minor_strata
-#'@return the activity coefficient by strata
+#'@return a \link[tibble]{tibble} object giving activity coefficient by strata
 #'@export
-compute_effort_activity_coefficient = function(effort, effort_source, minor_strata = NULL){
+compute_effort_activity_coefficient = function(effort, effort_source = c("fisher_interview", "boat_counting"), 
+                                               minor_strata = NULL){
+  effort_source = match.arg(effort_source)
   
   if(effort_source == "fisher_interview") if(any(is.na(effort$effort_fishing_duration))){
     #TODO warnings here to be reported (to investigate how)
@@ -15,10 +30,13 @@ compute_effort_activity_coefficient = function(effort, effort_source, minor_stra
   if(effort_source == "boat_counting"){
     if(any(is.na(effort$fleet_engagement_max))){
       #TODO warnings here to be reported (to investigate how)
+      WARN("Effort data include missing value(s). Removing NAs...")
       effort<-subset(effort,!is.na(fleet_engagement_max))
     }
     if(any(effort$fleet_engagement_max < effort$fleet_engagement_number)){
       #TODO warnings here. What do do if fleet_engagement_max < fleet_engagement_number
+      WARN("Some values for 'fleet_engagement_number' are greater than 'fleet_engagement_max'. Normalizing data...")
+      effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_number = fleet_engagement_max
     }
   }
   

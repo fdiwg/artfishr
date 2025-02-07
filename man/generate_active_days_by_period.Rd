@@ -9,6 +9,7 @@ generate_active_days_by_period(
   month,
   active_vessels,
   effort,
+  effort_source = c("fisher_interview", "boat_counting"),
   landings,
   minor_strata = NULL
 )
@@ -21,6 +22,8 @@ generate_active_days_by_period(
 \item{active_vessels}{active vessels table}
 
 \item{effort}{effort table}
+
+\item{effort_source}{effort source}
 
 \item{landings}{landings table}
 

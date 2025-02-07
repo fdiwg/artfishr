@@ -4,12 +4,20 @@
 \alias{generate_active_days}
 \title{Generates a \link{tibble} of active days.}
 \usage{
-generate_active_days(active_vessels, effort, landings, minor_strata = NULL)
+generate_active_days(
+  active_vessels,
+  effort,
+  effort_source,
+  landings,
+  minor_strata = NULL
+)
 }
 \arguments{
 \item{active_vessels}{active vessels table}
 
 \item{effort}{effort table}
+
+\item{effort_source}{effort source}
 
 \item{landings}{landings table}
 

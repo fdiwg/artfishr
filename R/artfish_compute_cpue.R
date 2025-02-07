@@ -1,8 +1,24 @@
 #'@name compute_cpue
 #'@title Computes CPUE
+#'@description
+#'The CPUE (Catch Per Unit of Effort) is computed from the landings, as the ratio
+#'between nominal landed catches (\code{catch_nominal_landed}) and the effort fishing
+#'duration (\code{effort_fishing_duration}).
+#'
+#'The computation is performed grouped by a strata compound by \code{year}, \code{month}
+#'and \code{fishing_unit}. This strata can be extended with additional columns with the
+#'\code{minor_strata} argument.
+#'
+#'Since landings give details data on landed species, nominal landed catches are sum grouped 
+#'by the strata and by fishing trip to get the total nominal landed catches by fishing trip.
+#'Both \code{catch_nominal_landed} and \code{effort_fishing_duration} are then sum by strata
+#'and the CPUE is computed as the ratio of these sum.
+#'
+#'Note: Additional checks are performed to remove data with NAs.
+#'
 #'@param landings landings
 #'@param minor_strata minor_strata
-#'@return a \link{tibble} giving CPUE per strata
+#'@return a \link[tibble]{tibble} object giving the CPUE by strata
 #'@export
 compute_cpue = function(landings, minor_strata = NULL){
   

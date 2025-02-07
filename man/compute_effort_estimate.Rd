@@ -8,7 +8,7 @@ compute_effort_estimate(
   active_vessels,
   active_vessels_strategy = c("latest", "closest"),
   effort,
-  effort_source,
+  effort_source = c("fisher_interview", "boat_counting"),
   active_days,
   minor_strata = NULL
 )
