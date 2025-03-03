@@ -245,14 +245,10 @@ compute_effort_estimate = function(
     dt = dt %>% dplyr::left_join(y = active_days)
   }
   
-  #and compute the effort nominal
-  dt$effort_nominal = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
   
-  #add accuracy
-  dt$effort_spatial_accuracy = sapply(1:nrow(dt), function(x){
-    artfish_accuracy(n = dt[x,]$sample_size,N = dt[x,]$fleet_engagement_number * 4, method="higher")
-  })
-  dt$effort_temporal_accuracy = 1L
+  dt$effort_population = dt$fleet_engagement_number * dt$effort_fishable_duration
+  #and compute the effort nominal
+  dt$effort_nominal = dt$effort_population * dt$effort_activity_coefficient
   
   return(dt)
 }

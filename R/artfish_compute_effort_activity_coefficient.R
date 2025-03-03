@@ -48,8 +48,10 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
       out_fisher = effort %>%
         dplyr::group_by_at(strata) %>%
         dplyr::summarize(
-          sample_size = n(),
+          effort_sample_size = n(),
+          effort_coefficient_variation = (sd(effort_fishing_duration,na.rm=T)/sqrt(effort_sample_size))/mean(effort_fishing_duration,na.rm=T),
           effort_fishing_duration = sum(effort_fishing_duration),
+          effort_survey_type = unique(effort_fishing_reference_period),
           effort_fishing_reference_period = sum(effort_fishing_reference_period)
         ) %>%
         dplyr::ungroup()
@@ -60,8 +62,10 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
       out_boat = effort %>%
         dplyr::group_by_at(strata) %>%
         dplyr::summarize(
-          sample_size = n(),
+          effort_sample_size = n(),
+          effort_coefficient_variation = (sd(fleet_engagement_number,na.rm=T)/sqrt(effort_sample_size))/mean(fleet_engagement_number,na.rm=T),
           fleet_engagement_number = sum(fleet_engagement_number), 
+          effort_survey_type = 30,
           fleet_engagement_max = sum(fleet_engagement_max)
         ) %>%
         dplyr::ungroup()

@@ -18,11 +18,22 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
     dplyr::group_by_at(c(strata, "species")) %>%
     dplyr::summarize(
       species_tot = sum(catch_nominal_landed, na.rm = T),
-      species_value = sum(trade_value, na.rm = T)
+      species_value = sum(trade_value, na.rm = T),
+      catch_number = sum(catch_number, na.rm = T)
     ) %>%
     dplyr::ungroup()
   species_compo <- species_compo %>%
-    dplyr::left_join(catch_estimate)
+    dplyr::left_join(catch_estimate)%>%
+    dplyr::ungroup()%>%
+    dplyr::left_join(
+      landings%>%
+        dplyr::group_by_at(strata) %>%
+        dplyr::summarize(
+          species_number=length(unique(species))
+        )%>%
+        dplyr::ungroup()
+    )%>%
+    dplyr::ungroup()
   
   species_compo_tot <- species_compo %>%
     dplyr::group_by_at(strata) %>%
@@ -32,13 +43,18 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
   
   species_compo$catch_species_ratio<-species_compo$species_tot / species_compo$sum_species_tot
   species_compo$catch_nominal_landed <- species_compo$catch_species_ratio * species_compo$catch_nominal #catch_nominal_landed
-  species_compo$catch_cpue <-species_compo$catch_nominal_landed / species_compo$effort_nominal #catch_cpue
+  species_compo$catch_cpue <- species_compo$catch_nominal_landed / species_compo$effort_nominal #catch_cpue
   species_compo$trade_price <- species_compo$species_value /species_compo$species_tot #trade_price
   species_compo$trade_value <- species_compo$trade_price * species_compo$catch_nominal_landed #trade_value
+  species_compo$fish_average_weight <- species_compo$catch_nominal_landed/species_compo$catch_number #fish_average_weight
   species_compo$species_tot = NULL
   species_compo$species_value = NULL
   species_compo$sum_species_tot = NULL
   species_compo$effort_nominal = NULL
   species_compo$catch_nominal = NULL
+  species_compo$sample_size = NULL
+  
+  
   return(species_compo)
+  
 }
