@@ -62,7 +62,7 @@ compute_effort_estimate = function(
       effort = effort,
       effort_source = "fisher_interview",
       landings = landings,
-      minor_strata = "minor_stratum"
+      minor_strata = minor_strata
     )
   }else{
     if(is.null(active_days)){
