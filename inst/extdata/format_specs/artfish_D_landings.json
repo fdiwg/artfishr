@@ -68,6 +68,12 @@
       "required": true,
       "rules": []
     },
+    {
+      "name": "catch_number",
+      "urn": "urn:fdi:term:catch_number",
+      "required": true,
+      "rules": []
+    },
      {
       "name": "trade_value",
       "urn": "urn:fdi:term:trade_value",
