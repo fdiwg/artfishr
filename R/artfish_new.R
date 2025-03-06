@@ -63,9 +63,10 @@ artfish_new_by_period <- function(
   }
   if(is.null(active_days)){
     active_days = generate_active_days(
-      year, month, 
-      active_vessels, effort, landings,
-      minor_strata
+      active_vessels = active_vessels, 
+      effort = effort, effort_source = effort_source,
+      landings =landings,
+      minor_strata = minor_strata
     )
   }
   
