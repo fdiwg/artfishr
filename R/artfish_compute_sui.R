@@ -17,7 +17,7 @@ compute_sui = function(effort,landings, minor_strata = NULL){
     dplyr::select(c(strata),day)%>%
     dplyr::group_by_at(strata) %>%
     dplyr::summarise(
-      effort_number_days=length(unique(day)),
+      effort_number_sampled_days=length(unique(day)),
       effort_sui=unif_index(day))%>%
     dplyr::ungroup()%>%
     dplyr::left_join(
@@ -26,7 +26,7 @@ compute_sui = function(effort,landings, minor_strata = NULL){
       dplyr::distinct()%>%
       dplyr::group_by_at(strata) %>%
       dplyr::summarise(
-        catch_number_days=length(unique(day)),
+        catch_number_sampled_days=length(unique(day)),
         catch_sui=unif_index(day)
         )%>%
     dplyr::ungroup()

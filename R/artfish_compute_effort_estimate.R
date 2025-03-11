@@ -75,8 +75,9 @@ compute_effort_estimate = function(
   
   #compute effort activity coefficient
   AC = compute_effort_activity_coefficient(effort = effort, effort_source = effort_source, minor_strata = minor_strata)
-  AC$effort_fishing_duration = NULL
   AC$effort_fishing_reference_period = NULL
+  AC$effort_total_fishing_duration = NULL
+  AC$effort_total_fishing_reference_period = NULL
   AC$fleet_engagement_number = NULL
   AC$fleet_engagement_max = NULL
   
@@ -245,8 +246,7 @@ compute_effort_estimate = function(
     dt = dt %>% dplyr::left_join(y = active_days)
   }
   
-  
-  dt$effort_population = dt$fleet_engagement_number * dt$effort_fishable_duration
+  dt$effort_population = dt$fleet_engagement_number * dt$effort_fishable_duration #TODO ask abennici, if really needed
   #and compute the effort nominal
   dt$effort_nominal = dt$effort_population * dt$effort_activity_coefficient
   

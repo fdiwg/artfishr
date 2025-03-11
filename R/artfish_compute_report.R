@@ -1,5 +1,5 @@
-#'@name artfish_compute_report
-#'@title artfish_compute_report
+#'@name compute_report
+#'@title compute_report
 #'
 #'@param effort effort
 #'@param effort_source effort_source
@@ -12,7 +12,7 @@
 #'@return the result of Artfish
 #'@export
 #'
-artfish_compute_report <- function(
+compute_report <- function(
   effort,
   effort_source,
   active_vessels,
