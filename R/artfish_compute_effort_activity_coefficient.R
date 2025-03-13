@@ -66,16 +66,13 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
           effort_coefficient_variation = (sd(fleet_engagement_number,na.rm=T)/sqrt(effort_sample_size))/mean(fleet_engagement_number,na.rm=T),
           fleet_engagement_number = sum(fleet_engagement_number), 
           fleet_engagement_max = sum(fleet_engagement_max),
-          effort_fishing_reference_period = 30, #TODO ask abennici why 30?
+          effort_fishing_reference_period = 30
         ) %>%
         dplyr::ungroup()
       out_boat$effort_activity_coefficient = out_boat$fleet_engagement_number / out_boat$fleet_engagement_max
       out_boat
     }
   )
-  
-  #TODO effort-related accuracy here
-  #TODO effort-related sui here
       
   return(out)
 }
