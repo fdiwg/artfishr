@@ -246,10 +246,8 @@ compute_effort_estimate = function(
     dt = dt %>% dplyr::left_join(y = active_days)
   }
   
-  #TODO @abennici remove effort_population from 'compute_effort_estimate' func and manage it within compute_accuracy funct
-  dt$effort_population = dt$fleet_engagement_number * dt$effort_fishable_duration
   #and compute the effort nominal
-  dt$effort_nominal = dt$effort_population * dt$effort_activity_coefficient
+  dt$effort_nominal = dt$fleet_engagement_number * dt$effort_fishable_duration * dt$effort_activity_coefficient
   
   return(dt)
 }

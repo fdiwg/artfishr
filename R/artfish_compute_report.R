@@ -44,7 +44,7 @@ compute_report <- function(
   cpue = artfishr::compute_cpue(landings, minor_strata =minor_strata)
   
   #catch estimate
-  catch_estimate = artfishr::compute_catch_estimate(effort_estimate, cpue)
+  catch_estimate = artfishr::compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
   
   sui = artfishr::compute_sui(effort, landings, minor_strata = minor_strata)
   
@@ -55,9 +55,6 @@ compute_report <- function(
     sui,
     minor_strata = minor_strata
   )
-  
-  #To add in input columns
-  landings$catch_number=NA
   
   #catch estimate by species
   catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)

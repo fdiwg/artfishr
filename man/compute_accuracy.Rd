@@ -25,5 +25,6 @@ compute_accuracy(
 a \link[tibble]{tibble} object giving the different accuracy by strata
 }
 \description{
-TODO
+Compute spatial and temporal accuracy for activity coefficient and cpue.
+Overall accuracy return the minimal value of the 4 accuracy indicators.
 }

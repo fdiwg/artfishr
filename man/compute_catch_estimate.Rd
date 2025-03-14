@@ -4,12 +4,14 @@
 \alias{compute_catch_estimate}
 \title{Computes catch estimate}
 \usage{
-compute_catch_estimate(effort_estimate, cpue)
+compute_catch_estimate(effort_estimate, landings, minor_strata)
 }
 \arguments{
 \item{effort_estimate}{effort estimate computed with \link{compute_effort_estimate}}
 
-\item{cpue}{cpue}
+\item{landings}{landings}
+
+\item{minor_strata}{minor_strata}
 }
 \value{
 a \link{tibble} giving the estimated catch by strata

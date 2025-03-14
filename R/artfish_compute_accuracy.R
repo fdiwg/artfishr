@@ -1,7 +1,8 @@
 #'@name compute_accuracy
 #'@title Computes Accuracy
 #'@description
-#'TODO
+#'Compute spatial and temporal accuracy for activity coefficient and cpue.
+#'Overall accuracy return the minimal value of the 4 accuracy indicators.
 #'
 #'@param activity_coefficient activity_coefficient
 #'@param effort_estimate effort_estimate
@@ -27,7 +28,7 @@ compute_accuracy = function(activity_coefficient,effort_estimate,cpue,sui, minor
     dplyr::mutate(
       effort_activity_coefficient_spatial_accuracy=artfish_accuracy(n = effort_sample_size,N = fleet_engagement_number * 30/effort_fishing_reference_period, method="higher"),
       effort_activity_coefficient_temporal_accuracy = 1L,
-      catch_cpue_spatial_accuracy=artfish_accuracy(n = catch_sample_size,N = effort_population, method="higher"),
+      catch_cpue_spatial_accuracy=artfish_accuracy(n = catch_sample_size,N = fleet_engagement_number * effort_fishable_duration, method="higher"),
       catch_cpue_temporal_accuracy=artfish_accuracy(n = catch_number_sampled_days,N = effort_fishable_duration, method="higher"),
       overall_accuracy=min(effort_activity_coefficient_spatial_accuracy,effort_activity_coefficient_temporal_accuracy,catch_cpue_spatial_accuracy,catch_cpue_temporal_accuracy,na.rm=T)
       )%>%

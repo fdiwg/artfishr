@@ -17,5 +17,5 @@ compute_sui(effort, landings, minor_strata = NULL)
 a \link[tibble]{tibble} object giving the different accuracy by strata
 }
 \description{
-TODO
+Compute the sufficient uniformity index for effort and catch corresponding to the uniformity of sampling over the sampled days.
 }

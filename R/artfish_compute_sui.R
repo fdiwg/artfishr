@@ -1,7 +1,7 @@
 #'@name compute_sui
 #'@title Computes sui
 #'@description
-#'TODO
+#'Compute the sufficient uniformity index for effort and catch corresponding to the uniformity of sampling over the sampled days.
 #'
 #'@param effort effort
 #'@param landings landings

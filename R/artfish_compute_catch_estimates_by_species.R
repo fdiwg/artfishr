@@ -24,15 +24,6 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
     dplyr::ungroup()
   species_compo <- species_compo %>%
     dplyr::left_join(catch_estimate)%>%
-    dplyr::ungroup()%>%
-    dplyr::left_join(
-      landings%>%
-        dplyr::group_by_at(strata) %>%
-        dplyr::summarize(
-          catch_number_species=length(unique(species))
-        )%>%
-        dplyr::ungroup()
-    )%>%
     dplyr::ungroup()
   
   species_compo_tot <- species_compo %>%
