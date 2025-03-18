@@ -106,7 +106,8 @@ artfish_new_by_period <- function(
   #catch estimate
   catch_estimate = compute_catch_estimate(
     effort_estimate = effort_estimate,
-    cpue = cpue
+    landings = landings,
+    minor_strata = minor_strata
   )
   
   #catch estimate by species
