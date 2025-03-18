@@ -29,9 +29,9 @@ the latest in time before the data period will be taken.}
 
 \item{effort_source}{effort_source (register_interview / boat_counting)}
 
-\item{active_days}{active_days}
+\item{active_days}{active_days. Default is \code{NULL} (auto-generated)}
 
-\item{minor_strata}{minor_strata}
+\item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \description{
 The effort estimate is computed as the product of the \code{fleet_engagement_number}

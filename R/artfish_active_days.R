@@ -11,7 +11,7 @@
 #'@param effort effort table
 #'@param effort_source effort source 
 #'@param landings landings table
-#'@param minor_strata minor strata
+#'@param minor_strata minor strata. Default is \code{NULL}
 #'@return an object of class \link{tibble} give active days
 #'@export
 generate_active_days_by_period = function(year, month, 
@@ -83,7 +83,7 @@ generate_active_days_by_period = function(year, month,
 #'@param effort effort table
 #'@param effort_source effort source
 #'@param landings landings table
-#'@param minor_strata minor strata
+#'@param minor_strata minor strata. Default is \code{NULL}
 #'@return an object of class \link{tibble} give active days
 #'@export
 generate_active_days = function(active_vessels,

@@ -15,7 +15,7 @@ compute_effort_activity_coefficient(
 
 \item{effort_source}{effort}
 
-\item{minor_strata}{minor_strata}
+\item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
 a \link[tibble]{tibble} object giving activity coefficient by strata

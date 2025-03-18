@@ -16,7 +16,7 @@
 #'
 #'@param effort effort data
 #'@param effort_source effort 
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@return a \link[tibble]{tibble} object giving activity coefficient by strata
 #'@export
 compute_effort_activity_coefficient = function(effort, effort_source = c("fisher_interview", "boat_counting"), 

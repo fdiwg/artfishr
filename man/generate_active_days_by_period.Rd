@@ -27,7 +27,7 @@ generate_active_days_by_period(
 
 \item{landings}{landings table}
 
-\item{minor_strata}{minor strata}
+\item{minor_strata}{minor strata. Default is \code{NULL}}
 }
 \value{
 an object of class \link{tibble} give active days

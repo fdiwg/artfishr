@@ -11,7 +11,7 @@ compute_report(
   active_vessels_strategy,
   active_days,
   landings,
-  minor_strata
+  minor_strata = NULL
 )
 }
 \arguments{
@@ -27,7 +27,7 @@ compute_report(
 
 \item{landings}{landings}
 
-\item{minor_strata}{minor_strata}
+\item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
 the result of Artfish

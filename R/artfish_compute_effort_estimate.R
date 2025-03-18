@@ -40,8 +40,8 @@
 #' the latest in time before the data period will be taken.
 #'@param effort effort data
 #'@param effort_source effort_source (register_interview / boat_counting)
-#'@param active_days active_days
-#'@param minor_strata minor_strata
+#'@param active_days active_days. Default is \code{NULL} (auto-generated)
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@export
 compute_effort_estimate = function(
     active_vessels, active_vessels_strategy = c("latest", "closest"),

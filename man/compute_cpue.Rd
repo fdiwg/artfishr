@@ -9,7 +9,7 @@ compute_cpue(landings, minor_strata = NULL)
 \arguments{
 \item{landings}{landings}
 
-\item{minor_strata}{minor_strata}
+\item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
 a \link[tibble]{tibble} object giving the CPUE by strata

@@ -5,7 +5,7 @@
 #'
 #'@param effort effort
 #'@param landings landings
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@return a \link[tibble]{tibble} object giving the different accuracy by strata
 #'@export
 compute_sui = function(effort,landings, minor_strata = NULL){

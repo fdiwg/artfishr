@@ -19,7 +19,7 @@ compute_accuracy(
 
 \item{cpue}{cpue}
 
-\item{minor_strata}{minor_strata}
+\item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
 a \link[tibble]{tibble} object giving the different accuracy by strata

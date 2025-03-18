@@ -7,7 +7,7 @@
 #'@param active_vessels_strategy active_vessels_strategy
 #'@param active_days active_days
 #'@param landings landings
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'
 #'@return the result of Artfish
 #'@export
@@ -19,7 +19,7 @@ compute_report <- function(
   active_vessels_strategy,
   active_days,
   landings,
-  minor_strata){
+  minor_strata = NULL){
   
 
   
@@ -41,7 +41,7 @@ compute_report <- function(
   )
   
   #cpue
-  cpue = artfishr::compute_cpue(landings, minor_strata =minor_strata)
+  cpue = artfishr::compute_cpue(landings, minor_strata = minor_strata)
   
   #catch estimate
   catch_estimate = artfishr::compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
