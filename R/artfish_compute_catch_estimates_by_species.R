@@ -33,7 +33,7 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
     dplyr::left_join(species_compo_tot)
   
   species_compo$catch_species_ratio<-species_compo$species_tot / species_compo$sum_species_tot
-  species_compo$catch_nominal_landed <- species_compo$catch_species_ratio * species_compo$catch_nominal #catch_nominal_landed
+  species_compo$catch_nominal_landed <- species_compo$catch_species_ratio * species_compo$catch_total_nominal_landed #catch_nominal_landed
   species_compo$catch_cpue <- species_compo$catch_nominal_landed / species_compo$effort_nominal #catch_cpue
   species_compo$trade_price <- species_compo$species_value /species_compo$species_tot #trade_price
   species_compo$trade_value <- species_compo$trade_price * species_compo$catch_nominal_landed #trade_value
@@ -42,7 +42,7 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
   species_compo$species_value = NULL
   species_compo$sum_species_tot = NULL
   species_compo$effort_nominal = NULL
-  species_compo$catch_nominal = NULL
+  species_compo$catch_total_nominal_landed = NULL
   species_compo$sample_size = NULL
   
   

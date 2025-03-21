@@ -11,11 +11,11 @@ compute_catch_estimate = function(effort_estimate, landings, minor_strata){
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
   cpue = artfishr::compute_cpue(landings, minor_strata=minor_strata)
-  cpue$catch_nominal_landed = NULL
+  cpue$catch_nominal_landed_sampled = NULL
   cpue$effort_fishing_duration = NULL
   out = effort_estimate %>%
     dplyr::left_join(cpue)
-  out$catch_nominal = out$effort_nominal * out$catch_cpue
+  out$catch_total_nominal_landed = out$effort_nominal * out$catch_cpue
   out$effort_activity_coefficient = NULL
   out$effort_fishable_duration = NULL
   out$fleet_engagement_number = NULL

@@ -35,8 +35,9 @@ compute_report <- function(
     active_vessels = active_vessels, 
     active_vessels_strategy = active_vessels_strategy, 
     effort = effort, 
-    effort_source = effort_source, 
+    effort_source = effort_source,
     active_days = active_days,
+    landings=landings,
     minor_strata = minor_strata
   )
   
@@ -63,7 +64,7 @@ compute_report <- function(
   out<-catch_estimate_by_species%>%
     full_join(activity_coefficient)%>%
     full_join(effort_estimate)%>%
-    full_join(cpue%>%select(-catch_cpue,-catch_nominal_landed,-effort_fishing_duration))%>%
+    full_join(cpue%>%select(-catch_cpue,-effort_fishing_duration))%>%
     full_join(catch_estimate%>%select(-catch_cpue))%>%
     full_join(sui)%>%
     full_join(accuracy)%>%
