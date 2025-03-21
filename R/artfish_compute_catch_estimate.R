@@ -2,10 +2,10 @@
 #'@title Computes catch estimate
 #'@param effort_estimate effort estimate computed with \link{compute_effort_estimate}
 #'@param landings landings
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@return a \link{tibble} giving the estimated catch by strata
 #'@export
-compute_catch_estimate = function(effort_estimate, landings, minor_strata){
+compute_catch_estimate = function(effort_estimate, landings, minor_strata = NULL){
   
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)

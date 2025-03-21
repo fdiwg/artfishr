@@ -21,4 +21,4 @@ Description: Set of functions in support of ArtFish implementation.
 License: MIT
 URL: https://github.com/fdiwg/artfishr
 BugReports: https://github.com/fdiwg/artfishr/issues
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2

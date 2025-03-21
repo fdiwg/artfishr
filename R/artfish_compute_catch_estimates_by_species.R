@@ -2,7 +2,7 @@
 #'@title Computes catch estimates by species
 #'@param landings landings
 #'@param catch_estimate result of catch estimate computed with \link{compute_catch_estimate}
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@return a \link{tibble}
 #'@export
 compute_catch_estimates_by_species = function(landings, catch_estimate, minor_strata = NULL){

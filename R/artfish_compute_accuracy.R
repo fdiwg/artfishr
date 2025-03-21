@@ -7,7 +7,7 @@
 #'@param activity_coefficient activity_coefficient
 #'@param effort_estimate effort_estimate
 #'@param cpue cpue
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@return a \link[tibble]{tibble} object giving the different accuracy by strata
 #'@export
 #'

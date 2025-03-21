@@ -15,7 +15,7 @@ compute_catch_estimates_by_species(
 
 \item{catch_estimate}{result of catch estimate computed with \link{compute_catch_estimate}}
 
-\item{minor_strata}{minor_strata}
+\item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
 a \link{tibble}

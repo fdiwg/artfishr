@@ -17,7 +17,7 @@
 #'Note: Additional checks are performed to remove data with NAs.
 #'
 #'@param landings landings
-#'@param minor_strata minor_strata
+#'@param minor_strata minor_strata. Default is \code{NULL}
 #'@return a \link[tibble]{tibble} object giving the CPUE by strata
 #'@export
 compute_cpue = function(landings, minor_strata = NULL){
@@ -42,10 +42,10 @@ compute_cpue = function(landings, minor_strata = NULL){
       catch_sample_size=n(),
       catch_coefficient_variation=(sd(catch_nominal_landed,na.rm=T)/sqrt(sum(effort_fishing_duration, na.rm = T)))/(sum(catch_nominal_landed)/sum(effort_fishing_duration, na.rm = T)),
       effort_fishing_duration = sum(effort_fishing_duration, na.rm = T), 
-      catch_nominal_landed = sum(catch_nominal_landed, na.rm = T)
+      catch_nominal_landed_sampled = sum(catch_nominal_landed, na.rm = T)
       )%>%
     dplyr::ungroup()%>%
-    dplyr::mutate(catch_cpue = catch_nominal_landed / effort_fishing_duration)%>%
+    dplyr::mutate(catch_cpue = catch_nominal_landed_sampled / effort_fishing_duration)%>%
     dplyr::ungroup()
   
   return(out)
