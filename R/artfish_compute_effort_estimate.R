@@ -85,39 +85,34 @@ compute_effort_estimate = function(
   #derivate join AC with active_vessels
   #for this, the active_vessels needs to be selected based on its temporal extent
   #2 methods possible (latest/closest)
+  
   dt = NULL
   if(all(c("year","month") %in% colnames(active_vessels))) {
+    
+    #reference periods (either years or year/month pairs)
+    #used both for selection of active vessels based on time, and derivate join with AC
+    ref_periods = if(all(is.na(active_vessels$month))){
+      unique(effort$year)
+    }else{
+      unique(as.Date(do.call(paste0, list(effort$year, "-", sprintf("%02d", effort$month), "-01"))))
+    }
+    
+    AV = select_active_vessels(
+      periods = ref_periods,
+      active_vessels = active_vessels,
+      active_vessels_strategy = active_vessels_strategy
+    )
+    
     #=>by year
     if(all(is.na(active_vessels$month))){ #we assume that month column is mandatory, but not its content..
-      effort_years =  unique(effort$year)
-      dt = do.call("rbind", lapply(effort_years, function(year){
+      dt = do.call("rbind", lapply(ref_periods, function(year){
         print(year)
         ac_year = AC[AC$year == year,]
         
-        #filter active vessels on latest/closest year
-        av_selection = switch(active_vessels_strategy,
-          "latest" = {
-            #if there is no year before or equal year in active_vessels, we stop
-            if(!any(active_vessels$year <= year)){
-              stop(sprintf("Active vessels strategy 'latest': no latest active_vessels available for year %s", year))
-            }
-            #"latest" method we filter on active vessels (previous active vessels or current year)
-            av_out = active_vessels[active_vessels$year <= year,]
-            av_out = av_out[(year - av_out$year) == min(year - av_out$year),]
-            av_out
-          },
-          "closest" = {
-            #"closest" method we don't filter on active vessels, consider those before and after year
-            av_out = active_vessels
-            av_out = av_out[abs(year - av_out$year) == min(abs(year - av_out$year)),]
-            #we check if we have 2 av periods (possible latest + closest after year)
-            #in which case we take the latest
-            if(length(unique(av_out$year))>1){
-              av_out = av_out[av_out$year == min(av_out$year),]
-            }
-            av_out
-          }
-        )
+        #filter active vessels on latest/closest year/month
+        av_selection = AV[AV$ref_period == year,]
+        av_selection$ref_period = NULL
+        
         #group by strata
         av_year_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] %>%
           dplyr::group_by_at(strata) %>%
@@ -153,39 +148,15 @@ compute_effort_estimate = function(
       av_datetime$period_date = as.Date(do.call(paste0, list(active_vessels$year, "-", sprintf("%02d", active_vessels$month), "-01")))
       AC_datetime = AC
       AC_datetime$period_date = as.Date(do.call(paste0, list(AC$year, "-", sprintf("%02d", AC$month), "-01")))
-      effort_datetime = effort
-      effort_datetime$period_date = as.Date(do.call(paste0, list(effort$year, "-", sprintf("%02d", effort$month), "-01")))
-      effort_period_dates = unique(effort_datetime$period_date)
-      dt = do.call("rbind", lapply(effort_period_dates, function(period_date){
+      
+      dt = do.call("rbind", lapply(ref_periods, function(period_date){
         print(period_date)
         ac_period = AC_datetime[AC_datetime$period_date == period_date,]
         
-        #filter active vessels on latest/closest year
-        av_selection = switch(active_vessels_strategy,
-          "latest" = {
-            #if there is no year before or equal year in active_vessels, we stop
-            if(!any(av_datetime$period_date <= period_date)){
-              stop(sprintf("Active vessels strategy 'latest': no latest active_vessels available for period %s", substr(period_date, 1,7)))
-            }
-            #"latest" method we filter on active vessels (previous active vessels or current year)
-            av_out = av_datetime[av_datetime$period_date <= period_date,]
-            av_out = av_out[(period_date - av_out$period_date) == min(period_date - av_out$period_date),]
-            av_out$period_date = NULL
-            av_out
-          },
-          "closest" = {
-            #"closest" method we don't filter on active vessels, consider those before and after year/month period
-            av_out = av_datetime
-            av_out = av_out[abs(period_date - av_out$period_date) == min(abs(period_date - av_out$period_date)),]
-            #we check if we have 2 av periods (possible latest + closest after period)
-            #in which case we take the latest
-            if(length(unique(av_out$period_date))>1){
-              av_out = av_out[av_out$period_date == min(av_out$period_date),]
-            }
-            av_out$period_date = NULL
-            av_out
-          }
-        )
+        #filter active vessels on latest/closest year/month
+        av_selection = AV[AV$ref_period == period_date,]
+        av_selection$ref_period = NULL
+        
         #group by strata
         av_period_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] %>%
           dplyr::group_by_at(strata) %>%
