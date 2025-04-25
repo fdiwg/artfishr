@@ -1,0 +1,52 @@
+---
+title: Introduction to artfishr
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to artfishr}
+  %\VignetteEngine{knitr::knitr}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This vignette shows how to use [artfishr](https://github.com/fdiwg/artfishr).
+
+## Installation
+
+The R [artfishr](https://github.com/fdiwg/artfishr) can be installed from Github. 
+
+As prequirements, packages `remotes` and `vrule` should be installed.
+
+* Package `remotes` can be installed from CRAN using:
+
+```{r}
+install.packages("remotes", repos = "https://cloud.r-project.org")
+```
+
+* Package [vrule](https://github.com/fdiwg/vrule) should be installed from GitHub using `remotes`:
+
+```{r}
+remotes::install_github("fdiwg/vrule")
+```
+
+Once packages `remotes` and `vrule`, R package `artfishr` can be installed using:
+
+```{r}
+remotes::install_github("fdiwg/artfishr")
+```
+
+Once installed, `artfishr` can be loaded using `library(artfishr)` or `require(artfishr)``
+
+## Data requirements
+
+TODO
+
+## The Artfish methodology - summary
+
+TODO
+
+## How to run Artfish with `artfishr`
+
+TODO
