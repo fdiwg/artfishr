@@ -37,28 +37,22 @@ validate_input_datasets <- function(
   #structure (B1/B2) will depend on the effort source
   #active_vessels
   active_vessels_report = validators$cwp_rh_artfish_active_vessels$validate(active_vessels)
-  if(any(active_vessels_report$type == "ERROR")){
-    stop("Data 'active_vessels' validation errors")
-  }
   #effort
   effort_validator = switch(effort_source,
-                            "fisher_interview" = validators$cwp_rh_artfish_effort_survey,
-                            "boat_counting" = validators$cwp_rh_artfish_effort_registry
+                            "fisher_interview" = validators$cwp_rh_artfish_effort_fisher_interview,
+                            "boat_counting" = validators$cwp_rh_artfish_effort_boat_counting
   )
   effort_report = effort_validator$validate(effort)
-  if(any(effort_report$type == "ERROR")){
-    stop("Data 'effort' validation errors")
-  }
   #landings
   landings_report = validators$cwp_rh_artfish_landings$validate(landings)
-  if(any(landings_report$type == "ERROR")){
-    stop("Data 'landings' validation errors")
-  }
+  
+  #overall report
+  qa_report = rbind(active_vessels_report, effort_report, landings_report)
+  
   #active_days
   if(!is.null(active_days)){
     active_days_report = validators$cwp_rh_artfish_active_days$validate(active_days)
-    if(any(active_days_report$type == "ERROR")){
-      stop("Data 'active_days' validation errors")
-    }
+    qa_report = rbind(qa_report, active_days_report)
   }
+  return(qa_report)
 }

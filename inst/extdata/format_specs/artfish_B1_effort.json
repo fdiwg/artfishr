@@ -1,6 +1,6 @@
 {
-  "name": "cwp_rh_artfish_effort_survey",
-  "urn": "urn:fdi:format:generic:artfish:effort_survey",
+  "name": "cwp_rh_artfish_effort_fisher_interview",
+  "urn": "urn:fdi:format:generic:artfish:effort_fisher_interview",
   "title": "CWP TG-RH artfish data exchange format - effort (survey from fisher' interview)",
   "column_specs": [
     {

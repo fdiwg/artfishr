@@ -1,6 +1,6 @@
 {
-  "name": "cwp_rh_artfish_effort_registry",
-  "urn": "urn:fdi:format:generic:artfish:effort_registry",
+  "name": "cwp_rh_artfish_effort_boat_counting",
+  "urn": "urn:fdi:format:generic:artfish:effort_boat_counting",
   "title": "CWP TG-RH artfish data exchange format - effort (survey from boat counting)",
   "column_specs": [
     {
