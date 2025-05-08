@@ -126,7 +126,7 @@ compute_effort_estimate = function(
           main_strata = c("fishing_unit")
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
-          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = c(main_strata, "fishing_unit"))
+          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = c(main_strata, "landing_site"))
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection %>%
             dplyr::group_by_at(main_strata) %>%
