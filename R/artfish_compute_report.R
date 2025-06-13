@@ -8,6 +8,7 @@
 #'@param active_days active_days
 #'@param landings landings
 #'@param minor_strata minor_strata. Default is \code{NULL}
+#'@param validate validate
 #'
 #'@return the result of Artfish
 #'@export
@@ -19,9 +20,26 @@ compute_report <- function(
   active_vessels_strategy,
   active_days,
   landings,
-  minor_strata = NULL){
+  minor_strata = NULL,
+  validate = FALSE){
   
-
+  result = NULL
+  qa_report = NULL
+  if(validate){
+    INFO("Validating data inputs...")
+    qa_report = validate_input_datasets(
+      active_vessels = active_vessels,
+      effort = effort,
+      effort_source = effort_source,
+      active_days = active_days,
+      landings = landings
+    )
+    if(any(qa_report$type == "ERROR")){
+      ERROR("There is at least one input validation error, please check the report")
+      out = list(result = result, report = qa_report)
+      return(out)
+    }
+  }
   
   #activity coefficient
   activity_coefficient = artfishr::compute_effort_activity_coefficient(
@@ -61,7 +79,7 @@ compute_report <- function(
   catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
-  out<-catch_estimate_by_species%>%
+  result<-catch_estimate_by_species%>%
     full_join(activity_coefficient)%>%
     full_join(effort_estimate)%>%
     full_join(cpue%>%select(-catch_cpue,-effort_fishing_duration))%>%
@@ -70,7 +88,5 @@ compute_report <- function(
     full_join(accuracy)%>%
     ungroup()
   
-
-  
-  return(out)
+  return(result)
 }
