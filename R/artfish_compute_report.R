@@ -82,7 +82,7 @@ compute_report <- function(
   result<-catch_estimate_by_species%>%
     full_join(activity_coefficient)%>%
     full_join(effort_estimate)%>%
-    full_join(cpue%>%select(-catch_cpue,-effort_fishing_duration))%>%
+    full_join(cpue%>%select(-effort_fishing_duration)%>%rename(catch_total_cpue=catch_cpue))%>%
     full_join(catch_estimate%>%select(-catch_cpue))%>%
     full_join(sui)%>%
     full_join(accuracy)%>%
