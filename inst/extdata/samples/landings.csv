@@ -1,571 +1,571 @@
-﻿fishing_trip,year,month,day,minor_stratum,landing_site,fishing_unit,effort_fishing_duration,effort_fishing_duration_unit,species,catch_nominal_landed,catch_nominal_landed_unit,trade_value,trade_value_unit
-2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Lobster,26,kg,650,USD
-2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Crab,28,kg,672,USD
-2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Grouper,0,kg,0,USD
-2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Snapper,4,kg,52,USD
-2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Parrot fish,48,kg,768,USD
-2025-1-2-1-2-2,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,64,kg,640,USD
-2025-1-2-1-2-2,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,108,kg,1188,USD
-2025-1-2-1-2-2,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,194,kg,1940,USD
-2025-1-2-1-3-3,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,40,kg,480,USD
-2025-1-2-1-3-3,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,44,kg,572,USD
-2025-1-2-1-3-3,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,1,kg,16,USD
-2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Lobster,55,kg,1375,USD
-2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Crab,8,kg,192,USD
-2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Grouper,31,kg,372,USD
-2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Snapper,7,kg,91,USD
-2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Parrot fish,61,kg,976,USD
-2025-1-2-1-2-5,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,97,kg,970,USD
-2025-1-2-1-2-5,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,134,kg,1474,USD
-2025-1-2-1-2-5,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,179,kg,1790,USD
-2025-1-2-1-3-6,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,6,kg,72,USD
-2025-1-2-1-3-6,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,38,kg,494,USD
-2025-1-2-1-3-6,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,19,kg,304,USD
-2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Lobster,32,kg,800,USD
-2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Crab,0,kg,0,USD
-2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Grouper,4,kg,48,USD
-2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Snapper,12,kg,156,USD
-2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Parrot fish,19,kg,304,USD
-2025-1-2-1-2-8,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,75,kg,750,USD
-2025-1-2-1-2-8,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,70,kg,770,USD
-2025-1-2-1-2-8,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,125,kg,1250,USD
-2025-1-2-1-3-9,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,45,kg,540,USD
-2025-1-2-1-3-9,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,4,kg,52,USD
-2025-1-2-1-3-9,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,66,kg,1056,USD
-2025-1-2-1-2-10,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,129,kg,1290,USD
-2025-1-2-1-2-10,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,67,kg,737,USD
-2025-1-2-1-2-10,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,188,kg,1880,USD
-2025-1-2-1-3-11,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,30,kg,360,USD
-2025-1-2-1-3-11,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,71,kg,923,USD
-2025-1-2-1-3-11,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,14,kg,224,USD
-2025-1-2-1-2-12,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,125,kg,1250,USD
-2025-1-2-1-2-12,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,15,kg,165,USD
-2025-1-2-1-2-12,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,145,kg,1450,USD
-2025-1-2-1-3-13,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,17,kg,204,USD
-2025-1-2-1-3-13,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,30,kg,390,USD
-2025-1-2-1-3-13,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,87,kg,1392,USD
-2025-1-2-1-2-14,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,125,kg,1250,USD
-2025-1-2-1-2-14,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,71,kg,781,USD
-2025-1-2-1-2-14,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,70,kg,700,USD
-2025-1-2-1-3-15,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,46,kg,552,USD
-2025-1-2-1-3-15,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,46,kg,598,USD
-2025-1-2-1-3-15,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,76,kg,1216,USD
-2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,15,kg,375,USD
-2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,0,kg,0,USD
-2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,50,kg,600,USD
-2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,36,kg,468,USD
-2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,70,kg,1120,USD
-2025-1-3-2-2-17,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,24,kg,240,USD
-2025-1-3-2-2-17,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,43,kg,473,USD
-2025-1-3-2-2-17,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,195,kg,1950,USD
-2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,55,kg,1375,USD
-2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,2,kg,48,USD
-2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,21,kg,252,USD
-2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,0,kg,0,USD
-2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,65,kg,1040,USD
-2025-1-3-2-2-19,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,93,kg,930,USD
-2025-1-3-2-2-19,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,121,kg,1331,USD
-2025-1-3-2-2-19,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,190,kg,1900,USD
-2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,26,kg,650,USD
-2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,28,kg,672,USD
-2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,26,kg,312,USD
-2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,39,kg,507,USD
-2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,11,kg,176,USD
-2025-1-3-2-2-21,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,45,kg,450,USD
-2025-1-3-2-2-21,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,49,kg,539,USD
-2025-1-3-2-2-21,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,56,kg,560,USD
-2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,25,kg,625,USD
-2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,2,kg,48,USD
-2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,17,kg,204,USD
-2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,25,kg,325,USD
-2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,95,kg,1520,USD
-2025-1-3-2-2-23,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,46,kg,460,USD
-2025-1-3-2-2-23,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,39,kg,429,USD
-2025-1-3-2-2-23,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,50,kg,500,USD
-2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,6,kg,150,USD
-2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,27,kg,648,USD
-2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,44,kg,528,USD
-2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,0,kg,0,USD
-2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,2,kg,32,USD
-2025-1-3-2-2-25,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,113,kg,1130,USD
-2025-1-3-2-2-25,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,130,kg,1430,USD
-2025-1-3-2-2-25,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,192,kg,1920,USD
-2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Lobster,59,kg,1475,USD
-2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Crab,2,kg,48,USD
-2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Grouper,34,kg,408,USD
-2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Snapper,33,kg,429,USD
-2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Parrot fish,26,kg,416,USD
-2025-1-7-5-2-27,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,127,kg,1270,USD
-2025-1-7-5-2-27,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,27,kg,297,USD
-2025-1-7-5-2-27,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,123,kg,1230,USD
-2025-1-7-5-3-28,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,28,kg,336,USD
-2025-1-7-5-3-28,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,39,kg,507,USD
-2025-1-7-5-3-28,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,90,kg,1440,USD
-2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Lobster,13,kg,325,USD
-2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Crab,28,kg,672,USD
-2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Grouper,14,kg,168,USD
-2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Snapper,55,kg,715,USD
-2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Parrot fish,53,kg,848,USD
-2025-1-7-5-2-30,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,144,kg,1440,USD
-2025-1-7-5-2-30,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,136,kg,1496,USD
-2025-1-7-5-2-30,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,135,kg,1350,USD
-2025-1-7-5-3-31,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,22,kg,264,USD
-2025-1-7-5-3-31,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,59,kg,767,USD
-2025-1-7-5-3-31,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,94,kg,1504,USD
-2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Lobster,9,kg,225,USD
-2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Crab,5,kg,120,USD
-2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Grouper,29,kg,348,USD
-2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Snapper,13,kg,169,USD
-2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Parrot fish,41,kg,656,USD
-2025-1-7-5-2-33,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,73,kg,730,USD
-2025-1-7-5-2-33,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,64,kg,704,USD
-2025-1-7-5-2-33,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,36,kg,360,USD
-2025-1-7-5-3-34,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,48,kg,576,USD
-2025-1-7-5-3-34,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,21,kg,273,USD
-2025-1-7-5-3-34,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,63,kg,1008,USD
-2025-1-7-5-2-35,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,113,kg,1130,USD
-2025-1-7-5-2-35,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,139,kg,1529,USD
-2025-1-7-5-2-35,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,162,kg,1620,USD
-2025-1-7-5-3-36,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,36,kg,432,USD
-2025-1-7-5-3-36,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,10,kg,130,USD
-2025-1-7-5-3-36,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,60,kg,960,USD
-2025-1-7-5-2-37,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,43,kg,430,USD
-2025-1-7-5-2-37,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,116,kg,1276,USD
-2025-1-7-5-2-37,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,37,kg,370,USD
-2025-1-7-5-3-38,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,24,kg,288,USD
-2025-1-7-5-3-38,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,4,kg,52,USD
-2025-1-7-5-3-38,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,32,kg,512,USD
-2025-1-7-5-2-39,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,71,kg,710,USD
-2025-1-7-5-2-39,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,39,kg,429,USD
-2025-1-7-5-2-39,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,124,kg,1240,USD
-2025-1-7-5-3-40,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,17,kg,204,USD
-2025-1-7-5-3-40,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,9,kg,117,USD
-2025-1-7-5-3-40,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,52,kg,832,USD
-2025-1-8-3-2-41,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,37,kg,370,USD
-2025-1-8-3-2-41,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,72,kg,792,USD
-2025-1-8-3-2-41,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,58,kg,580,USD
-2025-1-8-3-3-42,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,27,kg,324,USD
-2025-1-8-3-3-42,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,9,kg,117,USD
-2025-1-8-3-3-42,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,13,kg,208,USD
-2025-1-8-3-2-43,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,133,kg,1330,USD
-2025-1-8-3-2-43,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,49,kg,539,USD
-2025-1-8-3-2-43,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,92,kg,920,USD
-2025-1-8-3-3-44,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,36,kg,432,USD
-2025-1-8-3-3-44,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,71,kg,923,USD
-2025-1-8-3-3-44,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,31,kg,496,USD
-2025-1-8-3-2-45,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,104,kg,1040,USD
-2025-1-8-3-2-45,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,75,kg,825,USD
-2025-1-8-3-2-45,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,87,kg,870,USD
-2025-1-8-3-3-46,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,15,kg,180,USD
-2025-1-8-3-3-46,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,75,kg,975,USD
-2025-1-8-3-3-46,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,95,kg,1520,USD
-2025-1-8-3-2-47,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,112,kg,1120,USD
-2025-1-8-3-2-47,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,60,kg,660,USD
-2025-1-8-3-2-47,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,194,kg,1940,USD
-2025-1-8-3-3-48,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,18,kg,216,USD
-2025-1-8-3-3-48,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,75,kg,975,USD
-2025-1-8-3-3-48,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,10,kg,160,USD
-2025-1-8-3-2-49,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,46,kg,460,USD
-2025-1-8-3-2-49,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,123,kg,1353,USD
-2025-1-8-3-2-49,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,166,kg,1660,USD
-2025-1-8-3-3-50,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,40,kg,480,USD
-2025-1-8-3-3-50,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,40,kg,520,USD
-2025-1-8-3-3-50,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,39,kg,624,USD
-2025-1-8-3-2-51,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,150,kg,1500,USD
-2025-1-8-3-2-51,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,57,kg,627,USD
-2025-1-8-3-2-51,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,60,kg,600,USD
-2025-1-8-3-3-52,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,14,kg,168,USD
-2025-1-8-3-3-52,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,69,kg,897,USD
-2025-1-8-3-3-52,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,38,kg,608,USD
-2025-1-8-3-2-53,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,120,kg,1200,USD
-2025-1-8-3-2-53,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,65,kg,715,USD
-2025-1-8-3-2-53,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,191,kg,1910,USD
-2025-1-8-3-3-54,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,22,kg,264,USD
-2025-1-8-3-3-54,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,36,kg,468,USD
-2025-1-8-3-3-54,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,13,kg,208,USD
-2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,58,kg,1450,USD
-2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,21,kg,504,USD
-2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,25,kg,300,USD
-2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,70,kg,910,USD
-2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,27,kg,432,USD
-2025-1-10-4-3-56,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,44,kg,528,USD
-2025-1-10-4-3-56,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,40,kg,520,USD
-2025-1-10-4-3-56,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,70,kg,1120,USD
-2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,9,kg,225,USD
-2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,13,kg,312,USD
-2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,10,kg,120,USD
-2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,10,kg,130,USD
-2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,100,kg,1600,USD
-2025-1-10-4-3-58,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,24,kg,288,USD
-2025-1-10-4-3-58,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,1,kg,13,USD
-2025-1-10-4-3-58,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,5,kg,80,USD
-2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,21,kg,525,USD
-2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,9,kg,216,USD
-2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,24,kg,288,USD
-2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,11,kg,143,USD
-2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,56,kg,896,USD
-2025-1-10-4-3-60,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,19,kg,228,USD
-2025-1-10-4-3-60,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,12,kg,156,USD
-2025-1-10-4-3-60,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,98,kg,1568,USD
-2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,38,kg,950,USD
-2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,14,kg,336,USD
-2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,46,kg,552,USD
-2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,51,kg,663,USD
-2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,14,kg,224,USD
-2025-1-10-4-3-62,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,41,kg,492,USD
-2025-1-10-4-3-62,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,1,kg,13,USD
-2025-1-10-4-3-62,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,1,kg,16,USD
-2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,44,kg,1100,USD
-2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,18,kg,432,USD
-2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,24,kg,288,USD
-2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,60,kg,780,USD
-2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,98,kg,1568,USD
-2025-1-10-4-3-64,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,38,kg,456,USD
-2025-1-10-4-3-64,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,34,kg,442,USD
-2025-1-10-4-3-64,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,76,kg,1216,USD
-2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Lobster,21,kg,525,USD
-2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Crab,0,kg,0,USD
-2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Grouper,8,kg,96,USD
-2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Snapper,57,kg,741,USD
-2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Parrot fish,100,kg,1600,USD
-2025-1-12-1-2-66,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,47,kg,470,USD
-2025-1-12-1-2-66,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,78,kg,858,USD
-2025-1-12-1-2-66,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,102,kg,1020,USD
-2025-1-12-1-3-67,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,12,kg,144,USD
-2025-1-12-1-3-67,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,15,kg,195,USD
-2025-1-12-1-3-67,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,37,kg,592,USD
-2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Lobster,26,kg,650,USD
-2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Crab,10,kg,240,USD
-2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Grouper,10,kg,120,USD
-2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Snapper,4,kg,52,USD
-2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Parrot fish,31,kg,496,USD
-2025-1-12-1-2-69,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,121,kg,1210,USD
-2025-1-12-1-2-69,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,27,kg,297,USD
-2025-1-12-1-2-69,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,133,kg,1330,USD
-2025-1-12-1-3-70,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,28,kg,336,USD
-2025-1-12-1-3-70,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,75,kg,975,USD
-2025-1-12-1-3-70,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,44,kg,704,USD
-2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Lobster,9,kg,225,USD
-2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Crab,13,kg,312,USD
-2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Grouper,49,kg,588,USD
-2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Snapper,7,kg,91,USD
-2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Parrot fish,14,kg,224,USD
-2025-1-12-1-2-72,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,107,kg,1070,USD
-2025-1-12-1-2-72,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,110,kg,1210,USD
-2025-1-12-1-2-72,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,156,kg,1560,USD
-2025-1-12-1-3-73,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,19,kg,228,USD
-2025-1-12-1-3-73,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,14,kg,182,USD
-2025-1-12-1-3-73,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,78,kg,1248,USD
-2025-1-12-1-2-74,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,73,kg,730,USD
-2025-1-12-1-2-74,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,119,kg,1309,USD
-2025-1-12-1-2-74,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,186,kg,1860,USD
-2025-1-12-1-3-75,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,45,kg,540,USD
-2025-1-12-1-3-75,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,18,kg,234,USD
-2025-1-12-1-3-75,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,38,kg,608,USD
-2025-1-12-1-2-76,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,98,kg,980,USD
-2025-1-12-1-2-76,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,152,kg,1672,USD
-2025-1-12-1-2-76,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,86,kg,860,USD
-2025-1-12-1-3-77,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,4,kg,48,USD
-2025-1-12-1-3-77,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,1,kg,13,USD
-2025-1-12-1-3-77,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,27,kg,432,USD
-2025-1-12-1-2-78,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,97,kg,970,USD
-2025-1-12-1-2-78,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,113,kg,1243,USD
-2025-1-12-1-2-78,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,81,kg,810,USD
-2025-1-12-1-3-79,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,39,kg,468,USD
-2025-1-12-1-3-79,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,49,kg,637,USD
-2025-1-12-1-3-79,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,48,kg,768,USD
-2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,30,kg,750,USD
-2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,24,kg,576,USD
-2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,41,kg,492,USD
-2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,62,kg,806,USD
-2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,35,kg,560,USD
-2025-1-14-2-2-81,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,144,kg,1440,USD
-2025-1-14-2-2-81,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,63,kg,693,USD
-2025-1-14-2-2-81,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,53,kg,530,USD
-2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,54,kg,1350,USD
-2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,9,kg,216,USD
-2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,3,kg,36,USD
-2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,71,kg,923,USD
-2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,5,kg,80,USD
-2025-1-14-2-2-83,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,60,kg,600,USD
-2025-1-14-2-2-83,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,123,kg,1353,USD
-2025-1-14-2-2-83,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,135,kg,1350,USD
-2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,18,kg,450,USD
-2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,23,kg,552,USD
-2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,43,kg,516,USD
-2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,40,kg,520,USD
-2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,55,kg,880,USD
-2025-1-14-2-2-85,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,47,kg,470,USD
-2025-1-14-2-2-85,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,154,kg,1694,USD
-2025-1-14-2-2-85,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,83,kg,830,USD
-2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,59,kg,1475,USD
-2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,15,kg,360,USD
-2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,41,kg,492,USD
-2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,61,kg,793,USD
-2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,53,kg,848,USD
-2025-1-14-2-2-87,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,114,kg,1140,USD
-2025-1-14-2-2-87,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,10,kg,110,USD
-2025-1-14-2-2-87,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,99,kg,990,USD
-2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,14,kg,350,USD
-2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,14,kg,336,USD
-2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,0,kg,0,USD
-2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,0,kg,0,USD
-2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,86,kg,1376,USD
-2025-1-14-2-2-89,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,150,kg,1500,USD
-2025-1-14-2-2-89,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,64,kg,704,USD
-2025-1-14-2-2-89,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,135,kg,1350,USD
-2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Lobster,3,kg,75,USD
-2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Crab,18,kg,432,USD
-2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Grouper,30,kg,360,USD
-2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Snapper,65,kg,845,USD
-2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Parrot fish,70,kg,1120,USD
-2025-1-15-5-2-91,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,146,kg,1460,USD
-2025-1-15-5-2-91,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,153,kg,1683,USD
-2025-1-15-5-2-91,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,36,kg,360,USD
-2025-1-15-5-3-92,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,32,kg,384,USD
-2025-1-15-5-3-92,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,77,kg,1001,USD
-2025-1-15-5-3-92,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,80,kg,1280,USD
-2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Lobster,35,kg,875,USD
-2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Crab,5,kg,120,USD
-2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Grouper,27,kg,324,USD
-2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Snapper,73,kg,949,USD
-2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Parrot fish,89,kg,1424,USD
-2025-1-15-5-2-94,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,144,kg,1440,USD
-2025-1-15-5-2-94,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,102,kg,1122,USD
-2025-1-15-5-2-94,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,103,kg,1030,USD
-2025-1-15-5-3-95,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,39,kg,468,USD
-2025-1-15-5-3-95,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,68,kg,884,USD
-2025-1-15-5-3-95,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,82,kg,1312,USD
-2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Lobster,6,kg,150,USD
-2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Crab,4,kg,96,USD
-2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Grouper,37,kg,444,USD
-2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Snapper,51,kg,663,USD
-2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Parrot fish,71,kg,1136,USD
-2025-1-15-5-2-97,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,131,kg,1310,USD
-2025-1-15-5-2-97,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,149,kg,1639,USD
-2025-1-15-5-2-97,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,47,kg,470,USD
-2025-1-15-5-3-98,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,48,kg,576,USD
-2025-1-15-5-3-98,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,64,kg,832,USD
-2025-1-15-5-3-98,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,2,kg,32,USD
-2025-1-15-5-2-99,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,106,kg,1060,USD
-2025-1-15-5-2-99,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,132,kg,1452,USD
-2025-1-15-5-2-99,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,119,kg,1190,USD
-2025-1-15-5-3-100,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,42,kg,504,USD
-2025-1-15-5-3-100,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,23,kg,299,USD
-2025-1-15-5-3-100,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,80,kg,1280,USD
-2025-1-15-5-2-101,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,89,kg,890,USD
-2025-1-15-5-2-101,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,14,kg,154,USD
-2025-1-15-5-2-101,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,150,kg,1500,USD
-2025-1-15-5-3-102,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,32,kg,384,USD
-2025-1-15-5-3-102,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,16,kg,208,USD
-2025-1-15-5-3-102,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,72,kg,1152,USD
-2025-1-15-5-2-103,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,38,kg,380,USD
-2025-1-15-5-2-103,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,145,kg,1595,USD
-2025-1-15-5-2-103,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,92,kg,920,USD
-2025-1-15-5-3-104,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,24,kg,288,USD
-2025-1-15-5-3-104,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,33,kg,429,USD
-2025-1-15-5-3-104,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,49,kg,784,USD
-2025-1-17-3-2-105,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,25,kg,250,USD
-2025-1-17-3-2-105,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,42,kg,462,USD
-2025-1-17-3-2-105,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,39,kg,390,USD
-2025-1-17-3-3-106,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,50,kg,600,USD
-2025-1-17-3-3-106,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,47,kg,611,USD
-2025-1-17-3-3-106,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,4,kg,64,USD
-2025-1-17-3-2-107,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,129,kg,1290,USD
-2025-1-17-3-2-107,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,146,kg,1606,USD
-2025-1-17-3-2-107,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,45,kg,450,USD
-2025-1-17-3-3-108,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,20,kg,240,USD
-2025-1-17-3-3-108,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,30,kg,390,USD
-2025-1-17-3-3-108,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,21,kg,336,USD
-2025-1-17-3-2-109,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,106,kg,1060,USD
-2025-1-17-3-2-109,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,102,kg,1122,USD
-2025-1-17-3-2-109,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,115,kg,1150,USD
-2025-1-17-3-3-110,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,49,kg,588,USD
-2025-1-17-3-3-110,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,70,kg,910,USD
-2025-1-17-3-3-110,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,87,kg,1392,USD
-2025-1-17-3-2-111,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,30,kg,300,USD
-2025-1-17-3-2-111,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,139,kg,1529,USD
-2025-1-17-3-2-111,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,129,kg,1290,USD
-2025-1-17-3-3-112,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,36,kg,432,USD
-2025-1-17-3-3-112,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,48,kg,624,USD
-2025-1-17-3-3-112,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,47,kg,752,USD
-2025-1-17-3-2-113,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,68,kg,680,USD
-2025-1-17-3-2-113,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,14,kg,154,USD
-2025-1-17-3-2-113,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,114,kg,1140,USD
-2025-1-17-3-3-114,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,16,kg,192,USD
-2025-1-17-3-3-114,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,30,kg,390,USD
-2025-1-17-3-3-114,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,89,kg,1424,USD
-2025-1-17-3-2-115,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,114,kg,1140,USD
-2025-1-17-3-2-115,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,128,kg,1408,USD
-2025-1-17-3-2-115,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,153,kg,1530,USD
-2025-1-17-3-3-116,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,5,kg,60,USD
-2025-1-17-3-3-116,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,47,kg,611,USD
-2025-1-17-3-3-116,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,24,kg,384,USD
-2025-1-17-3-2-117,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,139,kg,1390,USD
-2025-1-17-3-2-117,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,29,kg,319,USD
-2025-1-17-3-2-117,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,56,kg,560,USD
-2025-1-17-3-3-118,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,7,kg,84,USD
-2025-1-17-3-3-118,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,78,kg,1014,USD
-2025-1-17-3-3-118,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,51,kg,816,USD
-2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,43,kg,1075,USD
-2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,27,kg,648,USD
-2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,3,kg,36,USD
-2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,77,kg,1001,USD
-2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,14,kg,224,USD
-2025-1-18-4-3-120,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,46,kg,552,USD
-2025-1-18-4-3-120,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,8,kg,104,USD
-2025-1-18-4-3-120,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,72,kg,1152,USD
-2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,16,kg,400,USD
-2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,20,kg,480,USD
-2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,45,kg,540,USD
-2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,26,kg,338,USD
-2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,94,kg,1504,USD
-2025-1-18-4-3-122,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,18,kg,216,USD
-2025-1-18-4-3-122,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,29,kg,377,USD
-2025-1-18-4-3-122,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,81,kg,1296,USD
-2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,57,kg,1425,USD
-2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,1,kg,24,USD
-2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,28,kg,336,USD
-2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,51,kg,663,USD
-2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,82,kg,1312,USD
-2025-1-18-4-3-124,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,4,kg,48,USD
-2025-1-18-4-3-124,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,38,kg,494,USD
-2025-1-18-4-3-124,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,70,kg,1120,USD
-2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,37,kg,925,USD
-2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,27,kg,648,USD
-2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,5,kg,60,USD
-2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,31,kg,403,USD
-2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,55,kg,880,USD
-2025-1-18-4-3-126,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,31,kg,372,USD
-2025-1-18-4-3-126,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,67,kg,871,USD
-2025-1-18-4-3-126,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,86,kg,1376,USD
-2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,31,kg,775,USD
-2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,3,kg,72,USD
-2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,9,kg,108,USD
-2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,44,kg,572,USD
-2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,86,kg,1376,USD
-2025-1-18-4-3-128,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,9,kg,108,USD
-2025-1-18-4-3-128,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,39,kg,507,USD
-2025-1-18-4-3-128,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,88,kg,1408,USD
-2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Lobster,39,kg,975,USD
-2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Crab,17,kg,408,USD
-2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Grouper,16,kg,192,USD
-2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Snapper,13,kg,169,USD
-2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Parrot fish,77,kg,1232,USD
-2025-1-19-5-2-130,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,117,kg,1170,USD
-2025-1-19-5-2-130,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,125,kg,1375,USD
-2025-1-19-5-2-130,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,169,kg,1690,USD
-2025-1-19-5-3-131,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,23,kg,276,USD
-2025-1-19-5-3-131,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,49,kg,637,USD
-2025-1-19-5-3-131,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,56,kg,896,USD
-2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Lobster,43,kg,1075,USD
-2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Crab,29,kg,696,USD
-2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Grouper,26,kg,312,USD
-2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Snapper,23,kg,299,USD
-2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Parrot fish,47,kg,752,USD
-2025-1-19-5-2-133,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,117,kg,1170,USD
-2025-1-19-5-2-133,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,85,kg,935,USD
-2025-1-19-5-2-133,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,59,kg,590,USD
-2025-1-19-5-3-134,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,21,kg,252,USD
-2025-1-19-5-3-134,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,33,kg,429,USD
-2025-1-19-5-3-134,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,6,kg,96,USD
-2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Lobster,15,kg,375,USD
-2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Crab,7,kg,168,USD
-2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Grouper,15,kg,180,USD
-2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Snapper,57,kg,741,USD
-2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Parrot fish,77,kg,1232,USD
-2025-1-19-5-2-136,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,133,kg,1330,USD
-2025-1-19-5-2-136,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,92,kg,1012,USD
-2025-1-19-5-2-136,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,167,kg,1670,USD
-2025-1-19-5-3-137,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,6,kg,72,USD
-2025-1-19-5-3-137,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,22,kg,286,USD
-2025-1-19-5-3-137,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,29,kg,464,USD
-2025-1-19-5-2-138,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,34,kg,340,USD
-2025-1-19-5-2-138,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,105,kg,1155,USD
-2025-1-19-5-2-138,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,143,kg,1430,USD
-2025-1-19-5-3-139,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,11,kg,132,USD
-2025-1-19-5-3-139,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,1,kg,13,USD
-2025-1-19-5-3-139,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,15,kg,240,USD
-2025-1-19-5-2-140,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,100,kg,1000,USD
-2025-1-19-5-2-140,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,108,kg,1188,USD
-2025-1-19-5-2-140,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,67,kg,670,USD
-2025-1-19-5-3-141,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,34,kg,408,USD
-2025-1-19-5-3-141,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,0,kg,0,USD
-2025-1-19-5-3-141,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,72,kg,1152,USD
-2025-1-19-5-2-142,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,96,kg,960,USD
-2025-1-19-5-2-142,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,81,kg,891,USD
-2025-1-19-5-2-142,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,168,kg,1680,USD
-2025-1-23-3-3-143,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,3,kg,36,USD
-2025-1-23-3-3-143,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,32,kg,416,USD
-2025-1-23-3-3-143,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,24,kg,384,USD
-2025-1-23-3-2-144,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,51,kg,510,USD
-2025-1-23-3-2-144,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,89,kg,979,USD
-2025-1-23-3-2-144,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,38,kg,380,USD
-2025-1-23-3-3-145,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,45,kg,540,USD
-2025-1-23-3-3-145,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,27,kg,351,USD
-2025-1-23-3-3-145,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,22,kg,352,USD
-2025-1-23-3-2-146,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,92,kg,920,USD
-2025-1-23-3-2-146,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,106,kg,1166,USD
-2025-1-23-3-2-146,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,56,kg,560,USD
-2025-1-23-3-3-147,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,25,kg,300,USD
-2025-1-23-3-3-147,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,74,kg,962,USD
-2025-1-23-3-3-147,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,39,kg,624,USD
-2025-1-23-3-2-148,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,40,kg,400,USD
-2025-1-23-3-2-148,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,113,kg,1243,USD
-2025-1-23-3-2-148,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,125,kg,1250,USD
-2025-1-23-3-3-149,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,3,kg,36,USD
-2025-1-23-3-3-149,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,1,kg,13,USD
-2025-1-23-3-3-149,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,25,kg,400,USD
-2025-1-23-3-2-150,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,80,kg,800,USD
-2025-1-23-3-2-150,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,86,kg,946,USD
-2025-1-23-3-2-150,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,74,kg,740,USD
-2025-1-23-3-3-151,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,29,kg,348,USD
-2025-1-23-3-3-151,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,78,kg,1014,USD
-2025-1-23-3-3-151,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,37,kg,592,USD
-2025-1-23-3-2-152,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,23,kg,230,USD
-2025-1-23-3-2-152,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,123,kg,1353,USD
-2025-1-23-3-2-152,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,139,kg,1390,USD
-2025-1-23-3-3-153,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,32,kg,384,USD
-2025-1-23-3-3-153,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,60,kg,780,USD
-2025-1-23-3-3-153,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,11,kg,176,USD
-2025-1-23-3-2-154,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,97,kg,970,USD
-2025-1-23-3-2-154,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,105,kg,1155,USD
-2025-1-23-3-2-154,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,60,kg,600,USD
-2025-1-23-3-3-155,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,34,kg,408,USD
-2025-1-23-3-3-155,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,70,kg,910,USD
-2025-1-23-3-3-155,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,17,kg,272,USD
-2025-1-23-3-2-156,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,148,kg,1480,USD
-2025-1-23-3-2-156,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,97,kg,1067,USD
-2025-1-23-3-2-156,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,197,kg,1970,USD
-2025-1-23-3-3-157,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,38,kg,456,USD
-2025-1-23-3-3-157,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,66,kg,858,USD
-2025-1-23-3-3-157,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,85,kg,1360,USD
-2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,23,kg,575,USD
-2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,16,kg,384,USD
-2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,50,kg,600,USD
-2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,24,kg,312,USD
-2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,55,kg,880,USD
-2025-1-25-2-2-159,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardine,138,kg,1380,USD
-2025-1-25-2-2-159,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardinella,24,kg,264,USD
-2025-1-25-2-2-159,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Anchovies,167,kg,1670,USD
-2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,42,kg,1050,USD
-2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,0,kg,0,USD
-2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,9,kg,108,USD
-2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,32,kg,416,USD
-2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,91,kg,1456,USD
-2025-1-25-2-2-161,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardine,32,kg,320,USD
-2025-1-25-2-2-161,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardinella,130,kg,1430,USD
-2025-1-25-2-2-161,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Anchovies,195,kg,1950,USD
-2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,57,kg,1425,USD
-2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,8,kg,192,USD
-2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,9,kg,108,USD
-2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,26,kg,338,USD
-2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,0,kg,0,USD
-2025-1-25-2-2-163,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardine,139,kg,1390,USD
-2025-1-25-2-2-163,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardinella,158,kg,1738,USD
-2025-1-25-2-2-163,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Anchovies,151,kg,1510,USD
-2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,37,kg,925,USD
-2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,21,kg,504,USD
-2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,29,kg,348,USD
-2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,27,kg,351,USD
-2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,6,kg,96,USD
+fishing_trip,year,month,day,minor_stratum,landing_site,fishing_unit,effort_fishing_duration,effort_fishing_duration_unit,species,catch_number,catch_nominal_landed,catch_nominal_landed_unit,trade_value,trade_value_unit
+2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Lobster,26,26,kg,650,USD
+2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Crab,28,28,kg,672,USD
+2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Grouper,0,0,kg,0,USD
+2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Snapper,4,4,kg,52,USD
+2025-1-2-1-1-1,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Parrot fish,48,48,kg,768,USD
+2025-1-2-1-2-2,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,64,64,kg,640,USD
+2025-1-2-1-2-2,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,108,108,kg,1188,USD
+2025-1-2-1-2-2,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,194,194,kg,1940,USD
+2025-1-2-1-3-3,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,40,40,kg,480,USD
+2025-1-2-1-3-3,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,44,44,kg,572,USD
+2025-1-2-1-3-3,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,1,1,kg,16,USD
+2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Lobster,55,55,kg,1375,USD
+2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Crab,8,8,kg,192,USD
+2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Grouper,31,31,kg,372,USD
+2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Snapper,7,7,kg,91,USD
+2025-1-2-1-1-4,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Parrot fish,61,61,kg,976,USD
+2025-1-2-1-2-5,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,97,97,kg,970,USD
+2025-1-2-1-2-5,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,134,134,kg,1474,USD
+2025-1-2-1-2-5,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,179,179,kg,1790,USD
+2025-1-2-1-3-6,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,6,6,kg,72,USD
+2025-1-2-1-3-6,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,38,38,kg,494,USD
+2025-1-2-1-3-6,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,19,19,kg,304,USD
+2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Lobster,32,32,kg,800,USD
+2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Crab,0,0,kg,0,USD
+2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Grouper,4,4,kg,48,USD
+2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Snapper,12,12,kg,156,USD
+2025-1-2-1-1-7,2025,1,2,1,1,Artisanal 0-6m trap,1,days,Parrot fish,19,19,kg,304,USD
+2025-1-2-1-2-8,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,75,75,kg,750,USD
+2025-1-2-1-2-8,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,70,70,kg,770,USD
+2025-1-2-1-2-8,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,125,125,kg,1250,USD
+2025-1-2-1-3-9,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,45,45,kg,540,USD
+2025-1-2-1-3-9,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,4,4,kg,52,USD
+2025-1-2-1-3-9,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,66,66,kg,1056,USD
+2025-1-2-1-2-10,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,129,129,kg,1290,USD
+2025-1-2-1-2-10,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,67,67,kg,737,USD
+2025-1-2-1-2-10,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,188,188,kg,1880,USD
+2025-1-2-1-3-11,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,30,30,kg,360,USD
+2025-1-2-1-3-11,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,71,71,kg,923,USD
+2025-1-2-1-3-11,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,14,14,kg,224,USD
+2025-1-2-1-2-12,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,125,125,kg,1250,USD
+2025-1-2-1-2-12,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,15,15,kg,165,USD
+2025-1-2-1-2-12,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,145,145,kg,1450,USD
+2025-1-2-1-3-13,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,17,17,kg,204,USD
+2025-1-2-1-3-13,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,30,30,kg,390,USD
+2025-1-2-1-3-13,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,87,87,kg,1392,USD
+2025-1-2-1-2-14,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardine,125,125,kg,1250,USD
+2025-1-2-1-2-14,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Sardinella,71,71,kg,781,USD
+2025-1-2-1-2-14,2025,1,2,1,1,Artisanal 6-12m trawl,1,days,Anchovies,70,70,kg,700,USD
+2025-1-2-1-3-15,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Grouper,46,46,kg,552,USD
+2025-1-2-1-3-15,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Snapper,46,46,kg,598,USD
+2025-1-2-1-3-15,2025,1,2,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,76,76,kg,1216,USD
+2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,15,15,kg,375,USD
+2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,0,0,kg,0,USD
+2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,50,50,kg,600,USD
+2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,36,36,kg,468,USD
+2025-1-3-2-1-16,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,70,70,kg,1120,USD
+2025-1-3-2-2-17,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,24,24,kg,240,USD
+2025-1-3-2-2-17,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,43,43,kg,473,USD
+2025-1-3-2-2-17,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,195,195,kg,1950,USD
+2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,55,55,kg,1375,USD
+2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,2,2,kg,48,USD
+2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,21,21,kg,252,USD
+2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,0,0,kg,0,USD
+2025-1-3-2-1-18,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,65,65,kg,1040,USD
+2025-1-3-2-2-19,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,93,93,kg,930,USD
+2025-1-3-2-2-19,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,121,121,kg,1331,USD
+2025-1-3-2-2-19,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,190,190,kg,1900,USD
+2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,26,26,kg,650,USD
+2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,28,28,kg,672,USD
+2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,26,26,kg,312,USD
+2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,39,39,kg,507,USD
+2025-1-3-2-1-20,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,11,11,kg,176,USD
+2025-1-3-2-2-21,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,45,45,kg,450,USD
+2025-1-3-2-2-21,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,49,49,kg,539,USD
+2025-1-3-2-2-21,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,56,56,kg,560,USD
+2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,25,25,kg,625,USD
+2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,2,2,kg,48,USD
+2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,17,17,kg,204,USD
+2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,25,25,kg,325,USD
+2025-1-3-2-1-22,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,95,95,kg,1520,USD
+2025-1-3-2-2-23,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,46,46,kg,460,USD
+2025-1-3-2-2-23,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,39,39,kg,429,USD
+2025-1-3-2-2-23,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,50,50,kg,500,USD
+2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Lobster,6,6,kg,150,USD
+2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Crab,27,27,kg,648,USD
+2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Grouper,44,44,kg,528,USD
+2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Snapper,0,0,kg,0,USD
+2025-1-3-2-1-24,2025,1,3,1,2,Artisanal 0-6m trap,1,days,Parrot fish,2,2,kg,32,USD
+2025-1-3-2-2-25,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardine,113,113,kg,1130,USD
+2025-1-3-2-2-25,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Sardinella,130,130,kg,1430,USD
+2025-1-3-2-2-25,2025,1,3,1,2,Artisanal 6-12m trawl,1,days,Anchovies,192,192,kg,1920,USD
+2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Lobster,59,59,kg,1475,USD
+2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Crab,2,2,kg,48,USD
+2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Grouper,34,34,kg,408,USD
+2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Snapper,33,33,kg,429,USD
+2025-1-7-5-1-26,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Parrot fish,26,26,kg,416,USD
+2025-1-7-5-2-27,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,127,127,kg,1270,USD
+2025-1-7-5-2-27,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,27,27,kg,297,USD
+2025-1-7-5-2-27,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,123,123,kg,1230,USD
+2025-1-7-5-3-28,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,28,28,kg,336,USD
+2025-1-7-5-3-28,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,39,39,kg,507,USD
+2025-1-7-5-3-28,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,90,90,kg,1440,USD
+2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Lobster,13,13,kg,325,USD
+2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Crab,28,28,kg,672,USD
+2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Grouper,14,14,kg,168,USD
+2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Snapper,55,55,kg,715,USD
+2025-1-7-5-1-29,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Parrot fish,53,53,kg,848,USD
+2025-1-7-5-2-30,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,144,144,kg,1440,USD
+2025-1-7-5-2-30,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,136,136,kg,1496,USD
+2025-1-7-5-2-30,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,135,135,kg,1350,USD
+2025-1-7-5-3-31,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,22,22,kg,264,USD
+2025-1-7-5-3-31,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,59,59,kg,767,USD
+2025-1-7-5-3-31,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,94,94,kg,1504,USD
+2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Lobster,9,9,kg,225,USD
+2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Crab,5,5,kg,120,USD
+2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Grouper,29,29,kg,348,USD
+2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Snapper,13,13,kg,169,USD
+2025-1-7-5-1-32,2025,1,7,2,5,Artisanal 0-6m trap,1,days,Parrot fish,41,41,kg,656,USD
+2025-1-7-5-2-33,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,73,73,kg,730,USD
+2025-1-7-5-2-33,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,64,64,kg,704,USD
+2025-1-7-5-2-33,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,36,36,kg,360,USD
+2025-1-7-5-3-34,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,48,48,kg,576,USD
+2025-1-7-5-3-34,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,21,21,kg,273,USD
+2025-1-7-5-3-34,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,63,63,kg,1008,USD
+2025-1-7-5-2-35,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,113,113,kg,1130,USD
+2025-1-7-5-2-35,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,139,139,kg,1529,USD
+2025-1-7-5-2-35,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,162,162,kg,1620,USD
+2025-1-7-5-3-36,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,36,36,kg,432,USD
+2025-1-7-5-3-36,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,10,10,kg,130,USD
+2025-1-7-5-3-36,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,60,60,kg,960,USD
+2025-1-7-5-2-37,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,43,43,kg,430,USD
+2025-1-7-5-2-37,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,116,116,kg,1276,USD
+2025-1-7-5-2-37,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,37,37,kg,370,USD
+2025-1-7-5-3-38,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,24,24,kg,288,USD
+2025-1-7-5-3-38,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,4,4,kg,52,USD
+2025-1-7-5-3-38,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,32,32,kg,512,USD
+2025-1-7-5-2-39,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardine,71,71,kg,710,USD
+2025-1-7-5-2-39,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Sardinella,39,39,kg,429,USD
+2025-1-7-5-2-39,2025,1,7,2,5,Artisanal 6-12m trawl,1,days,Anchovies,124,124,kg,1240,USD
+2025-1-7-5-3-40,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Grouper,17,17,kg,204,USD
+2025-1-7-5-3-40,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Snapper,9,9,kg,117,USD
+2025-1-7-5-3-40,2025,1,7,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,52,52,kg,832,USD
+2025-1-8-3-2-41,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,37,37,kg,370,USD
+2025-1-8-3-2-41,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,72,72,kg,792,USD
+2025-1-8-3-2-41,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,58,58,kg,580,USD
+2025-1-8-3-3-42,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,27,27,kg,324,USD
+2025-1-8-3-3-42,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,9,9,kg,117,USD
+2025-1-8-3-3-42,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,13,13,kg,208,USD
+2025-1-8-3-2-43,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,133,133,kg,1330,USD
+2025-1-8-3-2-43,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,49,49,kg,539,USD
+2025-1-8-3-2-43,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,92,92,kg,920,USD
+2025-1-8-3-3-44,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,36,36,kg,432,USD
+2025-1-8-3-3-44,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,71,71,kg,923,USD
+2025-1-8-3-3-44,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,31,31,kg,496,USD
+2025-1-8-3-2-45,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,104,104,kg,1040,USD
+2025-1-8-3-2-45,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,75,75,kg,825,USD
+2025-1-8-3-2-45,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,87,87,kg,870,USD
+2025-1-8-3-3-46,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,15,15,kg,180,USD
+2025-1-8-3-3-46,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,75,75,kg,975,USD
+2025-1-8-3-3-46,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,95,95,kg,1520,USD
+2025-1-8-3-2-47,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,112,112,kg,1120,USD
+2025-1-8-3-2-47,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,60,60,kg,660,USD
+2025-1-8-3-2-47,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,194,194,kg,1940,USD
+2025-1-8-3-3-48,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,18,18,kg,216,USD
+2025-1-8-3-3-48,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,75,75,kg,975,USD
+2025-1-8-3-3-48,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,10,10,kg,160,USD
+2025-1-8-3-2-49,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,46,46,kg,460,USD
+2025-1-8-3-2-49,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,123,123,kg,1353,USD
+2025-1-8-3-2-49,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,166,166,kg,1660,USD
+2025-1-8-3-3-50,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,40,40,kg,480,USD
+2025-1-8-3-3-50,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,40,40,kg,520,USD
+2025-1-8-3-3-50,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,39,39,kg,624,USD
+2025-1-8-3-2-51,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,150,150,kg,1500,USD
+2025-1-8-3-2-51,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,57,57,kg,627,USD
+2025-1-8-3-2-51,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,60,60,kg,600,USD
+2025-1-8-3-3-52,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,14,14,kg,168,USD
+2025-1-8-3-3-52,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,69,69,kg,897,USD
+2025-1-8-3-3-52,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,38,38,kg,608,USD
+2025-1-8-3-2-53,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardine,120,120,kg,1200,USD
+2025-1-8-3-2-53,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Sardinella,65,65,kg,715,USD
+2025-1-8-3-2-53,2025,1,8,2,3,Artisanal 6-12m trawl,1,days,Anchovies,191,191,kg,1910,USD
+2025-1-8-3-3-54,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Grouper,22,22,kg,264,USD
+2025-1-8-3-3-54,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Snapper,36,36,kg,468,USD
+2025-1-8-3-3-54,2025,1,8,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,13,13,kg,208,USD
+2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,58,58,kg,1450,USD
+2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,21,21,kg,504,USD
+2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,25,25,kg,300,USD
+2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,70,70,kg,910,USD
+2025-1-10-4-1-55,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,27,27,kg,432,USD
+2025-1-10-4-3-56,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,44,44,kg,528,USD
+2025-1-10-4-3-56,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,40,40,kg,520,USD
+2025-1-10-4-3-56,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,70,70,kg,1120,USD
+2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,9,9,kg,225,USD
+2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,13,13,kg,312,USD
+2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,10,10,kg,120,USD
+2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,10,10,kg,130,USD
+2025-1-10-4-1-57,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,100,100,kg,1600,USD
+2025-1-10-4-3-58,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,24,24,kg,288,USD
+2025-1-10-4-3-58,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,1,1,kg,13,USD
+2025-1-10-4-3-58,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,5,5,kg,80,USD
+2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,21,21,kg,525,USD
+2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,9,9,kg,216,USD
+2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,24,24,kg,288,USD
+2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,11,11,kg,143,USD
+2025-1-10-4-1-59,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,56,56,kg,896,USD
+2025-1-10-4-3-60,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,19,19,kg,228,USD
+2025-1-10-4-3-60,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,12,12,kg,156,USD
+2025-1-10-4-3-60,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,98,98,kg,1568,USD
+2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,38,38,kg,950,USD
+2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,14,14,kg,336,USD
+2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,46,46,kg,552,USD
+2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,51,51,kg,663,USD
+2025-1-10-4-1-61,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,14,14,kg,224,USD
+2025-1-10-4-3-62,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,41,41,kg,492,USD
+2025-1-10-4-3-62,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,1,1,kg,13,USD
+2025-1-10-4-3-62,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,1,1,kg,16,USD
+2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Lobster,44,44,kg,1100,USD
+2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Crab,18,18,kg,432,USD
+2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Grouper,24,24,kg,288,USD
+2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Snapper,60,60,kg,780,USD
+2025-1-10-4-1-63,2025,1,10,2,4,Artisanal 0-6m trap,1,days,Parrot fish,98,98,kg,1568,USD
+2025-1-10-4-3-64,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Grouper,38,38,kg,456,USD
+2025-1-10-4-3-64,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Snapper,34,34,kg,442,USD
+2025-1-10-4-3-64,2025,1,10,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,76,76,kg,1216,USD
+2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Lobster,21,21,kg,525,USD
+2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Crab,0,0,kg,0,USD
+2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Grouper,8,8,kg,96,USD
+2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Snapper,57,57,kg,741,USD
+2025-1-12-1-1-65,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Parrot fish,100,100,kg,1600,USD
+2025-1-12-1-2-66,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,47,47,kg,470,USD
+2025-1-12-1-2-66,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,78,78,kg,858,USD
+2025-1-12-1-2-66,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,102,102,kg,1020,USD
+2025-1-12-1-3-67,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,12,12,kg,144,USD
+2025-1-12-1-3-67,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,15,15,kg,195,USD
+2025-1-12-1-3-67,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,37,37,kg,592,USD
+2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Lobster,26,26,kg,650,USD
+2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Crab,10,10,kg,240,USD
+2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Grouper,10,10,kg,120,USD
+2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Snapper,4,4,kg,52,USD
+2025-1-12-1-1-68,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Parrot fish,31,31,kg,496,USD
+2025-1-12-1-2-69,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,121,121,kg,1210,USD
+2025-1-12-1-2-69,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,27,27,kg,297,USD
+2025-1-12-1-2-69,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,133,133,kg,1330,USD
+2025-1-12-1-3-70,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,28,28,kg,336,USD
+2025-1-12-1-3-70,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,75,75,kg,975,USD
+2025-1-12-1-3-70,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,44,44,kg,704,USD
+2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Lobster,9,9,kg,225,USD
+2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Crab,13,13,kg,312,USD
+2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Grouper,49,49,kg,588,USD
+2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Snapper,7,7,kg,91,USD
+2025-1-12-1-1-71,2025,1,12,1,1,Artisanal 0-6m trap,1,days,Parrot fish,14,14,kg,224,USD
+2025-1-12-1-2-72,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,107,107,kg,1070,USD
+2025-1-12-1-2-72,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,110,110,kg,1210,USD
+2025-1-12-1-2-72,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,156,156,kg,1560,USD
+2025-1-12-1-3-73,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,19,19,kg,228,USD
+2025-1-12-1-3-73,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,14,14,kg,182,USD
+2025-1-12-1-3-73,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,78,78,kg,1248,USD
+2025-1-12-1-2-74,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,73,73,kg,730,USD
+2025-1-12-1-2-74,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,119,119,kg,1309,USD
+2025-1-12-1-2-74,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,186,186,kg,1860,USD
+2025-1-12-1-3-75,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,45,45,kg,540,USD
+2025-1-12-1-3-75,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,18,18,kg,234,USD
+2025-1-12-1-3-75,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,38,38,kg,608,USD
+2025-1-12-1-2-76,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,98,98,kg,980,USD
+2025-1-12-1-2-76,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,152,152,kg,1672,USD
+2025-1-12-1-2-76,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,86,86,kg,860,USD
+2025-1-12-1-3-77,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,4,4,kg,48,USD
+2025-1-12-1-3-77,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,1,1,kg,13,USD
+2025-1-12-1-3-77,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,27,27,kg,432,USD
+2025-1-12-1-2-78,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardine,97,97,kg,970,USD
+2025-1-12-1-2-78,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Sardinella,113,113,kg,1243,USD
+2025-1-12-1-2-78,2025,1,12,1,1,Artisanal 6-12m trawl,1,days,Anchovies,81,81,kg,810,USD
+2025-1-12-1-3-79,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Grouper,39,39,kg,468,USD
+2025-1-12-1-3-79,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Snapper,49,49,kg,637,USD
+2025-1-12-1-3-79,2025,1,12,1,1,Artisanal 6-12m gillnet,1,days,Parrot fish,48,48,kg,768,USD
+2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,30,30,kg,750,USD
+2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,24,24,kg,576,USD
+2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,41,41,kg,492,USD
+2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,62,62,kg,806,USD
+2025-1-14-2-1-80,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,35,35,kg,560,USD
+2025-1-14-2-2-81,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,144,144,kg,1440,USD
+2025-1-14-2-2-81,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,63,63,kg,693,USD
+2025-1-14-2-2-81,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,53,53,kg,530,USD
+2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,54,54,kg,1350,USD
+2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,9,9,kg,216,USD
+2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,3,3,kg,36,USD
+2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,71,71,kg,923,USD
+2025-1-14-2-1-82,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,5,5,kg,80,USD
+2025-1-14-2-2-83,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,60,60,kg,600,USD
+2025-1-14-2-2-83,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,123,123,kg,1353,USD
+2025-1-14-2-2-83,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,135,135,kg,1350,USD
+2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,18,18,kg,450,USD
+2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,23,23,kg,552,USD
+2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,43,43,kg,516,USD
+2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,40,40,kg,520,USD
+2025-1-14-2-1-84,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,55,55,kg,880,USD
+2025-1-14-2-2-85,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,47,47,kg,470,USD
+2025-1-14-2-2-85,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,154,154,kg,1694,USD
+2025-1-14-2-2-85,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,83,83,kg,830,USD
+2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,59,59,kg,1475,USD
+2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,15,15,kg,360,USD
+2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,41,41,kg,492,USD
+2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,61,61,kg,793,USD
+2025-1-14-2-1-86,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,53,53,kg,848,USD
+2025-1-14-2-2-87,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,114,114,kg,1140,USD
+2025-1-14-2-2-87,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,10,10,kg,110,USD
+2025-1-14-2-2-87,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,99,99,kg,990,USD
+2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Lobster,14,14,kg,350,USD
+2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Crab,14,14,kg,336,USD
+2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Grouper,0,0,kg,0,USD
+2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Snapper,0,0,kg,0,USD
+2025-1-14-2-1-88,2025,1,14,1,2,Artisanal 0-6m trap,1,days,Parrot fish,86,86,kg,1376,USD
+2025-1-14-2-2-89,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardine,150,150,kg,1500,USD
+2025-1-14-2-2-89,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Sardinella,64,64,kg,704,USD
+2025-1-14-2-2-89,2025,1,14,1,2,Artisanal 6-12m trawl,1,days,Anchovies,135,135,kg,1350,USD
+2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Lobster,3,3,kg,75,USD
+2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Crab,18,18,kg,432,USD
+2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Grouper,30,30,kg,360,USD
+2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Snapper,65,65,kg,845,USD
+2025-1-15-5-1-90,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Parrot fish,70,70,kg,1120,USD
+2025-1-15-5-2-91,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,146,146,kg,1460,USD
+2025-1-15-5-2-91,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,153,153,kg,1683,USD
+2025-1-15-5-2-91,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,36,36,kg,360,USD
+2025-1-15-5-3-92,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,32,32,kg,384,USD
+2025-1-15-5-3-92,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,77,77,kg,1001,USD
+2025-1-15-5-3-92,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,80,80,kg,1280,USD
+2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Lobster,35,35,kg,875,USD
+2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Crab,5,5,kg,120,USD
+2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Grouper,27,27,kg,324,USD
+2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Snapper,73,73,kg,949,USD
+2025-1-15-5-1-93,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Parrot fish,89,89,kg,1424,USD
+2025-1-15-5-2-94,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,144,144,kg,1440,USD
+2025-1-15-5-2-94,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,102,102,kg,1122,USD
+2025-1-15-5-2-94,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,103,103,kg,1030,USD
+2025-1-15-5-3-95,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,39,39,kg,468,USD
+2025-1-15-5-3-95,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,68,68,kg,884,USD
+2025-1-15-5-3-95,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,82,82,kg,1312,USD
+2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Lobster,6,6,kg,150,USD
+2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Crab,4,4,kg,96,USD
+2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Grouper,37,37,kg,444,USD
+2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Snapper,51,51,kg,663,USD
+2025-1-15-5-1-96,2025,1,15,2,5,Artisanal 0-6m trap,1,days,Parrot fish,71,71,kg,1136,USD
+2025-1-15-5-2-97,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,131,131,kg,1310,USD
+2025-1-15-5-2-97,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,149,149,kg,1639,USD
+2025-1-15-5-2-97,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,47,47,kg,470,USD
+2025-1-15-5-3-98,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,48,48,kg,576,USD
+2025-1-15-5-3-98,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,64,64,kg,832,USD
+2025-1-15-5-3-98,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,2,2,kg,32,USD
+2025-1-15-5-2-99,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,106,106,kg,1060,USD
+2025-1-15-5-2-99,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,132,132,kg,1452,USD
+2025-1-15-5-2-99,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,119,119,kg,1190,USD
+2025-1-15-5-3-100,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,42,42,kg,504,USD
+2025-1-15-5-3-100,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,23,23,kg,299,USD
+2025-1-15-5-3-100,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,80,80,kg,1280,USD
+2025-1-15-5-2-101,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,89,89,kg,890,USD
+2025-1-15-5-2-101,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,14,14,kg,154,USD
+2025-1-15-5-2-101,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,150,150,kg,1500,USD
+2025-1-15-5-3-102,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,32,32,kg,384,USD
+2025-1-15-5-3-102,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,16,16,kg,208,USD
+2025-1-15-5-3-102,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,72,72,kg,1152,USD
+2025-1-15-5-2-103,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardine,38,38,kg,380,USD
+2025-1-15-5-2-103,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Sardinella,145,145,kg,1595,USD
+2025-1-15-5-2-103,2025,1,15,2,5,Artisanal 6-12m trawl,1,days,Anchovies,92,92,kg,920,USD
+2025-1-15-5-3-104,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Grouper,24,24,kg,288,USD
+2025-1-15-5-3-104,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Snapper,33,33,kg,429,USD
+2025-1-15-5-3-104,2025,1,15,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,49,49,kg,784,USD
+2025-1-17-3-2-105,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,25,25,kg,250,USD
+2025-1-17-3-2-105,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,42,42,kg,462,USD
+2025-1-17-3-2-105,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,39,39,kg,390,USD
+2025-1-17-3-3-106,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,50,50,kg,600,USD
+2025-1-17-3-3-106,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,47,47,kg,611,USD
+2025-1-17-3-3-106,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,4,4,kg,64,USD
+2025-1-17-3-2-107,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,129,129,kg,1290,USD
+2025-1-17-3-2-107,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,146,146,kg,1606,USD
+2025-1-17-3-2-107,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,45,45,kg,450,USD
+2025-1-17-3-3-108,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,20,20,kg,240,USD
+2025-1-17-3-3-108,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,30,30,kg,390,USD
+2025-1-17-3-3-108,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,21,21,kg,336,USD
+2025-1-17-3-2-109,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,106,106,kg,1060,USD
+2025-1-17-3-2-109,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,102,102,kg,1122,USD
+2025-1-17-3-2-109,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,115,115,kg,1150,USD
+2025-1-17-3-3-110,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,49,49,kg,588,USD
+2025-1-17-3-3-110,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,70,70,kg,910,USD
+2025-1-17-3-3-110,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,87,87,kg,1392,USD
+2025-1-17-3-2-111,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,30,30,kg,300,USD
+2025-1-17-3-2-111,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,139,139,kg,1529,USD
+2025-1-17-3-2-111,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,129,129,kg,1290,USD
+2025-1-17-3-3-112,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,36,36,kg,432,USD
+2025-1-17-3-3-112,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,48,48,kg,624,USD
+2025-1-17-3-3-112,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,47,47,kg,752,USD
+2025-1-17-3-2-113,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,68,68,kg,680,USD
+2025-1-17-3-2-113,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,14,14,kg,154,USD
+2025-1-17-3-2-113,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,114,114,kg,1140,USD
+2025-1-17-3-3-114,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,16,16,kg,192,USD
+2025-1-17-3-3-114,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,30,30,kg,390,USD
+2025-1-17-3-3-114,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,89,89,kg,1424,USD
+2025-1-17-3-2-115,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,114,114,kg,1140,USD
+2025-1-17-3-2-115,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,128,128,kg,1408,USD
+2025-1-17-3-2-115,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,153,153,kg,1530,USD
+2025-1-17-3-3-116,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,5,5,kg,60,USD
+2025-1-17-3-3-116,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,47,47,kg,611,USD
+2025-1-17-3-3-116,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,24,24,kg,384,USD
+2025-1-17-3-2-117,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardine,139,139,kg,1390,USD
+2025-1-17-3-2-117,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Sardinella,29,29,kg,319,USD
+2025-1-17-3-2-117,2025,1,17,2,3,Artisanal 6-12m trawl,1,days,Anchovies,56,56,kg,560,USD
+2025-1-17-3-3-118,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Grouper,7,7,kg,84,USD
+2025-1-17-3-3-118,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Snapper,78,78,kg,1014,USD
+2025-1-17-3-3-118,2025,1,17,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,51,51,kg,816,USD
+2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,43,43,kg,1075,USD
+2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,27,27,kg,648,USD
+2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,3,3,kg,36,USD
+2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,77,77,kg,1001,USD
+2025-1-18-4-1-119,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,14,14,kg,224,USD
+2025-1-18-4-3-120,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,46,46,kg,552,USD
+2025-1-18-4-3-120,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,8,8,kg,104,USD
+2025-1-18-4-3-120,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,72,72,kg,1152,USD
+2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,16,16,kg,400,USD
+2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,20,20,kg,480,USD
+2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,45,45,kg,540,USD
+2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,26,26,kg,338,USD
+2025-1-18-4-1-121,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,94,94,kg,1504,USD
+2025-1-18-4-3-122,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,18,18,kg,216,USD
+2025-1-18-4-3-122,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,29,29,kg,377,USD
+2025-1-18-4-3-122,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,81,81,kg,1296,USD
+2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,57,57,kg,1425,USD
+2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,1,1,kg,24,USD
+2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,28,28,kg,336,USD
+2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,51,51,kg,663,USD
+2025-1-18-4-1-123,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,82,82,kg,1312,USD
+2025-1-18-4-3-124,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,4,4,kg,48,USD
+2025-1-18-4-3-124,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,38,38,kg,494,USD
+2025-1-18-4-3-124,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,70,70,kg,1120,USD
+2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,37,37,kg,925,USD
+2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,27,27,kg,648,USD
+2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,5,5,kg,60,USD
+2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,31,31,kg,403,USD
+2025-1-18-4-1-125,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,55,55,kg,880,USD
+2025-1-18-4-3-126,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,31,31,kg,372,USD
+2025-1-18-4-3-126,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,67,67,kg,871,USD
+2025-1-18-4-3-126,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,86,86,kg,1376,USD
+2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Lobster,31,31,kg,775,USD
+2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Crab,3,3,kg,72,USD
+2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Grouper,9,9,kg,108,USD
+2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Snapper,44,44,kg,572,USD
+2025-1-18-4-1-127,2025,1,18,2,4,Artisanal 0-6m trap,1,days,Parrot fish,86,86,kg,1376,USD
+2025-1-18-4-3-128,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Grouper,9,9,kg,108,USD
+2025-1-18-4-3-128,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Snapper,39,39,kg,507,USD
+2025-1-18-4-3-128,2025,1,18,2,4,Artisanal 6-12m gillnet,1,days,Parrot fish,88,88,kg,1408,USD
+2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Lobster,39,39,kg,975,USD
+2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Crab,17,17,kg,408,USD
+2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Grouper,16,16,kg,192,USD
+2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Snapper,13,13,kg,169,USD
+2025-1-19-5-1-129,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Parrot fish,77,77,kg,1232,USD
+2025-1-19-5-2-130,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,117,117,kg,1170,USD
+2025-1-19-5-2-130,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,125,125,kg,1375,USD
+2025-1-19-5-2-130,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,169,169,kg,1690,USD
+2025-1-19-5-3-131,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,23,23,kg,276,USD
+2025-1-19-5-3-131,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,49,49,kg,637,USD
+2025-1-19-5-3-131,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,56,56,kg,896,USD
+2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Lobster,43,43,kg,1075,USD
+2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Crab,29,29,kg,696,USD
+2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Grouper,26,26,kg,312,USD
+2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Snapper,23,23,kg,299,USD
+2025-1-19-5-1-132,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Parrot fish,47,47,kg,752,USD
+2025-1-19-5-2-133,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,117,117,kg,1170,USD
+2025-1-19-5-2-133,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,85,85,kg,935,USD
+2025-1-19-5-2-133,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,59,59,kg,590,USD
+2025-1-19-5-3-134,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,21,21,kg,252,USD
+2025-1-19-5-3-134,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,33,33,kg,429,USD
+2025-1-19-5-3-134,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,6,6,kg,96,USD
+2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Lobster,15,15,kg,375,USD
+2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Crab,7,7,kg,168,USD
+2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Grouper,15,15,kg,180,USD
+2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Snapper,57,57,kg,741,USD
+2025-1-19-5-1-135,2025,1,19,2,5,Artisanal 0-6m trap,1,days,Parrot fish,77,77,kg,1232,USD
+2025-1-19-5-2-136,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,133,133,kg,1330,USD
+2025-1-19-5-2-136,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,92,92,kg,1012,USD
+2025-1-19-5-2-136,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,167,167,kg,1670,USD
+2025-1-19-5-3-137,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,6,6,kg,72,USD
+2025-1-19-5-3-137,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,22,22,kg,286,USD
+2025-1-19-5-3-137,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,29,29,kg,464,USD
+2025-1-19-5-2-138,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,34,34,kg,340,USD
+2025-1-19-5-2-138,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,105,105,kg,1155,USD
+2025-1-19-5-2-138,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,143,143,kg,1430,USD
+2025-1-19-5-3-139,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,11,11,kg,132,USD
+2025-1-19-5-3-139,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,1,1,kg,13,USD
+2025-1-19-5-3-139,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,15,15,kg,240,USD
+2025-1-19-5-2-140,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,100,100,kg,1000,USD
+2025-1-19-5-2-140,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,108,108,kg,1188,USD
+2025-1-19-5-2-140,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,67,67,kg,670,USD
+2025-1-19-5-3-141,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Grouper,34,34,kg,408,USD
+2025-1-19-5-3-141,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Snapper,0,0,kg,0,USD
+2025-1-19-5-3-141,2025,1,19,2,5,Artisanal 6-12m gillnet,1,days,Parrot fish,72,72,kg,1152,USD
+2025-1-19-5-2-142,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardine,96,96,kg,960,USD
+2025-1-19-5-2-142,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Sardinella,81,81,kg,891,USD
+2025-1-19-5-2-142,2025,1,19,2,5,Artisanal 6-12m trawl,1,days,Anchovies,168,168,kg,1680,USD
+2025-1-23-3-3-143,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,3,3,kg,36,USD
+2025-1-23-3-3-143,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,32,32,kg,416,USD
+2025-1-23-3-3-143,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,24,24,kg,384,USD
+2025-1-23-3-2-144,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,51,51,kg,510,USD
+2025-1-23-3-2-144,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,89,89,kg,979,USD
+2025-1-23-3-2-144,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,38,38,kg,380,USD
+2025-1-23-3-3-145,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,45,45,kg,540,USD
+2025-1-23-3-3-145,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,27,27,kg,351,USD
+2025-1-23-3-3-145,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,22,22,kg,352,USD
+2025-1-23-3-2-146,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,92,92,kg,920,USD
+2025-1-23-3-2-146,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,106,106,kg,1166,USD
+2025-1-23-3-2-146,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,56,56,kg,560,USD
+2025-1-23-3-3-147,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,25,25,kg,300,USD
+2025-1-23-3-3-147,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,74,74,kg,962,USD
+2025-1-23-3-3-147,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,39,39,kg,624,USD
+2025-1-23-3-2-148,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,40,40,kg,400,USD
+2025-1-23-3-2-148,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,113,113,kg,1243,USD
+2025-1-23-3-2-148,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,125,125,kg,1250,USD
+2025-1-23-3-3-149,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,3,3,kg,36,USD
+2025-1-23-3-3-149,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,1,1,kg,13,USD
+2025-1-23-3-3-149,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,25,25,kg,400,USD
+2025-1-23-3-2-150,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,80,80,kg,800,USD
+2025-1-23-3-2-150,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,86,86,kg,946,USD
+2025-1-23-3-2-150,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,74,74,kg,740,USD
+2025-1-23-3-3-151,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,29,29,kg,348,USD
+2025-1-23-3-3-151,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,78,78,kg,1014,USD
+2025-1-23-3-3-151,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,37,37,kg,592,USD
+2025-1-23-3-2-152,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,23,23,kg,230,USD
+2025-1-23-3-2-152,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,123,123,kg,1353,USD
+2025-1-23-3-2-152,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,139,139,kg,1390,USD
+2025-1-23-3-3-153,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,32,32,kg,384,USD
+2025-1-23-3-3-153,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,60,60,kg,780,USD
+2025-1-23-3-3-153,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,11,11,kg,176,USD
+2025-1-23-3-2-154,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,97,97,kg,970,USD
+2025-1-23-3-2-154,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,105,105,kg,1155,USD
+2025-1-23-3-2-154,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,60,60,kg,600,USD
+2025-1-23-3-3-155,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,34,34,kg,408,USD
+2025-1-23-3-3-155,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,70,70,kg,910,USD
+2025-1-23-3-3-155,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,17,17,kg,272,USD
+2025-1-23-3-2-156,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardine,148,148,kg,1480,USD
+2025-1-23-3-2-156,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Sardinella,97,97,kg,1067,USD
+2025-1-23-3-2-156,2025,1,23,2,3,Artisanal 6-12m trawl,1,days,Anchovies,197,197,kg,1970,USD
+2025-1-23-3-3-157,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Grouper,38,38,kg,456,USD
+2025-1-23-3-3-157,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Snapper,66,66,kg,858,USD
+2025-1-23-3-3-157,2025,1,23,2,3,Artisanal 6-12m gillnet,1,days,Parrot fish,85,85,kg,1360,USD
+2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,23,23,kg,575,USD
+2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,16,16,kg,384,USD
+2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,50,50,kg,600,USD
+2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,24,24,kg,312,USD
+2025-1-25-2-1-158,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,55,55,kg,880,USD
+2025-1-25-2-2-159,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardine,138,138,kg,1380,USD
+2025-1-25-2-2-159,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardinella,24,24,kg,264,USD
+2025-1-25-2-2-159,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Anchovies,167,167,kg,1670,USD
+2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,42,42,kg,1050,USD
+2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,0,0,kg,0,USD
+2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,9,9,kg,108,USD
+2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,32,32,kg,416,USD
+2025-1-25-2-1-160,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,91,91,kg,1456,USD
+2025-1-25-2-2-161,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardine,32,32,kg,320,USD
+2025-1-25-2-2-161,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardinella,130,130,kg,1430,USD
+2025-1-25-2-2-161,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Anchovies,195,195,kg,1950,USD
+2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,57,57,kg,1425,USD
+2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,8,8,kg,192,USD
+2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,9,9,kg,108,USD
+2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,26,26,kg,338,USD
+2025-1-25-2-1-162,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,0,0,kg,0,USD
+2025-1-25-2-2-163,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardine,139,139,kg,1390,USD
+2025-1-25-2-2-163,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Sardinella,158,158,kg,1738,USD
+2025-1-25-2-2-163,2025,1,25,1,2,Artisanal 6-12m trawl,1,days,Anchovies,151,151,kg,1510,USD
+2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Lobster,37,37,kg,925,USD
+2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Crab,21,21,kg,504,USD
+2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Grouper,29,29,kg,348,USD
+2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Snapper,27,27,kg,351,USD
+2025-1-25-2-1-164,2025,1,25,1,2,Artisanal 0-6m trap,1,days,Parrot fish,6,6,kg,96,USD

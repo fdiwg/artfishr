@@ -16,7 +16,8 @@ testthat::test_that("artfishr",{
   #effort estimate (includes calculation of activity coefficient)
   effort_estimate = artfishr::compute_effort_estimate(
     active_vessels = active_vessels, 
-    active_vessels_strategy = "latest", 
+    active_vessels_strategy = "latest",
+    landings = landings,
     effort = effort, 
     effort_source = "fisher_interview", 
     active_days = active_days,
@@ -27,9 +28,9 @@ testthat::test_that("artfishr",{
   cpue = artfishr::compute_cpue(landings, minor_strata = "minor_stratum")
   
   #catch estimate
-  catch_estimate = artfishr::compute_catch_estimate(effort_estimate, cpue)
+  catch_estimate = artfishr::compute_catch_estimate(effort_estimate, landings = landings, minor_strata = "minor_stratum")
   
   #catch estimate by species
-  catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate)
+  catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate, minor_strata = "minor_stratum")
   
 })
