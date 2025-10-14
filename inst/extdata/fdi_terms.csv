@@ -24,6 +24,7 @@ effort_fishable_duration,"Number of days in the month with a fishing activity. B
 effort_nominal,Total effort estimated of the fishing unit (same value for all species caught by this fishing unit)
 catch_nominal_landed_sampled,Sum of catch weight of landings sampled for this fishing unit (same value for all species caught by this fishing unit)
 catch_total_nominal_landed,Total catch estimated for the fishing unit (all species together) (same value for all species caught by this fishing unit)
+catch_total_cpue,Total CPUE
 effort_number_sampled_days,Number of days sampled for effort survey
 effort_sui,Sample uniformity index for effort estimation (>=0.6 considered good)
 catch_number_sampled_days,Number of days sampled for landings survey
