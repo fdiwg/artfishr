@@ -1,0 +1,35 @@
+term,definition
+year,Year
+month,Month
+fishing_unit,Fishing unit
+species,Species
+catch_number,Number of fish/specimens caught for this species
+effort_sample_size,Number of fishers' interviews
+effort_coefficient_variation,Coefficient of variation of the effort estimation
+catch_sample_size,Number of landings sampled
+catch_coefficient_variation,Coefficient of variation of the CPUE estimation
+catch_CPUE,CPUE for this fishing unit
+catch_number_species,Number of species caught by the fishing unit this month
+catch_species_ratio,Proportion of this species among the total catch
+catch_nominal_landed,Total catch estimated for this species and this fishing unit
+trade_price,Average price per weight for this species
+trade_value,Total value estimated for this species
+catch_fish_average_weight,Average weight per fish/specimen
+effort_total_fishing_duration,Sum of the number of days out of the fishers’ interviews (same value for all species caught by this fishing unit)
+effort_total_fishing_reference_period,Sum of the number of days of the period of reference in the fishers’ interviews (same value for all species caught by this fishing unit)
+effort_fishing_reference_period,Duration in days of the reference period in the fisher's interview (same value for all species caught by this fishing unit)
+effort_activity_coefficient,"Activity coefficient of the fishing unit (same value for all species caught by this fishing unit), representing the probability that a boat is out a certain fishing day"
+fleet_engagement_number,Number of vessels of this fishing unit (information from the frame survey) - (same value for all species caught by this fishing unit)
+effort_fishable_duration,"Number of days in the month with a fishing activity. By default, in case of fisher interview, it is the number of days in the month."
+effort_nominal,Total effort estimated of the fishing unit (same value for all species caught by this fishing unit)
+catch_nominal_landed_sampled,Sum of catch weight of landings sampled for this fishing unit (same value for all species caught by this fishing unit)
+catch_total_nominal_landed,Total catch estimated for the fishing unit (all species together) (same value for all species caught by this fishing unit)
+effort_number_sampled_days,Number of days sampled for effort survey
+effort_sui,Sample uniformity index for effort estimation (>=0.6 considered good)
+catch_number_sampled_days,Number of days sampled for landings survey
+catch_sui,Sample uniformity index for CPUE estimation (>=0.6 considered good)
+effort_activity_coefficient_spatial_accuracy,"Spatial accuracy of effort estimation (especially for activity coefficient estimation). Are there enough fishers' interviews? Yes, if accuracy is close to one (=>0.85)"
+effort_activity_coefficient_temporal_accuracy,"Temporal accuracy of effort estimation (especially for activity coefficient estimation). By default, it is set to 1 as the population (number of days in the month is very small, considered as constant)."
+catch_CPUE_spatial_accuracy,"Spatial accuracy of CPUE estimation. Are there enough landings surveys? Yes, if accuracy is close to one (=>0.85)"
+catch_CPUE_temporal_accuracy,"Temporal accuracy of CPUE estimation. Are there enough days with landings survey? Yes, if accuracy is close to one (=>0.85)"
+overall_accuracy,"Overall accuracy, which is the lowest accuracy among the 4 accuracies calculated. It gives an idea of the reliability of the estimation (=>0.85). With the detail accuracy you can check where the sample can be improved to increase the overall accuracy."

@@ -11,7 +11,8 @@ compute_report(
   active_vessels_strategy,
   active_days,
   landings,
-  minor_strata = NULL
+  minor_strata = NULL,
+  validate = FALSE
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ compute_report(
 \item{landings}{landings}
 
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
+
+\item{validate}{validate}
 }
 \value{
 the result of Artfish

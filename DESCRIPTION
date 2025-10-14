@@ -1,6 +1,6 @@
 Package: artfishr
-Version: 0.1.20250901
-Date: 2025-09-01
+Version: 0.1.20251014
+Date: 2025-10-14
 Title: ArtFish for R
 Authors@R: c(
   person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")),
@@ -12,6 +12,7 @@ Imports:
   methods,
   dplyr,
   tidyr,
+  readr,
   lubridate,
   vrule,
   ggplot2,
@@ -21,5 +22,5 @@ Description: Set of functions in support of ArtFish implementation.
 License: MIT
 URL: https://github.com/fdiwg/artfishr
 BugReports: https://github.com/fdiwg/artfishr/issues
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
