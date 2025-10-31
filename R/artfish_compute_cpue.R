@@ -22,15 +22,6 @@
 #'@export
 compute_cpue = function(landings, minor_strata = NULL){
   
-  if(any(is.na(landings$catch_nominal_landed))){
-    #TODO warnings here to be reported (to investigate how)
-    landings = subset(landings, !is.na(catch_nominal_landed))
-  }
-  if(any(is.na(landings$effort_fishing_duration))){
-    #TODO warnings here to be reported (to investigate how)
-    landings = subset(landings, !is.na(effort_fishing_duration))
-  }
-  
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
