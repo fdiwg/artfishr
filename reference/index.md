@@ -1,0 +1,95 @@
+# Package index
+
+## All functions
+
+- [`accuracy_plot()`](https://fdiwg.github.io/artfishr/reference/accuracy_plot.md)
+  : Produces a plot for the accuracy
+
+- [`artfish_accuracy()`](https://fdiwg.github.io/artfishr/reference/artfish_accuracy.md)
+  : artfish_accuracy
+
+- [`artfish_estimates()`](https://fdiwg.github.io/artfishr/reference/artfish_estimates.md)
+  : artfish_estimates
+
+- [`artfish_estimates_by_fleet_segment()`](https://fdiwg.github.io/artfishr/reference/artfish_estimates_by_fleet_segment.md)
+  : artfish_estimates_by_fleet_segment
+
+- [`artfish_flouca_by_period()`](https://fdiwg.github.io/artfishr/reference/artfish_flouca_by_period.md)
+  : artfish_flouca_by_period
+
+- [`artfish_new()`](https://fdiwg.github.io/artfishr/reference/artfish_new.md)
+  : artfish_new
+
+- [`artfish_new_by_period()`](https://fdiwg.github.io/artfishr/reference/artfish_new_by_period.md)
+  : artfish_new_by_period
+
+- [`artfishr-package`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
+  [`artfishr`](https://fdiwg.github.io/artfishr/reference/artfishr.md) :
+  Tools for implementing ArtFish methodology
+
+- [`artfish_shiny_server()`](https://fdiwg.github.io/artfishr/reference/artfishr_shiny_server.md)
+  : Artfishr shiny server function
+
+- [`artfish_shiny_ui()`](https://fdiwg.github.io/artfishr/reference/artfishr_shiny_ui.md)
+  : Artfishr shiny ui function
+
+- [`complete_active_days()`](https://fdiwg.github.io/artfishr/reference/complete_active_days.md)
+  : Complete the active days.
+
+- [`compute_accuracy()`](https://fdiwg.github.io/artfishr/reference/compute_accuracy.md)
+  : Computes Accuracy
+
+- [`compute_catch_estimate()`](https://fdiwg.github.io/artfishr/reference/compute_catch_estimate.md)
+  : Computes catch estimate
+
+- [`compute_catch_estimates_by_species()`](https://fdiwg.github.io/artfishr/reference/compute_catch_estimates_by_species.md)
+  : Computes catch estimates by species
+
+- [`compute_cpue()`](https://fdiwg.github.io/artfishr/reference/compute_cpue.md)
+  : Computes CPUE
+
+- [`compute_effort_activity_coefficient()`](https://fdiwg.github.io/artfishr/reference/compute_effort_activity_coefficient.md)
+  : Computes effort activity coefficient
+
+- [`compute_effort_estimate()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate.md)
+  : Computes nominal effort estimate
+
+- [`compute_report()`](https://fdiwg.github.io/artfishr/reference/compute_report.md)
+  : compute_report
+
+- [`compute_sui()`](https://fdiwg.github.io/artfishr/reference/compute_sui.md)
+  : Computes sui
+
+- [`generate_active_days()`](https://fdiwg.github.io/artfishr/reference/generate_active_days.md)
+  : Generates a tibble of active days.
+
+- [`generate_active_days_by_period()`](https://fdiwg.github.io/artfishr/reference/generate_active_days_by_period.md)
+  : Generates a tibble of active days.
+
+- [`get_fdi_terms()`](https://fdiwg.github.io/artfishr/reference/get_fdi_terms.md)
+  : Select get_fdi_terms vessels
+
+- [`get_vrule_validators()`](https://fdiwg.github.io/artfishr/reference/get_vrule_validators.md)
+  :
+
+  Get data validators powered by vrule
+
+- [`run_artfish_shiny()`](https://fdiwg.github.io/artfishr/reference/run_artfishr_shiny.md)
+  : Runs a Artfishr Shiny application
+
+- [`sample_size_plot()`](https://fdiwg.github.io/artfishr/reference/sample_size_plot.md)
+  : Produces a plot for the sample size
+
+- [`select_active_vessels()`](https://fdiwg.github.io/artfishr/reference/select_active_vessels.md)
+  : Select active vessels
+
+- [`set_vrule_validators()`](https://fdiwg.github.io/artfishr/reference/set_vrule_validators.md)
+  :
+
+  Set data validators powered by vrule
+
+- [`unif_index()`](https://fdiwg.github.io/artfishr/reference/unif_index.md)
+  : unif_index
+
+- [`validate_input_datasets()`](https://fdiwg.github.io/artfishr/reference/validate_input_datasets.md)
+  : Validate input datasets
