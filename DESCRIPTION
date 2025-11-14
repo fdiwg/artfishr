@@ -20,7 +20,7 @@ Imports:
 Suggests: testthat
 Description: Set of functions in support of ArtFish implementation.
 License: MIT
-URL: https://github.com/fdiwg/artfishr
+URL: https://github.com/fdiwg/artfishr, https://fdiwg.github.io/artfishr/
 BugReports: https://github.com/fdiwg/artfishr/issues
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr

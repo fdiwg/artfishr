@@ -49,3 +49,4 @@ po/*~
 rsconnect/
 
 test_*.R
+docs
