@@ -1,6 +1,6 @@
 Package: artfishr
-Version: 0.1.20251031
-Date: 2025-10-31
+Version: 0.1.20251114
+Date: 2025-11-14
 Title: ArtFish for R
 Authors@R: c(
   person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")),
@@ -17,6 +17,8 @@ Imports:
   vrule,
   ggplot2,
   shiny
+Remotes:
+  fdiwg/vrule
 Suggests: testthat
 Description: Set of functions in support of ArtFish implementation.
 License: MIT
