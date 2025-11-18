@@ -126,7 +126,8 @@ compute_effort_estimate = function(
           main_strata = c("fishing_unit")
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
-          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = c(main_strata, "landing_site"))
+          join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
+          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = join_strata)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection %>%
             dplyr::group_by_at(main_strata) %>%
@@ -171,7 +172,8 @@ compute_effort_estimate = function(
           main_strata = c("fishing_unit")
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
-          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = c(main_strata, "landing_site"))
+          join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
+          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = join_strata)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection %>%
             dplyr::group_by_at(main_strata) %>%
@@ -203,7 +205,8 @@ compute_effort_estimate = function(
       main_strata = c("fishing_unit")
       if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
       #weighted mean
-      active_days = active_days %>% dplyr::left_join(active_vessels, by = c(main_strata,"landing_site"))
+      join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
+      active_days = active_days %>% dplyr::left_join(active_vessels, by = join_srata)
       active_days = active_days[!is.na(active_days$fleet_engagement_number),]
       active_days = active_days %>%
         dplyr::group_by_at(main_strata) %>%
