@@ -79,13 +79,13 @@ compute_report <- function(
   catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
-  result<-catch_estimate_by_species%>%
-    full_join(activity_coefficient)%>%
-    full_join(effort_estimate)%>%
-    full_join(cpue%>%select(-effort_fishing_duration)%>%rename(catch_total_cpue=catch_cpue))%>%
-    full_join(catch_estimate%>%select(-catch_cpue))%>%
-    full_join(sui)%>%
-    full_join(accuracy)%>%
+  result<-catch_estimate_by_species %>%
+    full_join(activity_coefficient) %>%
+    full_join(effort_estimate) %>%
+    full_join(cpue %>% select(-effort_fishing_duration) %>% rename(catch_total_cpue=catch_cpue)) %>%
+    full_join(catch_estimate %>% select(-catch_cpue)) %>%
+    full_join(sui) %>%
+    full_join(accuracy) %>%
     ungroup()
   
   return(result)
