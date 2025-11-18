@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   artfishr: artfishr.html
-last_built: 2025-11-14T09:54Z
+last_built: 2025-11-18T22:44Z
 urls:
   reference: https://fdiwg.github.io/artfishr/reference
   article: https://fdiwg.github.io/artfishr/articles
