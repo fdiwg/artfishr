@@ -79,13 +79,26 @@ compute_report <- function(
   catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
-  result<-catch_estimate_by_species %>%
-    full_join(activity_coefficient) %>%
-    full_join(effort_estimate) %>%
-    full_join(cpue %>% select(-effort_fishing_duration) %>% rename(catch_total_cpue=catch_cpue)) %>%
-    full_join(catch_estimate %>% select(-catch_cpue)) %>%
-    full_join(sui) %>%
-    full_join(accuracy) %>%
+  strata = c("year", "month", "fishing_unit", minor_strata)
+  result <- catch_estimate_by_species %>%
+    left_join(activity_coefficient[,c(strata, setdiff(names(activity_coefficient), names(catch_estimate_by_species)))], by = strata)
+  
+  result <- result %>%  
+    left_join(effort_estimate[,c(strata, setdiff(names(effort_estimate), names(result)))], strata)
+  
+  cpue_formatted = cpue %>% select(-effort_fishing_duration) %>% rename(catch_total_cpue=catch_cpue)
+  result <- result %>%
+    left_join(cpue_formatted[,c(strata, setdiff(names(cpue_formatted), names(result)))], by = strata)
+  
+  catch_estimate_formatted = catch_estimate %>% select(-catch_cpue)
+  result <- result %>%
+    left_join(catch_estimate_formatted[,c(strata, setdiff(names(catch_estimate_formatted), names(result)))], by = strata)
+  
+  result <- result %>%
+    left_join(sui[,c(strata, setdiff(names(sui), names(result)))], by = strata)
+  
+  result <- result %>%
+    left_join(accuracy[,c(strata, setdiff(names(accuracy), names(result)))], by = strata) %>%
     ungroup()
   
   return(result)
