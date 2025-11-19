@@ -206,7 +206,7 @@ compute_effort_estimate = function(
       if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
       #weighted mean
       join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
-      active_days = active_days %>% dplyr::left_join(active_vessels, by = join_srata)
+      active_days = active_days %>% dplyr::left_join(active_vessels, by = join_strata)
       active_days = active_days[!is.na(active_days$fleet_engagement_number),]
       active_days = active_days %>%
         dplyr::group_by_at(main_strata) %>%
