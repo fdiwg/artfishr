@@ -1,0 +1,161 @@
+---
+title: "Using ArtFishR for Small-Scale Fisheries Estimation"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Using ArtFishR for Small-Scale Fisheries Estimation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = TRUE
+)
+library(artfishr)
+```
+
+# Introduction
+
+This vignette demonstrates how to apply the **ARTFISH methodology** for estimating fishing effort, catch, and related indicators using the `artfishr` R package.
+
+It walks through each computation step and shows how to use the unified workflow function `artfish_compute_report()`, which automates the full estimation process.
+
+# Data preparation
+
+The package includes example datasets stored under `inst/extdata/samples/`.
+
+Let's load them using `system.file()`:
+
+```{r load-samples}
+active_vessels <- readr::read_csv(
+  system.file("extdata/samples", "active_vessels.csv", package = "artfishr")
+)
+
+effort <- readr::read_csv(
+  system.file("extdata/samples", "effort.csv", package = "artfishr")
+)
+
+active_days <- readr::read_csv(
+  system.file("extdata/samples", "active_days.csv", package = "artfishr")
+)
+
+landings <- readr::read_csv(
+  system.file("extdata/samples", "landings.csv", package = "artfishr")
+)
+```
+
+# Identify data collection strategy
+
+(to complete with different cases, identify different sources of information and setting linked + point on strata)
+
+# Step-by-step ARTFISH workflow
+
+Below is the detailed workflow showing each function used by `artfishr` to compute the various ARTFISH components.
+
+## 1. Effort Activity Coefficient
+
+(Add explanation)
+
+```{r activity-coeff}
+activity_coefficient <- artfishr::compute_effort_activity_coefficient(
+  effort = effort,
+  effort_source = "fisher_interview",
+  minor_strata = "minor_stratum"
+)
+```
+
+## 2. Effort Estimate
+
+(Add explanation)
+
+```{r effort-estimate}
+effort_estimate <- artfishr::compute_effort_estimate(
+  active_vessels = active_vessels,
+  active_vessels_strategy = "latest",
+  landings = landings,
+  effort = effort,
+  effort_source = "fisher_interview",
+  active_days = active_days,
+  minor_strata = "minor_stratum"
+)
+```
+
+## 3. Catch per Unit of Effort (CPUE)
+
+(Add explanation)
+
+```{r cpue}
+cpue <- artfishr::compute_cpue(
+  landings,
+  minor_strata = "minor_stratum"
+)
+```
+
+## 4. Catch Estimate
+
+(Add explanation)
+
+```{r catch-estimate}
+catch_estimate <- artfishr::compute_catch_estimate(
+  effort_estimate,
+  landings = landings,
+  minor_strata = "minor_stratum"
+)
+```
+
+## 5. Catch Estimate by Species
+
+(Add explanation)
+
+```{r catch-by-species}
+catch_estimate_by_species <- artfishr::compute_catch_estimates_by_species(
+  landings,
+  catch_estimate,
+  minor_strata = "minor_stratum"
+)
+```
+
+# Using the unified workflow
+
+The individual steps above are integrated into a single convenience function:  
+`artfish_compute_report()`.  
+This function executes the complete workflow, returning a structured report that includes all intermediate and final results.
+
+```{r report}
+report <- artfishr::compute_report(
+  active_vessels = active_vessels,
+  effort = effort,
+  effort_source = "fisher_interview",
+  active_days = active_days,
+  active_vessels_strategy = "closest",
+  landings = landings,
+  minor_strata = "minor_stratum"
+)
+
+# Inspect report structure
+str(report, max.level = 1)
+```
+
+# Interpreting results
+
+Each component of the output can be inspected individually:
+
+```{r view-results}
+head(report$effort_estimate)
+head(report$catch_estimate_by_species)
+```
+
+# Summary
+
+This vignette illustrated:
+
+* The **data requirements** for ARTFISH (active vessels, effort, active days, landings)  
+* The **sequential workflow** used to compute all indicators manually  
+* The **integrated workflow** provided by `artfish_compute_report()` for convenience  
+
+For production use, users should adapt the workflow to their own datasets, ensuring that data formats comply with the specifications in `inst/extdata/format_specs/`.

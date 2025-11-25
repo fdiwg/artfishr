@@ -1,0 +1,25 @@
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [get_started, reference, articles]
+    right: [github]
+
+  components:
+    get_started:
+      text: "Get started"
+      icon: fas fa-rocket
+      href: articles/artfishr.html
+
+    reference:
+      text: "Reference"
+      href: reference/index.html
+
+    articles:
+      text: "Artcles"
+      href: articles/index.html
+
+    github:
+      icon: fab fa-github
+      href: https://github.com/fdiwg/artfishr

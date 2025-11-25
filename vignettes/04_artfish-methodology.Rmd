@@ -1,0 +1,42 @@
+---
+title: "Statistical framework of the ARTFISH methodology"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: true
+    toc_depth: 2
+vignette: >
+  %\VignetteIndexEntry{Statistical framework of the ARTFISH methodology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+library(artfishr)
+```
+
+## 1. Introduction
+This vignette presents the statistical and conceptual framework that underpins the ARTFISH methodology implemented in the `artfishr` package.
+
+(To do)
+
+## 2. Artfish Methodology concept
+(To do)
+
+## 3. CPUE
+(To do)
+
+## 4. Effort
+(To do)
+
+## 5. Catch estimation
+(To do)
+
+## 6. Estimation quality control
+(To do)

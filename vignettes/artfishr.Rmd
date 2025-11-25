@@ -7,8 +7,15 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE
+)
+library(artfishr)
 ```
 
 This vignette shows how to use [artfishr](https://github.com/fdiwg/artfishr).
@@ -21,19 +28,19 @@ As prequirements, packages `remotes` and `vrule` should be installed.
 
 * Package `remotes` can be installed from CRAN using:
 
-```{r}
+```{r, eval=FALSE}
 install.packages("remotes", repos = "https://cloud.r-project.org")
 ```
 
 * Package [vrule](https://github.com/fdiwg/vrule) should be installed from GitHub using `remotes`:
 
-```{r}
+```{r, eval=FALSE}
 remotes::install_github("fdiwg/vrule")
 ```
 
 Once packages `remotes` and `vrule`, R package `artfishr` can be installed using:
 
-```{r}
+```{r, eval=FALSE}
 remotes::install_github("fdiwg/artfishr")
 ```
 
@@ -41,12 +48,45 @@ Once installed, `artfishr` can be loaded using `library(artfishr)` or `require(a
 
 ## Data requirements
 
-TODO
-
-## The Artfish methodology - summary
-
-TODO
+See the full guide: `vignette("02_data-requirements-validation")`
 
 ## How to run Artfish with `artfishr`
 
-TODO
+Full tutorial: `vignette("03_artfishr-workflow")`
+
+## The Artfish methodology - summary
+See: `vignette("04_artfish-methodology")`
+
+## Exemple of use
+
+```{r, eval=FALSE}
+# Load sample datasets
+active_vessels <- read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
+effort <- read.csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
+landings <- read.csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
+active_days <- read.csv(system.file("extdata/samples/active_days.csv", package = "artfishr"))
+
+# Validate data 
+validate_input_datasets(
+  active_vessels = active_vessels,
+  effort = effort,
+  effort_source = "fisher_interview",
+  landings = landings,
+  active_days = active_days
+)
+
+#Run artfish
+report <- artfishr::compute_report(
+  active_vessels = active_vessels,
+  effort = effort,
+  effort_source = "fisher_interview",
+  active_days = active_days,
+  active_vessels_strategy = "closest",
+  landings = landings,
+  minor_strata = "minor_stratum"
+)
+
+#See result
+head(report)
+
+```
