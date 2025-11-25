@@ -56,3 +56,46 @@ validate_input_datasets <- function(
   }
   return(qa_report)
 }
+
+#' @name validate_artfish_datasets
+#' @title Wrapper functions for validating artfishr input data
+#' @description Family of functions to validate empty input dataset.
+#' @details These functions are convenience wrappers around [validate_input_datasets()].
+#' @seealso [validate_input_datasets()]
+NULL
+
+
+#' @rdname validate_active_vessels
+#' @export
+validate_active_vessels <- function(data) {
+  validators = get_vrule_validators()
+  validation_report = validators$cwp_rh_artfish_active_vessels$validate(data)
+  return(validation_report)
+}
+
+#' @rdname validate_active_days
+#' @export
+validate_active_days <- function(data) {
+  validators = get_vrule_validators()
+  validation_report = validators$cwp_rh_artfish_active_days$validate(data)
+  return(validation_report)
+}
+
+#' @rdname validate_landings
+#' @export
+validate_landings <- function(data) {
+  validators = get_vrule_validators()
+  validation_report = validators$cwp_rh_artfish_landings$validate(data)
+  return(validation_report)
+}
+
+#' @rdname validate_effort
+#' @export
+validate_effort <- function(data,effort_source = c("boat_counting", "fisher_interview")) {
+  validators = get_vrule_validators()
+  validation_report = switch(effort_source,
+                             "fisher_interview" = validators$cwp_rh_artfish_effort_fisher_interview,
+                             "boat_counting" = validators$cwp_rh_artfish_effort_boat_counting
+  )
+  return(validation_report)
+}
