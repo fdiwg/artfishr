@@ -77,7 +77,7 @@ compute_effort_estimate = function(
   #compute effort activity coefficient
   AC = compute_effort_activity_coefficient(effort = effort, effort_source = effort_source, minor_strata = minor_strata)
   AC$effort_fishing_reference_period = NULL
-  #AC$effort_total_fishing_duration = NULL
+  AC$effort_total_fishing_duration = NULL
   AC$effort_total_fishing_reference_period = NULL
   AC$fleet_engagement_number = NULL
   AC$fleet_engagement_max = NULL
