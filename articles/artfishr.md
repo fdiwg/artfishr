@@ -28,7 +28,7 @@ remotes::install_github("fdiwg/vrule")
 
     ## Using github PAT from envvar GITHUB_PAT. Use `gitcreds::gitcreds_set()` and unset GITHUB_PAT in .Renviron (or elsewhere) if you want to use the more secure git credential store instead.
 
-    ## Skipping install of 'vrule' from a github remote, the SHA1 (ea94afdc) has not changed since last install.
+    ## Skipping install of 'vrule' from a github remote, the SHA1 (3f4b5500) has not changed since last install.
     ##   Use `force = TRUE` to force installation
 
 Once packages `remotes` and `vrule`, R package `artfishr` can be
@@ -42,9 +42,17 @@ remotes::install_github("fdiwg/artfishr")
 
     ## Downloading GitHub repo fdiwg/artfishr@HEAD
 
-    ## 
+    ## cpp11       (NA -> 0.5.2) [CRAN]
+    ## prettyunits (NA -> 1.2.0) [CRAN]
+    ## progress    (NA -> 1.2.3) [CRAN]
+
+    ## Installing 3 packages: cpp11, prettyunits, progress
+
+    ## Installing packages into '/home/runner/work/_temp/Library'
+    ## (as 'lib' is unspecified)
+
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/RtmpvkcMLl/remotes1a60682d04d2/fdiwg-artfishr-597844f/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/RtmpdFsg50/remotes1ec67fe9cad7/fdiwg-artfishr-ed09b32/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
