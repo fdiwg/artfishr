@@ -42,16 +42,9 @@ remotes::install_github("fdiwg/artfishr")
 
     ## Downloading GitHub repo fdiwg/artfishr@HEAD
 
-    ## cpp11 (0.5.2 -> 0.5.3) [CRAN]
-    ## vroom (1.6.7 -> 1.7.0) [CRAN]
-
-    ## Installing 2 packages: cpp11, vroom
-
-    ## Installing packages into '/home/runner/work/_temp/Library'
-    ## (as 'lib' is unspecified)
-
+    ## 
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/RtmpcyS3vR/remotes1ddc2c1ae1a/fdiwg-artfishr-a9b531e/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/RtmpoN7GYs/remotes1dfd633af4a4/fdiwg-artfishr-103ba48/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
