@@ -42,14 +42,14 @@ compute_report <- function(
   }
   
   #activity coefficient
-  activity_coefficient = artfishr::compute_effort_activity_coefficient(
+  activity_coefficient = compute_effort_activity_coefficient(
     effort = effort,
     effort_source = effort_source,
     minor_strata = minor_strata
   )
   
   #effort estimate (includes calculation of activity coefficient)
-  effort_estimate = artfishr::compute_effort_estimate(
+  effort_estimate = compute_effort_estimate(
     active_vessels = active_vessels, 
     active_vessels_strategy = active_vessels_strategy, 
     effort = effort, 
@@ -60,14 +60,14 @@ compute_report <- function(
   )
   
   #cpue
-  cpue = artfishr::compute_cpue(landings, minor_strata = minor_strata)
+  cpue = compute_cpue(landings, minor_strata = minor_strata)
   
   #catch estimate
-  catch_estimate = artfishr::compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
+  catch_estimate = compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
   
-  sui = artfishr::compute_sui(effort, landings, minor_strata = minor_strata)
+  sui = compute_sui(effort, landings, minor_strata = minor_strata)
   
-  accuracy = artfishr::compute_accuracy(
+  accuracy = compute_accuracy(
     activity_coefficient,
     effort_estimate,
     cpue,
@@ -76,7 +76,7 @@ compute_report <- function(
   )
   
   #catch estimate by species
-  catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
+  catch_estimate_by_species = compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
   strata = c("year", "month", "fishing_unit", minor_strata)
