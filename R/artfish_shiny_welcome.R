@@ -41,9 +41,17 @@ artfish_shiny_welcome_server <- function(id, lang = NULL){
       )
     })
     
-    observeEvent(lang(),{
-      fdishinyr::welcome_server("welcome_from_fdishinyr", lang = reactive({ lang() }))
-    })
+    #here the fdishinyr/welcome module is loaded based on lang reactive
+    #the lang argument is optional, so in case of a module for which the lang is not reacting (fixed for the app)
+    #the module can be called directly in the server: fdishinyr::welcome_server("welcome_from_fdishinyr")
+    #Below code show both cases. For test apps see tests/testthat/test_shiny.R
+    if(!is.null(lang)){
+      observeEvent(lang(),{
+        fdishinyr::welcome_server("welcome_from_fdishinyr", lang = reactive({ lang() }))
+      })
+    }else{
+      fdishinyr::welcome_server("welcome_from_fdishinyr")
+    }
   })
   
 }

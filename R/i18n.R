@@ -5,6 +5,7 @@
 #'@export
 set_translation_language <- function(lang){
   .artfishr$translator$set_translation_language(lang)
+  fdishinyr::set_translation_language(lang)
 }
 
 #'@name translator
