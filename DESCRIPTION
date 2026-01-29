@@ -16,9 +16,12 @@ Imports:
   lubridate,
   vrule,
   ggplot2,
-  shiny
+  shiny,
+  shiny.i18n,
+  bs4Dash
 Remotes:
-  fdiwg/vrule
+  fdiwg/vrule,
+  fdiwg/fdishinyr
 Suggests: testthat
 Description: Set of functions in support of ArtFish implementation.
 License: MIT

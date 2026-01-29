@@ -1,0 +1,9 @@
+default_language: fr
+languages:
+  - en
+  - es
+  - fr
+  - ar
+  - zh
+  - ru
+translation_folder: translations
