@@ -1,6 +1,6 @@
 Package: artfishr
-Version: 0.1.20260128
-Date: 2026-01-28
+Version: 0.1.20260210
+Date: 2026-02-10
 Title: ArtFish for R
 Authors@R: c(
   person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")),
@@ -13,11 +13,14 @@ Imports:
   dplyr,
   tidyr,
   readr,
+  data.table,
+  DT,
   lubridate,
   vrule,
   ggplot2,
   shiny,
   shiny.i18n,
+  shinyWidgets,
   bs4Dash
 Remotes:
   fdiwg/vrule,

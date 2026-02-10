@@ -13,7 +13,11 @@ artfish_shiny_welcome_server <- function(id, lang = NULL){
     #functional for both static language set-up (lang = NULL) or dynamic language set-up
     #(case where the language is passed as reactive)
     i18n_translator <- reactive({
-      if(is.reactive(lang)) set_translation_language(lang())
+      if(is.reactive(lang)){
+        set_translation_language(lang())
+      }else{
+        if(!is.null(lang)) set_translation_language(lang)
+      }
       artfishr::INFO("Welcome to artfishr ecosystem in lang '%s'", translator()$get_translation_language())
       translator()
     })
@@ -46,9 +50,13 @@ artfish_shiny_welcome_server <- function(id, lang = NULL){
     #the module can be called directly in the server: fdishinyr::welcome_server("welcome_from_fdishinyr")
     #Below code show both cases. For test apps see tests/testthat/test_shiny.R
     if(!is.null(lang)){
-      observeEvent(lang(),{
-        fdishinyr::welcome_server("welcome_from_fdishinyr", lang = reactive({ lang() }))
-      })
+      if(is.reactive(lang)){
+        observeEvent(lang(),{
+          fdishinyr::welcome_server("welcome_from_fdishinyr", lang = reactive({ lang() }))
+        })
+      }else{
+        fdishinyr::welcome_server("welcome_from_fdishinyr", lang = lang)
+      }
     }else{
       fdishinyr::welcome_server("welcome_from_fdishinyr")
     }
