@@ -21,7 +21,8 @@ Imports:
   shiny,
   shiny.i18n,
   shinyWidgets,
-  bs4Dash
+  bs4Dash,
+  fdishinyr
 Remotes:
   fdiwg/vrule,
   fdiwg/fdishinyr
