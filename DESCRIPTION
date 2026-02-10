@@ -13,11 +13,14 @@ Imports:
   dplyr,
   tidyr,
   readr,
+  data.table,
+  DT,
   lubridate,
   vrule,
   ggplot2,
   shiny,
   shiny.i18n,
+  shinyWidgets,
   bs4Dash
 Remotes:
   fdiwg/vrule,

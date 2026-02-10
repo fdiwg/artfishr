@@ -23,9 +23,10 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
       i18n_translator()$t(key)
     }
     
+    #module business logic
     output$button<-renderUI({
       if(!is.na(input$days)&!is.na(input$boats)&!is.na(input$effort_smp)&!is.na(input$effort_days_smp)&!is.na(input$landing_smp)&!is.na(input$landing_days_smp)){
-        actionButton(ns("run"),i18n("ACTIONBUTTON_COMPUTE_LABEL"))}else{NULL}
+        actionButton(ns("run"),i18n("ACCURACY_ACTIONBUTTON_COMPUTE_LABEL"))}else{NULL}
     })
     
     iconChoice<-function(x){ifelse(x<0.9,"exclamation-triangle","check-circle")}
@@ -41,22 +42,22 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
       output$result<-renderUI({
         tagList(
           fluidRow(
-            valueBox(paste(format(round(SAE*100,1), nsmall = 1),"%"),i18n("VALUEBOX_TITLE_SPATIAL_ACCURACY_EFFORT"),width = 3,icon=icon(iconChoice(SAE)),color=colorChoice(SAE)),
-            valueBox(paste(format(round(TAE*100,1), nsmall = 1),"%"),i18n("VALUEBOX_TITLE_TEMPORAL_ACCURACY_EFFORT"),width= 3,icon=icon(iconChoice(TAE)),color=colorChoice(TAE)),
-            valueBox(paste(format(round(SAC*100,1), nsmall = 1),"%"),i18n("VALUEBOX_TITLE_SPATIAL_ACCURACY_CATCH"),width=3,icon=icon(iconChoice(SAC)),color=colorChoice(SAC)),
-            valueBox(paste(format(round(TAC*100,1), nsmall = 1),"%"),i18n("VALUEBOX_TITLE_TEMPORAL_ACCURACY_CATCH"),width=3,icon=icon(iconChoice(TAC)),color=colorChoice(TAC))
+            valueBox(paste(format(round(SAE*100,1), nsmall = 1),"%"),i18n("ACCURACY_VALUEBOX_TITLE_SPATIAL_ACCURACY_EFFORT"),width = 3,icon=icon(iconChoice(SAE)),color=colorChoice(SAE)),
+            valueBox(paste(format(round(TAE*100,1), nsmall = 1),"%"),i18n("ACCURACY_VALUEBOX_TITLE_TEMPORAL_ACCURACY_EFFORT"),width= 3,icon=icon(iconChoice(TAE)),color=colorChoice(TAE)),
+            valueBox(paste(format(round(SAC*100,1), nsmall = 1),"%"),i18n("ACCURACY_VALUEBOX_TITLE_SPATIAL_ACCURACY_CATCH"),width=3,icon=icon(iconChoice(SAC)),color=colorChoice(SAC)),
+            valueBox(paste(format(round(TAC*100,1), nsmall = 1),"%"),i18n("ACCURACY_VALUEBOX_TITLE_TEMPORAL_ACCURACY_CATCH"),width=3,icon=icon(iconChoice(TAC)),color=colorChoice(TAC))
           ),
           fluidRow(
-            column(8,offset=4,valueBox(paste(format(round(OAC*100,1), nsmall = 1),"%"),i18n("VALUEBOX_TITLE_OVERALL_ACCURACY"),width=4,icon=icon(iconChoice(OAC)),color=colorChoice(OAC)))
+            column(8,offset=4,valueBox(paste(format(round(OAC*100,1), nsmall = 1),"%"),i18n("ACCURACY_VALUEBOX_TITLE_OVERALL_ACCURACY"),width=4,icon=icon(iconChoice(OAC)),color=colorChoice(OAC)))
           )
         )
       })
     })
     
     reactiveData<- reactiveVal()
-    Day1 <- paste0(i18n("DAY_LABEL"),'1')
+    Day1 <- paste0(i18n("ACCURACY_DAY_LABEL"),'1')
     table<-data.table(Day1=1)
-    row.names(table)<- i18n("SAMPLES_LABEL")
+    row.names(table)<- i18n("ACCURACY_SAMPLES_LABEL")
     reactiveData(table)
     
     observeEvent(input$table_cell_edit, {
@@ -68,7 +69,7 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
     
     observeEvent(input$addColumn,{
       newData <- reactiveData()
-      newData[[paste0(i18n("DAY_LABEL"),ncol(newData)+1)]] <- 1
+      newData[[paste0(i18n("ACCURACY_DAY_LABEL"),ncol(newData)+1)]] <- 1
       reactiveData(newData)
     })
     
@@ -97,7 +98,7 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
       
       output$index<-renderUI({
         tagList(
-          valueBox(index,i18n("VALUEBOX_TITLE_UNIFORMITY_INDEX"),icon=icon(ifelse(index<0.6,"exclamation-triangle","check-circle")),color=ifelse(index<0.6,"warning","success"),width = 3)
+          valueBox(index,i18n("ACCURACY_VALUEBOX_TITLE_UNIFORMITY_INDEX"),icon=icon(ifelse(index<0.6,"exclamation-triangle","check-circle")),color=ifelse(index<0.6,"warning","success"),width = 3)
         )
       })
     })
@@ -109,33 +110,33 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
           div(
             width = 12, style = "margin:12px;",
             
-            tags$h2(i18n("ARTFISH_ACCURACY_TITLE")),
+            tags$h2(i18n("ACCURACY_TITLE")),
           )
         ),
         bs4Dash::tabsetPanel(
-          tabPanel(i18n("TABPANEL_ACCURACY"),
+          tabPanel(i18n("ACCURACY_TABPANEL_ACCURACY"),
                    fluidRow(
                      div(
                        class = "col-md-4",
-                       bs4Dash::box(id=ns("global_box"),title=i18n("GLOBAL_BOX_TITLE"),width = 12,
-                                    numericInputIcon(ns("boats"),i18n("NUMERIC_INPUT_NUMBER_OF_BOATS_TITLE"),value=NULL,icon=icon("ship")),
-                                    numericInputIcon(ns("days"),i18n("NUMERIC_INPUT_NUMBER_OF_FISHING_DAYS_TITLE"),value=NULL,icon=icon("calendar")),
+                       bs4Dash::box(id=ns("global_box"),title=i18n("ACCURACY_GLOBAL_BOX_TITLE"),width = 12,
+                                    shinyWidgets::numericInputIcon(ns("boats"),i18n("ACCURACY_NUMERIC_INPUT_NUMBER_OF_BOATS_TITLE"),value=NULL,icon=icon("ship")),
+                                    shinyWidgets::numericInputIcon(ns("days"),i18n("ACCURACY_NUMERIC_INPUT_NUMBER_OF_FISHING_DAYS_TITLE"),value=NULL,icon=icon("calendar")),
                                     collapsible = FALSE
                        )
                      ),
                      div(
                        class = "col-md-4",
-                       bs4Dash::box(id=ns("effort_box"),title=i18n("EFFORT_BOX_TITLE"),width = 12,
-                                    numericInputIcon(ns("effort_smp"),i18n("NUMERIC_INPUT_NUMBER_OF_EFFORT_SAMPLES_TITLE"),value=NULL,icon=icon("ship")),
-                                    numericInputIcon(ns("effort_days_smp"),i18n("NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_EFFORTS_TITLE"),value=NULL,icon=icon("calendar")),
+                       bs4Dash::box(id=ns("effort_box"),title=i18n("ACCURACY_EFFORT_BOX_TITLE"),width = 12,
+                                    shinyWidgets::numericInputIcon(ns("effort_smp"),i18n("ACCURACY_NUMERIC_INPUT_NUMBER_OF_EFFORT_SAMPLES_TITLE"),value=NULL,icon=icon("ship")),
+                                    shinyWidgets::numericInputIcon(ns("effort_days_smp"),i18n("ACCURACY_NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_EFFORTS_TITLE"),value=NULL,icon=icon("calendar")),
                                     collapsible = FALSE
                        )
                      ),
                      div(
                        class = "col-md-4",
-                       bs4Dash::box(id=ns("landing_box"),title=i18n("LANDING_BOX_TITLE"),width = 12,
-                                    numericInputIcon(ns("landing_smp"),i18n("NUMERIC_INPUT_NUMBER_OF_LANDING_SAMPLES_TITLE"),value=NULL,icon=icon("ship")),
-                                    numericInputIcon(ns("landing_days_smp"),i18n("NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_LANDING_TITLE"),value=NULL,icon=icon("calendar")),
+                       bs4Dash::box(id=ns("landing_box"),title=i18n("ACCURACY_LANDING_BOX_TITLE"),width = 12,
+                                    shinyWidgets::numericInputIcon(ns("landing_smp"),i18n("ACCURACY_NUMERIC_INPUT_NUMBER_OF_LANDING_SAMPLES_TITLE"),value=NULL,icon=icon("ship")),
+                                    shinyWidgets::numericInputIcon(ns("landing_days_smp"),i18n("ACCURACY_NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_LANDING_TITLE"),value=NULL,icon=icon("calendar")),
                                     collapsible = FALSE
                        )
                      )
@@ -144,12 +145,12 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
                    br(),
                    uiOutput(ns("result"))
           ),
-          tabPanel(i18n("TABPANEL_UNIFORMITY"),
+          tabPanel(i18n("ACCURACY_TABPANEL_UNIFORMITY"),
                    fluidRow(
-                     p(i18n("UNIFORMITY_HINT")),
-                     actionButton(ns("addColumn"), i18n("ACTIONBUTTON_ACTIVATE_NEWCOLUMN_LABEL")),
+                     p(i18n("ACCURACY_UNIFORMITY_HINT")),
+                     actionButton(ns("addColumn"), i18n("ACCURACY_ACTIONBUTTON_ACTIVATE_NEWCOLUMN_LABEL")),
                      DTOutput(ns("table")),br(),
-                     actionButton(ns("compute"), i18n("ACTIONBUTTON_COMPUTE_LABEL"))
+                     actionButton(ns("compute"), i18n("ACCURACY_ACTIONBUTTON_COMPUTE_LABEL"))
                    ),br(),
                    fluidRow(
                      column(width = 6,
