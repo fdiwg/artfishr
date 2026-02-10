@@ -22,6 +22,7 @@ artfish_shiny_server <- function(input, output, session) {
   observeEvent(input$selected_language, {
     shiny.i18n::update_lang(input$selected_language)
     artfishr::artfish_shiny_welcome_server("welcome_from_artfishr", lang = reactive({input$selected_language}))
+    artfishr::artfish_shiny_accuracy_server("accuracy_toolbox", lang = reactive({input$selected_language}))
   })
   
 }
@@ -46,7 +47,8 @@ artfish_shiny_ui <- function(id){
     body = bs4Dash::dashboardBody(
       h3("Artfish R shiny application",tags$small(" powered by 'artfishr' R package")),
       hr(),
-      artfishr::artfish_shiny_welcome_ui("welcome_from_artfishr")
+      artfishr::artfish_shiny_welcome_ui("welcome_from_artfishr"),hr(),
+      artfishr::artfish_shiny_accuracy_ui("accuracy_toolbox")
     ),
     controlbar = dashboardControlbar(),
     title = "DashboardPage"
