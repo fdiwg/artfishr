@@ -9,6 +9,8 @@ Useful links:
 
 - <https://github.com/fdiwg/artfishr>
 
+- <https://fdiwg.github.io/artfishr/>
+
 - Report bugs at <https://github.com/fdiwg/artfishr/issues>
 
 ## Author

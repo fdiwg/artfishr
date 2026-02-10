@@ -2,6 +2,15 @@
 
 ## All functions
 
+- [`ERROR()`](https://fdiwg.github.io/artfishr/reference/ERROR.md) :
+  util ERROR logger
+
+- [`INFO()`](https://fdiwg.github.io/artfishr/reference/INFO.md) : util
+  INFO logger
+
+- [`WARN()`](https://fdiwg.github.io/artfishr/reference/WARN.md) : util
+  WARN logger
+
 - [`accuracy_plot()`](https://fdiwg.github.io/artfishr/reference/accuracy_plot.md)
   : Produces a plot for the accuracy
 
@@ -22,6 +31,18 @@
 
 - [`artfish_new_by_period()`](https://fdiwg.github.io/artfishr/reference/artfish_new_by_period.md)
   : artfish_new_by_period
+
+- [`artfish_shiny_accuracy_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_accuracy_server.md)
+  : POC shiny module server
+
+- [`artfish_shiny_accuracy_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_accuracy_ui.md)
+  : POC shiny module UI
+
+- [`artfish_shiny_welcome_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_welcome_server.md)
+  : POC shiny module server
+
+- [`artfish_shiny_welcome_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_welcome_ui.md)
+  : POC shiny module UI
 
 - [`artfishr-package`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
   [`artfishr`](https://fdiwg.github.io/artfishr/reference/artfishr.md) :
@@ -74,6 +95,9 @@
 
   Get data validators powered by vrule
 
+- [`logger()`](https://fdiwg.github.io/artfishr/reference/logger.md) :
+  util generic logger
+
 - [`run_artfish_shiny()`](https://fdiwg.github.io/artfishr/reference/run_artfishr_shiny.md)
   : Runs a Artfishr Shiny application
 
@@ -83,10 +107,16 @@
 - [`select_active_vessels()`](https://fdiwg.github.io/artfishr/reference/select_active_vessels.md)
   : Select active vessels
 
+- [`set_translation_language()`](https://fdiwg.github.io/artfishr/reference/set_translation_language.md)
+  : Set translation language
+
 - [`set_vrule_validators()`](https://fdiwg.github.io/artfishr/reference/set_vrule_validators.md)
   :
 
   Set data validators powered by vrule
+
+- [`translator()`](https://fdiwg.github.io/artfishr/reference/translator.md)
+  : Get translator
 
 - [`unif_index()`](https://fdiwg.github.io/artfishr/reference/unif_index.md)
   : unif_index
