@@ -13,7 +13,11 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
     #functional for both static language set-up (lang = NULL) or dynamic language set-up
     #(case where the language is passed as reactive)
     i18n_translator <- reactive({
-      if(is.reactive(lang)) set_translation_language(lang())
+      if(is.reactive(lang)){
+        set_translation_language(lang())
+      }else{
+        if(!is.null(lang)) set_translation_language(lang)
+      }
       translator()
     })
     
