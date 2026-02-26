@@ -39,14 +39,13 @@ The module is composed of:
     \item (2) Target species ranking (by quantity)
   }
   \item A set of KPIs presenting aggregated metrics for the selected period
-  \item Six boxed plots powered by \code{fdishinyr::generic_chart} allowing users to analyse key Artfish metrics:
+  \item Five boxed plots powered by \code{fdishinyr::generic_chart} allowing users to analyse key Artfish metrics:
   \itemize{
     \item (1) Total catch estimation
     \item (2) Catch per unit effort (CPUE)
     \item (3) Total value estimation
-    \item (4) Activity coefficient
-    \item (5) Average price
-    \item (6) Total nominal effort
+    \item (4) Average price
+    \item (5) Total nominal effort
   }
 }
 }

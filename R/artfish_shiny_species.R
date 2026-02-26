@@ -19,14 +19,13 @@
 #'     \item (2) Target species ranking (by quantity)
 #'   }
 #'   \item A set of KPIs presenting aggregated metrics for the selected period
-#'   \item Six boxed plots powered by \code{fdishinyr::generic_chart} allowing users to analyse key Artfish metrics:
+#'   \item Five boxed plots powered by \code{fdishinyr::generic_chart} allowing users to analyse key Artfish metrics:
 #'   \itemize{
 #'     \item (1) Total catch estimation
 #'     \item (2) Catch per unit effort (CPUE)
 #'     \item (3) Total value estimation
-#'     \item (4) Activity coefficient
-#'     \item (5) Average price
-#'     \item (6) Total nominal effort
+#'     \item (4) Average price
+#'     \item (5) Total nominal effort
 #'   }
 #' }
 #'
@@ -352,65 +351,44 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate){
       
     })
     
-    #donuts and rank (to update)
+    #donuts and rank chart (no fishing unit selection) 
     observeEvent(data_sp(),{
       
       req(!is.null(data_sp()))
-      
-      output$donut<-renderPlotly({
         
         selection<-data_sp()
+
+        #donut chart with all fishing units
+        fdishinyr::generic_chart_server(
+          id = "donut",
+          lang = appConfig$language,
+          df = selection,
+          col_date = "date",
+          col_group = "fishing_unit_label",
+          col_value = "catch_nominal_landed",
+          stat = "sum",
+          time_label = "",
+          value_label = "",
+          group_label = "",
+          plot_types = c("donut","pie"),
+          plot_type_default = "donut"
+        )
         
-        selection%>%
-          group_by(fishing_unit,fishing_unit_label)%>%
-          summarise(
-            catch_nominal_landed=sum(catch_nominal_landed,na.rm=T),
-            trade_price=mean(trade_price,na.rm=T),
-            trade_value=sum(trade_value,na.rm=T),
-            effort_nominal=sum(effort_nominal,na.rm=T),
-            catch_cpue=mean(catch_cpue,na.rm=T)
-          )%>%
-          ungroup()%>%
-          mutate(PERCENT=catch_nominal_landed/sum(catch_nominal_landed,na.rm=T))%>%
-          plot_ly(labels = ~fishing_unit_label, values = ~PERCENT)%>% 
-          add_pie(hole = 0.6)%>% 
-          layout(showlegend = T,
-                 xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-                 yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-                 plot_bgcolor  = "rgba(0, 0, 0, 0)",
-                 paper_bgcolor = "rgba(0, 0, 0, 0)")
-        
-      })
-      
-      #Rank
-      output$rank<-renderPlotly({
-        rank<-estimate%>%
-          group_by(species,species_label)%>%
-          summarise(
-            catch_nominal_landed=sum(catch_nominal_landed,na.rm=T)
-          )%>%
-          mutate(rank = rank(-catch_nominal_landed)) %>%
-          arrange(rank)%>%
-          mutate(color=ifelse(species==input$species,"target","others"))%>%
-          ungroup()
-        
-        target_rank<-subset(rank,color=="target")$rank
-        
-        rank<-rank%>%
-          filter(rank%in%c(seq(target_rank-5,target_rank+5,1)))%>%
-          ungroup()
-        
-        rank%>%
-          plot_ly(y = ~rank, x = ~catch_nominal_landed, type = "bar",  orientation = "h",color=~factor(color),colors = c("gray","orange"),hoverinfo='none',text = ~species_label,
-                  textposition = "auto",textfont = list(color = "black")) %>%
-          layout(showlegend = FALSE,
-                 uniformtext=list(minsize=8, mode='show'),
-                 yaxis = list(title=i18n("SPECIES_RANK_GROUP_LABEL"),autorange = "reversed",tickmode = "array", tickvals = unique(rank$rank), ticktext = unique(rank$rank)),
-                 xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE,title = FALSE),
-                 plot_bgcolor  = "rgba(0, 0, 0, 0)",
-                 paper_bgcolor = "rgba(0, 0, 0, 0)")
-        
-      })
+        #ranked species chart with selected species highlighted
+        fdishinyr::generic_chart_server(
+          id = "rank",
+          lang = appConfig$language,
+          df = estimate,
+          col_date = "date",
+          col_group = "species_label",
+          col_value = "catch_nominal_landed",
+          stat = "sum",
+          time_label = "",
+          value_label = "",
+          group_label = "",
+          plot_types = c("rank_sum"),
+          rank_target_id = unique(selection$species_label)
+        )
       
     })
     
@@ -426,6 +404,25 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate){
     #     data_sp_bg(subset(sel, fishing_unit == input$fishing_unit))
     #   }
     # })
+    
+    
+    #donut chart wrapper
+    output$donut_wrapper<-renderUI({
+      if(!is.null(data_sp())){
+        fluidRow(fdishinyr::generic_chart_ui(ns("donut"),title=i18n("SPECIES_PLOT_DONUT_TITLE"),sliderWidth =25))
+      }else{
+        NULL
+      }
+    })
+    
+    #ranked chart wrapper
+    output$rank_wrapper<-renderUI({
+      if(!is.null(data_sp())){
+        fluidRow(fdishinyr::generic_chart_ui(ns("rank"),title=i18n("SPECIES_PLOT_RANK_TITLE"),sliderWidth =25))
+      }else{
+        NULL
+      }
+    })
     
     #main UI
     output$main <- renderUI({
@@ -445,10 +442,12 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate){
                    uiOutput(ns("fishing_unit_selector"))
             ),
             column(5,
-                   plotlyOutput(ns("donut"), width = "auto", height = "auto")
+                   uiOutput(ns("donut_wrapper"))
+                   
             ),
             column(4,
-                   plotlyOutput(ns("rank"), width = "auto", height = "auto")
+                   uiOutput(ns("rank_wrapper"))        
+                   
             )
             ,height=200),
         uiOutput(ns("indicators")),
