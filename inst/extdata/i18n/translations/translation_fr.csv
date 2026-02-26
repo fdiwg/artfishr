@@ -124,7 +124,8 @@ SPECIES_INFOBOX_EFFORT_UNIT,jours
 SPECIES_INFOBOX_PRICE_TITLE,Prix moyen
 SPECIES_INFOBOX_PRICE_UNIT,$
 SPECIES_INFOBOX_SP_RATE_TITLE,Ratio moyen de l’espèce
-SPECIES_RANK_GROUP_LABEL,Rang (par quantité totale capturée)
+SPECIES_PLOT_DONUT_TITLE,Composition par unité de pêche (par quantité)
+SPECIES_PLOT_RANK_TITLE,Rang de l'espèce sélectionée (par quantité)
 SPECIES_PLOT_PRICE_TITLE,Prix moyen
 SPECIES_PLOT_PRICE_GROUP_LABEL,Unité de pêche
 SPECIES_PLOT_PRICE_VALUE_LABEL,Prix ($)
