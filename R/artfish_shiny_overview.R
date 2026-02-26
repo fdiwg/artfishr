@@ -177,7 +177,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate){
     })
     
     # -------------------------------------------------------------------------
-    # UI Outputs and Randering
+    # UI Outputs and Rendering
     # -------------------------------------------------------------------------
     
     #Indicators and timeline
@@ -332,7 +332,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate){
         time_choices = "month"
       )
       
-      #results
+      #UI to render the generic charts
       output$results<-renderUI({
 
         tagList(
