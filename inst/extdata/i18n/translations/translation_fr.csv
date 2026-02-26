@@ -1,3 +1,26 @@
 key,fr
 WELCOME,Bienvenu utilisateur de artfishr!
 WELCOME_PARAGRAPH,Ceci est un exemple de module Shiny multi-langue fourni par la librairie artfishr
+ACCURACY_TITLE,Précision de l’estimation et uniformité de la stratégie d’échantillonnage
+ACCURACY_TABPANEL_ACCURACY,Précision
+ACCURACY_GLOBAL_BOX_TITLE,Global
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_BOATS_TITLE,Nombre de bateaux
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_FISHING_DAYS_TITLE,Nombre de jours de pêche
+ACCURACY_EFFORT_BOX_TITLE,Effort
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_EFFORT_SAMPLES_TITLE,Nombre d’échantillons d’effort
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_EFFORTS_TITLE,Nombre de jours échantillonnés (effort)
+ACCURACY_LANDING_BOX_TITLE,Débarquements
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_LANDING_SAMPLES_TITLE,Nombre d’échantillons de débarquement
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_LANDING_TITLE,Nombre de jours échantillonnés (débarquements)
+ACCURACY_TABPANEL_UNIFORMITY,Uniformité
+ACCURACY_UNIFORMITY_HINT,Cliquez sur « Nouvelle colonne » pour ajouter un jour et double-cliquez sur une cellule pour modifier
+ACCURACY_ACTIONBUTTON_ACTIVATE_NEWCOLUMN_LABEL,Nouvelle colonne
+ACCURACY_ACTIONBUTTON_COMPUTE_LABEL,Calculer
+ACCURACY_VALUEBOX_TITLE_SPATIAL_ACCURACY_EFFORT,Précision spatiale (effort)
+ACCURACY_VALUEBOX_TITLE_TEMPORAL_ACCURACY_EFFORT,Précision temporelle (effort)
+ACCURACY_VALUEBOX_TITLE_SPATIAL_ACCURACY_CATCH,Précision spatiale (captures)
+ACCURACY_VALUEBOX_TITLE_TEMPORAL_ACCURACY_CATCH,Précision temporelle (captures)
+ACCURACY_VALUEBOX_TITLE_OVERALL_ACCURACY,Précision globale
+ACCURACY_VALUEBOX_TITLE_UNIFORMITY_INDEX,Indice d’uniformité
+ACCURACY_DAY_LABEL,Jour
+ACCURACY_SAMPLES_LABEL,échantillons
