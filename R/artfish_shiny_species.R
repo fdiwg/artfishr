@@ -461,7 +461,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate){
 }
 
 #' @name artfish_shiny_species_ui
-#' @title ARTFISH Species - Shiny UI module
+#' @title ARTFISH Species - Shiny UI Module
 #' @description User interface for the ARTFISH Species Dashboard
 #' @param id Character string. Module namespace identifier.
 #' @export

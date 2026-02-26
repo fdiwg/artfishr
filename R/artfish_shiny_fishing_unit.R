@@ -38,8 +38,8 @@
 #' If \code{NULL}, the current global language is used.
 #' Default is \code{NULL}
 #' 
-#' @param estimate estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
-#' @param effort_source effort_source
+#' @param estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#' @param effort_source Character string. Indicating the type of effort.
 #' @export
 
 artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_source){

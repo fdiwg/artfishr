@@ -2,7 +2,7 @@
 % Please edit documentation in R/artfish_shiny_species.R
 \name{artfish_shiny_species_ui}
 \alias{artfish_shiny_species_ui}
-\title{ARTFISH Species - Shiny UI module}
+\title{ARTFISH Species - Shiny UI Module}
 \usage{
 artfish_shiny_species_ui(id)
 }

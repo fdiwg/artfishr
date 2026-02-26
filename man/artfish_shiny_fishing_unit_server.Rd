@@ -18,9 +18,9 @@ Can be either:
 If \code{NULL}, the current global language is used.
 Default is \code{NULL}}
 
-\item{estimate}{estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
+\item{estimate}{A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
 
-\item{effort_source}{effort_source}
+\item{effort_source}{Character string. Indicating the type of effort.}
 }
 \description{
 Server-side logic for the ARTFISH Fishing Unit dashboard.
