@@ -40,15 +40,39 @@
 - [`artfish_shiny_accuracy_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_accuracy_ui.md)
   : POC shiny module UI
 
+- [`artfish_shiny_fishing_unit_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_fishing_unit_server.md)
+  : ARTFISH Fishing Unit - Shiny Server Module
+
+- [`artfish_shiny_fishing_unit_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_fishing_unit_ui.md)
+  : ARTFISH Fishing unit - Shiny UI Module
+
+- [`artfish_shiny_overview_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_overview_server.md)
+  : ARTFISH Overview - Shiny Server Module
+
+- [`artfish_shiny_overview_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_overview_ui.md)
+  : ARTFISH Overview - Shiny UI Module
+
+- [`artfish_shiny_report_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_report_server.md)
+  : ARTFISH Report - Shiny Server Module
+
+- [`artfish_shiny_report_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_report_ui.md)
+  : ARTFISH Report - Shiny UI Module
+
+- [`artfish_shiny_species_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_species_server.md)
+  : ARTFISH Species - Shiny Server Module
+
+- [`artfish_shiny_species_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_species_ui.md)
+  : ARTFISH Species - Shiny UI Module
+
 - [`artfish_shiny_welcome_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_welcome_server.md)
   : POC shiny module server
 
 - [`artfish_shiny_welcome_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_welcome_ui.md)
   : POC shiny module UI
 
-- [`artfishr-package`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
-  [`artfishr`](https://fdiwg.github.io/artfishr/reference/artfishr.md) :
-  Tools for implementing ArtFish methodology
+- [`artfishr`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
+  [`artfishr-package`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
+  : Tools for implementing ArtFish methodology
 
 - [`artfish_shiny_server()`](https://fdiwg.github.io/artfishr/reference/artfishr_shiny_server.md)
   : Artfishr shiny server function
