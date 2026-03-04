@@ -4,7 +4,13 @@
 \alias{artfish_shiny_fishing_unit_server}
 \title{ARTFISH Fishing Unit - Shiny Server Module}
 \usage{
-artfish_shiny_fishing_unit_server(id, lang = NULL, estimate, effort_source)
+artfish_shiny_fishing_unit_server(
+  id,
+  lang = NULL,
+  estimate,
+  effort_source,
+  minor_strata = NULL
+)
 }
 \arguments{
 \item{id}{Character string. Module namespace identifier.}
@@ -20,7 +26,11 @@ Default is \code{NULL}}
 
 \item{estimate}{A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
 
-\item{effort_source}{Character string. Indicating the type of effort.}
+\item{effort_source}{Character string indicating the type of effort source.
+Must be either \code{"fisher_interview"} or \code{"boat_counting"}.}
+
+\item{minor_strata}{Character string targeting a column name considered as minor strata.
+Not activated}
 }
 \description{
 Server-side logic for the ARTFISH Fishing Unit dashboard.

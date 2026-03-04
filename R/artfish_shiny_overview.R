@@ -32,11 +32,19 @@
 #' }
 #' If \code{NULL}, the current global language is used.
 #' Default is \code{NULL}
-#' 
-#' @param estimate estimate A data frame aggregating the output of \code{artfish_compute_report}, enriched with human-readable labels.
+#'
+#' @param estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#'
+#' @param effort_source Character string indicating the type of effort source.
+#' Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
+#' Not activated
+#'
+#' @param minor_strata Character string targeting a column name considered as minor strata.
+#' Not activated
+#'
 #' @export
 
-artfish_shiny_overview_server <- function(id, lang = NULL, estimate){
+artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_source = NULL, minor_strata = NULL){
   
   moduleServer(id, function(input, output, session) {
     ns <- session$ns

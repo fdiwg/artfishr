@@ -4,7 +4,13 @@
 \alias{artfish_shiny_species_server}
 \title{ARTFISH Species - Shiny Server Module}
 \usage{
-artfish_shiny_species_server(id, lang = NULL, estimate)
+artfish_shiny_species_server(
+  id,
+  lang = NULL,
+  estimate,
+  effort_source = NULL,
+  minor_strata = NULL
+)
 }
 \arguments{
 \item{id}{Character string. Module namespace identifier.}
@@ -18,7 +24,14 @@ Can be either:
 If \code{NULL}, the current global language is used.
 Default is \code{NULL}}
 
-\item{estimate}{estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
+\item{estimate}{A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
+
+\item{effort_source}{Character string indicating the type of effort source.
+Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
+Not activated}
+
+\item{minor_strata}{Character string targeting a column name considered as minor strata.
+Not activated}
 }
 \description{
 Server-side logic for the ARTFISH Species dashboard.
