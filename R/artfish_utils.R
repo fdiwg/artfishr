@@ -47,4 +47,3 @@ unif_index<-function(days){
   index=mean(table$ratio)
   return(index)
 }
-

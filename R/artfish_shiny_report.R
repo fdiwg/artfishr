@@ -1,0 +1,503 @@
+#' @name artfish_shiny_report_server
+#' @title ARTFISH Report - Shiny Server Module
+#' @description
+#' Server-side logic for the ARTFISH Report dashboard.
+#'
+#' The *"Detailed results of Artfish computation – by stratum"* module provides an ergonomic view of key intermediate results and calculation steps underlying the Artfish algorithm for a given temporal unit.
+#' 
+#' The initial view displays a selector inviting the user to choose a year. If no year is available, the user must first compute at least one indicator using \code{artfish_compute_report}.
+#' Successive dropdown lists then allow the user to select a month and a fishing unit before submitting the selection. 
+#' A complete report is displayed on the right-hand side.
+#'
+#' The module is composed of:
+#' \itemize{
+#'   \item A selector panel to choose the report to display by selecting year, month, and fishing unit
+#'   \item A button to validate the selection
+#'   \item A set of KPIs presenting the report status and the type of effort source
+#'   \item A gauge chart presenting the overall accuracy quality of the indicator
+#'   \item An ergonomic report view including intermediate steps and final indicators for the estimation of:
+#'   \itemize{
+#'     \item (1) Effort
+#'     \item (2) Landings
+#'     \item (3) Estimated catch by species
+#'   }
+#' }
+#'
+#' @param id Character string. Module namespace identifier.
+#'
+#' @param lang Optional language parameter. Can be either:
+#' \itemize{
+#'   \item A character string (static language), or
+#'   \item A reactive expression returning a character string (dynamic language)
+#' }
+#' If \code{NULL}, the current global language is used.
+#' Default is \code{NULL}.
+#'
+#' @param estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#'
+#' @param effort_source Character string indicating the type of effort source.
+#' Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
+#'
+#' @param minor_strata Character string targeting a column name considered as minor strata.
+#'
+#' @export
+
+artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source, minor_strata){  
+  moduleServer(id, function(input, output, session) {
+    ns <- session$ns
+    
+    # -------------------------------------------------------------------------
+    # i18n handling
+    # - Supports static language (lang = "en")
+    # - Supports reactive language (lang = reactive)
+    # -------------------------------------------------------------------------
+    i18n_translator <- reactive({
+      if(is.reactive(lang)){
+        set_translation_language(lang())
+      }else{
+        if(!is.null(lang)) set_translation_language(lang)
+      }
+      translator()
+    })
+    
+    # Simple wrapper around translator$t()
+    i18n <- function(key){
+      i18n_translator()$t(key)
+    }
+    
+    # -------------------------------------------------------------------------
+    # Reactives
+    # -------------------------------------------------------------------------
+    target_data<-reactiveVal(NULL)
+    target_period<-reactiveVal(NULL)
+    status<-reactiveVal(NULL)
+    todisplay<-reactiveVal(FALSE)
+
+    # -------------------------------------------------------------------------
+    # UI Selectors
+    # -------------------------------------------------------------------------
+    #year selector UI
+    output$year_selector<-renderUI({
+      req(estimate)
+      req(nrow(estimate)>0)
+
+      choices <- unique(estimate$year)
+      selectizeInput(ns("year"),paste0(i18n("REPORT_SELECT_INPUT_TITLE_YEAR")," :"),choices=choices[order(as.numeric(choices))],multiple = F,selected=NULL,
+                     options = list(
+                       placeholder = i18n("REPORT_SELECT_INPUT_PLACEHOLDER_YEAR"),
+                       onInitialize = I('function() { this.setValue(""); }')
+                     )
+      )
+    })
+
+    #month selector UI + year filtering
+    observeEvent(input$year,{
+      req(!is.null(input$year)&input$year!="")
+
+      output$month_selector<-renderUI({
+
+        choices <- unique(subset(estimate,year==input$year)$month)
+
+        selectizeInput(ns("month"),paste0(i18n("REPORT_SELECT_INPUT_TITLE_MONTH")," :"),choices=choices[order(choices)],multiple = F,selected=NULL,
+                       options = list(
+                         placeholder = i18n("REPORT_SELECT_INPUT_PLACEHOLDER_MONTH"),
+                         onInitialize = I('function() { this.setValue(""); }')
+                       )
+        )
+      })
+    })
+
+    #fishing unit selector UI + period filtering
+    observeEvent(c(input$year,input$month),{
+      req(!is.null(input$year)&input$year!="")
+      req(!is.null(input$month)&input$month!="")
+      todisplay(FALSE)
+
+      selection<-subset(estimate,year==input$year&month==input$month)
+      target_period(selection)
+      
+      ref_fu <- selection%>%select(fishing_unit,fishing_unit_label)%>%distinct()
+      choices <- setNames(ref_fu$fishing_unit, ref_fu$fishing_unit_label)
+
+      output$fishing_unit_selector<-renderUI({
+        selectizeInput(ns("fishing_unit"),paste0(i18n("REPORT_SELECT_INPUT_TITLE_FISHING_UNIT")," :"),choices=choices,multiple = F,selected=NULL,
+                       options = list(
+                         placeholder = i18n("REPORT_SELECT_INPUT_PLACEHOLDER_FISHING_UNIT"),
+                         onInitialize = I('function() { this.setValue(""); }')
+                       )
+        )
+      })
+
+      req(!is.null(minor_strata))
+      if(minor_strata=="landing_site"){
+
+        ref_ls <- selection%>%select(landing_site,landing_site_label)%>%distinct()
+        choices <- setNames(ref_ls$landing_site, ref_ls$landing_site_label)
+
+        output$minor_strata_selector<-renderUI({
+          selectizeInput(ns("minor_strata"),paste0(i18n("REPORT_SELECT_INPUT_TITLE_LANDING_SITE")," :"),choices=choices,multiple = F,selected=NULL,
+                         options = list(
+                           placeholder = i18n("REPORT_SELECT_INPUT_PLACEHOLDER_LANDING_SITE"),
+                           onInitialize = I('function() { this.setValue(""); }')
+                         )
+          )
+        })
+      }
+
+    })
+
+    # -------------------------------------------------------------------------
+    # Data filtering
+    # -------------------------------------------------------------------------
+    
+    #filter fishing unit
+    observeEvent(c(input$fishing_unit,input$minor_strata),{
+      req(!is.null(input$fishing_unit)&input$fishing_unit!="")
+      subdata<-target_period()
+
+
+      subdata<-subset(subdata,fishing_unit==input$fishing_unit)
+
+      if(!is.null(minor_strata)){
+        if(minor_strata=="landing_site"){
+          subdata<-subset(subdata,landing_site==input$minor_strata)
+        }
+      }
+
+      target_data(subdata)
+      
+      # run button UI 
+      output$button<-renderUI({
+        req(!is.null(input$year),input$year!="")
+        req(!is.null(input$month),input$month!="")
+        req(!is.null(input$fishing_unit),input$fishing_unit!="")
+        if(!is.null(minor_strata)){
+          if(minor_strata=="landing_site") req(!is.null(input$landing_site),input$landing_site!="")
+        }
+        actionButton(ns("btn"),i18n("REPORT_ACTION_BUTTON_TITLE_SUBMIT"))
+      })
+    })
+
+    # -------------------------------------------------------------------------
+    # UI Outputs and Rendering
+    # -------------------------------------------------------------------------
+    
+    #Action to button click
+    observeEvent(input$btn,{
+      todisplay(TRUE)
+      data<-target_data()
+      status(data$status[1])
+
+      # ===== Graphic and stylized view =====
+      
+      #accuracy gauge
+      output$accuracy<-renderPlotly({
+
+        accuracy<-data$overall_accuracy*100
+        req(!is.null(accuracy))
+        req(!is.na(accuracy))
+
+        plot_ly(
+          domain = list(x = c(0.20, 0.80), y = c(0, 0.90)),
+          value = accuracy,
+          title = list(text = paste0(i18n("REPORT_GAUGE_TITLE")," (%)")),
+          type = "indicator",
+          mode = "gauge+number",
+          gauge = list(
+            axis =list(range = list(NULL,100)),
+            bar = list(color = "grey"),
+            steps = list(
+              list(range = c(0, 90), color = "#ffc163"),
+              list(range = c(90, 100), color = "#cbe261"))
+          )) %>%
+          layout(height=200,
+                 margin = list(l=20,r=30,0,0),
+                 plot_bgcolor  = "rgba(0, 0, 0, 0)",
+                 paper_bgcolor = "rgba(0, 0, 0, 0)")
+
+      })
+      
+      output$accuracy_wrapper<-renderUI({
+        req(todisplay())
+        plotlyOutput(ns("accuracy"), height = 200)
+      })
+
+      #data status and effort source
+      output$info_block <- renderUI({
+        req(todisplay())
+        req(target_period())
+        fluidRow(
+          bs4InfoBox(
+            title = i18n("REPORT_INFOBOX_STATUS_TITLE"),
+            value = switch(status(),
+                           "release" = {
+                             i18n("REPORT_RELEASE_LABEL")
+                           },
+                           "staging" = {
+                             i18n("REPORT_STAGING_LABEL")
+                           }),
+            icon = switch(status(),
+                          "release" = {
+                            icon("circle-check")
+                          },
+                          "staging" = {
+                            icon("clock")
+                          }),
+            color = switch(status(),
+                           "release" = {
+                             "success"
+                           },
+                           "staging" = {
+                             "warning"
+                           }),
+            width = 12
+          ),
+          bs4InfoBox(
+            title = i18n("REPORT_INFOBOX_EFFORT_SOURCE_TITLE"),
+            value = switch(effort_source,
+                           "boat_counting" = {
+                             i18n("REPORT_BOAT_COUNTING_LABEL")
+                           },
+                           "fisher_interview" = {
+                             i18n("REPORT_FISHER_INTERVIEW_LABEL")
+                           }),
+            icon = switch(effort_source,
+                          "boat_counting" = {
+                            icon("ship")
+                          },
+                          "fisher_interview" = {
+                            icon("user")
+                          }),
+            color = switch(effort_source,
+                           "boat_counting" = {
+                             "success"
+                           },
+                           "fisher_interview" = {
+                             "warning"
+                           }),
+            width = 12
+          )
+        )
+      })
+
+      # ===== Report view content =====
+      
+      #Effort info
+      output$effort <- DT::renderDT(server = FALSE, {
+
+        codes<-c(i18n("REPORT_EFFORT_CODE_1"),i18n("REPORT_EFFORT_CODE_2"),i18n("REPORT_EFFORT_CODE_3"),
+                 i18n("REPORT_EFFORT_CODE_4"),i18n("REPORT_EFFORT_CODE_5"),i18n("REPORT_EFFORT_CODE_6"),
+                 i18n("REPORT_EFFORT_CODE_7"),i18n("REPORT_EFFORT_CODE_8"),i18n("REPORT_EFFORT_CODE_9"),
+                 i18n("REPORT_EFFORT_CODE_10"))
+
+        labels<-c(i18n("REPORT_EFFORT_LABEL_1"),i18n("REPORT_EFFORT_LABEL_2"),i18n("REPORT_EFFORT_LABEL_3"),
+                  i18n("REPORT_EFFORT_LABEL_4"),i18n("REPORT_EFFORT_LABEL_5"),i18n("REPORT_EFFORT_LABEL_6"),
+                  i18n("REPORT_EFFORT_LABEL_7"),i18n("REPORT_EFFORT_LABEL_8"),i18n("REPORT_EFFORT_LABEL_9"),
+                  i18n("REPORT_EFFORT_LABEL_10")
+        )
+
+        values <- switch(effort_source,
+                         "fisher_interview" = c(
+                           ifelse(!is.na(data$effort_nominal[1]), formatC(data$effort_nominal[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$fleet_engagement_number[1]), formatC(data$fleet_engagement_number[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_fishable_duration[1]), formatC(data$effort_fishable_duration[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_activity_coefficient[1]), formatC(data$effort_activity_coefficient[1],digits = 3, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_total_fishing_duration[1]), formatC(data$effort_total_fishing_duration[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"), #only for fisher_interview
+                           ifelse(!is.na(data$effort_fishing_reference_period[1]), formatC(data$effort_fishing_reference_period[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_coefficient_variation[1]), paste0(format(round(data$effort_coefficient_variation[1]*100,1), nsmall = 1)," %"), "-"),
+                           ifelse(!is.na(data$effort_activity_coefficient_spatial_accuracy[1]), paste0(format(round(data$effort_activity_coefficient_spatial_accuracy[1]*100,1), nsmall = 1)," %"), "-"),
+                           ifelse(!is.na(data$effort_activity_coefficient_temporal_accuracy[1]), paste0(format(round(data$effort_activity_coefficient_temporal_accuracy[1]*100,1), nsmall = 1)," %"), "-"),
+                           ifelse(!is.na(data$effort_sui[1]), format(round(data$effort_sui[1],1), nsmall = 1), "-")
+                         ),
+                         "boat_counting" = c(
+                           ifelse(!is.na(data$effort_nominal[1]), formatC(data$effort_nominal[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$fleet_engagement_number[1]), formatC(data$fleet_engagement_number[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_fishable_duration[1]), formatC(data$effort_fishable_duration[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_activity_coefficient[1]), formatC(data$effort_activity_coefficient[1],digits = 3, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_fishing_reference_period[1]), formatC(data$effort_fishing_reference_period[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F), "-"),
+                           ifelse(!is.na(data$effort_coefficient_variation[1]), paste0(format(round(data$effort_coefficient_variation[1]*100,1), nsmall = 1)," %"), "-"),
+                           ifelse(!is.na(data$effort_activity_coefficient_spatial_accuracy[1]), paste0(format(round(data$effort_activity_coefficient_spatial_accuracy[1]*100,1), nsmall = 1)," %"), "-"),
+                           ifelse(!is.na(data$effort_activity_coefficient_temporal_accuracy[1]), paste0(format(round(data$effort_activity_coefficient_temporal_accuracy[1]*100,1), nsmall = 1)," %"), "-"),
+                           ifelse(!is.na(data$effort_sui[1]), format(round(data$effort_sui[1],1), nsmall = 1), "-")
+                         )
+        )
+
+        if(effort_source == "boat_counting"){
+          #no effort_total_fishing_duration, 1 column less
+          codes = codes[-5]
+          labels = labels[-5]
+        }
+
+        effort<-data.frame(code=codes,
+                           label=labels,
+                           value=values)
+
+        DT::datatable(
+          effort,
+          escape = FALSE,
+          rownames = FALSE,
+          selection = 'none',
+          options = list(
+            dom = 't',
+            pageLength = 10,
+            language = list(url = i18n("TABLE_LANGUAGE")))
+
+        )
+      })
+
+      #Landing info
+      output$landing<-  DT::renderDT(server = FALSE, {
+
+        codes<-c(i18n("REPORT_LANDINGSITE_CODE_1"),i18n("REPORT_LANDINGSITE_CODE_2"),i18n("REPORT_LANDINGSITE_CODE_3"),
+                 i18n("REPORT_LANDINGSITE_CODE_4"),i18n("REPORT_LANDINGSITE_CODE_5"),i18n("REPORT_LANDINGSITE_CODE_6"),
+                 i18n("REPORT_LANDINGSITE_CODE_7"),i18n("REPORT_LANDINGSITE_CODE_8"),i18n("REPORT_LANDINGSITE_CODE_9"),
+                 i18n("REPORT_LANDINGSITE_CODE_10"))
+
+        labels<-c(i18n("REPORT_LANDINGSITE_LABEL_1"),i18n("REPORT_LANDINGSITE_LABEL_2"),i18n("REPORT_LANDINGSITE_LABEL_3"),
+                  i18n("REPORT_LANDINGSITE_LABEL_4"),i18n("REPORT_LANDINGSITE_LABEL_5"),i18n("REPORT_LANDINGSITE_LABEL_6"),
+                  i18n("REPORT_LANDINGSITE_LABEL_7"),i18n("REPORT_LANDINGSITE_LABEL_8"),i18n("REPORT_LANDINGSITE_LABEL_9"),
+                  i18n("REPORT_LANDINGSITE_LABEL_10"))
+
+        values<-c(
+          formatC(sum(data$catch_nominal_landed,na.rm=T),digits = 0, format = "f", big.mark = ",", drop0trailing = F),
+          formatC(sum(data$catch_cpue,na.rm=T),digits = 3, format = "f", big.mark = ",", drop0trailing = F),
+          formatC(data$catch_nominal_landed_sampled[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F),
+          formatC(data$catch_sample_size[1],digits = 0, format = "f", big.mark = ",", drop0trailing = F),
+          formatC(sum(data$trade_value,na.rm=T)/sum(data$catch_nominal_landed,na.rm=T),digits = 0, format = "f", big.mark = ",", drop0trailing = F),
+          formatC(sum(data$trade_value,na.rm=T),digits = 0, format = "f", big.mark = ",", drop0trailing = F),
+          ifelse(!is.na(data$catch_coefficient_variation[1]),paste0(format(round(data$catch_coefficient_variation[1]*100,1), nsmall = 1)," %"),"-"),
+          ifelse(!is.na(data$catch_cpue_spatial_accuracy[1]),paste0(format(round(data$catch_cpue_spatial_accuracy[1]*100,1), nsmall = 1)," %"),"-"),
+          ifelse(!is.na(data$catch_cpue_temporal_accuracy[1]),paste0(format(round(data$catch_cpue_temporal_accuracy[1]*100,1), nsmall = 1)," %"),"-"),
+          ifelse(!is.na(data$catch_sui[1]),format(round(data$catch_sui[1],1), nsmall = 1),"-")
+        )
+
+        landing<-data.frame(code=codes,
+                            label=labels,
+                            value=values)
+
+        DT::datatable(
+          landing,
+          escape = FALSE,
+          rownames = FALSE,
+          selection = 'none',
+          options = list(
+            dom = 't',
+            pageLength = 10,
+            language = list(url = i18n("TABLE_LANGUAGE")))
+        )
+      })
+
+      #accuracy info
+      output$OvAcc<- DT::renderDT(server = FALSE, {
+
+        OvAcc<-data.frame(code="",
+                          label=i18n("REPORT_LABEL_ACCURACY"),
+                          value=paste0(format(round(data$overall_accuracy[1]*100,1), nsmall = 1)," %"))
+
+        DT::datatable(
+          OvAcc,
+          escape = FALSE,
+          rownames = FALSE,
+          selection = 'none',
+          options = list(
+            dom = 't',
+            language = list(url = i18n("TABLE_LANGUAGE")))
+        )
+      })
+
+      #species details info
+      output$species<- DT::renderDT(server = FALSE, {
+
+        species<-subset(data,select=c(species_label,catch_nominal_landed,catch_cpue,trade_price,trade_value,catch_fish_average_weight ))
+
+        DT::datatable(
+          species,
+          escape = FALSE,
+          rownames = FALSE,
+          colnames = c(i18n("REPORT_SPECIES_TABLE_COLNAME_1"),i18n("REPORT_SPECIES_TABLE_COLNAME_2"),
+                       i18n("REPORT_SPECIES_TABLE_COLNAME_3"),i18n("REPORT_SPECIES_TABLE_COLNAME_4"),
+                       i18n("REPORT_SPECIES_TABLE_COLNAME_5"),i18n("REPORT_SPECIES_TABLE_COLNAME_6")),
+          selection = 'none',
+          options = list(
+            dom = 't',
+            pageLength = nrow(species),
+            language = list(url = i18n("TABLE_LANGUAGE"))
+          )
+        ) %>% formatRound("catch_nominal_landed", digits=0) %>%
+          formatRound("catch_cpue", digits = 2) %>%
+          formatRound("trade_price", digits = 2) %>%
+          formatRound("trade_value", digits = 0) %>%
+          formatRound("catch_fish_average_weight", digits = 1)
+      })
+
+      #UI to render full report view
+      output$results<-renderUI({
+        req(todisplay())
+        tagList(
+          p(i18n("REPORT_LABEL_EFFORT")),
+          DTOutput(ns("effort"))%>%withSpinner(type = 4),
+          br(),
+          p(i18n("REPORT_LABEL_LANDINGS")),
+          DTOutput(ns("landing"))%>%withSpinner(type = 4),
+          br(),
+          DTOutput(ns("OvAcc"))%>%withSpinner(type = 4),
+          br(),
+          p(i18n("REPORT_LABEL_ESTIMATED_BY_SPECIES")),
+          DTOutput(ns("species"))%>%withSpinner(type = 4),
+        )
+      })
+    })
+
+    #main UI
+    output$main <- renderUI({
+      tagList(
+        fluidRow(
+          div(
+            width = 12, style = "margin:12px;",
+            tags$h2(i18n("REPORT_TITLE")),tags$h3(class = "text-muted", i18n("REPORT_SUBTITLE"))
+          )
+        ),
+        fluidRow(
+          column(4,
+                 fluidRow(
+                   column(12,
+                          uiOutput(ns("year_selector")),
+                          uiOutput(ns("month_selector")),
+                          uiOutput(ns("fishing_unit_selector")),
+                          uiOutput(ns("button"))
+                   )
+                 ),
+                 fluidRow(
+                   column(6,
+                          uiOutput(ns("info_block"))
+                   )
+                 ),
+                 fluidRow(
+                   column(8,
+                          uiOutput(ns("accuracy_wrapper"))
+                   )
+                 )
+          ),
+          column(6,
+                 uiOutput(ns("results"))
+          )
+        )
+      )
+    })
+    
+  })
+  
+}
+
+#' @name artfish_shiny_report_ui
+#' @title ARTFISH Report - Shiny UI Module
+#' @description User interface for the ARTFISH Report Dashboard
+#' @param id Character string. Module namespace identifier.
+#' @export
+
+artfish_shiny_report_ui <- function(id) {
+  ns <- NS(id)
+  
+  uiOutput(ns("main"))
+
+}
