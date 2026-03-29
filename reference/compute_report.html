@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">artfishr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260304</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260330</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>compute_report</h1>
-      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/0.1.20260304/R/artfish_compute_report.R" class="external-link"><code>R/artfish_compute_report.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/R/artfish_compute_report.R" class="external-link"><code>R/artfish_compute_report.R</code></a></small>
       <div class="d-none name"><code>compute_report.Rd</code></div>
     </div>
 
@@ -47,7 +47,8 @@
 <span>  <span class="va">active_days</span>,</span>
 <span>  <span class="va">landings</span>,</span>
 <span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  validate <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  validate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  progress_fn <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -85,6 +86,10 @@
 
 <dt id="arg-validate">validate<a class="anchor" aria-label="anchor" href="#arg-validate"></a></dt>
 <dd><p>validate</p></dd>
+
+
+<dt id="arg-progress-fn">progress_fn<a class="anchor" aria-label="anchor" href="#arg-progress-fn"></a></dt>
+<dd><p>a progress function with args (p, label). Default is <code>NULL</code></p></dd>
 
 </dl></div>
     <div class="section level2">

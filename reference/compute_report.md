@@ -13,7 +13,8 @@ compute_report(
   active_days,
   landings,
   minor_strata = NULL,
-  validate = FALSE
+  validate = FALSE,
+  progress_fn = NULL
 )
 ```
 
@@ -50,6 +51,10 @@ compute_report(
 - validate:
 
   validate
+
+- progress_fn:
+
+  a progress function with args (p, label). Default is `NULL`
 
 ## Value
 

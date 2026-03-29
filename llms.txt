@@ -70,9 +70,9 @@
 - [`artfish_shiny_welcome_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_welcome_ui.md)
   : POC shiny module UI
 
-- [`artfishr`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
-  [`artfishr-package`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
-  : Tools for implementing ArtFish methodology
+- [`artfishr-package`](https://fdiwg.github.io/artfishr/reference/artfishr.md)
+  [`artfishr`](https://fdiwg.github.io/artfishr/reference/artfishr.md) :
+  Tools for implementing ArtFish methodology
 
 - [`artfish_shiny_server()`](https://fdiwg.github.io/artfishr/reference/artfishr_shiny_server.md)
   : Artfishr shiny server function

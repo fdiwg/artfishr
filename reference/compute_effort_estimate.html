@@ -45,7 +45,7 @@ of the month will be used (and generated automatically by the function)"></head>
 
     <a class="navbar-brand me-2" href="../index.html">artfishr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260304</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260330</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@ of the month will be used (and generated automatically by the function)"></head>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Computes nominal effort estimate</h1>
-      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/0.1.20260304/R/artfish_compute_effort_estimate.R" class="external-link"><code>R/artfish_compute_effort_estimate.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/R/artfish_compute_effort_estimate.R" class="external-link"><code>R/artfish_compute_effort_estimate.R</code></a></small>
       <div class="d-none name"><code>compute_effort_estimate.Rd</code></div>
     </div>
 
@@ -103,7 +103,8 @@ of the month will be used (and generated automatically by the function)</p>
 <span>  effort_source <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fisher_interview"</span>, <span class="st">"boat_counting"</span><span class="op">)</span>,</span>
 <span>  active_days <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">landings</span>,</span>
-<span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  progress_fn <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -144,6 +145,10 @@ the latest in time before the data period will be taken.</p></dd>
 
 <dt id="arg-minor-strata">minor_strata<a class="anchor" aria-label="anchor" href="#arg-minor-strata"></a></dt>
 <dd><p>minor_strata. Default is <code>NULL</code></p></dd>
+
+
+<dt id="arg-progress-fn">progress_fn<a class="anchor" aria-label="anchor" href="#arg-progress-fn"></a></dt>
+<dd><p>a progress function with args (i, n, label). Default is <code>NULL</code></p></dd>
 
 </dl></div>
 

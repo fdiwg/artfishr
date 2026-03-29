@@ -48,7 +48,8 @@ compute_effort_estimate(
   effort_source = c("fisher_interview", "boat_counting"),
   active_days = NULL,
   landings,
-  minor_strata = NULL
+  minor_strata = NULL,
+  progress_fn = NULL
 )
 ```
 
@@ -89,3 +90,7 @@ compute_effort_estimate(
 - minor_strata:
 
   minor_strata. Default is `NULL`
+
+- progress_fn:
+
+  a progress function with args (i, n, label). Default is `NULL`
