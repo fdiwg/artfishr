@@ -62,16 +62,17 @@ compute_report <- function(
     effort_source = effort_source,
     active_days = active_days,
     landings=landings,
-    minor_strata = minor_strata
+    minor_strata = minor_strata,
+    progress_fn = progress_fn
   )
   
   #cpue
-  if(!is.null(progress_fn)) progress_fn(0.15,"Computing effort activity coefficient")
+  if(!is.null(progress_fn)) progress_fn(0.8,"Computing CPUE")
   cpue = compute_cpue(landings, minor_strata = minor_strata)
   
   #catch estimate
-  if(!is.null(progress_fn)) progress_fn(0.2,"Computing effort activity coefficient")
-  catch_estimate = compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata, progress_fn = progress_fn)
+  if(!is.null(progress_fn)) progress_fn(0.9,"Computing catch estimate")
+  catch_estimate = compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
   
   sui = compute_sui(effort, landings, minor_strata = minor_strata)
   
@@ -84,11 +85,11 @@ compute_report <- function(
   )
   
   #catch estimate by species
-  if(!is.null(progress_fn)) progress_fn(0.9,"Computing catch estimates by species")
+  if(!is.null(progress_fn)) progress_fn(0.95,"Computing catch estimate by species")
   catch_estimate_by_species = compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
-  if(!is.null(progress_fn)) progress_fn(0.95,"Computing final report")
+  if(!is.null(progress_fn)) progress_fn(0.99,"Computing final report")
   strata = c("year", "month", "fishing_unit", minor_strata)
   result <- catch_estimate_by_species %>%
     left_join(activity_coefficient[,c(strata, setdiff(names(activity_coefficient), names(catch_estimate_by_species)))], by = strata)
