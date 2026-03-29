@@ -12,7 +12,8 @@ compute_report(
   active_days,
   landings,
   minor_strata = NULL,
-  validate = FALSE
+  validate = FALSE,
+  progress_fn = NULL
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ compute_report(
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
 
 \item{validate}{validate}
+
+\item{progress_fn}{a progress function with args (p, label). Default is \code{NULL}}
 }
 \value{
 the result of Artfish

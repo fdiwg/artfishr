@@ -43,10 +43,12 @@
 #'@param active_days active_days. Default is \code{NULL} (auto-generated)
 #'@param landings landings
 #'@param minor_strata minor_strata. Default is \code{NULL}
+#'@param progress_fn a progress function with args (i, n, label). Default is \code{NULL}
 #'@export
 compute_effort_estimate = function(
     active_vessels, active_vessels_strategy = c("latest", "closest"),
-    effort, effort_source = c("fisher_interview", "boat_counting"), active_days = NULL,landings, minor_strata = NULL
+    effort, effort_source = c("fisher_interview", "boat_counting"), active_days = NULL,landings, minor_strata = NULL,
+    progress_fn = NULL
 ){
   
   active_vessels_strategy = match.arg(active_vessels_strategy)
@@ -140,6 +142,14 @@ compute_effort_estimate = function(
         dt_year = ac_year %>% dplyr::left_join(y = av_year_by_strata)
         #we join with active_days
         dt_year = dt_year %>% dplyr::left_join(y = ad_selection)
+        
+        if(!is.null(progress_fn)){
+          progress_fn(
+            p = which(ref_periods == year) / length(ref_periods) * 70/100, 
+            label = sprintf("Effort estimate - %s", year, which(ref_periods == year) / length(ref_periods))
+          )
+        }
+        
         return(dt_year)
       }))
       
@@ -187,6 +197,14 @@ compute_effort_estimate = function(
         dt_period = ac_period %>% dplyr::left_join(y = av_period_by_strata)
         #we join with active_days
         dt_period = dt_period %>% dplyr::left_join(y = ad_selection)
+        
+        if(!is.null(progress_fn)){
+          progress_fn(
+            p = which(ref_periods == period_date) / length(ref_periods) * 70/100, 
+            label = sprintf("Effort estimate - %s (%s/%s)", period_date, which(ref_periods == period_date), length(ref_periods))
+          )
+        }
+        
         return(dt_period)
         
       }))

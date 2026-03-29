@@ -2,8 +2,8 @@
 % Please edit documentation in R/artfishr.R
 \docType{package}
 \name{artfishr}
-\alias{artfishr}
 \alias{artfishr-package}
+\alias{artfishr}
 \title{Tools for implementing ArtFish methodology}
 \description{
 artfishr provides a set of utility tools to implement ArtFish methodology
