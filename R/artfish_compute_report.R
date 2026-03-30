@@ -62,7 +62,8 @@ compute_report <- function(
     effort_source = effort_source,
     active_days = active_days,
     landings=landings,
-    minor_strata = minor_strata
+    minor_strata = minor_strata,
+    progress_fn = progress_fn
   )
   
   #cpue
