@@ -9,7 +9,7 @@
 #'@param landings landings
 #'@param minor_strata minor_strata. Default is \code{NULL}
 #'@param validate validate
-#'@param progress_fn a progress function with args (p, label). Default is \code{NULL}
+#'@param progress_fn a progress function with args (label, p). Default is \code{NULL}
 #'
 #'@return the result of Artfish
 #'@export
@@ -25,7 +25,7 @@ compute_report <- function(
   validate = FALSE,
   progress_fn = NULL){
   
-  if(!is.null(progress_fn)) progress_fn(0,"Compute report...")
+  if(!is.null(progress_fn)) progress_fn("Compute report...")
   
   result = NULL
   qa_report = NULL
@@ -46,7 +46,7 @@ compute_report <- function(
   }
   
   #activity coefficient
-  if(!is.null(progress_fn)) progress_fn(0.05,"Computing effort activity coefficient")
+  if(!is.null(progress_fn)) progress_fn("Computing effort activity coefficient")
   activity_coefficient = compute_effort_activity_coefficient(
     effort = effort,
     effort_source = effort_source,
@@ -54,7 +54,7 @@ compute_report <- function(
   )
   
   #effort estimate (includes calculation of activity coefficient)
-  if(!is.null(progress_fn)) progress_fn(0.1,"Computing effort activity coefficient")
+  if(!is.null(progress_fn)) progress_fn("Computing effort estimate")
   effort_estimate = compute_effort_estimate(
     active_vessels = active_vessels, 
     active_vessels_strategy = active_vessels_strategy, 
@@ -62,16 +62,15 @@ compute_report <- function(
     effort_source = effort_source,
     active_days = active_days,
     landings=landings,
-    minor_strata = minor_strata,
-    progress_fn = progress_fn
+    minor_strata = minor_strata
   )
   
   #cpue
-  if(!is.null(progress_fn)) progress_fn(0.8,"Computing CPUE")
+  if(!is.null(progress_fn)) progress_fn("Computing CPUE")
   cpue = compute_cpue(landings, minor_strata = minor_strata)
   
   #catch estimate
-  if(!is.null(progress_fn)) progress_fn(0.9,"Computing catch estimate")
+  if(!is.null(progress_fn)) progress_fn("Computing catch estimate")
   catch_estimate = compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
   
   sui = compute_sui(effort, landings, minor_strata = minor_strata)
@@ -85,11 +84,11 @@ compute_report <- function(
   )
   
   #catch estimate by species
-  if(!is.null(progress_fn)) progress_fn(0.95,"Computing catch estimate by species")
+  if(!is.null(progress_fn)) progress_fn("Computing catch estimate by species")
   catch_estimate_by_species = compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
-  if(!is.null(progress_fn)) progress_fn(0.99,"Computing final report")
+  if(!is.null(progress_fn)) progress_fn("Computing final report")
   strata = c("year", "month", "fishing_unit", minor_strata)
   result <- catch_estimate_by_species %>%
     left_join(activity_coefficient[,c(strata, setdiff(names(activity_coefficient), names(catch_estimate_by_species)))], by = strata)
@@ -112,7 +111,7 @@ compute_report <- function(
     left_join(accuracy[,c(strata, setdiff(names(accuracy), names(result)))], by = strata) %>%
     ungroup()
   
-  if(!is.null(progress_fn)) progress_fn(1,"Success")
+  if(!is.null(progress_fn)) progress_fn("Success")
   
   return(result)
 }

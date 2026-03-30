@@ -145,8 +145,8 @@ compute_effort_estimate = function(
         
         if(!is.null(progress_fn)){
           progress_fn(
-            p = which(ref_periods == year) / length(ref_periods) * 70/100, 
-            label = sprintf("Effort estimate - %s", year, which(ref_periods == year) / length(ref_periods))
+            label = sprintf("Effort estimate - %s", year, which(ref_periods == year) / length(ref_periods)),
+            p = which(ref_periods == year) / length(ref_periods)
           )
         }
         
@@ -200,8 +200,8 @@ compute_effort_estimate = function(
         
         if(!is.null(progress_fn)){
           progress_fn(
-            p = which(ref_periods == period_date) / length(ref_periods) * 70/100, 
-            label = sprintf("Effort estimate - %s (%s/%s)", period_date, which(ref_periods == period_date), length(ref_periods))
+            label = sprintf("Effort estimate - %s (%s/%s)", period_date, which(ref_periods == period_date), length(ref_periods)),
+            p = which(ref_periods == period_date) / length(ref_periods)
           )
         }
         
