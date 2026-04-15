@@ -1,6 +1,6 @@
 Package: artfishr
-Version: 0.1.20260330
-Date: 2026-03-30
+Version: 0.1.20260415
+Date: 2026-04-15
 Title: ArtFish for R
 Authors@R: c(
   person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")),
