@@ -30,8 +30,6 @@ artfish_shiny_computation_server <- function(
     estimates <- reactive({
       refresh()
       
-      minor_strata_val <- if (is.null(minor_strata)) NULL else minor_strata()
-      
       isolate({
         artfishr::compute_report(
           effort = effort(),
@@ -40,7 +38,7 @@ artfish_shiny_computation_server <- function(
           active_vessels_strategy = active_vessels_strategy(),
           active_days = active_days(),
           landings = landings(),
-          minor_strata = minor_strata_val,
+          minor_strata = if (is.null(minor_strata)) NULL else minor_strata(),
           progress_fn = progress_fn
         )
       })
@@ -52,7 +50,7 @@ artfish_shiny_computation_server <- function(
         active_vessels_strategy(),
         active_days(),
         landings(),
-        if (!is.null(minor_strata)) minor_strata_val
+        if (!is.null(minor_strata)) minor_strata()
       ))
     
     list(
