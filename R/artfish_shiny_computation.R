@@ -56,7 +56,10 @@ artfish_shiny_computation_server <- function(
       ))
     
     list(
-      estimates = estimates
+      estimates = estimates,
+      effort_source = effort_source(),
+      active_vessels_strategy = active_vessels_strategy(),
+      minor_strata = minor_strata()
     )
   })
 }
