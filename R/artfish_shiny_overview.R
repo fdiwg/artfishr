@@ -89,8 +89,10 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       )
     })
     
-    req(nrow(estimate()) > 0)
-    data_bg(estimate())
+    observe({
+      req(nrow(estimate()) > 0)
+      data_bg(estimate())
+    })
     
     # -------------------------------------------------------------------------
     # UI Selectors
