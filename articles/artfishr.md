@@ -42,21 +42,25 @@ remotes::install_github("fdiwg/artfishr")
 
     ## Downloading GitHub repo fdiwg/artfishr@HEAD
 
-    ## sourcetools (0.1.7-1 -> 0.1.7-2) [CRAN]
-    ## tinytex     (0.58    -> 0.59   ) [CRAN]
+    ## Rcpp        (1.1.1 -> 1.1.1-1) [CRAN]
+    ## openssl     (2.3.5 -> 2.4.0  ) [CRAN]
+    ## cpp11       (NA    -> 0.5.4  ) [CRAN]
+    ## prettyunits (NA    -> 1.2.0  ) [CRAN]
+    ## progress    (NA    -> 1.2.3  ) [CRAN]
+    ## S7          (0.2.1 -> 0.2.1-1) [CRAN]
 
-    ## Installing 2 packages: sourcetools, tinytex
+    ## Installing 6 packages: Rcpp, openssl, cpp11, prettyunits, progress, S7
 
     ## Installing packages into '/home/runner/work/_temp/Library'
     ## (as 'lib' is unspecified)
 
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/Rtmp9dMhKN/remotes1f1a3e1c481e/fdiwg-artfishr-488ea42/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/Rtmpd4W8zT/remotes1e651e75637b/fdiwg-artfishr-3fd5432/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
     ## * checking for empty or unneeded directories
-    ## * building ‘artfishr_0.1.20260330.tar.gz’
+    ## * building ‘artfishr_0.1.20260415.tar.gz’
 
     ## Installing package into '/home/runner/work/_temp/Library'
     ## (as 'lib' is unspecified)
