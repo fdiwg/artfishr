@@ -22,7 +22,7 @@ Imports:
   shiny.i18n,
   shinyWidgets,
   bs4Dash,
-  fdishinyr (>= 0.1.20260303)
+  fdishinyr (>= 0.1.20260415)
 Remotes:
   fdiwg/vrule,
   fdiwg/fdishinyr
