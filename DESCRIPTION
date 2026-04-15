@@ -7,7 +7,7 @@ Authors@R: c(
   person("Alexandre", "Bennici", role = c("aut"), comment = c(ORCID = "0000-0003-2160-3487")),
   person("Johanna", "Herfaut", role = c("aut")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
-Depends: R (>= 4.0)
+Depends: R (>= 4.1)
 Imports:
   methods,
   dplyr,
