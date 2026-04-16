@@ -38,12 +38,12 @@
 #' If \code{NULL}, the current global language is used.
 #' Default is \code{NULL}
 #'
-#' @param estimate() A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#' @param estimate A reactive data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
 #'
-#' @param effort_source Character string indicating the type of effort source.
+#' @param effort_source Reactive haracter string indicating the type of effort source.
 #' Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
 #'
-#' @param minor_strata Character string targeting a column name considered as minor strata.
+#' @param minor_strata Reactive haracter string targeting a column name considered as minor strata.
 #' Not activated
 #'
 #' @export

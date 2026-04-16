@@ -24,12 +24,12 @@ Can be either:
 If \code{NULL}, the current global language is used.
 Default is \code{NULL}}
 
-\item{estimate}{A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
+\item{estimate}{A reactive data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.}
 
-\item{effort_source}{Character string indicating the type of effort source.
+\item{effort_source}{Reactive haracter string indicating the type of effort source.
 Must be either \code{"fisher_interview"} or \code{"boat_counting"}.}
 
-\item{minor_strata}{Character string targeting a column name considered as minor strata.
+\item{minor_strata}{Reactive haracter string targeting a column name considered as minor strata.
 Not activated}
 }
 \description{

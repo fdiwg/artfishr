@@ -40,13 +40,13 @@
 #' If \code{NULL}, the current global language is used.
 #' Default is \code{NULL}
 #'
-#' @param estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#' @param estimate A reactive data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
 #'
-#' @param effort_source Character string indicating the type of effort source.
+#' @param effort_source Reactive character string indicating the type of effort source.
 #' Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
 #' Not activated
 #'
-#' @param minor_strata Character string targeting a column name considered as minor strata.
+#' @param minor_strata Reactive character string targeting a column name considered as minor strata.
 #' Not activated
 #'
 #' @export
@@ -87,7 +87,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     #UI to indicate if there is no release
     output$no_release<-renderUI({
       div(
-        if(nrow(estimate)>0){
+        if(nrow(estimate())>0){
           NULL
         }else{
           p(i18n("SPECIES_NO_RELEASE"))
@@ -95,8 +95,9 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       )
     })
     
-    req(nrow(estimate)>0)
-    
+    observe({
+      req(nrow(estimate())>0)
+    })
     # -------------------------------------------------------------------------
     # UI Selectors
     # -------------------------------------------------------------------------
@@ -104,7 +105,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     #species selector UI
     output$species_selector <- renderUI({
       
-      ref_sp <- estimate%>%select(species,species_label,species_scientific)%>%distinct()%>%rowwise()%>%mutate(label_name_scientific=sprintf("%s [%s]",species_label,species_scientific))%>%ungroup()
+      ref_sp <- estimate()%>%select(species,species_label,species_scientific)%>%distinct()%>%rowwise()%>%mutate(label_name_scientific=sprintf("%s [%s]",species_label,species_scientific))%>%ungroup()
       choices <- setNames(ref_sp$species, ref_sp$label_name_scientific)
       choices <- choices[order(names(choices))]
       
@@ -171,7 +172,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     observeEvent(input$species,{
       if(input$species!=""){
         INFO("Select species '%s'", input$species)
-        selection <- subset(estimate, species == input$species)
+        selection <- subset(estimate(), species == input$species)
         data_sp(selection)
       }
     })
@@ -386,7 +387,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         fdishinyr::generic_chart_server(
           id = "rank",
           lang = appConfig$language,
-          df = estimate,
+          df = estimate(),
           col_date = "date",
           col_group = "species_label",
           col_value = "catch_nominal_landed",
