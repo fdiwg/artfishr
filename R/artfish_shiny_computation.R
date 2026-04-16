@@ -61,7 +61,8 @@ artfish_shiny_computation_server <- function(
         active_vessels_strategy(),
         active_days(),
         landings(),
-        if (!is.null(minor_strata)) minor_strata()
+        if (!is.null(minor_strata)) minor_strata(),
+        refresh()
       ))
     
     list(
