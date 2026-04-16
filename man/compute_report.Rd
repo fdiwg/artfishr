@@ -33,7 +33,7 @@ compute_report(
 
 \item{validate}{validate}
 
-\item{progress_fn}{a progress function with args (p, label). Default is \code{NULL}}
+\item{progress_fn}{a progress function with args (label, p). Default is \code{NULL}}
 }
 \value{
 the result of Artfish
