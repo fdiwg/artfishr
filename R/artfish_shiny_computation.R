@@ -27,8 +27,19 @@ artfish_shiny_computation_server <- function(
 ) {
   moduleServer(id, function(input, output, session) {
     
+    ready <- reactiveVal(FALSE)
+    
     estimates <- reactive({
       refresh()
+
+      # mark computation as running
+      ready(FALSE)
+      
+      on.exit({
+        # mark computation as finished (DB queries done)
+        ready(TRUE)
+      }, add = TRUE)
+      
       
       isolate({
         artfishr::compute_report(
@@ -54,6 +65,7 @@ artfish_shiny_computation_server <- function(
       ))
     
     list(
+      ready = ready,
       estimates = estimates,
       effort_source = effort_source,
       active_vessels_strategy = active_vessels_strategy,
