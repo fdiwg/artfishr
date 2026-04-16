@@ -118,7 +118,7 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
     #fishing_unit selector UI
     output$fishing_unit_selector <- renderUI({
       
-      ref_bg_sp <- estimate()%>%select(fishing_unit,fishing_unit_label)%>%distinct()
+      ref_bg_sp <- estimate()|>select(fishing_unit,fishing_unit_label)|>distinct()
       choices <- setNames(ref_bg_sp$fishing_unit, ref_bg_sp$fishing_unit_label)
       
       shinyWidgets::pickerInput(
@@ -156,7 +156,7 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       
       req(!is.null(estimate()))
       
-      data<-estimate()%>%
+      data<-estimate()|>
         filter(
           date >= input$time[1],
           date <= input$time[2]
@@ -204,21 +204,21 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
     #Indicators and timeline
     observeEvent(data_bg(),{
       req(!is.null(data_bg()))
-      data <- data_bg()%>%
+      data <- data_bg()|>
         ungroup()
       
       data_effort_cols = c("date","fishing_unit","fishing_unit_label","effort_nominal","fleet_engagement_number","effort_activity_coefficient","effort_total_fishing_duration")
-      data_effort<-data%>%
-        select(any_of(data_effort_cols)) %>%
-        distinct() %>%
+      data_effort<-data|>
+        select(any_of(data_effort_cols)) |>
+        distinct() |>
         ungroup()
       
-      total_effort<-data_effort%>%
+      total_effort<-data_effort|>
         summarise(effort_nominal=sum(effort_nominal,na.rm=T),
                   fleet_engagement_number=sum(fleet_engagement_number,na.rm=T)
         )
       
-      total_catch<-data%>%
+      total_catch<-data|>
         summarise(catch_nominal_landed=sum(catch_nominal_landed,na.rm=T),
                   trade_value=sum(trade_value,na.rm=T)
         )

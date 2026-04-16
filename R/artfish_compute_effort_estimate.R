@@ -116,9 +116,9 @@ compute_effort_estimate = function(
         av_selection$ref_period = NULL
         
         #group by strata
-        av_year_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] %>%
-          dplyr::group_by_at(strata) %>%
-          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+        av_year_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] |>
+          dplyr::group_by_at(strata) |>
+          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) |>
           dplylr::ungroup()
         
         #in case of boat_counting and the presence of landing site in active_days table
@@ -129,19 +129,19 @@ compute_effort_estimate = function(
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
           join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
-          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = join_strata)
+          ad_selection = ad_selection |> dplyr::left_join(av_selection, by = join_strata)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
-          ad_selection = ad_selection %>%
-            dplyr::group_by_at(main_strata) %>%
+          ad_selection = ad_selection |>
+            dplyr::group_by_at(main_strata) |>
             dplyr::summarise(
               effort_fishable_duration = sum(effort_fishable_duration * fleet_engagement_number) / sum(fleet_engagement_number)
             )
         }
         
         #we join with selected active vessels
-        dt_year = ac_year %>% dplyr::left_join(y = av_year_by_strata)
+        dt_year = ac_year |> dplyr::left_join(y = av_year_by_strata, by = join_guess_by(ac_year, av_year_by_strata))
         #we join with active_days
-        dt_year = dt_year %>% dplyr::left_join(y = ad_selection)
+        dt_year = dt_year |> dplyr::left_join(y = ad_selection, by = join_guess_by(dt_year, ad_selection))
         
         if(!is.null(progress_fn)){
           progress_fn(
@@ -169,9 +169,9 @@ compute_effort_estimate = function(
         av_selection$ref_period = NULL
         
         #group by strata
-        av_period_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] %>%
-          dplyr::group_by_at(strata) %>%
-          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+        av_period_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] |>
+          dplyr::group_by_at(strata) |>
+          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) |>
           dplyr::ungroup()
         
         #in case of boat_counting and the presence of landing site in active_days table
@@ -183,10 +183,10 @@ compute_effort_estimate = function(
           if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
           #weighted mean
           join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
-          ad_selection = ad_selection %>% dplyr::left_join(av_selection, by = join_strata)
+          ad_selection = ad_selection |> dplyr::left_join(av_selection, by = join_strata)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
-          ad_selection = ad_selection %>%
-            dplyr::group_by_at(main_strata) %>%
+          ad_selection = ad_selection |>
+            dplyr::group_by_at(main_strata) |>
             dplyr::summarise(
               effort_fishable_duration = sum(effort_fishable_duration * fleet_engagement_number) / sum(fleet_engagement_number)
             )
@@ -194,9 +194,9 @@ compute_effort_estimate = function(
         
         ac_period$period_date = NULL
         #we join with selected active vessels
-        dt_period = ac_period %>% dplyr::left_join(y = av_period_by_strata)
+        dt_period = ac_period |> dplyr::left_join(y = av_period_by_strata, by = join_guess_by(ac_period, av_period_by_strata))
         #we join with active_days
-        dt_period = dt_period %>% dplyr::left_join(y = ad_selection)
+        dt_period = dt_period |> dplyr::left_join(y = ad_selection, by = join_guess_by(dt_period, ad_selection))
         
         if(!is.null(progress_fn)){
           progress_fn(
@@ -212,9 +212,9 @@ compute_effort_estimate = function(
     }
   }else{
     #temporary patch in case active_vessels has no year/month
-    active_vessels_by_strata = active_vessels[!is.na(active_vessels$fleet_engagement_number),] %>%
-      dplyr::group_by_at(strata) %>%
-      dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) %>%
+    active_vessels_by_strata = active_vessels[!is.na(active_vessels$fleet_engagement_number),] |>
+      dplyr::group_by_at(strata) |>
+      dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) |>
       dplyr::ungroup()
     
     #in case of boat_counting and the presence of landing site in active_days table
@@ -224,19 +224,19 @@ compute_effort_estimate = function(
       if(!is.null(minor_strata)) main_strata = c(main_strata, minor_strata)
       #weighted mean
       join_strata = if(!"landing_site" %in% minor_strata) c(main_strata, "landing_site") else main_strata
-      active_days = active_days %>% dplyr::left_join(active_vessels, by = join_strata)
+      active_days = active_days |> dplyr::left_join(active_vessels, by = join_strata)
       active_days = active_days[!is.na(active_days$fleet_engagement_number),]
-      active_days = active_days %>%
-        dplyr::group_by_at(main_strata) %>%
+      active_days = active_days |>
+        dplyr::group_by_at(main_strata) |>
         dplyr::summarise(
            effort_fishable_duration = sum(effort_fishable_duration * fleet_engagement_number) / sum(fleet_engagement_number)
         )
     }
     
     #we join with active_vessels
-    dt = AC %>% dplyr::left_join(y = active_vessels_by_strata)
+    dt = AC |> dplyr::left_join(y = active_vessels_by_strata, by = join_guess_by(AC, active_vessels_by_strata))
     #we join with active_days
-    dt = dt %>% dplyr::left_join(y = active_days)
+    dt = dt |> dplyr::left_join(y = active_days, by = join_guess_by(dt, active_days))
   }
   
   #and compute the effort nominal

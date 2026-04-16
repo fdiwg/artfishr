@@ -65,7 +65,7 @@ generate_active_days_by_period = function(year, month,
     effort_fishable_duration = lubridate::days_in_month(ISOdate(year, month, 1))
   )
   if(!is.null(mapping_landing_site_zone)){
-    out = out %>%
+    out = out |>
       dplyr::right_join(mapping_landing_site_zone)
   }
   out = out[!is.na(out$effort_fishable_duration),]

@@ -13,27 +13,29 @@ compute_catch_estimate = function(effort_estimate, landings, minor_strata = NULL
   cpue = artfishr::compute_cpue(landings, minor_strata=minor_strata)
   cpue$catch_nominal_landed_sampled = NULL
   cpue$effort_fishing_duration = NULL
-  out = effort_estimate %>%
-    dplyr::left_join(cpue)
+  out = effort_estimate |>
+    dplyr::left_join(cpue, by = join_guess_by(effort_estimate, cpue))
   out$catch_total_nominal_landed = out$effort_nominal * out$catch_cpue
   out$effort_activity_coefficient = NULL
   out$effort_fishable_duration = NULL
   out$fleet_engagement_number = NULL
   
-  out<-out%>%
+  landings_r = landings|>
+    dplyr::group_by_at(strata) |>
+    dplyr::summarize(
+      catch_number_species=length(unique(species))
+    ) |>
+    dplyr::ungroup() |>
+    dplyr::select(
+      all_of(strata),
+      all_of(minor_strata),
+      catch_number_species
+    )
+  out<-out|>
   dplyr::left_join(
-    landings%>%
-      dplyr::group_by_at(strata) %>%
-      dplyr::summarize(
-        catch_number_species=length(unique(species))
-      )%>%
-      dplyr::ungroup()%>%
-      dplyr::select(
-        all_of(strata),
-        all_of(minor_strata),
-        catch_number_species
-      )
-  )%>%
+    landings_r,
+    by = join_guess_by(out, landings_r)
+  ) |>
     dplyr::ungroup()
   
   return(out)

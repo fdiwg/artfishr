@@ -47,3 +47,15 @@ unif_index<-function(days){
   index=mean(table$ratio)
   return(index)
 }
+
+#'@name join_guess_by
+#'@title join_guess_by
+#'@description Gives the common column names between two tables. Util to be used
+#'in \pkg{dplyr} \code{*_join} calls \code{by} argument to avoid explicit messages
+#'triggered by \pkg{dplyr} when guessing the columns (in case \code{by} is not specified)
+#'param x a \link{data.frame} or \link[tibble]{tibble}
+#'param y a \link{data.frame} or \link[tibble]{tibble}
+#'@export
+join_guess_by <- function(x,y){
+  names(x)[names(x) %in% names(y)]
+}

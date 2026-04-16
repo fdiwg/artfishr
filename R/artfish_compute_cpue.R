@@ -25,18 +25,18 @@ compute_cpue = function(landings, minor_strata = NULL){
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
-  out = landings %>%
-    dplyr::group_by_at(c(strata, "fishing_trip", "effort_fishing_duration")) %>%
-    dplyr::summarize(catch_nominal_landed = sum(catch_nominal_landed, na.rm = T)) %>%
-    dplyr::ungroup(fishing_trip) %>%
+  out = landings |>
+    dplyr::group_by_at(c(strata, "fishing_trip", "effort_fishing_duration")) |>
+    dplyr::summarize(catch_nominal_landed = sum(catch_nominal_landed, na.rm = T)) |>
+    dplyr::ungroup(fishing_trip) |>
     dplyr::summarize(
       catch_sample_size=n(),
       catch_coefficient_variation=(sd(catch_nominal_landed,na.rm=T)/sqrt(sum(effort_fishing_duration, na.rm = T)))/(sum(catch_nominal_landed)/sum(effort_fishing_duration, na.rm = T)),
       effort_fishing_duration = sum(effort_fishing_duration, na.rm = T), 
       catch_nominal_landed_sampled = sum(catch_nominal_landed, na.rm = T)
-      )%>%
-    dplyr::ungroup()%>%
-    dplyr::mutate(catch_cpue = catch_nominal_landed_sampled / effort_fishing_duration)%>%
+      ) |>
+    dplyr::ungroup() |>
+    dplyr::mutate(catch_cpue = catch_nominal_landed_sampled / effort_fishing_duration) |>
     dplyr::ungroup()
   
   return(out)
