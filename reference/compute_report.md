@@ -54,7 +54,7 @@ compute_report(
 
 - progress_fn:
 
-  a progress function with args (p, label). Default is `NULL`
+  a progress function with args (label, p). Default is `NULL`
 
 ## Value
 

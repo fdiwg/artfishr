@@ -70,15 +70,15 @@ artfish_shiny_species_server(
 
 - estimate:
 
-  A data frame aggregating the output of `artfish_compute`, enriched
-  with human-readable labels.
+  A reactive data frame aggregating the output of `artfish_compute`,
+  enriched with human-readable labels.
 
 - effort_source:
 
-  Character string indicating the type of effort source. Must be either
-  `"fisher_interview"` or `"boat_counting"`. Not activated
+  Reactive character string indicating the type of effort source. Must
+  be either `"fisher_interview"` or `"boat_counting"`. Not activated
 
 - minor_strata:
 
-  Character string targeting a column name considered as minor strata.
-  Not activated
+  Reactive character string targeting a column name considered as minor
+  strata. Not activated

@@ -16,6 +16,7 @@
 <url><loc>https://fdiwg.github.io/artfishr/reference/artfish_new_by_period.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/artfish_shiny_accuracy_server.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/artfish_shiny_accuracy_ui.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/reference/artfish_shiny_computation_server.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/artfish_shiny_fishing_unit_server.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/artfish_shiny_fishing_unit_ui.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/artfish_shiny_overview_server.html</loc></url>
@@ -43,6 +44,7 @@
 <url><loc>https://fdiwg.github.io/artfishr/reference/get_fdi_terms.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/get_vrule_validators.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/index.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/reference/join_guess_by.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/logger.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/run_artfishr_shiny.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/sample_size_plot.html</loc></url>

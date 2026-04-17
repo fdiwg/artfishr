@@ -40,6 +40,9 @@
 - [`artfish_shiny_accuracy_ui()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_accuracy_ui.md)
   : POC shiny module UI
 
+- [`artfish_shiny_computation_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_computation_server.md)
+  : ARTFISH Computation - Shiny Server Module
+
 - [`artfish_shiny_fishing_unit_server()`](https://fdiwg.github.io/artfishr/reference/artfish_shiny_fishing_unit_server.md)
   : ARTFISH Fishing Unit - Shiny Server Module
 
@@ -120,6 +123,9 @@
   :
 
   Get data validators powered by vrule
+
+- [`join_guess_by()`](https://fdiwg.github.io/artfishr/reference/join_guess_by.md)
+  : join_guess_by
 
 - [`logger()`](https://fdiwg.github.io/artfishr/reference/logger.md) :
   util generic logger

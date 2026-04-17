@@ -49,7 +49,7 @@ Five boxed plots powered by fdishinyr::generic_chart allowing users to analyse k
 
     <a class="navbar-brand me-2" href="../index.html">artfishr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260415</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260416</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@ Five boxed plots powered by fdishinyr::generic_chart allowing users to analyse k
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>ARTFISH Species - Shiny Server Module</h1>
-      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/HEAD/R/artfish_shiny_species.R" class="external-link"><code>R/artfish_shiny_species.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/R/artfish_shiny_species.R" class="external-link"><code>R/artfish_shiny_species.R</code></a></small>
       <div class="d-none name"><code>artfish_shiny_species_server.Rd</code></div>
     </div>
 
@@ -123,17 +123,17 @@ Default is <code>NULL</code></p></dd>
 
 
 <dt id="arg-estimate">estimate<a class="anchor" aria-label="anchor" href="#arg-estimate"></a></dt>
-<dd><p>A data frame aggregating the output of <code>artfish_compute</code>, enriched with human-readable labels.</p></dd>
+<dd><p>A reactive data frame aggregating the output of <code>artfish_compute</code>, enriched with human-readable labels.</p></dd>
 
 
 <dt id="arg-effort-source">effort_source<a class="anchor" aria-label="anchor" href="#arg-effort-source"></a></dt>
-<dd><p>Character string indicating the type of effort source.
+<dd><p>Reactive character string indicating the type of effort source.
 Must be either <code>"fisher_interview"</code> or <code>"boat_counting"</code>.
 Not activated</p></dd>
 
 
 <dt id="arg-minor-strata">minor_strata<a class="anchor" aria-label="anchor" href="#arg-minor-strata"></a></dt>
-<dd><p>Character string targeting a column name considered as minor strata.
+<dd><p>Reactive character string targeting a column name considered as minor strata.
 Not activated</p></dd>
 
 </dl></div>
