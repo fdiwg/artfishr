@@ -13,24 +13,28 @@ compute_sui = function(effort,landings, minor_strata = NULL){
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
-  out = effort %>%
-    dplyr::select(c(strata),day)%>%
-    dplyr::group_by_at(strata) %>%
+  landings_r = landings |>
+    dplyr::select(c(strata),day,fishing_trip) |>
+    dplyr::distinct() |>
+    dplyr::group_by_at(strata) |>
+    dplyr::summarise(
+      catch_number_sampled_days=length(unique(day)),
+      catch_sui=unif_index(day)
+    ) |>
+    dplyr::ungroup()
+  
+  out_r = effort |>
+    dplyr::select(c(strata),day) |>
+    dplyr::group_by_at(strata) |>
     dplyr::summarise(
       effort_number_sampled_days=length(unique(day)),
-      effort_sui=unif_index(day))%>%
-    dplyr::ungroup()%>%
-    dplyr::left_join(
-      landings %>%
-      dplyr::select(c(strata),day,fishing_trip)%>%
-      dplyr::distinct()%>%
-      dplyr::group_by_at(strata) %>%
-      dplyr::summarise(
-        catch_number_sampled_days=length(unique(day)),
-        catch_sui=unif_index(day)
-        )%>%
+      effort_sui=unif_index(day)) |>
     dplyr::ungroup()
-    )%>%
+  out = out_r |>
+    dplyr::left_join(
+      landings_r,
+      by = join_guess_by(out_r, landings_r)
+    ) |>
     dplyr::ungroup()
   
   return(out)

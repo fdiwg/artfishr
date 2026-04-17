@@ -33,13 +33,13 @@
 #' If \code{NULL}, the current global language is used.
 #' Default is \code{NULL}
 #'
-#' @param estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#' @param estimate A reactive data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
 #'
-#' @param effort_source Character string indicating the type of effort source.
+#' @param effort_source Reactive Character string indicating the type of effort source.
 #' Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
 #' Not activated
 #'
-#' @param minor_strata Character string targeting a column name considered as minor strata.
+#' @param minor_strata Reactive Character string targeting a column name considered as minor strata.
 #' Not activated
 #'
 #' @export
@@ -81,7 +81,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     #UI to indicate if there is no release
     output$no_release<-renderUI({
       div(
-        if(nrow(estimate)>0){
+        if(nrow(estimate())>0){
           NULL
         }else{
           p(i18n("OVERVIEW_NO_RELEASE"))
@@ -89,8 +89,10 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       )
     })
     
-    req(nrow(estimate) > 0)
-    data_bg(estimate)
+    observe({
+      req(nrow(estimate()) > 0)
+      data_bg(estimate())
+    })
     
     # -------------------------------------------------------------------------
     # UI Selectors
@@ -100,11 +102,11 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       sliderInput(
         ns("time"),
         label = i18n("OVERVIEW_TIME_SLIDER_LABEL"),
-        min = min(estimate$date, na.rm = TRUE),
-        max = max(estimate$date, na.rm = TRUE),
+        min = min(estimate()$date, na.rm = TRUE),
+        max = max(estimate()$date, na.rm = TRUE),
         value = c(
-          min(estimate$date, na.rm = TRUE),
-          max(estimate$date, na.rm = TRUE)
+          min(estimate()$date, na.rm = TRUE),
+          max(estimate()$date, na.rm = TRUE)
         ),
         timeFormat = "%b %Y"
       )
@@ -113,7 +115,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     #fishing unit UI
     output$fishing_unit_selector <- renderUI({
       
-      ref_bg_sp <- estimate%>%select(fishing_unit,fishing_unit_label)%>%distinct()
+      ref_bg_sp <- estimate()|>select(fishing_unit,fishing_unit_label)|>distinct()
       
       choices <- setNames(ref_bg_sp$fishing_unit, ref_bg_sp$fishing_unit_label)
       
@@ -150,9 +152,9 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     #Process data based on fishing_unit/time selection
     observeEvent(c(input$fishing_unit,input$time), {
       
-      req(!is.null(estimate))
+      req(!is.null(estimate()))
       
-      data<-estimate%>%
+      data<-estimate()|>
         filter(
           date >= input$time[1],
           date <= input$time[2]
@@ -191,18 +193,18 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     #Indicators and timeline
     observeEvent(data_bg(),{
       req(!is.null(data_bg()))
-      data <- data_bg()%>%
+      data <- data_bg()|>
         ungroup()
       
-      data_effort<-data%>%
-        select(date,fishing_unit,fishing_unit_label,effort_nominal,fleet_engagement_number) %>%
-        distinct() %>%
+      data_effort<-data|>
+        select(date,fishing_unit,fishing_unit_label,effort_nominal,fleet_engagement_number) |>
+        distinct() |>
         ungroup()
       
-      total_effort<-data_effort%>%
+      total_effort<-data_effort|>
         summarise(effort_nominal=sum(effort_nominal,na.rm=T))
       
-      total_catch<-data%>%
+      total_catch<-data|>
         summarise(catch_nominal_landed=sum(catch_nominal_landed,na.rm=T),
                   trade_value=sum(trade_value,na.rm=T))
       

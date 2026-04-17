@@ -40,13 +40,13 @@
 #' If \code{NULL}, the current global language is used.
 #' Default is \code{NULL}
 #'
-#' @param estimate A data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
+#' @param estimate A reactive data frame aggregating the output of \code{artfish_compute}, enriched with human-readable labels.
 #'
-#' @param effort_source Character string indicating the type of effort source.
+#' @param effort_source Reactive character string indicating the type of effort source.
 #' Must be either \code{"fisher_interview"} or \code{"boat_counting"}.
 #' Not activated
 #'
-#' @param minor_strata Character string targeting a column name considered as minor strata.
+#' @param minor_strata Reactive character string targeting a column name considered as minor strata.
 #' Not activated
 #'
 #' @export
@@ -87,7 +87,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     #UI to indicate if there is no release
     output$no_release<-renderUI({
       div(
-        if(nrow(estimate)>0){
+        if(nrow(estimate())>0){
           NULL
         }else{
           p(i18n("SPECIES_NO_RELEASE"))
@@ -95,8 +95,9 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       )
     })
     
-    req(nrow(estimate)>0)
-    
+    observe({
+      req(nrow(estimate())>0)
+    })
     # -------------------------------------------------------------------------
     # UI Selectors
     # -------------------------------------------------------------------------
@@ -104,7 +105,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     #species selector UI
     output$species_selector <- renderUI({
       
-      ref_sp <- estimate%>%select(species,species_label,species_scientific)%>%distinct()%>%rowwise()%>%mutate(label_name_scientific=sprintf("%s [%s]",species_label,species_scientific))%>%ungroup()
+      ref_sp <- estimate()|>select(species,species_label,species_scientific)|>distinct()|>rowwise()|>mutate(label_name_scientific=sprintf("%s [%s]",species_label,species_scientific))|>ungroup()
       choices <- setNames(ref_sp$species, ref_sp$label_name_scientific)
       choices <- choices[order(names(choices))]
       
@@ -140,7 +141,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         output$fishing_unit_selector <- renderUI({
           selection <- data_sp()
           
-          ref_bg_sp <- selection%>%select(fishing_unit,fishing_unit_label)%>%distinct()
+          ref_bg_sp <- selection|>select(fishing_unit,fishing_unit_label)|>distinct()
           choices <- setNames(ref_bg_sp$fishing_unit, ref_bg_sp$fishing_unit_label)
           
           shinyWidgets::pickerInput(
@@ -171,7 +172,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     observeEvent(input$species,{
       if(input$species!=""){
         INFO("Select species '%s'", input$species)
-        selection <- subset(estimate, species == input$species)
+        selection <- subset(estimate(), species == input$species)
         data_sp(selection)
       }
     })
@@ -183,7 +184,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       req(!is.null(data_sp()))
       selection<-data_sp()
       
-      data<-selection%>%
+      data<-selection|>
         filter(
           date >= input$time[1],
           date <= input$time[2]
@@ -212,17 +213,17 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       
       req(!is.null(data_sp_bg()))
       data<-data_sp_bg()
-      data_effort<-data%>%
-        select(date,fishing_unit,fishing_unit_label,species,species_label,effort_nominal,catch_species_ratio) %>%
-        distinct() %>%
+      data_effort<-data|>
+        select(date,fishing_unit,fishing_unit_label,species,species_label,effort_nominal,catch_species_ratio) |>
+        distinct() |>
         ungroup()
       
-      total_effort<-data_effort%>%
+      total_effort<-data_effort|>
         summarise(effort_nominal=sum(effort_nominal,na.rm=T),
                   catch_species_ratio=mean(catch_species_ratio,na.rm=T)
         )
       
-      total_catch<-data%>%
+      total_catch<-data|>
         summarise(catch_nominal_landed=sum(catch_nominal_landed,na.rm=T),
                   trade_value=sum(trade_value,na.rm=T),
                   trade_price=mean(trade_price,na.rm=T)
@@ -386,7 +387,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         fdishinyr::generic_chart_server(
           id = "rank",
           lang = appConfig$language,
-          df = estimate,
+          df = estimate(),
           col_date = "date",
           col_group = "species_label",
           col_value = "catch_nominal_landed",

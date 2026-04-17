@@ -116,7 +116,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       selection<-subset(estimate,year==input$year&month==input$month)
       target_period(selection)
       
-      ref_fu <- selection%>%select(fishing_unit,fishing_unit_label)%>%distinct()
+      ref_fu <- selection|>select(fishing_unit,fishing_unit_label)|>distinct()
       choices <- setNames(ref_fu$fishing_unit, ref_fu$fishing_unit_label)
 
       output$fishing_unit_selector<-renderUI({
@@ -131,7 +131,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       req(!is.null(minor_strata))
       if(minor_strata=="landing_site"){
 
-        ref_ls <- selection%>%select(landing_site,landing_site_label)%>%distinct()
+        ref_ls <- selection|>select(landing_site,landing_site_label)|>distinct()
         choices <- setNames(ref_ls$landing_site, ref_ls$landing_site_label)
 
         output$minor_strata_selector<-renderUI({
@@ -209,7 +209,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
             steps = list(
               list(range = c(0, 90), color = "#ffc163"),
               list(range = c(90, 100), color = "#cbe261"))
-          )) %>%
+          )) |>
           layout(height=200,
                  margin = list(l=20,r=30,0,0),
                  plot_bgcolor  = "rgba(0, 0, 0, 0)",
@@ -423,10 +423,10 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
             pageLength = nrow(species),
             language = list(url = i18n("TABLE_LANGUAGE"))
           )
-        ) %>% formatRound("catch_nominal_landed", digits=0) %>%
-          formatRound("catch_cpue", digits = 2) %>%
-          formatRound("trade_price", digits = 2) %>%
-          formatRound("trade_value", digits = 0) %>%
+        ) |> formatRound("catch_nominal_landed", digits=0) |>
+          formatRound("catch_cpue", digits = 2) |>
+          formatRound("trade_price", digits = 2) |>
+          formatRound("trade_value", digits = 0) |>
           formatRound("catch_fish_average_weight", digits = 1)
       })
 
@@ -435,15 +435,15 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
         req(todisplay())
         tagList(
           p(i18n("REPORT_LABEL_EFFORT")),
-          DTOutput(ns("effort"))%>%withSpinner(type = 4),
+          DTOutput(ns("effort"))|>withSpinner(type = 4),
           br(),
           p(i18n("REPORT_LABEL_LANDINGS")),
-          DTOutput(ns("landing"))%>%withSpinner(type = 4),
+          DTOutput(ns("landing"))|>withSpinner(type = 4),
           br(),
-          DTOutput(ns("OvAcc"))%>%withSpinner(type = 4),
+          DTOutput(ns("OvAcc"))|>withSpinner(type = 4),
           br(),
           p(i18n("REPORT_LABEL_ESTIMATED_BY_SPECIES")),
-          DTOutput(ns("species"))%>%withSpinner(type = 4),
+          DTOutput(ns("species"))|>withSpinner(type = 4),
         )
       })
     })
