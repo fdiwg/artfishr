@@ -45,7 +45,7 @@
 #' @param opts a named list of options. 
 #' For now limited to:
 #' - \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
-#' - \code{values_ui} that allows to hide the UI related to value measurement
+#' - \code{show_values_ui} that allows to hide the UI related to value measurement
 #'
 #' @export
 
@@ -79,11 +79,17 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     # Reactives
     # -------------------------------------------------------------------------
     data_bg<-reactiveVal(NULL)
-    
-    # -------------------------------------------------------------------------
-    # Options
-    # -------------------------------------------------------------------------
-    values_ui <- if(!is.null(opts$values_ui)) opts$values_ui else TRUE
+    values_ui <- reactive({
+      if(!is.null(opts$show_values_ui)){
+        if(is.reactive(opts$show_values_ui)){
+          opts$show_values_ui()
+        }else{
+          opts$show_values_ui
+        }
+      }else{    
+        TRUE
+      }
+    }) 
     
     # -------------------------------------------------------------------------
     # Case if no data to display
@@ -226,16 +232,16 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
             value = sprintf("%s (%s)",formatC(total_catch$catch_nominal_landed, format = "f", digits = 0, big.mark = "\u202F"),i18n("OVERVIEW_INFOBOX_CATCH_UNIT")),
             icon = icon("fish"),
             color = "primary",
-            width = if(values_ui) 4 else 6
+            width = if(values_ui()) 4 else 6
           ),
           bs4InfoBox(
             title = i18n("OVERVIEW_INFOBOX_EFFORT_TITLE"),
             value = sprintf("%s (%s)",formatC(total_effort$effort_nominal, format = "f", digits = 0, big.mark = "\u202F"),i18n("OVERVIEW_INFOBOX_EFFORT_UNIT")),
             icon = icon("clock"),
             color = "primary",
-            width = if(values_ui) 4 else 6
+            width = if(values_ui()) 4 else 6
           ),
-          if(values_ui){
+          if(values_ui()){
             bs4InfoBox(
               title = i18n("OVERVIEW_INFOBOX_VALUE_TITLE"),
               value = sprintf("%s (%s)",formatC(total_catch$trade_value, format = "f", digits = 0, big.mark = "\u202F"),i18n("OVERVIEW_INFOBOX_VALUE_UNIT")),
@@ -310,7 +316,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       )
       
       #Value species composition plot
-      if(values_ui) fdishinyr::generic_chart_server(
+      fdishinyr::generic_chart_server(
         id = "value_sp",
         lang = appConfig$language,
         df = data,
@@ -325,7 +331,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       )
       
       #Value plot
-      if(values_ui) fdishinyr::generic_chart_server(
+      fdishinyr::generic_chart_server(
         id = "value",
         lang = appConfig$language,
         df = data,
@@ -374,7 +380,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
                    fdishinyr::generic_chart_ui(ns("boats"),title=i18n("OVERVIEW_PLOT_BOATS_TITLE"),sliderWidth =25)
             )
           ),
-          if(values_ui) fluidRow(
+          if(values_ui()) fluidRow(
             column(6,
                    fdishinyr::generic_chart_ui(ns("value"),title=i18n("OVERVIEW_PLOT_VALUE_TITLE"),sliderWidth =25)
             ),
