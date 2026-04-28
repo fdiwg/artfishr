@@ -44,8 +44,8 @@
 #' 
 #' @param opts a named list of options. 
 #' For now limited to:
-#' - \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation), optionally a reactive.
-#' - \code{values_ui} that allows to hide the UI related to value measurement. \code{TRUE} by default
+#' - \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
+#' - \code{values_ui} that allows to hide the UI related to value measurement
 #'
 #' @export
 
@@ -397,13 +397,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
         fluidRow(
           column(
             width = 12, style = "margin:12px;",
-            if(!is.null(opts$refresh_ui)){ 
-              if(is.reactive(opts$refresh_ui)){
-                tags$div(opts$refresh_ui(), style = "float:right;")
-              }else{
-                tags$div(opts$refresh_ui, style = "float:right;")
-              }
-            },
+            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
             tags$h2(i18n("OVERVIEW_TITLE")),
             tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
           )
