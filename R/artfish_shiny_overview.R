@@ -44,7 +44,7 @@
 #'
 #' @export
 
-artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_source = NULL, minor_strata = NULL){
+artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_source = NULL, minor_strata = NULL, opts = list()){
   
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
@@ -386,7 +386,8 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
           div(
             width = 12, style = "margin:12px;",
             
-            tags$h2(i18n("OVERVIEW_TITLE")),tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
+            tags$h2(i18n("OVERVIEW_TITLE")),tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE")),
+            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") }
           )
         ),
         uiOutput(ns("no_release")),
