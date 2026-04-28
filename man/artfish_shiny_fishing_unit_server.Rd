@@ -34,7 +34,9 @@ Must be either \code{"fisher_interview"} or \code{"boat_counting"}.}
 Not activated}
 
 \item{opts}{a named list of options. 
-For now only supports the \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)}
+For now limited to:
+- \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
+- \code{values_ui} that allows to hide the UI related to value measurement}
 }
 \description{
 Server-side logic for the ARTFISH Fishing Unit dashboard.
