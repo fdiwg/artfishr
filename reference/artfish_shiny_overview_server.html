@@ -39,7 +39,7 @@ Seven boxed plots powered by fdishinyr::generic_chart allowing users to analyse:
 
     <a class="navbar-brand me-2" href="../index.html">artfishr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260416</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260428</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,7 +88,8 @@ It acts as a dashboard to track the overall evolution of fishing activity over t
 <span>  lang <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">estimate</span>,</span>
 <span>  effort_source <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  opts <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -121,6 +122,11 @@ Not activated</p></dd>
 <dt id="arg-minor-strata">minor_strata<a class="anchor" aria-label="anchor" href="#arg-minor-strata"></a></dt>
 <dd><p>Reactive Character string targeting a column name considered as minor strata.
 Not activated</p></dd>
+
+
+<dt id="arg-opts">opts<a class="anchor" aria-label="anchor" href="#arg-opts"></a></dt>
+<dd><p>a named list of options.
+For now only supports the <code>refresh_ui</code> that gives the capacity to inject a refresh UI button (for dynamic computation)</p></dd>
 
 </dl></div>
 

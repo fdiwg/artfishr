@@ -48,7 +48,8 @@ artfish_shiny_species_server(
   lang = NULL,
   estimate,
   effort_source = NULL,
-  minor_strata = NULL
+  minor_strata = NULL,
+  opts = list()
 )
 ```
 
@@ -82,3 +83,9 @@ artfish_shiny_species_server(
 
   Reactive character string targeting a column name considered as minor
   strata. Not activated
+
+- opts:
+
+  a named list of options. For now only supports the `refresh_ui` that
+  gives the capacity to inject a refresh UI button (for dynamic
+  computation)
