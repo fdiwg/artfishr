@@ -50,7 +50,9 @@
 #' Not activated
 #' 
 #' @param opts a named list of options. 
-#' For now only supports the \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
+#' For now limited to:
+#' - \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
+#' - \code{values_ui} that allows to hide the UI related to value measurement
 #'
 #' @export
 
@@ -83,6 +85,11 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     # -------------------------------------------------------------------------
     data_sp<-reactiveVal(NULL)
     data_sp_bg<-reactiveVal(NULL)
+    
+    # -------------------------------------------------------------------------
+    # Options
+    # -------------------------------------------------------------------------
+    values_ui <- if(!is.null(opts$values_ui)) opts$values_ui else TRUE  
     
     # -------------------------------------------------------------------------
     # Case if no data to display
@@ -240,35 +247,37 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
             value = sprintf("%s (%s)",formatC(total_catch$catch_nominal_landed, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_CATCH_UNIT")),
             icon = icon("fish"),
             color = "primary",
-            width = 2
+            width = if(values_ui) 2 else 3
           ),
-          bs4InfoBox(
-            title = i18n("SPECIES_INFOBOX_VALUE_TITLE"),
-            value = sprintf("%s (%s)",formatC(total_catch$trade_value, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_VALUE_UNIT")),
-            icon = icon("dollar-sign"),
-            color = "primary",
-            width = 2
-          ),
+          if(values_ui){
+            bs4InfoBox(
+              title = i18n("SPECIES_INFOBOX_VALUE_TITLE"),
+              value = sprintf("%s (%s)",formatC(total_catch$trade_value, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_VALUE_UNIT")),
+              icon = icon("dollar-sign"),
+              color = "primary",
+              width = 2
+            )
+          },
           bs4InfoBox(
             title = i18n("SPECIES_INFOBOX_PRICE_TITLE"),
             value = sprintf("%s (%s)",formatC(total_catch$trade_price, format = "f", digits = 2, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_PRICE_UNIT")),
             icon = icon("dollar-sign"),
             color = "primary",
-            width = 2
+            width = if(values_ui) 2 else 3
           ),
           bs4InfoBox(
             title = i18n("SPECIES_INFOBOX_EFFORT_TITLE"),
             value = sprintf("%s (%s)",formatC(total_effort$effort_nominal, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_EFFORT_UNIT")),
             icon = icon("ship"),
             color = "primary",
-            width = 2
+            width = if(values_ui) 2 else 3
           ),
           bs4InfoBox(
             title = i18n("SPECIES_INFOBOX_SP_RATE_TITLE"),
             value = formatC(total_effort$catch_species_ratio, format = "f", digits = 2, big.mark = "\u202F"),
             icon = icon("fish"),
             color = "primary",
-            width = 2
+            width = if(values_ui) 2 else 3
           )
         )
       })
@@ -321,7 +330,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       )
       
       #Value plot
-      fdishinyr::generic_chart_server(
+      if(values_ui) fdishinyr::generic_chart_server(
         id = "value",
         lang = appConfig$language,
         df = data,
@@ -336,7 +345,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       )
       
       #Prices plot
-      fdishinyr::generic_chart_server(
+      if(values_ui) fdishinyr::generic_chart_server(
         id = "price",
         lang = appConfig$language,
         df = data,
@@ -355,8 +364,8 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         tagList(
           fluidRow(fdishinyr::generic_chart_ui(ns("catch"),title=i18n("SPECIES_PLOT_CATCH_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("cpue"),title=i18n("SPECIES_PLOT_CPUE_TITLE"),sliderWidth =25)),
-          fluidRow(fdishinyr::generic_chart_ui(ns("value"),title=i18n("SPECIES_PLOT_VALUE_TITLE"),sliderWidth =25)),
-          fluidRow(fdishinyr::generic_chart_ui(ns("price"),title=i18n("SPECIES_PLOT_PRICE_TITLE"),sliderWidth =25)),
+          if(values_ui) fluidRow(fdishinyr::generic_chart_ui(ns("value"),title=i18n("SPECIES_PLOT_VALUE_TITLE"),sliderWidth =25)),
+          if(values_ui) fluidRow(fdishinyr::generic_chart_ui(ns("price"),title=i18n("SPECIES_PLOT_PRICE_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("effort"),title=i18n("SPECIES_PLOT_EFFORT_TITLE"),sliderWidth =25))
         )
       })
