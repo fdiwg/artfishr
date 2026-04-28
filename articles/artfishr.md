@@ -42,18 +42,17 @@ remotes::install_github("fdiwg/artfishr")
 
     ## Downloading GitHub repo fdiwg/artfishr@HEAD
 
-    ## Rcpp    (1.1.1 -> 1.1.1-1) [CRAN]
-    ## glue    (1.8.0 -> 1.8.1  ) [CRAN]
-    ## openssl (2.3.5 -> 2.4.0  ) [CRAN]
-    ## S7      (0.2.1 -> 0.2.1-1) [CRAN]
+    ## cpp11       (NA -> 0.5.4) [CRAN]
+    ## prettyunits (NA -> 1.2.0) [CRAN]
+    ## progress    (NA -> 1.2.3) [CRAN]
 
-    ## Installing 4 packages: Rcpp, glue, openssl, S7
+    ## Installing 3 packages: cpp11, prettyunits, progress
 
     ## Installing packages into '/home/runner/work/_temp/Library'
     ## (as 'lib' is unspecified)
 
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/Rtmpg0ZY4b/remotes1c5422584167/fdiwg-artfishr-e1e5424/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/RtmphHWwPw/remotes1e377426abf/fdiwg-artfishr-179935a/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
