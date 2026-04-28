@@ -48,10 +48,13 @@
 #'
 #' @param minor_strata Reactive character string targeting a column name considered as minor strata.
 #' Not activated
+#' 
+#' @param opts a named list of options. 
+#' For now only supports the \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
 #'
 #' @export
 
-artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_source = NULL, minor_strata = NULL){
+artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_source = NULL, minor_strata = NULL, opts = list()){
   
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
@@ -438,9 +441,11 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       
       tagList(
         fluidRow(
-          div(
+          column(
             width = 12, style = "margin:12px;",
-            tags$h2(i18n("SPECIES_TITLE")),tags$h3(class = "text-muted", i18n("SPECIES_SUBTITLE"))
+            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
+            tags$h2(i18n("SPECIES_TITLE")),
+            tags$h3(class = "text-muted", i18n("SPECIES_SUBTITLE"))
           )
         ),            
         div(class="row",

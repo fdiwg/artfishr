@@ -9,7 +9,8 @@ artfish_shiny_overview_server(
   lang = NULL,
   estimate,
   effort_source = NULL,
-  minor_strata = NULL
+  minor_strata = NULL,
+  opts = list()
 )
 }
 \arguments{
@@ -32,6 +33,9 @@ Not activated}
 
 \item{minor_strata}{Reactive Character string targeting a column name considered as minor strata.
 Not activated}
+
+\item{opts}{a named list of options. 
+For now only supports the \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)}
 }
 \description{
 Server-side logic for the ARTFISH Overview dashboard.

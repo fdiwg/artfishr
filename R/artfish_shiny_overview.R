@@ -41,6 +41,9 @@
 #'
 #' @param minor_strata Reactive Character string targeting a column name considered as minor strata.
 #' Not activated
+#' 
+#' @param opts a named list of options. 
+#' For now only supports the \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
 #'
 #' @export
 
@@ -383,11 +386,11 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     output$main <- renderUI({
       tagList(
         fluidRow(
-          div(
+          column(
             width = 12, style = "margin:12px;",
-            
-            tags$h2(i18n("OVERVIEW_TITLE")),tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE")),
-            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") }
+            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
+            tags$h2(i18n("OVERVIEW_TITLE")),
+            tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
           )
         ),
         uiOutput(ns("no_release")),
