@@ -80,4 +80,5 @@ artfish_shiny_overview_server(
 
   a named list of options. For now limited to: - `refresh_ui` that gives
   the capacity to inject a refresh UI button (for dynamic computation) -
-  `values_ui` that allows to hide the UI related to value measurement
+  `show_values_ui` that allows to hide the UI related to value
+  measurement
