@@ -31,16 +31,6 @@ artfish_shiny_computation_server <- function(
     
     estimates <- reactive({
       refresh()
-
-      # mark computation as running
-      ready(FALSE)
-      
-      on.exit({
-        # mark computation as finished (DB queries done)
-        ready(TRUE)
-      }, add = TRUE)
-      
-      
       isolate({
         artfishr::compute_report(
           effort = effort(),
@@ -64,6 +54,14 @@ artfish_shiny_computation_server <- function(
         if (!is.null(minor_strata)) minor_strata(),
         refresh()
       ))
+    
+    observeEvent(refresh(), {
+      ready(FALSE)
+    }, ignoreInit = TRUE, priority = 100)
+    
+    observeEvent(estimates(), {
+      ready(TRUE)
+    })
     
     list(
       ready = ready,
