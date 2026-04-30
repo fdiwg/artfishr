@@ -29,8 +29,10 @@ artfish_shiny_computation_server <- function(
     
     ready <- reactiveVal(FALSE)
     
+    compute_trigger <- reactive({ refresh() })
+    
     estimates <- reactive({
-      refresh()
+      compute_trigger()
       isolate({
         artfishr::compute_report(
           effort = effort(),
@@ -57,7 +59,7 @@ artfish_shiny_computation_server <- function(
     
     observeEvent(refresh(), {
       ready(FALSE)
-    }, ignoreInit = TRUE, priority = 100)
+    }, ignoreInit = TRUE)
     
     observeEvent(estimates(), {
       ready(TRUE)
