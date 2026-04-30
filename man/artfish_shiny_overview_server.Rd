@@ -36,8 +36,7 @@ Not activated}
 
 \item{opts}{a named list of options. 
 For now limited to:
-- \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
-- \code{show_values_ui} that allows to hide the UI related to value measurement}
+- \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)}
 }
 \description{
 Server-side logic for the ARTFISH Overview dashboard.

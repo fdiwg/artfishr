@@ -45,7 +45,6 @@
 #' @param opts a named list of options. 
 #' For now limited to:
 #' - \code{refresh_ui} that gives the capacity to inject a refresh UI button (for dynamic computation)
-#' - \code{show_values_ui} that allows to hide the UI related to value measurement
 #'
 #' @export
 
@@ -80,17 +79,8 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     # -------------------------------------------------------------------------
     data_bg<-reactiveVal(NULL)
     values_ui <- reactive({
-      req(estimates())
-      # if(!is.null(opts$show_values_ui)){
-      #   if(is.reactive(opts$show_values_ui)){
-      #     opts$show_values_ui()
-      #   }else{
-      #     opts$show_values_ui
-      #   }
-      # }else{    
-      #   TRUE
-      # }
-      sum(estimates()$total_value, na.rm = TRUE) > 0
+      req(estimate())
+      sum(estimate()$total_value, na.rm = TRUE) > 0
     }) 
     
     # -------------------------------------------------------------------------
