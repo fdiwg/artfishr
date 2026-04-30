@@ -13,7 +13,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/fdiwg/artfishr/blob/0.1.20260430/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/fdiwg/artfishr/blob/main/DESCRIPTION)
 
 Blondel E, Bennici A, Herfaut J (2026). *artfishr: ArtFish for R*. R
 package version 0.1.20260428, <https://github.com/fdiwg/artfishr>.
