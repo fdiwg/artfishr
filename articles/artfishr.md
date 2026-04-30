@@ -13,6 +13,7 @@ As prequirements, packages `remotes` and `vrule` should be installed.
 - Package `remotes` can be installed from CRAN using:
 
 ``` r
+
 install.packages("remotes", repos = "https://cloud.r-project.org")
 ```
 
@@ -23,6 +24,7 @@ install.packages("remotes", repos = "https://cloud.r-project.org")
   from GitHub using `remotes`:
 
 ``` r
+
 remotes::install_github("fdiwg/vrule")
 ```
 
@@ -35,6 +37,7 @@ Once packages `remotes` and `vrule`, R package `artfishr` can be
 installed using:
 
 ``` r
+
 remotes::install_github("fdiwg/artfishr")
 ```
 
@@ -42,9 +45,17 @@ remotes::install_github("fdiwg/artfishr")
 
     ## Downloading GitHub repo fdiwg/artfishr@HEAD
 
-    ## 
+    ## cpp11       (NA -> 0.5.4) [CRAN]
+    ## prettyunits (NA -> 1.2.0) [CRAN]
+    ## progress    (NA -> 1.2.3) [CRAN]
+
+    ## Installing 3 packages: cpp11, prettyunits, progress
+
+    ## Installing packages into '/home/runner/work/_temp/Library'
+    ## (as 'lib' is unspecified)
+
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/Rtmp3bq224/remotes1cb2537248d3/fdiwg-artfishr-6832a7c/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/RtmpjM2HNT/remotes1dbe22cb87b4/fdiwg-artfishr-54a918d/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
