@@ -245,9 +245,9 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
             value = sprintf("%s (%s)",formatC(total_catch$catch_nominal_landed, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_CATCH_UNIT")),
             icon = icon("fish"),
             color = "primary",
-            width = if(values_ui) 2 else 3
+            width = if(values_ui()) 2 else 3
           ),
-          if(values_ui){
+          if(values_ui()){
             bs4InfoBox(
               title = i18n("SPECIES_INFOBOX_VALUE_TITLE"),
               value = sprintf("%s (%s)",formatC(total_catch$trade_value, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_VALUE_UNIT")),
@@ -261,21 +261,21 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
             value = sprintf("%s (%s)",formatC(total_catch$trade_price, format = "f", digits = 2, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_PRICE_UNIT")),
             icon = icon("dollar-sign"),
             color = "primary",
-            width = if(values_ui) 2 else 3
+            width = if(values_ui()) 2 else 3
           ),
           bs4InfoBox(
             title = i18n("SPECIES_INFOBOX_EFFORT_TITLE"),
             value = sprintf("%s (%s)",formatC(total_effort$effort_nominal, format = "f", digits = 0, big.mark = "\u202F"),i18n("SPECIES_INFOBOX_EFFORT_UNIT")),
             icon = icon("ship"),
             color = "primary",
-            width = if(values_ui) 2 else 3
+            width = if(values_ui()) 2 else 3
           ),
           bs4InfoBox(
             title = i18n("SPECIES_INFOBOX_SP_RATE_TITLE"),
             value = formatC(total_effort$catch_species_ratio, format = "f", digits = 2, big.mark = "\u202F"),
             icon = icon("fish"),
             color = "primary",
-            width = if(values_ui) 2 else 3
+            width = if(values_ui()) 2 else 3
           )
         )
       })
@@ -328,7 +328,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       )
       
       #Value plot
-      if(values_ui) fdishinyr::generic_chart_server(
+      if(values_ui()) fdishinyr::generic_chart_server(
         id = "value",
         lang = appConfig$language,
         df = data,
@@ -343,7 +343,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       )
       
       #Prices plot
-      if(values_ui) fdishinyr::generic_chart_server(
+      if(values_ui()) fdishinyr::generic_chart_server(
         id = "price",
         lang = appConfig$language,
         df = data,
@@ -362,8 +362,8 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         tagList(
           fluidRow(fdishinyr::generic_chart_ui(ns("catch"),title=i18n("SPECIES_PLOT_CATCH_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("cpue"),title=i18n("SPECIES_PLOT_CPUE_TITLE"),sliderWidth =25)),
-          if(values_ui) fluidRow(fdishinyr::generic_chart_ui(ns("value"),title=i18n("SPECIES_PLOT_VALUE_TITLE"),sliderWidth =25)),
-          if(values_ui) fluidRow(fdishinyr::generic_chart_ui(ns("price"),title=i18n("SPECIES_PLOT_PRICE_TITLE"),sliderWidth =25)),
+          if(values_ui()) fluidRow(fdishinyr::generic_chart_ui(ns("value"),title=i18n("SPECIES_PLOT_VALUE_TITLE"),sliderWidth =25)),
+          if(values_ui()) fluidRow(fdishinyr::generic_chart_ui(ns("price"),title=i18n("SPECIES_PLOT_PRICE_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("effort"),title=i18n("SPECIES_PLOT_EFFORT_TITLE"),sliderWidth =25))
         )
       })

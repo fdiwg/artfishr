@@ -240,9 +240,9 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
             value = sprintf("%s (%s)",formatC(total_catch$catch_nominal_landed, format = "f", digits = 0, big.mark = "\u202F"),i18n("FISHING_UNIT_INFOBOX_CATCH_UNIT")),
             icon = icon("fish"),
             color = "primary",
-            width = if(values_ui) 3 else 4
+            width = if(values_ui()) 3 else 4
           ),
-          if(values_ui){
+          if(values_ui()){
             bs4InfoBox(
               title = i18n("FISHING_UNIT_INFOBOX_VALUE_TITLE"),
               value = sprintf("%s (%s)",formatC(total_catch$trade_value, format = "f", digits = 0, big.mark = "\u202F"),i18n("FISHING_UNIT_INFOBOX_VALUE_UNIT")),
@@ -256,14 +256,14 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
             value = sprintf("%s (%s)",formatC(total_effort$effort_nominal, format = "f", digits = 0, big.mark = "\u202F"),i18n("FISHING_UNIT_INFOBOX_EFFORT_UNIT")),
             icon = icon("clock"),
             color = "primary",
-            width = if(values_ui) 3 else 4
+            width = if(values_ui()) 3 else 4
           ),
           bs4InfoBox(
             title = i18n("FISHING_UNIT_INFOBOX_BOAT_TITLE"),
             value = sprintf("%s (%s)",formatC(total_effort$fleet_engagement_number, format = "f", digits = 0, big.mark = "\u202F"),i18n("FISHING_UNIT_INFOBOX_BOAT_UNIT")),
             icon = icon("clock"),
             color = "primary",
-            width = if(values_ui) 3 else 4
+            width = if(values_ui()) 3 else 4
           )
         )
       })
@@ -286,7 +286,7 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       )
       
       #Value per fishing unit plot
-      if(values_ui) fdishinyr::generic_chart_server(
+      if(values_ui()) fdishinyr::generic_chart_server(
         id = "value_fu_tot",
         lang = appConfig$language,
         df = data,
@@ -391,7 +391,7 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       )
       
       #Value
-      if(values_ui) fdishinyr::generic_chart_server(
+      if(values_ui()) fdishinyr::generic_chart_server(
         id = "value",
         lang = appConfig$language,
         df = data,
@@ -411,16 +411,16 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
         
         tagList(
           fluidRow(
-            column(if(values_ui) 4 else 6,fdishinyr::generic_chart_ui(ns("catch_sp_tot"),title=i18n("FISHING_UNIT_PLOT_CATCH_SP_TOT_TITLE"),sliderWidth =25)),
-            column(if(values_ui) 4 else 6,fdishinyr::generic_chart_ui(ns("catch_fu_tot"),title=i18n("FISHING_UNIT_PLOT_CATCH_FU_TOT_TITLE"),sliderWidth =25)),
-            if(values_ui) column(4,fdishinyr::generic_chart_ui(ns("value_fu_tot"),title=i18n("FISHING_UNIT_PLOT_VALUE_FU_TOT_TITLE"),sliderWidth =25))
+            column(if(values_ui()) 4 else 6,fdishinyr::generic_chart_ui(ns("catch_sp_tot"),title=i18n("FISHING_UNIT_PLOT_CATCH_SP_TOT_TITLE"),sliderWidth =25)),
+            column(if(values_ui()) 4 else 6,fdishinyr::generic_chart_ui(ns("catch_fu_tot"),title=i18n("FISHING_UNIT_PLOT_CATCH_FU_TOT_TITLE"),sliderWidth =25)),
+            if(values_ui()) column(4,fdishinyr::generic_chart_ui(ns("value_fu_tot"),title=i18n("FISHING_UNIT_PLOT_VALUE_FU_TOT_TITLE"),sliderWidth =25))
           ),
           fluidRow(fdishinyr::generic_chart_ui(ns("catch"),title=i18n("FISHING_UNIT_PLOT_CATCH_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("cpue"),title=i18n("FISHING_UNIT_PLOT_CPUE_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("effort"),title=i18n("FISHING_UNIT_PLOT_EFFORT_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("activity"),title=i18n("FISHING_UNIT_PLOT_ACTIVITY_TITLE"),sliderWidth =25)),
           fluidRow(fdishinyr::generic_chart_ui(ns("boats"),title=i18n("FISHING_UNIT_PLOT_BOATS_TITLE"),sliderWidth =25)),
-          if(values_ui) fluidRow(fdishinyr::generic_chart_ui(ns("value"),title=i18n("FISHING_UNIT_PLOT_VALUE_TITLE"),sliderWidth =25))
+          if(values_ui()) fluidRow(fdishinyr::generic_chart_ui(ns("value"),title=i18n("FISHING_UNIT_PLOT_VALUE_TITLE"),sliderWidth =25))
         )
       })
     })
