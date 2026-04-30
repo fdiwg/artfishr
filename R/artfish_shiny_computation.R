@@ -29,14 +29,12 @@ artfish_shiny_computation_server <- function(
     
     ready <- reactiveVal(FALSE)
     
-    refresh_anchor <- reactiveVal(0)
-    
-    refresh_watch <- reactive({
-      refresh_anchor()
-    })
+    compute_trigger <- eventReactive(refresh(), {
+      Sys.time()
+    }, ignoreInit = FALSE)
     
     estimates <- reactive({
-      refresh_watch()
+      compute_trigger()
       isolate({
         artfishr::compute_report(
           effort = effort(),
@@ -58,12 +56,11 @@ artfish_shiny_computation_server <- function(
         active_days(),
         landings(),
         if (!is.null(minor_strata)) minor_strata(),
-        refresh_anchor()
+        compute_trigger()
       ))
     
     observeEvent(refresh(), {
       ready(FALSE)
-      refresh_anchor(refresh_anchor() + 1)
     }, ignoreInit = TRUE)
     
     observeEvent(estimates(), {
