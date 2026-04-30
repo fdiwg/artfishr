@@ -31,9 +31,12 @@ artfish_shiny_computation_server <- function(
     
     refresh_anchor <- reactiveVal(0)
     
-    estimates <- reactive({
-      req(refresh_anchor())
+    refresh_watch <- reactive({
       refresh_anchor()
+    })
+    
+    estimates <- reactive({
+      refresh_watch()
       isolate({
         artfishr::compute_report(
           effort = effort(),
