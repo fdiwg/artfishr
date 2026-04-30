@@ -45,17 +45,9 @@ remotes::install_github("fdiwg/artfishr")
 
     ## Downloading GitHub repo fdiwg/artfishr@HEAD
 
-    ## cpp11       (NA -> 0.5.4) [CRAN]
-    ## prettyunits (NA -> 1.2.0) [CRAN]
-    ## progress    (NA -> 1.2.3) [CRAN]
-
-    ## Installing 3 packages: cpp11, prettyunits, progress
-
-    ## Installing packages into '/home/runner/work/_temp/Library'
-    ## (as 'lib' is unspecified)
-
+    ## 
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/RtmpjM2HNT/remotes1dbe22cb87b4/fdiwg-artfishr-54a918d/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/RtmpQdC6fo/remotes1cb83499a38a/fdiwg-artfishr-4dd2c7c/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
