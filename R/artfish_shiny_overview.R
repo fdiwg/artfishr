@@ -80,15 +80,17 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     # -------------------------------------------------------------------------
     data_bg<-reactiveVal(NULL)
     values_ui <- reactive({
-      if(!is.null(opts$show_values_ui)){
-        if(is.reactive(opts$show_values_ui)){
-          opts$show_values_ui()
-        }else{
-          opts$show_values_ui
-        }
-      }else{    
-        TRUE
-      }
+      req(estimates())
+      # if(!is.null(opts$show_values_ui)){
+      #   if(is.reactive(opts$show_values_ui)){
+      #     opts$show_values_ui()
+      #   }else{
+      #     opts$show_values_ui
+      #   }
+      # }else{    
+      #   TRUE
+      # }
+      sum(estimates()$total_value, na.rm = TRUE) > 0
     }) 
     
     # -------------------------------------------------------------------------
