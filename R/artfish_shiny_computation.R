@@ -62,11 +62,8 @@ artfish_shiny_computation_server <- function(
       ))
     
     observeEvent(refresh(), {
-      refresh_anchor(refresh_anchor() + 1)
-    }, ignoreInit = TRUE)
-    
-    observeEvent(refresh_anchor(), {
       ready(FALSE)
+      refresh_anchor(refresh_anchor() + 1)
     }, ignoreInit = TRUE)
     
     observeEvent(estimates(), {
