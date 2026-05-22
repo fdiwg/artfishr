@@ -23,7 +23,7 @@ library(artfishr)
 
 ## 1. Introduction
 
-The R package `artfishr` implements tools for processing small-scales fisheries data following the *FAO Artfish methodology*.  
+The R package `artfishr` implements tools for producing catch and effort estimates from sample-based survey data of small-scales fisheries data following the *FAO Artfish extrapolation methodology*.  
 To ensure consistency and interoperability, input datasets must comply with standardized formats and validation rules.
 
 This vignette describes:
@@ -35,10 +35,10 @@ This vignette describes:
 
 Four core datasets are supported:
 
-1. **Active vessels**  
-2. **Effort** (two variants depending on data collection method)  
-3. **Active days**  
-4. **Landings**
+1. **Active vessels**: Number of active vessels per stratum (vessels that can potentially go fishing) 
+2. **Effort** (two variants depending on data collection method): fisher interview or boat counting  
+3. **Active days**: number of days in the month with a fishing activity
+4. **Landings**: landings survey observation data
 
 ---
 
@@ -67,6 +67,8 @@ Preview the structure:
 read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr")) |>  head()
 ```
 
+The template first tab describes the fields and precise the mandatory structure.
+
 ---
 
 ## 3. Identify your sampling strategy
@@ -76,13 +78,15 @@ read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr")
 Effort data can be collected under two distinct monitoring approaches:
 
 1. **Fisher interviews (`effort_source = "fisher_interview"`)**  
-   - Data obtained directly from fishers with questionnaires.    
-   (Text to improve)
-   
+   - Data obtained directly from fishers with questionnaires    
+   - The template x is required (number of days fished within the period of reference)
+   - In that case, the active days survey is not necessary. Total number of days in the month is used by default.
+  
 
 2. **Boat counting (`effort_source = "boat_counting"`)**  
-   - Data collected via registers or direct observation.
-   (Text to improve)
+   - Data collected via registers or direct observation
+   - Template y is required (number of boats out in comparison of total potentially active boat)
+   - The number of active days in the month must be provided. It can come from the active days survey or from estimation based on fisheries knowledge.
 
 Both formats are supported in artfishr and can be validated using the same validation interface.
 
@@ -183,4 +187,4 @@ validate_active_days_template(active_days)
 
 ## 7. References
 
-(TO add)
+(To add)
