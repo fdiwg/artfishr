@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Introduction to artfishr • artfishr</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introduction to artfishr">
 </head>
@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">artfishr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260428</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260528</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
       <h1>Introduction to artfishr</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/0.1.20260501/vignettes/artfishr.Rmd" class="external-link"><code>vignettes/artfishr.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/vignettes/artfishr.Rmd" class="external-link"><code>vignettes/artfishr.Rmd</code></a></small>
       <div class="d-none name"><code>artfishr.Rmd</code></div>
     </div>
 
@@ -81,7 +81,7 @@ installed from GitHub using <code>remotes</code>:</li>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"fdiwg/vrule"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Using github PAT from envvar GITHUB_PAT. Use `gitcreds::gitcreds_set()` and unset GITHUB_PAT in .Renviron (or elsewhere) if you want to use the more secure git credential store instead.</span></span></code></pre>
-<pre><code><span><span class="co">## Skipping install of 'vrule' from a github remote, the SHA1 (37f9c2d0) has not changed since last install.</span></span>
+<pre><code><span><span class="co">## Skipping install of 'vrule' from a github remote, the SHA1 (e750f11e) has not changed since last install.</span></span>
 <span><span class="co">##   Use `force = TRUE` to force installation</span></span></code></pre>
 <p>Once packages <code>remotes</code> and <code>vrule</code>, R package
 <code>artfishr</code> can be installed using:</p>
@@ -89,14 +89,19 @@ installed from GitHub using <code>remotes</code>:</li>
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"fdiwg/artfishr"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Using github PAT from envvar GITHUB_PAT. Use `gitcreds::gitcreds_set()` and unset GITHUB_PAT in .Renviron (or elsewhere) if you want to use the more secure git credential store instead.</span></span></code></pre>
 <pre><code><span><span class="co">## Downloading GitHub repo fdiwg/artfishr@HEAD</span></span></code></pre>
-<pre><code><span><span class="co">## </span></span>
-<span><span class="co">## <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">## * checking for file ‘/tmp/Rtmpoj49SE/remotes1cbb5e807f59/fdiwg-artfishr-f726d3e/DESCRIPTION’ ... OK</span></span>
+<pre><code><span><span class="co">## cpp11       (NA -&gt; 0.5.5) [CRAN]</span></span>
+<span><span class="co">## prettyunits (NA -&gt; 1.2.0) [CRAN]</span></span>
+<span><span class="co">## progress    (NA -&gt; 1.2.3) [CRAN]</span></span></code></pre>
+<pre><code><span><span class="co">## Installing 3 packages: cpp11, prettyunits, progress</span></span></code></pre>
+<pre><code><span><span class="co">## Installing packages into '/home/runner/work/_temp/Library'</span></span>
+<span><span class="co">## (as 'lib' is unspecified)</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">## * checking for file ‘/tmp/RtmpxxFrBd/remotes1e8b22b187b7/fdiwg-artfishr-c6511e2/DESCRIPTION’ ... OK</span></span>
 <span><span class="co">## * preparing ‘artfishr’:</span></span>
 <span><span class="co">## * checking DESCRIPTION meta-information ... OK</span></span>
 <span><span class="co">## * checking for LF line-endings in source and make files and shell scripts</span></span>
 <span><span class="co">## * checking for empty or unneeded directories</span></span>
-<span><span class="co">## * building ‘artfishr_0.1.20260428.tar.gz’</span></span></code></pre>
+<span><span class="co">## * building ‘artfishr_0.1.20260528.tar.gz’</span></span></code></pre>
 <pre><code><span><span class="co">## Installing package into '/home/runner/work/_temp/Library'</span></span>
 <span><span class="co">## (as 'lib' is unspecified)</span></span></code></pre>
 <p>Once installed, <code>artfishr</code> can be loaded using
