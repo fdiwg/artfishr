@@ -250,7 +250,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #Fleet engagement Plot
       fdishinyr::generic_chart_server(
         id = "boats",
-        lang = appConfig$language,
+        lang = lang,
         df = data_effort,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -265,7 +265,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #Effort plot
       fdishinyr::generic_chart_server(
         id = "effort",
-        lang = appConfig$language,
+        lang = lang,
         df = data_effort,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -280,7 +280,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #Catch plot
       fdishinyr::generic_chart_server(
         id = "catch",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -295,7 +295,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #Catch species composition plot
       fdishinyr::generic_chart_server(
         id = "catch_sp",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "species_label",
@@ -310,7 +310,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #Value species composition plot
       fdishinyr::generic_chart_server(
         id = "value_sp",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "species_label",
@@ -325,7 +325,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #Value plot
       fdishinyr::generic_chart_server(
         id = "value",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -340,7 +340,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       #CPUE plot
       fdishinyr::generic_chart_server(
         id = "cpue",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",

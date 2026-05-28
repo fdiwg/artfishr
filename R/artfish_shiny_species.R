@@ -285,7 +285,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       #Catches plot
       fdishinyr::generic_chart_server(
         id = "catch",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -300,7 +300,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       #CPUE plot
       fdishinyr::generic_chart_server(
         id = "cpue",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -315,7 +315,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       #Effort plot
       fdishinyr::generic_chart_server(
         id = "effort",
-        lang = appConfig$language,
+        lang = lang,
         df = data_effort,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -330,7 +330,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       #Value plot
       if(values_ui()) fdishinyr::generic_chart_server(
         id = "value",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -345,7 +345,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       #Prices plot
       if(values_ui()) fdishinyr::generic_chart_server(
         id = "price",
-        lang = appConfig$language,
+        lang = lang,
         df = data,
         col_date = "date",
         col_group = "fishing_unit_label",
@@ -380,7 +380,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         #donut chart with all fishing units
         fdishinyr::generic_chart_server(
           id = "donut",
-          lang = appConfig$language,
+          lang = lang,
           df = selection,
           col_date = "date",
           col_group = "fishing_unit_label",
@@ -396,7 +396,7 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
         #ranked species chart with selected species highlighted
         fdishinyr::generic_chart_server(
           id = "rank",
-          lang = appConfig$language,
+          lang = lang,
           df = estimate(),
           col_date = "date",
           col_group = "species_label",
