@@ -1,3 +1,63 @@
 key,es
-WELCOME,Bienvenido usuario de artfishr!
-WELCOME_PARAGRAPH,Este es un jemplo de módulo Shiny multilingüe dado por la libreria artfishr
+TABLE_LANGUAGE,//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json
+WELCOME,¡Bienvenido usuario de artfishr!
+WELCOME_PARAGRAPH,Este es un ejemplo de módulo multilingüe shiny proporcionado por la biblioteca artfishr
+ACCURACY_TITLE,Estimar la precisión y uniformidad de la estrategia de muestreo
+ACCURACY_TABPANEL_ACCURACY,Precisión
+ACCURACY_GLOBAL_BOX_TITLE,Global
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_BOATS_TITLE,Número de embarcaciones
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_FISHING_DAYS_TITLE,Número de días de pesca
+ACCURACY_EFFORT_BOX_TITLE,Esfuerzo
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_EFFORT_SAMPLES_TITLE,Número de muestras de esfuerzo
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_EFFORTS_TITLE,Número de días muestreados (esfuerzo)
+ACCURACY_LANDING_BOX_TITLE,Desembarque
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_LANDING_SAMPLES_TITLE,Número de muestras de desembarque
+ACCURACY_NUMERIC_INPUT_NUMBER_OF_DAYS_SAMPLED_LANDING_TITLE,Número de días muestreados (desembarque)
+ACCURACY_TABPANEL_UNIFORMITY,Uniformidad
+ACCURACY_UNIFORMITY_HINT,Haga clic en 'Nueva columna' para añadir un día y doble clic en una celda para editar
+ACCURACY_ACTIONBUTTON_ACTIVATE_NEWCOLUMN_LABEL,Nueva columna
+ACCURACY_ACTIONBUTTON_COMPUTE_LABEL,Calcular
+ACCURACY_VALUEBOX_TITLE_SPATIAL_ACCURACY_EFFORT,Precisión espacial (esfuerzo)
+ACCURACY_VALUEBOX_TITLE_TEMPORAL_ACCURACY_EFFORT,Precisión temporal (esfuerzo)
+ACCURACY_VALUEBOX_TITLE_SPATIAL_ACCURACY_CATCH,Precisión espacial (captura)
+ACCURACY_VALUEBOX_TITLE_TEMPORAL_ACCURACY_CATCH,Precisión temporal (captura)
+ACCURACY_VALUEBOX_TITLE_OVERALL_ACCURACY,Precisión general
+ACCURACY_VALUEBOX_TITLE_UNIFORMITY_INDEX,Índice de uniformidad
+ACCURACY_DAY_LABEL,Día
+ACCURACY_SAMPLES_LABEL,muestras
+OVERVIEW_TITLE,Captura y esfuerzo total
+OVERVIEW_SUBTITLE,Estadísticas a nivel nacional
+OVERVIEW_NO_RELEASE,No hay indicadores publicados disponibles para las estimaciones de Artfish
+OVERVIEW_TIME_SLIDER_LABEL,Período
+OVERVIEW_FISHING_UNIT_SELECTOR_LABEL,Unidad de pesca
+OVERVIEW_FISHING_UNIT_SELECTOR_SELECT_ALL,seleccionar todo
+OVERVIEW_FISHING_UNIT_SELECTOR_DESELECT_ALL,deseleccionar todo
+OVERVIEW_FISHING_UNIT_SELECTOR_SELECTED,unidades de pesca seleccionadas
+OVERVIEW_FISHING_UNIT_SELECTOR_NO_SELECTION,Ninguna unidad de pesca seleccionada
+OVERVIEW_INFOBOX_CATCH_TITLE,Captura total
+OVERVIEW_INFOBOX_CATCH_UNIT,kg
+OVERVIEW_INFOBOX_EFFORT_TITLE,Esfuerzo total
+OVERVIEW_INFOBOX_EFFORT_UNIT,días
+OVERVIEW_INFOBOX_VALUE_TITLE,Valor total
+OVERVIEW_INFOBOX_VALUE_UNIT,$
+OVERVIEW_PLOT_BOATS_TITLE,Número de embarcaciones activas
+OVERVIEW_PLOT_BOATS_GROUP_LABEL,Unidad de pesca
+OVERVIEW_PLOT_BOATS_VALUE_LABEL,Número de embarcaciones activas
+OVERVIEW_PLOT_EFFORT_TITLE,Esfuerzo nominal total
+OVERVIEW_PLOT_EFFORT_GROUP_LABEL,Unidad de pesca
+OVERVIEW_PLOT_EFFORT_VALUE_LABEL,Esfuerzo nominal total (días)
+OVERVIEW_PLOT_CATCH_TITLE,Estimación de captura total
+OVERVIEW_PLOT_CATCH_GROUP_LABEL,Unidad de pesca
+OVERVIEW_PLOT_CATCH_VALUE_LABEL,Captura total (kg)
+OVERVIEW_PLOT_CATCH_SP_TITLE,Composición por especies (por cantidad)
+OVERVIEW_PLOT_CATCH_SP_GROUP_LABEL,Rango
+OVERVIEW_PLOT_CATCH_SP_VALUE_LABEL,
+OVERVIEW_PLOT_VALUE_TITLE,Estimación del valor total
+OVERVIEW_PLOT_VALUE_GROUP_LABEL,Unidad de pesca
+OVERVIEW_PLOT_VALUE_VALUE_LABEL,Valor total ($)
+OVERVIEW_PLOT_VALUE_SP_TITLE,Composición por especies (por valor)
+OVERVIEW_PLOT_VALUE_SP_GROUP_LABEL,Rango
+OVERVIEW_PLOT_VALUE_SP_VALUE_LABEL,
+OVERVIEW_PLOT_CPUE_TITLE,Captura por unidad de esfuerzo (CPUE)
+OVERVIEW_PLOT_CPUE_GROUP_LABEL,Unidad de pesca
+OVERVIEW_PLOT_CPUE_VALUE_LABEL,CPUE (kg/día)
