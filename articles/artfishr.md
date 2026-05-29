@@ -47,12 +47,12 @@ remotes::install_github("fdiwg/artfishr")
 
     ## 
     ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/RtmpbBR8ld/remotes1bd95fb06d3c/fdiwg-artfishr-c6511e2/DESCRIPTION’ ... OK
+    ## * checking for file ‘/tmp/RtmpWZbS08/remotes1ce76e27df52/fdiwg-artfishr-eb5d858/DESCRIPTION’ ... OK
     ## * preparing ‘artfishr’:
     ## * checking DESCRIPTION meta-information ... OK
     ## * checking for LF line-endings in source and make files and shell scripts
     ## * checking for empty or unneeded directories
-    ## * building ‘artfishr_0.1.20260528.tar.gz’
+    ## * building ‘artfishr_0.1.20260529.tar.gz’
 
     ## Installing package into '/home/runner/work/_temp/Library'
     ## (as 'lib' is unspecified)
