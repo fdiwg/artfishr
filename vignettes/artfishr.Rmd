@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(artfishr)
 ```
 
-This vignette shows how to use [artfishr](https://github.com/fdiwg/artfishr).
+This vignette shows how to use [artfishr](https://github.com/fdiwg/artfishr) R package.
 
 ## Installation
 
