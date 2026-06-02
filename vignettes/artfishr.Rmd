@@ -1,5 +1,5 @@
 ---
-title: Introduction to artfishr package
+title: Introduction to artfishr package for statistics
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to artfishr}
