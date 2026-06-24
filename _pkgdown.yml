@@ -1,3 +1,4 @@
+url: https://fdiwg.github.io/artfishr/
 template:
   bootstrap: 5
 
@@ -17,12 +18,10 @@ navbar:
       href: reference/index.html
 
     articles:
-      text: "Artcles"
+      text: "Articles"
       href: articles/index.html
 
     github:
       icon: fab fa-github
       href: https://github.com/fdiwg/artfishr
-url: https://fdiwg.github.io/artfishr/
-template:
-  bootstrap: 5
+
