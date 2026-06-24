@@ -14,23 +14,23 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
-  species_compo <- landings %>%
-    dplyr::group_by_at(c(strata, "species")) %>%
+  species_compo <- landings |>
+    dplyr::group_by_at(c(strata, "species")) |>
     dplyr::summarize(
       species_tot = sum(catch_nominal_landed, na.rm = T),
       species_value = sum(trade_value, na.rm = T),
       catch_number = sum(catch_number, na.rm = T)
-    ) %>%
+    ) |>
     dplyr::ungroup()
-  species_compo <- species_compo %>%
-    dplyr::left_join(catch_estimate)%>%
+  species_compo <- species_compo |>
+    dplyr::left_join(catch_estimate, by = join_guess_by(species_compo, catch_estimate)) |>
     dplyr::ungroup()
   
-  species_compo_tot <- species_compo %>%
-    dplyr::group_by_at(strata) %>%
+  species_compo_tot <- species_compo |>
+    dplyr::group_by_at(strata) |>
     dplyr::summarise(sum_species_tot = sum(species_tot, na.rm = T))
-  species_compo = species_compo %>%
-    dplyr::left_join(species_compo_tot)
+  species_compo = species_compo |>
+    dplyr::left_join(species_compo_tot, by = join_guess_by(species_compo, species_compo_tot))
   
   species_compo$catch_species_ratio<-species_compo$species_tot / species_compo$sum_species_tot
   species_compo$catch_nominal_landed <- species_compo$catch_species_ratio * species_compo$catch_total_nominal_landed #catch_nominal_landed

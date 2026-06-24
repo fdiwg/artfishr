@@ -23,3 +23,6 @@ navbar:
     github:
       icon: fab fa-github
       href: https://github.com/fdiwg/artfishr
+url: https://fdiwg.github.io/artfishr/
+template:
+  bootstrap: 5

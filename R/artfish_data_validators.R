@@ -3,10 +3,10 @@
 #'@export
 set_vrule_validators = function(){
   format_spec_files = list.files(file.path(system.file(package = "artfishr"), "extdata/format_specs"), full.names = T)
-  .artfish$format_specs = lapply(format_spec_files, function(x){
+  .artfishr$format_specs = lapply(format_spec_files, function(x){
     vrule::format_spec$new(json = jsonlite::read_json(x))
   })
-  names(.artfish$format_specs) = sapply(.artfish$format_specs, function(x){x$name})
+  names(.artfishr$format_specs) = sapply(.artfishr$format_specs, function(x){x$name})
 }
 
 #'@name get_vrule_validators
@@ -14,7 +14,7 @@ set_vrule_validators = function(){
 #'@return the list of internal data validators as objects of class \link{format_spec}
 #'@export
 get_vrule_validators = function(){
-  return(.artfish$format_specs)
+  return(.artfishr$format_specs)
 }
 
 #'@name validate_input_datasets

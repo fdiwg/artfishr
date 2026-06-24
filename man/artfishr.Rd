@@ -12,6 +12,7 @@ artfishr provides a set of utility tools to implement ArtFish methodology
 Useful links:
 \itemize{
   \item \url{https://github.com/fdiwg/artfishr}
+  \item \url{https://fdiwg.github.io/artfishr/}
   \item Report bugs at \url{https://github.com/fdiwg/artfishr/issues}
 }
 

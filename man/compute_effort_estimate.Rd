@@ -11,7 +11,8 @@ compute_effort_estimate(
   effort_source = c("fisher_interview", "boat_counting"),
   active_days = NULL,
   landings,
-  minor_strata = NULL
+  minor_strata = NULL,
+  progress_fn = NULL
 )
 }
 \arguments{
@@ -35,6 +36,8 @@ the latest in time before the data period will be taken.}
 \item{landings}{landings}
 
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
+
+\item{progress_fn}{a progress function with args (i, n, label). Default is \code{NULL}}
 }
 \description{
 The effort estimate is computed as the product of the \code{fleet_engagement_number}

@@ -16,23 +16,25 @@ compute_accuracy = function(activity_coefficient,effort_estimate,cpue,sui, minor
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
-  out = effort_estimate %>%
+  out_r = effort_estimate |>
     dplyr::left_join(
-      activity_coefficient%>%
-      dplyr::select(strata, effort_fishing_reference_period),
+      activity_coefficient|>
+        dplyr::select(strata, effort_fishing_reference_period),
       by = strata
-      )%>%
-    dplyr::left_join(cpue)%>%
-    dplyr::left_join(sui)%>%
-    dplyr::rowwise()%>%
+    )
+  out_r2 = out_r |>
+    dplyr::left_join(cpue, by = join_guess_by(out_r, cpue))
+  out = out_r2 |>
+    dplyr::left_join(sui, by = join_guess_by(out_r2, sui)) |>
+    dplyr::rowwise() |>
     dplyr::mutate(
       effort_activity_coefficient_spatial_accuracy=artfish_accuracy(n = effort_sample_size,N = fleet_engagement_number * 30/effort_fishing_reference_period, method="higher"),
       effort_activity_coefficient_temporal_accuracy = 1L,
       catch_cpue_spatial_accuracy=artfish_accuracy(n = catch_sample_size,N = fleet_engagement_number * effort_fishable_duration, method="higher"),
       catch_cpue_temporal_accuracy=artfish_accuracy(n = catch_number_sampled_days,N = effort_fishable_duration, method="higher"),
       overall_accuracy=min(effort_activity_coefficient_spatial_accuracy,effort_activity_coefficient_temporal_accuracy,catch_cpue_spatial_accuracy,catch_cpue_temporal_accuracy,na.rm=T)
-      )%>%
-    dplyr::ungroup()%>%
+      ) |>
+    dplyr::ungroup() |>
     dplyr::select(
       all_of(strata),
       all_of(minor_strata),

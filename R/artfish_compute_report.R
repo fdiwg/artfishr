@@ -9,6 +9,7 @@
 #'@param landings landings
 #'@param minor_strata minor_strata. Default is \code{NULL}
 #'@param validate validate
+#'@param progress_fn a progress function with args (label, p). Default is \code{NULL}
 #'
 #'@return the result of Artfish
 #'@export
@@ -21,7 +22,10 @@ compute_report <- function(
   active_days,
   landings,
   minor_strata = NULL,
-  validate = FALSE){
+  validate = FALSE,
+  progress_fn = NULL){
+  
+  if(!is.null(progress_fn)) progress_fn("Compute report...")
   
   result = NULL
   qa_report = NULL
@@ -42,32 +46,37 @@ compute_report <- function(
   }
   
   #activity coefficient
-  activity_coefficient = artfishr::compute_effort_activity_coefficient(
+  if(!is.null(progress_fn)) progress_fn("Computing effort activity coefficient")
+  activity_coefficient = compute_effort_activity_coefficient(
     effort = effort,
     effort_source = effort_source,
     minor_strata = minor_strata
   )
   
   #effort estimate (includes calculation of activity coefficient)
-  effort_estimate = artfishr::compute_effort_estimate(
+  if(!is.null(progress_fn)) progress_fn("Computing effort estimate")
+  effort_estimate = compute_effort_estimate(
     active_vessels = active_vessels, 
     active_vessels_strategy = active_vessels_strategy, 
     effort = effort, 
     effort_source = effort_source,
     active_days = active_days,
     landings=landings,
-    minor_strata = minor_strata
+    minor_strata = minor_strata,
+    progress_fn = progress_fn
   )
   
   #cpue
-  cpue = artfishr::compute_cpue(landings, minor_strata = minor_strata)
+  if(!is.null(progress_fn)) progress_fn("Computing CPUE")
+  cpue = compute_cpue(landings, minor_strata = minor_strata)
   
   #catch estimate
-  catch_estimate = artfishr::compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
+  if(!is.null(progress_fn)) progress_fn("Computing catch estimate")
+  catch_estimate = compute_catch_estimate(effort_estimate, landings,minor_strata = minor_strata)
   
-  sui = artfishr::compute_sui(effort, landings, minor_strata = minor_strata)
+  sui = compute_sui(effort, landings, minor_strata = minor_strata)
   
-  accuracy = artfishr::compute_accuracy(
+  accuracy = compute_accuracy(
     activity_coefficient,
     effort_estimate,
     cpue,
@@ -76,17 +85,34 @@ compute_report <- function(
   )
   
   #catch estimate by species
-  catch_estimate_by_species = artfishr::compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
+  if(!is.null(progress_fn)) progress_fn("Computing catch estimate by species")
+  catch_estimate_by_species = compute_catch_estimates_by_species(landings, catch_estimate,minor_strata = minor_strata)
   
   #global report
-  result<-catch_estimate_by_species%>%
-    full_join(activity_coefficient)%>%
-    full_join(effort_estimate)%>%
-    full_join(cpue%>%select(-effort_fishing_duration)%>%rename(catch_total_cpue=catch_cpue))%>%
-    full_join(catch_estimate%>%select(-catch_cpue))%>%
-    full_join(sui)%>%
-    full_join(accuracy)%>%
+  if(!is.null(progress_fn)) progress_fn("Computing final report")
+  strata = c("year", "month", "fishing_unit", minor_strata)
+  result <- catch_estimate_by_species |>
+    left_join(activity_coefficient[,c(strata, setdiff(names(activity_coefficient), names(catch_estimate_by_species)))], by = strata)
+  
+  result <- result |>  
+    left_join(effort_estimate[,c(strata, setdiff(names(effort_estimate), names(result)))], by = strata)
+  
+  cpue_formatted = cpue |> select(-effort_fishing_duration) |> rename(catch_total_cpue=catch_cpue)
+  result <- result |>
+    left_join(cpue_formatted[,c(strata, setdiff(names(cpue_formatted), names(result)))], by = strata)
+  
+  catch_estimate_formatted = catch_estimate |> select(-catch_cpue)
+  result <- result |>
+    left_join(catch_estimate_formatted[,c(strata, setdiff(names(catch_estimate_formatted), names(result)))], by = strata)
+  
+  result <- result |>
+    left_join(sui[,c(strata, setdiff(names(sui), names(result)))], by = strata)
+  
+  result <- result |>
+    left_join(accuracy[,c(strata, setdiff(names(accuracy), names(result)))], by = strata) |>
     ungroup()
+  
+  if(!is.null(progress_fn)) progress_fn("Success")
   
   return(result)
 }
