@@ -1,7 +1,7 @@
-# Introduction to artfishr
+# Introduction to artfishr package
 
 This vignette shows how to use
-[artfishr](https://github.com/fdiwg/artfishr).
+[artfishr](https://github.com/fdiwg/artfishr) R package.
 
 ## Installation
 
@@ -17,9 +17,6 @@ As prequirements, packages `remotes` and `vrule` should be installed.
 install.packages("remotes", repos = "https://cloud.r-project.org")
 ```
 
-    ## Installing package into '/home/runner/work/_temp/Library'
-    ## (as 'lib' is unspecified)
-
 - Package [vrule](https://github.com/fdiwg/vrule) should be installed
   from GitHub using `remotes`:
 
@@ -27,11 +24,6 @@ install.packages("remotes", repos = "https://cloud.r-project.org")
 
 remotes::install_github("fdiwg/vrule")
 ```
-
-    ## Using github PAT from envvar GITHUB_PAT. Use `gitcreds::gitcreds_set()` and unset GITHUB_PAT in .Renviron (or elsewhere) if you want to use the more secure git credential store instead.
-
-    ## Skipping install of 'vrule' from a github remote, the SHA1 (e750f11e) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
 
 Once packages `remotes` and `vrule`, R package `artfishr` can be
 installed using:
@@ -41,34 +33,55 @@ installed using:
 remotes::install_github("fdiwg/artfishr")
 ```
 
-    ## Using github PAT from envvar GITHUB_PAT. Use `gitcreds::gitcreds_set()` and unset GITHUB_PAT in .Renviron (or elsewhere) if you want to use the more secure git credential store instead.
-
-    ## Downloading GitHub repo fdiwg/artfishr@HEAD
-
-    ## 
-    ## ── R CMD build ─────────────────────────────────────────────────────────────────
-    ## * checking for file ‘/tmp/RtmpXiPl4K/remotes1c4c528b1e79/fdiwg-artfishr-dfc3f7c/DESCRIPTION’ ... OK
-    ## * preparing ‘artfishr’:
-    ## * checking DESCRIPTION meta-information ... OK
-    ## * checking for LF line-endings in source and make files and shell scripts
-    ## * checking for empty or unneeded directories
-    ## * building ‘artfishr_0.1.20260529.tar.gz’
-
-    ## Installing package into '/home/runner/work/_temp/Library'
-    ## (as 'lib' is unspecified)
-
 Once installed, `artfishr` can be loaded using
 [`library(artfishr)`](https://github.com/fdiwg/artfishr) or
 \`require(artfishr)\`\`
 
 ## Data requirements
 
-TODO
-
-## The Artfish methodology - summary
-
-TODO
+See the full guide:
+[`vignette("02_data-requirements-validation")`](https://fdiwg.github.io/artfishr/articles/02_data-requirements-validation.md)
 
 ## How to run Artfish with `artfishr`
 
-TODO
+Full tutorial:
+[`vignette("03_artfishr-workflow")`](https://fdiwg.github.io/artfishr/articles/03_artfishr-workflow.md)
+
+## The Artfish methodology - summary
+
+See:
+[`vignette("04_artfish-methodology")`](https://fdiwg.github.io/artfishr/articles/04_artfish-methodology.md)
+
+## Exemple of use
+
+``` r
+
+# Load sample datasets
+active_vessels <- read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
+effort <- read.csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
+landings <- read.csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
+active_days <- read.csv(system.file("extdata/samples/active_days.csv", package = "artfishr"))
+
+# Validate data 
+validate_input_datasets(
+  active_vessels = active_vessels,
+  effort = effort,
+  effort_source = "fisher_interview",
+  landings = landings,
+  active_days = active_days
+)
+
+#Run artfish
+report <- artfishr::compute_report(
+  active_vessels = active_vessels,
+  effort = effort,
+  effort_source = "fisher_interview",
+  active_days = active_days,
+  active_vessels_strategy = "closest",
+  landings = landings,
+  minor_strata = "minor_stratum"
+)
+
+#See result
+head(report)
+```

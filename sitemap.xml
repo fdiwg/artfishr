@@ -1,5 +1,9 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://fdiwg.github.io/artfishr/404.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/articles/02_data-requirements-validation.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/articles/03_artfishr-workflow.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/articles/04_artfish-methodology.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/articles/05_artfish-visualisations.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/articles/artfishr.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/articles/index.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/authors.html</loc></url>
@@ -39,6 +43,9 @@
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_effort_estimate.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_report.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_sui.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/reference/create_artfish_template.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/reference/create_artfish_templates.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/reference/decode_artfish_schema.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/generate_active_days.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/generate_active_days_by_period.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/get_fdi_terms.html</loc></url>
@@ -53,6 +60,7 @@
 <url><loc>https://fdiwg.github.io/artfishr/reference/set_vrule_validators.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/translator.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/unif_index.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/reference/validate_artfish_datasets.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/validate_input_datasets.html</loc></url>
 </urlset>
 

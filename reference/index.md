@@ -108,6 +108,18 @@
 - [`compute_sui()`](https://fdiwg.github.io/artfishr/reference/compute_sui.md)
   : Computes sui
 
+- [`create_artfish_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_template.md)
+  : Create an empty artfishr data template
+
+- [`create_active_vessels_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
+  [`create_active_days_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
+  [`create_landings_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
+  [`create_effort_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
+  : Wrapper functions for creating ArtFishR templates
+
+- [`decode_artfish_schema()`](https://fdiwg.github.io/artfishr/reference/decode_artfish_schema.md)
+  : Decode an artfishr JSON schema
+
 - [`generate_active_days()`](https://fdiwg.github.io/artfishr/reference/generate_active_days.md)
   : Generates a tibble of active days.
 
@@ -150,6 +162,9 @@
 
 - [`unif_index()`](https://fdiwg.github.io/artfishr/reference/unif_index.md)
   : unif_index
+
+- [`validate_artfish_datasets`](https://fdiwg.github.io/artfishr/reference/validate_artfish_datasets.md)
+  : Wrapper functions for validating artfishr input data
 
 - [`validate_input_datasets()`](https://fdiwg.github.io/artfishr/reference/validate_input_datasets.md)
   : Validate input datasets
