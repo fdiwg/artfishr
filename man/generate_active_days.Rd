@@ -5,21 +5,21 @@
 \title{Generates a \link{tibble} of active days.}
 \usage{
 generate_active_days(
-  active_vessels,
   effort,
-  effort_source,
+  effort_source = c("fisher_interview", "boat_counting", "household_interview"),
   landings,
+  active_vessels = NULL,
   minor_strata = NULL
 )
 }
 \arguments{
-\item{active_vessels}{active vessels table}
-
 \item{effort}{effort table}
 
 \item{effort_source}{effort source}
 
 \item{landings}{landings table}
+
+\item{active_vessels}{active vessels table}
 
 \item{minor_strata}{minor strata. Default is \code{NULL}}
 }

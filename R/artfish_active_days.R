@@ -1,52 +1,59 @@
 #'@name generate_active_days_by_period
 #'@title Generates a \link{tibble} of active days.
 #'@description Function that generates a table of active days by year/month. The unique list
-#'of fishing units are inherited from available tables (active_vessels, effort, landings). In
+#'of fishing units are inherited from available tables (effort, landings + eventually active_vessels). In
 #'the same way, the list of minor strata values will be inherited based on the minor_strata
 #'columns available in data.
 #'
 #'@param year year
 #'@param month month
-#'@param active_vessels active vessels table
 #'@param effort effort table
 #'@param effort_source effort source 
 #'@param landings landings table
+#'@param active_vessels active vessels table
 #'@param minor_strata minor strata. Default is \code{NULL}
 #'@return an object of class \link{tibble} give active days
 #'@export
 generate_active_days_by_period = function(year, month, 
-                                active_vessels,
                                 effort,
                                 effort_source = c("fisher_interview", "boat_counting"),
                                 landings,
+                                active_vessels = NULL,
                                 minor_strata = NULL){
   
   effort_source = match.arg(effort_source)
   
   mapping_landing_site_zone = NULL
   
-  get_unique_values = function(column,active_vessels,effort,landings){
-    values = unique(c(
-      as.data.frame(active_vessels)[,column], 
-      as.data.frame(effort)[,column], 
-      as.data.frame(landings)[,column]
-    ))
+  get_unique_values = function(column,effort,landings,active_vessels = NULL){
+    if(!is.null(active_vessels)){
+      values = unique(c(
+        as.data.frame(effort)[,column], 
+        as.data.frame(landings)[,column],
+        as.data.frame(active_vessels)[,column]
+      ))
+    }else{
+      values = unique(c(
+        as.data.frame(effort)[,column], 
+        as.data.frame(landings)[,column]
+      ))
+    }
     values = values[!is.na(values)]
     return(values)
   }
   
   #autogenerate active_days table
-  fishing_unit_values = get_unique_values("fishing_unit", active_vessels, effort, landings)
+  fishing_unit_values = get_unique_values("fishing_unit", effort = effort, landings = landings, active_vessels = active_vessels)
   dims = list(fishing_unit = fishing_unit_values)
   if(!is.null(minor_strata)){
     minor_strata_values = lapply(minor_strata, function(x){
-      get_unique_values(x, active_vessels, effort, landings)
+      get_unique_values(x,effort, landings, active_vessels)
     })
     names(minor_strata_values) = minor_strata
     dims = minor_strata_values
     dims$fishing_unit = fishing_unit_values
   }
-  if(effort_source == "boat_counting") if("landing_site" %in% colnames(active_vessels)){
+  if(!is.null(active_vessels)) if(effort_source == "boat_counting") if("landing_site" %in% colnames(active_vessels)){
     dims$landing_site = get_unique_values("landing_site", active_vessels, effort, landings)
     if(!is.null(minor_strata)) if(regexpr("zone", minor_strata) > 0){
       mapping_landing_site_zone = unique(rbind(
@@ -79,17 +86,18 @@ generate_active_days_by_period = function(year, month,
 #'the same way, the list of minor strata values will be inherited based on the minor_strata
 #'columns available in data.
 #'
-#'@param active_vessels active vessels table
 #'@param effort effort table
 #'@param effort_source effort source
 #'@param landings landings table
+#'@param active_vessels active vessels table
 #'@param minor_strata minor strata. Default is \code{NULL}
 #'@return an object of class \link{tibble} give active days
 #'@export
-generate_active_days = function(active_vessels,
+generate_active_days = function(
                                 effort,
-                                effort_source,
+                                effort_source = c("fisher_interview", "boat_counting", "household_interview"),
                                 landings,
+                                active_vessels = NULL,
                                 minor_strata = NULL){
  
   periods = unique(rbind(effort[,c("year","month")], landings[,c("year","month")]))
@@ -102,16 +110,20 @@ generate_active_days = function(active_vessels,
     month = periods[i,]$month
     generate_active_days_by_period(
       year = year, month = month,
-      active_vessels = {
-        if("year" %in% colnames(active_vessels) & "month" %in% colnames(active_vessels)){
-          active_vessels[active_vessels$year == year & active_vessels$month == month,]
-        }else{
-          active_vessels
-        }
-      },
       effort = effort[effort$year == year & effort$month == month,],
       effort_source = effort_source,
       landings = landings[landings$year == year & landings$month == month,],
+      active_vessels = {
+        if(!is.null(active_vessels)){
+          if("year" %in% colnames(active_vessels) & "month" %in% colnames(active_vessels)){
+            active_vessels[active_vessels$year == year & active_vessels$month == month,]
+          }else{
+            active_vessels
+          }
+        }else{
+          NULL
+        }
+      },
       minor_strata = minor_strata
     )
   })) 

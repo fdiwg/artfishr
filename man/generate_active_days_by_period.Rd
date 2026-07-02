@@ -7,10 +7,10 @@
 generate_active_days_by_period(
   year,
   month,
-  active_vessels,
   effort,
   effort_source = c("fisher_interview", "boat_counting"),
   landings,
+  active_vessels = NULL,
   minor_strata = NULL
 )
 }
@@ -19,13 +19,13 @@ generate_active_days_by_period(
 
 \item{month}{month}
 
-\item{active_vessels}{active vessels table}
-
 \item{effort}{effort table}
 
 \item{effort_source}{effort source}
 
 \item{landings}{landings table}
+
+\item{active_vessels}{active vessels table}
 
 \item{minor_strata}{minor strata. Default is \code{NULL}}
 }
@@ -34,7 +34,7 @@ an object of class \link{tibble} give active days
 }
 \description{
 Function that generates a table of active days by year/month. The unique list
-of fishing units are inherited from available tables (active_vessels, effort, landings). In
+of fishing units are inherited from available tables (effort, landings + eventually active_vessels). In
 the same way, the list of minor strata values will be inherited based on the minor_strata
 columns available in data.
 }
