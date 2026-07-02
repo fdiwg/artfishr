@@ -10,19 +10,15 @@ available in data.
 
 ``` r
 generate_active_days(
-  active_vessels,
   effort,
-  effort_source,
+  effort_source = c("fisher_interview", "boat_counting", "household_interview"),
   landings,
+  active_vessels = NULL,
   minor_strata = NULL
 )
 ```
 
 ## Arguments
-
-- active_vessels:
-
-  active vessels table
 
 - effort:
 
@@ -35,6 +31,10 @@ generate_active_days(
 - landings:
 
   landings table
+
+- active_vessels:
+
+  active vessels table
 
 - minor_strata:
 
