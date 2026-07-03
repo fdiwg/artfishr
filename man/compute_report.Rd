@@ -6,9 +6,9 @@
 \usage{
 compute_report(
   effort,
-  effort_source,
-  active_vessels,
-  active_vessels_strategy,
+  effort_source = c("fisher_interview", "boat_counting", "household_interview"),
+  active_vessels = NULL,
+  active_vessels_strategy = NULL,
   active_days,
   landings,
   minor_strata = NULL,

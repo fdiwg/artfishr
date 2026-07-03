@@ -16,20 +16,39 @@
 #'
 compute_report <- function(
   effort,
-  effort_source,
-  active_vessels,
-  active_vessels_strategy,
-  active_days,
+  effort_source = c("fisher_interview", "boat_counting", "household_interview"),
   landings,
+  active_days = NULL,
+  active_vessels = NULL,
+  active_vessels_strategy = NULL,
+  census_typology = NULL,
   minor_strata = NULL,
   validate = FALSE,
   progress_fn = NULL){
   
+  effort_source = match.arg(effort_source)
+  #arg validation
+  switch(effort_source,
+         "fisher_interview" = {
+           if(is.null(active_vessels)) stop("Effort source 'fisher_interview' requires an 'active_vessels' dataset")
+         },
+         "boat_counting" = {
+           if(is.null(active_vessels)) stop("Effort source 'boat_counting' requires an 'active_vessels' dataset")
+           if(is.null(active_days)) stop("Effort source 'boat_counting' requires an 'active_days' dataset")
+         },
+         "household_interview" = {
+           if(is.null(census_typology)) stop("Effort source 'household_interview' requires a 'census_typology' dataset")
+         }
+  )
+  
   if(!is.null(progress_fn)) progress_fn("Compute report...")
   
+  activity_coefficient = NULL
+  sui = NULL
+  accuracy = NULL
   result = NULL
   qa_report = NULL
-  if(validate){
+  if(validate){#TODO validation
     INFO("Validating data inputs...")
     qa_report = validate_input_datasets(
       active_vessels = active_vessels,
@@ -46,22 +65,25 @@ compute_report <- function(
   }
   
   #activity coefficient
-  if(!is.null(progress_fn)) progress_fn("Computing effort activity coefficient")
-  activity_coefficient = compute_effort_activity_coefficient(
-    effort = effort,
-    effort_source = effort_source,
-    minor_strata = minor_strata
-  )
+  if(effort_source %in% c("fisher_interview", "boat_counting")){
+    if(!is.null(progress_fn)) progress_fn("Computing effort activity coefficient")
+      activity_coefficient = compute_effort_activity_coefficient(
+      effort = effort,
+      effort_source = effort_source,
+      minor_strata = minor_strata
+    )
+  }
   
   #effort estimate (includes calculation of activity coefficient)
   if(!is.null(progress_fn)) progress_fn("Computing effort estimate")
   effort_estimate = compute_effort_estimate(
-    active_vessels = active_vessels, 
-    active_vessels_strategy = active_vessels_strategy, 
     effort = effort, 
     effort_source = effort_source,
+    landings = landings,
     active_days = active_days,
-    landings=landings,
+    active_vessels = active_vessels, 
+    active_vessels_strategy = active_vessels_strategy,
+    census_typology = census_typology,
     minor_strata = minor_strata,
     progress_fn = progress_fn
   )
@@ -76,7 +98,7 @@ compute_report <- function(
   
   sui = compute_sui(effort, landings, minor_strata = minor_strata)
   
-  accuracy = compute_accuracy(
+  if(!is.null(activity_coefficient)) accuracy = compute_accuracy(
     activity_coefficient,
     effort_estimate,
     cpue,
@@ -91,7 +113,8 @@ compute_report <- function(
   #global report
   if(!is.null(progress_fn)) progress_fn("Computing final report")
   strata = c("year", "month", "fishing_unit", minor_strata)
-  result <- catch_estimate_by_species |>
+  result = catch_estimate_by_species
+  if(!is.null(activity_coefficient)) result <- catch_estimate_by_species |>
     left_join(activity_coefficient[,c(strata, setdiff(names(activity_coefficient), names(catch_estimate_by_species)))], by = strata)
   
   result <- result |>  
@@ -105,12 +128,13 @@ compute_report <- function(
   result <- result |>
     left_join(catch_estimate_formatted[,c(strata, setdiff(names(catch_estimate_formatted), names(result)))], by = strata)
   
-  result <- result |>
+  if(!is.null(sui)) result <- result |>
     left_join(sui[,c(strata, setdiff(names(sui), names(result)))], by = strata)
   
-  result <- result |>
+  if(!is.null(accuracy)) result <- result |>
     left_join(accuracy[,c(strata, setdiff(names(accuracy), names(result)))], by = strata) |>
     ungroup()
+  
   
   if(!is.null(progress_fn)) progress_fn("Success")
   

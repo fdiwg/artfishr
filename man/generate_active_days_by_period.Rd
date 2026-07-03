@@ -8,7 +8,7 @@ generate_active_days_by_period(
   year,
   month,
   effort,
-  effort_source = c("fisher_interview", "boat_counting"),
+  effort_source = c("fisher_interview", "boat_counting", "household_interview"),
   landings,
   active_vessels = NULL,
   minor_strata = NULL
