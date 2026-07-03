@@ -102,6 +102,12 @@
 - [`compute_effort_estimate()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate.md)
   : Computes nominal effort estimate
 
+- [`compute_effort_estimate_with_FAO_Artfish()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate_with_FAO_Artfish.md)
+  : Computes nominal effort estimate
+
+- [`compute_effort_estimate_with_IRD_Pechart()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate_with_IRD_Pechart.md)
+  : Computes nominal effort estimate
+
 - [`compute_report()`](https://fdiwg.github.io/artfishr/reference/compute_report.md)
   : compute_report
 
