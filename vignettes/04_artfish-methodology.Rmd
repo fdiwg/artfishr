@@ -47,7 +47,7 @@ CPUE and effort are estimated from the sample. The sources of data can vary depe
 
 The following schema shows the calculation for a sampling in time and in space, in others words few days are sampled and few landing sites.
 
-(find how to add the schema)
+(link for artfish_schema)
 Figure 1: ARTFISH principles schema
 
 ### 2.2 Stratification
@@ -75,7 +75,9 @@ The sample size for each stratum can be calculated different method using prelim
 ## 3. CPUE
 
 CPUE are calculating with the data collected by the landing survey in weight (kg or lbs) per day.
-(schéma de la formule)
+
+(link for artfish_cpue_schema)
+Figure 2: CPUE estimation principle
 
 To estimated CPUE, the following variables must be collected:
 -	the fishing unit type (as defined in the sampling plan)
@@ -84,7 +86,6 @@ To estimated CPUE, the following variables must be collected:
 
 CPUE are calculated per stratum (combination of a reference month/a major and/or minor strata/a fishing unit) with the following formula:
 
-(insert formula?)
 $$ \mathrm{CPUE}=\frac{\sum_{i=1}^{n} {Catch}_{i}}{\sum_{i=1}^{n} {Unit of Effort}_{i}}$$
 Where:
 
@@ -95,9 +96,9 @@ Where:
 In ARTFISH, the unit of effort is expressed in day: duration of the fishing trip or time spent fishing (depending on the level of detail of the data collected). The formula used in ARTFISH is then:
 
 $$ \mathrm{CPUE}=\frac{\sum_{i=1}^{n} {Catch}_{i}}{\sum_{i=1}^{n} {TripDuration}_{i}}$$
+
 Example:
 Table 1: Example of landings survey record for CPUE calculation
-
 (insert table)
 
 CPUE = (165 + 0 + 90)/(2+1+1) = 63,75 kg/day
@@ -112,7 +113,8 @@ In our example, if zero catch are not considered (or nor record by data collecto
 
 In sampling in time and in space, effort calculation requires 3 components:
 
-(insert formula schema)
+(link for artfish_effor_schema)
+Figure 3: Effort estimation principle
 
 Where:
 
@@ -120,10 +122,8 @@ Where:
 - F: is a raising factor expressing total number of fishing units that are potentially operating at all fishing sites (the overall geographical area or stratum). F is estimated from a frame survey or registry.
 - AC: is the activity coefficient. The activity of the fishing units can be either estimated through the boat activity coefficient (BAC, with vertical sampling using boat counting) or through the fishing activity coefficient (FAC, with horizontal sampling using fisher interviews). The estimation for both is expressed as:
 
-<span style="color:yellow">
 <p style="text-align:center;">__Effort =F x D x BAC__</p>
 <p style="text-align:center;">__Effort = F x D x FAC__</p>
-</span>
 
 BAC and FAC are both expressing the probability that any boat (= fishing unit) will be active (=fishing) on any day during the month. BAC is estimated from a boat activity survey, FAC with fisher interview.
 
