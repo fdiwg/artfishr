@@ -167,8 +167,8 @@ Where:
 
 - m is the number of the mth sampled site. m goes from 1 to t
 - t is the total number of sampled sites
-- x~i,j,m~ is the number of active boats at the site m in the stratum I for the fishing unit j
-- D~i,j,m~ is the number of active days at the site m in the stratum I for the fishing unit j
+- x~i,j,m~ is the number of active boats at the site m in the stratum i for the fishing unit j
+- D~i,j,m~ is the number of active days at the site m in the stratum i for the fishing unit j
 
 
 ### 4.4 Activity coefficient: Estimation of boat activity coefficient (BAC) or fishing activity coefficient (FAC)
@@ -244,6 +244,9 @@ From catch by species and using the estimated effort, it is also possible to com
 
 Total catch per month is calculating by summing all strata estimates (all fishing units, from all strata major and minor strata if existed).
 (insert fomula)
+
+Where:
+i is the stratum i (a combinaison of month/minorstratum/fishingunit)
 
 ## 6. Estimation quality control
 
