@@ -155,11 +155,10 @@ To estimate D, the target population is the total number of days within the mont
 The coefficient D can be calculated by subtracting the number of non-potentially fishing days from the total number of days in the month (for stratum I and fishing unit j):
 D_(i,j)=Number day in the month-Number of nonfishing days
 
-Example:
 Table 2: Template example for active days survey
 (insert table)
 
-In Table 2: for strata 1 and fishing unit 2: A = 31-9=22
+Example: In Table 2: for strata 1 and fishing unit 2: A = 31-9=22
 
 When there are several sites in the stratum, D is the weighted mean of the values, weighted by the number of boats of the fishing unit at the different sites.
 
@@ -212,7 +211,7 @@ xi,j,m	is the number of boats at site m (in the strata i) for the fishing unit j
 
 A simple question can be added in the landing form during the interview of the fisher that can help to determine the activity per fishing unit (Table 3).
 
-Table 3: Example of vertical survey template
+Table 3: Example of effort survey template
 (insert table)
 
 When fishers do one-day trip, 5 or 7 days before is sufficient. When fishing trip are longer (ie. 2 or 3 weeks), it is more relevant to interview about the last 30 days. A simpler way to question is then “How many days have you been on land during the last 30 days?”. A fix reference period is defined for each specific fishing unit.
