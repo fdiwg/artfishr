@@ -32,7 +32,9 @@ ARTFISH stands for Approaches, Rules and Techniques for Fisheries statistical mo
 ### 2.1	Presentation of a generic formula
 
 ARTFISH is based on the concept of catch per unit of effort CPUE, using the following formula:
-    CPUE = Catch/effort <=> Catch = CPUE x Effort
+$$\mathrm{CPUE}=\frac{Catch}{Effort}\\
+\mathrm{Catch}=\frac{CPUE}{Effort}$$
+
     
 Where:
 
@@ -47,7 +49,7 @@ CPUE and effort are estimated from the sample. The sources of data can vary depe
 
 The following schema shows the calculation for a sampling in time and in space, in others words few days are sampled and few landing sites.
 
-(link for artfish_schema)
+<img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/artfish_shema.jpg"/>
 Figure 1: ARTFISH principles schema
 
 ### 2.2 Stratification
@@ -76,7 +78,8 @@ The sample size for each stratum can be calculated different method using prelim
 
 CPUE are calculating with the data collected by the landing survey in weight (kg or lbs) per day.
 
-(link for artfish_cpue_schema)
+<img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/artfish_shemaartfish_cpue_schema.jpg"/>
+
 Figure 2: CPUE estimation principle
 
 To estimated CPUE, the following variables must be collected:
@@ -98,10 +101,15 @@ In ARTFISH, the unit of effort is expressed in day: duration of the fishing trip
 $$ \mathrm{CPUE}=\frac{\sum_{i=1}^{n} {Catch}_{i}}{\sum_{i=1}^{n} {TripDuration}_{i}}$$
 
 Example:
-Table 1: Example of landings survey record for CPUE calculation
-(insert table)
+Table 1. Example of landings survey records used for CPUE calculation.
 
-CPUE = (165 + 0 + 90)/(2+1+1) = 63,75 kg/day
+| Fishing trip ID | Catch | Catch unit | Effort | Effort unit |
+|:----------------|------:|:-----------|--------:|:------------|
+| Fishing trip 1  | 165   | kg         | 2       | day         |
+| Fishing trip 2  | 0     | kg         | 1       | day         |
+| Fishing trip 3  | 90    | kg         | 1       | day         |
+
+$$ \mathrm{CPUE}=\frac{(165 + 0 + 90)}{(2+1+1)}=63.75~kg/day$$
 
 __WARNING:__
 Data collectors must record trip with zero catch as well and those must be considered in calculation
@@ -113,7 +121,7 @@ In our example, if zero catch are not considered (or nor record by data collecto
 
 In sampling in time and in space, effort calculation requires 3 components:
 
-(link for artfish_effor_schema)
+<img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/artfish_effor_schema.jpg"/>
 Figure 3: Effort estimation principle
 
 Where:
@@ -155,8 +163,18 @@ To estimate D, the target population is the total number of days within the mont
 The coefficient D can be calculated by subtracting the number of non-potentially fishing days from the total number of days in the month (for stratum I and fishing unit j):
 D_(i,j)=Number day in the month-Number of nonfishing days
 
-Table 2: Template example for active days survey
-(insert table)
+Table 2. Example template for the active days survey.
+
+| Minor strata | Fishing unit (FU) | Number of non-potentially fishing days | Remarks |
+|:-------------|:------------------|----------------------------------------:|:--------|
+| Strata 1     | FU 1              | 8                                       | No fishing during Saturday and Sunday |
+|              | FU 2              | 9                                       | No fishing on Sunday + 5 bad weather days |
+|              | ...               | ...                                     | ... |
+|              | FU p              | 4                                       | No fishing on Sunday |
+| Strata 2     | ...               | ...                                     | ... |
+| ...          |                   |                                         | |
+| Strata n     |                   |                                         | |
+
 
 Example: In Table 2: for strata 1 and fishing unit 2: A = 31-9=22
 
@@ -192,7 +210,11 @@ Horizontal sampling is used to estimate FAC. Vertical sampling is used to estima
 
 For the stratum i and the fishing unit j, BAC is calculating by dividing the total number of boats out for fishing by the total number of boats of the sampled sites (given by the registry or the frame survey):
 
-(insert formula)
+$$
+BAC_{i,j,m} =
+\frac{\sum_{e=1}^{E} BoatsOut_{i,j,m,e}}
+{\sum_{e=1}^{E} Boats_{i,j,m,e}}
+$$
 
 Where:
 m		is the number of the mth sampled sites. m goes from 1 to t
@@ -211,14 +233,20 @@ xi,j,m	is the number of boats at site m (in the strata i) for the fishing unit j
 
 A simple question can be added in the landing form during the interview of the fisher that can help to determine the activity per fishing unit (Table 3).
 
-Table 3: Example of effort survey template
-(insert table)
+Table 3. Example of effort survey template.
+| | |
+|:--|:--|
+| How many days have you fished over the last 5 days? | |
 
 When fishers do one-day trip, 5 or 7 days before is sufficient. When fishing trip are longer (ie. 2 or 3 weeks), it is more relevant to interview about the last 30 days. A simpler way to question is then “How many days have you been on land during the last 30 days?”. A fix reference period is defined for each specific fishing unit.
 
 For the stratum i and the fishing unit j, FAC is calculating by dividing the total number of days where fishers were active by the total number of days of the reference periods:
 
-(insert formula)
+$$
+FAC_{i,j} =
+\frac{\sum_{b=1}^{z} DaysActive_{i,j,b}}
+{z.RefTime}
+$$
 
 Where:
 b			is the number of bth interview
@@ -231,7 +259,7 @@ RefTime		is the reference period of the interview (i.e., 5 days, 30 days…)
 ## 5.1	Catch per species per stratum
 
 Once the total catch has been estimated, species composition is computed by means of the following simple formula:
-(insert formula schema)
+$$Species = {SP} \times {Catch}$$
 
 Where:
 Species (catch): is the estimated catch for each species within the estimating context described earlier
@@ -243,7 +271,7 @@ From catch by species and using the estimated effort, it is also possible to com
 ## 5.2	Total catch estimation
 
 Total catch per month is calculating by summing all strata estimates (all fishing units, from all strata major and minor strata if existed).
-(insert fomula)
+$$ \mathrm{Total\_catch}=\sum_{i=1}^{S} {Catch}_{i}$$
 
 Where:
 i is the stratum i (a combinaison of month/minorstratum/fishingunit)

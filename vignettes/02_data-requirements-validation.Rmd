@@ -187,4 +187,6 @@ validate_active_days_template(active_days)
 
 ## 7. References
 
-(To add)
+de Graaf, G. J., Nunoo, F., Ofori-Danson, P., Wiafe, G., Lamptey, E., & Bannerman, P. (2015). *International training course in fisheries statistics and data collection*. FAO Fisheries and Aquaculture Circular No. 1091. Rome: Food and Agriculture Organization of the United Nations. 134 pp. Available at: <https://www.fao.org/3/i3639e/i3639e.pdf>
+
+Stamatopoulos, C. (2002). *Sample based fishery surveys: A technical handbook*. FAO Fisheries Technical Paper No. 425. Rome: Food and Agriculture Organization of the United Nations. 132 pp. Available at: <https://www.fao.org/3/y2790e/y2790e.pdf>
