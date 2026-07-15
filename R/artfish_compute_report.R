@@ -73,7 +73,9 @@ compute_report <- function(
       minor_strata = minor_strata
     )
       
-      if("fleet_engagement_number"%in%names(activity_coefficient)){activity_coefficient$fleet_engagement_number<-NULL}
+    if("fleet_engagement_number" %in% names(activity_coefficient)){
+      activity_coefficient$fleet_engagement_number <- NULL
+    }
   }
   
   #effort estimate (includes calculation of activity coefficient)
