@@ -159,8 +159,8 @@ str(report, max.level = 1)
 Each component of the output can be inspected individually:
 
 ```{r view-results}
-head(report$effort_estimate)
-head(report$catch_estimate_by_species)
+head(effort_estimate)
+head(catch_estimate_by_species)
 ```
 
 # Summary
