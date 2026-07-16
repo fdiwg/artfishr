@@ -61,8 +61,8 @@
 <h2 id="introduction">1. Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>The R package <code>artfishr</code> implements tools for producing
-catch and effort estimates from sample-based survey data of small-scales
-fisheries data following the <em>FAO Artfish extrapolation
+catch and effort estimates from sample-based survey data from
+small-scales fisheries data following the <em>FAO ARTFISH extrapolation
 methodology</em>.<br>
 To ensure consistency and interoperability, input datasets must comply
 with standardized formats and validation rules.</p>
@@ -94,7 +94,7 @@ fishing activity</li>
 <hr>
 </div>
 <div class="section level2">
-<h2 id="overview-of-artfish-data-formats">2. Overview of ArtFish data formats<a class="anchor" aria-label="anchor" href="#overview-of-artfish-data-formats"></a>
+<h2 id="overview-of-artfish-data-formats">2. Overview of ARTFISH data formats<a class="anchor" aria-label="anchor" href="#overview-of-artfish-data-formats"></a>
 </h2>
 <p>Each dataset type follows a standardized structure defined by a JSON
 specification file.<br>
@@ -145,8 +145,8 @@ rules.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span></span></code></pre></div>
 <p>Preview the structure:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>The template first tab describes the fields and precise the mandatory
+<code class="sourceCode R"><span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>The specification file describes each field and the required data
 structure.</p>
 <hr>
 </div>
@@ -164,9 +164,9 @@ approaches:</p>
 <ul>
 <li>Data obtained directly from fishers with questionnaires<br>
 </li>
-<li>The template x is required (number of days fished within the period
-of reference)</li>
-<li>In that case, the active days survey is not necessary. Total number
+<li>The template <code>effort.csv</code> is required (number of days
+fished within the period of reference)</li>
+<li>In this case, the active days survey is not necessary. Total number
 of days in the month is used by default.</li>
 </ul>
 </li>
@@ -175,16 +175,16 @@ of days in the month is used by default.</li>
 (<code>effort_source = "boat_counting"</code>)</strong>
 <ul>
 <li>Data collected via registers or direct observation</li>
-<li>Template y is required (number of boats out in comparison of total
-potentially active boat)</li>
+<li>Template <strong>y (to complete)</strong> is required (number of
+boats out in comparison of total potentially active boat)</li>
 <li>The number of active days in the month must be provided. It can come
 from the active days survey or from estimation based on fisheries
 knowledge.</li>
 </ul>
 </li>
 </ol>
-<p>Both formats are supported in artfishr and can be validated using the
-same validation interface.</p>
+<p>Both formats are supported by <code>artfishr</code> and can be
+validated using the same validation interface.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -192,16 +192,16 @@ same validation interface.</p>
 </h2>
 <p><code>artfishr</code> allows users to programmatically generate empty
 templates for each dataset, based on their JSON specification.</p>
-<p>The package provide a generic method
-<code><a href="../reference/create_artfish_template.html">create_artfish_template()</a></code> to generate template using name
-describe in 1.</p>
+<p>The package provides a generic method
+<code><a href="../reference/create_artfish_template.html">create_artfish_template()</a></code> to generate templates using the
+dataset names listed above.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_artfish_template.html">create_artfish_template</a></span><span class="op">(</span><span class="st">"artfish_A_active_vessels"</span><span class="op">)</span></span></code></pre></div>
 <p>You can also export the template for use with the argument
 <code>save_as</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_artfish_template.html">create_artfish_template</a></span><span class="op">(</span><span class="st">"artfish_A_active_vessels"</span>,save_as<span class="op">=</span><span class="st">"acive_vessels.csv"</span><span class="op">)</span></span></code></pre></div>
-<p>Or use dedicated function by dataset :</p>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_artfish_template.html">create_artfish_template</a></span><span class="op">(</span><span class="st">"artfish_A_active_vessels"</span>,save_as<span class="op">=</span><span class="st">"active_vessels.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>Or use dedicated functions by dataset :</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_artfish_templates.html">create_active_vessels_template</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/create_artfish_templates.html">create_effort_template</a></span><span class="op">(</span>effort_source <span class="op">=</span><span class="st">"boat_counting"</span><span class="op">)</span> <span class="co"># or "fisher_interview"</span></span>
@@ -214,7 +214,7 @@ describe in 1.</p>
 </h2>
 <p><code>artfishr</code> includes validation utilities to ensure all
 datasets comply with the expected structure and logical rules.</p>
-<p>Currently, a <strong>global validator</strong> is provided:</p>
+<p>A <strong>global validator</strong> is provided:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/validate_input_datasets.html">validate_input_datasets</a></span><span class="op">(</span></span>
 <span>  <span class="va">active_vessels</span>,</span>
@@ -224,14 +224,14 @@ datasets comply with the expected structure and logical rules.</p>
 <span>  <span class="va">landings</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>This function: - checks required fields for each dataset and flags
-missing or unexpected columns, - ensures consistency with their content,
-- and ensures consistency between them.</p>
+missing or unexpected columns, - checks that field values satisfy the
+validation rules, - and ensures consistency between them.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load sample datasets</span></span>
-<span><span class="va">active_vessels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">effort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/effort.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">landings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/landings.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">active_vessels</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">effort</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/effort.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">landings</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/landings.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Validate all datasets</span></span>
 <span><span class="fu"><a href="../reference/validate_input_datasets.html">validate_input_datasets</a></span><span class="op">(</span></span>
@@ -242,14 +242,14 @@ missing or unexpected columns, - ensures consistency with their content,
 <span><span class="op">)</span></span></code></pre></div>
 <p>The function returns a structured report with validation results and
 messages.</p>
-<p><code>artfishr</code> include also <strong>specific
+<p><code>artfishr</code> also includes <strong>specific
 validators</strong> to allow running checks per dataset type.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load sample datasets</span></span>
-<span><span class="va">active_vessels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">effort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/effort.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">landings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/landings.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">active_days</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_days.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">active_vessels</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_vessels.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">effort</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/effort.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">landings</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/landings.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">active_days</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/samples/active_days.csv"</span>, package <span class="op">=</span> <span class="st">"artfishr"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">validate_active_vessels_template</span><span class="op">(</span><span class="va">active_vessels</span><span class="op">)</span></span>
 <span><span class="fu">validate_effort_template</span><span class="op">(</span><span class="va">effort</span>,effort_source <span class="op">=</span><span class="st">"boat_counting"</span><span class="op">)</span> <span class="co"># or "fisher_interview"</span></span>
@@ -266,8 +266,8 @@ consistency.<br>
 </li>
 <li>Always validate your datasets before running analyses.<br>
 </li>
-<li>Choose the appropriate <em>effort</em> format according to your
-monitoring method.<br>
+<li>Choose the appropriate <em>effort survey format</em> according to
+your monitoring method.<br>
 </li>
 <li>Keep datasets synchronized on mandatory fields (e.g., year, fishing
 unit, landing site).<br>
@@ -280,7 +280,15 @@ contexts.</li>
 <div class="section level2">
 <h2 id="references">7. References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<p>(To add)</p>
+<p>de Graaf, G. J., Nunoo, F., Ofori-Danson, P., Wiafe, G., Lamptey, E.,
+&amp; Bannerman, P. (2015). <em>International training course in
+fisheries statistics and data collection</em>. FAO Fisheries and
+Aquaculture Circular No. 1091. Rome: Food and Agriculture Organization
+of the United Nations. 134 pp. Available at: <a href="https://www.fao.org/3/i3639e/i3639e.pdf" class="external-link uri">https://www.fao.org/3/i3639e/i3639e.pdf</a></p>
+<p>Stamatopoulos, C. (2002). <em>Sample based fishery surveys: A
+technical handbook</em>. FAO Fisheries Technical Paper No. 425. Rome:
+Food and Agriculture Organization of the United Nations. 132
+pp. Available at: <a href="https://www.fao.org/3/y2790e/y2790e.pdf" class="external-link uri">https://www.fao.org/3/y2790e/y2790e.pdf</a></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

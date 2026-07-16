@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Using ArtFishR for Small-Scale Fisheries Estimation • artfishr</title>
+<title>Using artfishr for Small-Scale Fisheries Estimation • artfishr</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using ArtFishR for Small-Scale Fisheries Estimation">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using artfishr for Small-Scale Fisheries Estimation">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -48,7 +48,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Using ArtFishR for Small-Scale Fisheries Estimation</h1>
+      <h1>Using artfishr for Small-Scale Fisheries Estimation</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/vignettes/03_artfishr-workflow.Rmd" class="external-link"><code>vignettes/03_artfishr-workflow.Rmd</code></a></small>
@@ -63,8 +63,8 @@
 <p>This vignette demonstrates how to apply the <strong>ARTFISH
 methodology</strong> for estimating fisheries catch and effort, and
 related indicators using the <code>artfishr</code> R package. This
-methodology aims to extrapolate sample-based data to produce total
-estimates for each stratum of the sample.</p>
+methodology aims to extrapolate sample-based observations to produce
+total estimates for each stratum of the sample.</p>
 <p>The vignette walks through each computation step and shows how to use
 the unified workflow function <code>artfish_compute_report()</code>,
 which automates the full estimation process.</p>
@@ -123,20 +123,20 @@ which automates the full estimation process.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
-<p>Following data are required to produce the estimates: - Active
-vessels: number of active vessels per stratum (or per landing site) -
-Active days: number of days in the moth recording a fishing actity -
-Effort survey data: fisher interviews or boat counting - Landings data:
-catch per species for observed fishing trip For more information on the
-data structure, refer to the example and to the data validation
-requirements.</p>
+<p>The Following datasets are required to produce the estimates: -
+<strong>Active vessels:</strong> number of active vessels per stratum
+(or per landing site) - <strong>Active days:</strong> number of days in
+the month recording a fishing activity - <strong>Effort survey
+data:</strong> fisher interviews or boat counting - <strong>Landings
+data:</strong> catch by species for each observed fishing trip For more
+information on the data structure, refer to the example datasets and to
+the data validation requirements.</p>
 </div>
 <div class="section level2">
 <h2 id="identify-data-collection-strategy">Identify data collection strategy<a class="anchor" aria-label="anchor" href="#identify-data-collection-strategy"></a>
 </h2>
-<p>(to complete with different cases, identify different sources of
-information and setting linked + point on strata)</p>
-<p>Different cases are listed below, depending on the different data
+<p>(to complete with different cases + schema)</p>
+<p>Different cases are listed above, depending on the different data
 sources. The effort survey type (fisher interview or boat counting) must
 be indicated in the function to use the correct computation. In case of
 boat counting, the dataset active_days is mandatory.</p>
@@ -147,14 +147,14 @@ boat counting, the dataset active_days is mandatory.</p>
 <p>Below is the detailed workflow showing each function used by
 <code>artfishr</code> to compute the various ARTFISH components.</p>
 <p>Indicators are computed for each stratum of the sampling plan. Major
-and minor strata must be indicated in the function to define the level
+and minor strata must be specified in the function to define the level
 of aggregation.</p>
 <div class="section level3">
 <h3 id="effort-activity-coefficient">1. Effort Activity Coefficient<a class="anchor" aria-label="anchor" href="#effort-activity-coefficient"></a>
 </h3>
-<p>Activity coefficient represents the probability that a certain boat
-is out on a certain day. It is obtained with the effort survey that can
-be either fisher interview or boat counting.</p>
+<p>The activity coefficient represents the probability that a certain
+boat is out on a certain day. It is obtained with the effort survey
+using either fisher interviews or boat counts.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">activity_coefficient</span> <span class="op">&lt;-</span> <span class="fu">artfishr</span><span class="fu">::</span><span class="fu"><a href="../reference/compute_effort_activity_coefficient.html">compute_effort_activity_coefficient</a></span><span class="op">(</span></span>
 <span>  effort <span class="op">=</span> <span class="va">effort</span>,</span>
@@ -165,9 +165,14 @@ be either fisher interview or boat counting.</p>
 <div class="section level3">
 <h3 id="effort-estimate">2. Effort Estimate<a class="anchor" aria-label="anchor" href="#effort-estimate"></a>
 </h3>
-<p>Effort estimate calculation is based on the 3 components active
-vessel, active days and activity coefficient. Effort = Active vessels x
-Active days X Activity coefficient</p>
+<p>Effort estimate calculation is based on the three components active
+vessels, active days and activity coefficient.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>f</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>t</mi><mo>=</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>V</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>e</mi><mi>l</mi><mi>s</mi><mo>×</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>D</mi><mi>a</mi><mi>y</mi><mi>s</mi><mo>×</mo><mi>A</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>v</mi><mi>i</mi><mi>t</mi><mi>y</mi><mi>C</mi><mi>o</mi><mi>e</mi><mi>f</mi><mi>f</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>e</mi><mi>n</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">
+Effort =
+ActiveVessels \times
+ActiveDays \times
+ActivityCoefficient
+</annotation></semantics></math></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">effort_estimate</span> <span class="op">&lt;-</span> <span class="fu">artfishr</span><span class="fu">::</span><span class="fu"><a href="../reference/compute_effort_estimate.html">compute_effort_estimate</a></span><span class="op">(</span></span>
 <span>  active_vessels <span class="op">=</span> <span class="va">active_vessels</span>,</span>
@@ -183,7 +188,7 @@ Active days X Activity coefficient</p>
 <div class="section level3">
 <h3 id="catch-per-unit-of-effort-cpue">3. Catch per Unit of Effort (CPUE)<a class="anchor" aria-label="anchor" href="#catch-per-unit-of-effort-cpue"></a>
 </h3>
-<p>CPUE are calculated with the landing survey data. For each stratum,
+<p>CPUE is calculated with the landing survey data. For each stratum,
 the overall average CPUE is calculated.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cpue</span> <span class="op">&lt;-</span> <span class="fu">artfishr</span><span class="fu">::</span><span class="fu"><a href="../reference/compute_cpue.html">compute_cpue</a></span><span class="op">(</span></span>
@@ -194,8 +199,10 @@ the overall average CPUE is calculated.</p>
 <div class="section level3">
 <h3 id="catch-estimate">4. Catch Estimate<a class="anchor" aria-label="anchor" href="#catch-estimate"></a>
 </h3>
-<p>Catch estimate calculation is based on the formula: Catch = CPUE x
-Effort.</p>
+<p>Catch estimate calculation is based on the formula:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi><mo>=</mo><mi>C</mi><mi>P</mi><mi>U</mi><mi>E</mi><mo>×</mo><mi>E</mi><mi>f</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">
+Catch = CPUE \times Effort
+</annotation></semantics></math></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">catch_estimate</span> <span class="op">&lt;-</span> <span class="fu">artfishr</span><span class="fu">::</span><span class="fu"><a href="../reference/compute_catch_estimate.html">compute_catch_estimate</a></span><span class="op">(</span></span>
 <span>  <span class="va">effort_estimate</span>,</span>
@@ -206,8 +213,8 @@ Effort.</p>
 <div class="section level3">
 <h3 id="catch-estimate-by-species">5. Catch Estimate by Species<a class="anchor" aria-label="anchor" href="#catch-estimate-by-species"></a>
 </h3>
-<p>For the calculation the catch estimate by species, the catch
-composition is used to distribute the proportion of species in each
+<p>Catch estimates by species are obtained by distributing the estimated
+total catch according to the observed species composition within each
 stratum.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">catch_estimate_by_species</span> <span class="op">&lt;-</span> <span class="fu">artfishr</span><span class="fu">::</span><span class="fu"><a href="../reference/compute_catch_estimates_by_species.html">compute_catch_estimates_by_species</a></span><span class="op">(</span></span>
@@ -245,12 +252,36 @@ report that includes all intermediate and final results.</p>
 </h2>
 <p>Each component of the output can be inspected individually:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">report</span><span class="op">$</span><span class="va">effort_estimate</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: Unknown or uninitialised column: `effort_estimate`.</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">report</span><span class="op">$</span><span class="va">catch_estimate_by_species</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: Unknown or uninitialised column: `catch_estimate_by_species`.</span></span>
-<span><span class="co">#&gt; NULL</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">effort_estimate</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 11</span></span></span>
+<span><span class="co">#&gt;    year month fishing_unit            minor_stratum effort_sample_size</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0-6m trap                 1                 20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0-6m trap                 2                 19</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 6-12m gillnet             1                 12</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 6-12m gillnet             2                 49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 6-12m trawl               1                 25</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 6-12m trawl               2                 39</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: effort_coefficient_variation &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   effort_total_fishing_duration &lt;dbl&gt;, effort_activity_coefficient &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   fleet_engagement_number &lt;dbl&gt;, effort_fishable_duration &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   effort_nominal &lt;dbl&gt;</span></span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">catch_estimate_by_species</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 18</span></span></span>
+<span><span class="co">#&gt;    year month fishing_unit minor_stratum species catch_number effort_sample_size</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0…             1 Crab             248                 20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0…             1 Grouper          485                 20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0…             1 Lobster          630                 20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0…             1 Parrot…          902                 20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0…             1 Snapper          534                 20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span>  <span style="text-decoration: underline;">2</span>025     1 Artisanal 0…             2 Crab             268                 19</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 11 more variables: effort_coefficient_variation &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   effort_total_fishing_duration &lt;dbl&gt;, catch_sample_size &lt;int&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   catch_coefficient_variation &lt;dbl&gt;, catch_cpue &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   catch_number_species &lt;int&gt;, catch_species_ratio &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   catch_nominal_landed &lt;dbl&gt;, trade_price &lt;dbl&gt;, trade_value &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   catch_fish_average_weight &lt;dbl&gt;</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>

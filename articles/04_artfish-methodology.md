@@ -5,349 +5,507 @@
 This vignette presents the statistical and conceptual framework that
 underpins the ARTFISH methodology implemented in the `artfishr` package.
 
-The aim of ARTFISH methodology is to produce catch and effort estimates
-at the country level. It is a **sampled based approach** using
-**stratified random sampling**.
+The aim of the ARTFISH methodology is to produce country-level estimates
+of catch and fishing effort. It is a **sample-based approach** relying
+on **stratified random sampling**.
 
-ARTFISH stands for Approaches, Rules and Techniques for Fisheries
-statistical monitoring. It has been developed as a standardized tool
-adaptable to most fisheries in the developing countries. Its design was
-driven by the need to provide users with robust, user-friendly and
-error-free approaches and achieve the implementation of cost-effective
-fishery statistical systems with minimal external assistance. It was
-implemented and describe by Constantine Stamatopoulos (Stamatopoulos,
-2002) and it is the methodology promoted by FAO.
+ARTFISH stands for *Approaches, Rules and Techniques for Fisheries
+Statistical Monitoring*. It was developed as a standardized methodology
+adaptable to most fisheries in developing countries. Its design was
+driven by the need to provide users with robust, user-friendly, and
+reliable approaches while supporting the implementation of
+cost-effective fishery statistical systems with minimal external
+assistance.
 
-### 2. Artfish Methodology concept
+The methodology was developed and described by Constantine Stamatopoulos
+(Stamatopoulos, 2002) and is currently promoted by the Food and
+Agriculture Organization of the United Nations (FAO).
 
-#### 2.1 Presentation of a generic formula
+### 2. ARTFISH methodology
 
-ARTFISH is based on the concept of catch per unit of effort CPUE, using
-the following formula: CPUE = Catch/effort \<=\> Catch = CPUE x Effort
+#### 2.1 Presentation of the generic formula
+
+ARTFISH is based on the concept of catch per unit effort (CPUE), using
+the following relationships:
+
+``` math
+\mathrm{CPUE}=\frac{Catch}{Effort}
+```
+
+``` math
+\mathrm{Catch}=\mathrm{CPUE}\times\mathrm{Effort}
+```
 
 Where:
 
-- Catch: refers to all species taken together and is usually computed
-  within the logical context of:
-- - A limited geographical area or stratum
-- - A given reference period (i.e. a calendar month)
-- - A specific boat/gear category
-- CPUE (estimated from sample, overall catch per fishing unit): is an
-  overall average deriving from sampling and expressing how much fish
-  (all species) is caught by a unit effort. Sampling context is the same
-  as that for the estimated catch.
-- Effort (estimated from sample): is expressed uniformly in total number
-  of boats.days within the same logical context used for total catch and
-  overall CPUE.
+- **Catch** refers to the total catch (all species combined) and is
+  usually estimated within a defined context:
+  - a geographical area (stratum),
+  - a reference period (e.g. one calendar month),
+  - a specific fishing unit.
+- **CPUE** (estimated from the sample) is the average catch per unit of
+  effort. It represents the average quantity of fish (all species
+  combined) caught per unit of effort within the same estimation
+  context.
+- **Effort** (estimated from the sample) is expressed as the total
+  number of boat-days within the same estimation context.
 
-CPUE and effort are estimated from the sample. The sources of data can
-vary depending on what is available in the country and which type of
-survey have been implemented.
+CPUE and effort are estimated from sample data. The data sources may
+vary depending on the information available in each country and the
+survey design implemented.
 
-The following schema shows the calculation for a sampling in time and in
-space, in others words few days are sampled and few landing sites.
+Figure 1 illustrates the estimation process when sampling is performed
+in both time and space, that is, when only a subset of sampling days and
+landing sites is surveyed.
 
-(find how to add the schema) Figure 1: ARTFISH principles schema
+![](figures/artfish_schema.png)**Figure 1.** ARTFISH conceptual
+framework.
 
 #### 2.2 Stratification
 
-In ARTFISH, as in other statistics method, the estimates are produced
-for each stratum. Then the results are summed to calculate the total
-amount at the higher level (country total catch…).
+As in most statistical methods, ARTFISH estimates are first computed for
+each stratum before being aggregated to produce estimates at higher
+levels (e.g. total national catch).
 
-The first level of stratification corresponds to a reference period. In
-ARTFISH, the data collection is generally organised on a monthly basis.
-But rather than using months, fishing seasons may be preferable. The
-reference period will be the first stratification level, meaning that
-the estimation can be done by month when the reference period is the
-month.
+The first level of stratification generally corresponds to the reference
+period. In ARTFISH, data collection is usually organised on a monthly
+basis. However, fishing seasons may be more appropriate than calendar
+months in some contexts. The selected reference period therefore defines
+the first level of stratification.
 
-Types of stratification that can be defined in the data collection
-program if necessary are:
+Additional levels of stratification can be defined when required:
 
-- **Major strata**: with is often subdivisions based on administrative,
-  geographical or temporal criteria,
-- **Minor strata**: subdivisions of a major stratum.
-- **Fishing units is the last (and minimum) level of stratification** in
-  the method: fishing units are built to describe the fisheries sector
-  of the country.
+- **Major strata**, usually based on administrative, geographical, or
+  temporal criteria.
+- **Minor strata**, corresponding to subdivisions of a major stratum.
+- **Fishing units**, representing the lowest level of stratification.
+  Fishing units are defined to describe the structure of the fisheries
+  sector within the country.
 
-Major strata and minor strata are not necessary and can only be
-implemented if the context requires it. There may also be clear
-logistical criteria supporting the choice of strata.
+Major and minor strata are optional and should only be defined when
+justified by the local context or logistical constraints.
 
-**Estimates of population parameters are always calculated at lowest
-stratum level**. Totals at major stratum level are simply aggregations
-of estimates and counts from the minor strata involved.
+> **Important**
+>
+> Population parameters are always estimated at the lowest level of
+> stratification. Estimates at higher levels are obtained by aggregating
+> the corresponding lower-level estimates.
 
-The sample size for each stratum can be calculated different method
-using preliminary data. If no data are available, it is recommended to
-sample:
+The sample size for each stratum can be determined using preliminary
+data. When no prior information is available, the following sampling
+effort is recommended:
 
-- Between 8 to 12 days a month,
-- At least, 30 landings for landing survey,
-- At least, 70 effort surveys.
+- 8 to 12 sampling days per month;
+- at least 30 landing surveys;
+- at least 70 effort surveys.
 
 ### 3. CPUE
 
-CPUE are calculating with the data collected by the landing survey in
-weight (kg or lbs) per day. (schéma de la formule)
+CPUE is calculated from data collected during the landing survey and is
+expressed as the weight of catch (kg or lbs) per day.
 
-To estimated CPUE, the following variables must be collected: - the
-fishing unit type (as defined in the sampling plan) - the total weight
-of catch, all species together (and detailed by species for estimation
-per species) - the fishing trip duration (time spent fishing, fishing
-trip length…)
+![](figures/artfish_CPUE_schema.png)**Figure 2.** CPUE estimation
+principle.
 
-CPUE are calculated per stratum (combination of a reference month/a
-major and/or minor strata/a fishing unit) with the following formula:
+To estimate CPUE, the following variables must be collected:
 
-(insert formula?)
+- the fishing unit (as defined in the sampling plan);
+- the total catch weight (all species combined, and detailed by species
+  for estimation per species);
+- the fishing trip duration (i.e. time spent fishing).
+
+CPUE is calculated for each stratum (defined by the combination of a
+reference period, major and/or minor strata, and fishing unit) using the
+following formula:
+
 ``` math
- \mathrm{CPUE}=\frac{\sum_{i=1}^{n} {Catch}_{i}}{\sum_{i=1}^{n} {Unit of Effort}_{i}}
+\mathrm{CPUE}=
+\frac{\sum_{i=1}^{n} Catch_i}
+{\sum_{i=1}^{n} UnitEffort_i}
 ```
+
 Where:
 
-- Catch_(i) = the total catch of the i^(th) sampled fishing trip
-- Unit of effort_(i) = the effort spent fishing of the i^(th) sampled
-  fishing trip
-- n = the number of fishing trips sampled for this specific determining
+- $`Catch_i`$ is the total catch of the $`i`$-th sampled fishing trip.
+- $`UnitEffort_i`$ is the fishing effort associated with the $`i`$-th
+  sampled fishing trip.
+- $`n`$ is the number of fishing trips sampled within the estimation
   context.
 
-In ARTFISH, the unit of effort is expressed in day: duration of the
-fishing trip or time spent fishing (depending on the level of detail of
-the data collected). The formula used in ARTFISH is then:
+In ARTFISH, the unit of effort is expressed in days, corresponding to
+the fishing trip duration (or time spent fishing, depending on the level
+of detail collected). Consequently, the CPUE formula used in ARTFISH
+becomes:
 
 ``` math
- \mathrm{CPUE}=\frac{\sum_{i=1}^{n} {Catch}_{i}}{\sum_{i=1}^{n} {TripDuration}_{i}}
+\mathrm{CPUE}=
+\frac{\sum_{i=1}^{n} Catch_i}
+{\sum_{i=1}^{n} TripDuration_i}
 ```
-Example: Table 1: Example of landings survey record for CPUE calculation
 
-(insert table)
+**Table 1.** Example of landing survey records used for CPUE
+calculation.
 
-CPUE = (165 + 0 + 90)/(2+1+1) = 63,75 kg/day
+| Fishing trip ID | Catch | Catch unit | Effort | Effort unit |
+|:----------------|------:|:-----------|-------:|:------------|
+| Fishing trip 1  |   165 | kg         |      2 | day         |
+| Fishing trip 2  |     0 | kg         |      1 | day         |
+| Fishing trip 3  |    90 | kg         |      1 | day         |
 
-**WARNING:** Data collectors must record trip with zero catch as well
-and those must be considered in calculation In our example, if zero
-catch are not considered (or nor record by data collectors), the CPUE
-calculation becomes: (165+90)/(2+1) = 255/3 = 85 kg/day. As a result,
-the overall catches will be overestimated.
+The CPUE is therefore calculated as:
+
+``` math
+\mathrm{CPUE}
+=
+\frac{165+0+90}{2+1+1}
+=
+63.75~\mathrm{kg/day}
+```
+
+> **Warning**
+>
+> Fishing trips with zero catch must be recorded and included in the
+> calculation.
+>
+> In this example, excluding fishing trips with zero catch would result
+> in:
+>
+> ``` math
+> \mathrm{CPUE}
+> =
+> \frac{165+90}{2+1}
+> =
+> 85~\mathrm{kg/day}
+> ```
+>
+> As a consequence, the overall catch would be overestimated.
 
 ### 4. Effort
 
-### 4.1 Presentation
+#### 4.1 Presentation
 
-In sampling in time and in space, effort calculation requires 3
-components:
+When sampling is performed in both time and space, the estimation of
+fishing effort requires three components.
 
-(insert formula schema)
+![](figures/artfish_effort_schema.png)
+
+**Figure 3.** Effort estimation principle.
 
 Where:
 
-- D: is a raising time factor expressing total number of days with
-  fishing activities during the month. D is estimated from an active
-  days survey.
-- F: is a raising factor expressing total number of fishing units that
-  are potentially operating at all fishing sites (the overall
-  geographical area or stratum). F is estimated from a frame survey or
-  registry.
-- AC: is the activity coefficient. The activity of the fishing units can
-  be either estimated through the boat activity coefficient (BAC, with
-  vertical sampling using boat counting) or through the fishing activity
-  coefficient (FAC, with horizontal sampling using fisher interviews).
-  The estimation for both is expressed as:
+- $`D`$ is the raising factor expressing the total number of days with
+  fishing activity during the reference period. It is estimated from an
+  active days survey.
+- $`F`$ is the raising factor expressing the total number of fishing
+  units potentially operating across all fishing sites within the
+  stratum. It is estimated from a frame survey or a vessel registry.
+- $`AC`$ is the activity coefficient. Fishing unit activity can be
+  estimated either through the boat activity coefficient ($`BAC`$),
+  using vertical sampling (boat counts), or through the fishing activity
+  coefficient ($`FAC`$), using horizontal sampling (fisher interviews).
 
-**Effort =F x D x BAC**
-
-**Effort = F x D x FAC**
-
-BAC and FAC are both expressing the probability that any boat (= fishing
-unit) will be active (=fishing) on any day during the month. BAC is
-estimated from a boat activity survey, FAC with fisher interview.
-
-#### 4.2 Number of active vessels: Estimation of raising factor expressing total number of active fishing units (F)
-
-F represents the number of boats that are active/involved in the fishing
-fleet hence potentially capable of going fishing any day during the
-sampling period. To estimate F there are two common methods depending on
-how the fleet is administratively managed:
-
-- either frame survey when boats are not registered,
-- or vessel registry when boat must register to the fisheries or
-  maritime administration.
-
-Other sources may be considered and are currently explored such as
-household surveys in case of only small-scale fisheries.
-
-For the stratum i and the fishing unit j, F is the sum of the number of
-boats of this fishing unit of all sites included in the stratum:
+The total fishing effort is therefore estimated as:
 
 ``` math
- \mathrm{F}_{i,j}=\sum_{k=1}^{q} {x}_{i,j,k}
+\mathrm{Effort}
+=
+F \times D \times BAC
 ```
-Where:
-
-- x_((i,j,k)) is the number of potentially active vessels of the fishing
-  unit j at the site k in the stratum i
-- q is the number of sites in the stratum i
-- F_(i,j) will be the raising factor for stratum i and fishing unit j.
-
-#### 4.3 Number of active days: Estimation of the time raising factor (D)
-
-D is a time-extrapolation factor and specifies the total number of days
-that are assumed to be normal fishing days during the survey period. It
-is usually formulated by first considering the total number of calendar
-days and then reducing it according to empirically known factors, such
-as holidays, weekends, bad weather, etc. This number accounts uniformly
-for days of normal activity. D is estimated for a specific determining
-context (a reference period/a geographical strata/fishing unit
-combination). To estimate D, the target population is the total number
-of days within the month.
-
-The coefficient D can be calculated by subtracting the number of
-non-potentially fishing days from the total number of days in the month
-(for stratum I and fishing unit j): D\_(i,j)=Number day in the
-month-Number of nonfishing days
-
-Example: Table 2: Template example for active days survey (insert table)
-
-In Table 2: for strata 1 and fishing unit 2: A = 31-9=22
-
-When there are several sites in the stratum, D is the weighted mean of
-the values, weighted by the number of boats of the fishing unit at the
-different sites.
-
-``` math
- \mathrm{D}_{i,j}=\frac{\sum_{m=1}^{t} {(D_{i,j,m}*x_{i,j,m})}_{i}}{\sum_{m=1}^{t} x_{i,j,m}}
-```
-Where:
-
-- m is the number of the mth sampled site. m goes from 1 to t
-- t is the total number of sampled sites
-- x_(i,j,m) is the number of active boats at the site m in the stratum I
-  for the fishing unit j
-- D_(i,j,m) is the number of active days at the site m in the stratum I
-  for the fishing unit j
-
-#### 4.4 Activity coefficient: Estimation of boat activity coefficient (BAC) or fishing activity coefficient (FAC)
-
-##### 4.4.1 Difference between BAC and FAC
-
-Activity coefficient accounts for the individual variability of boat
-activities and is determined by examining an appropriate number of boats
-and findings out how many have been active on a given day.
-
-The activity of the fishing units can be either estimated through the
-boat activity coefficient (BAC, vertical sampling) or through the
-fishing activity coefficient (FAC, horizontal sampling). The estimation
-for both is expressed as:
-
-**Total fishing effort = F x D x BAC**
 
 or
 
-**Total fishing effort = F x D x FAC**
+``` math
+\mathrm{Effort}
+=
+F \times D \times FAC
+```
 
-The effort is expressed in number of boat-day when the CPUE is in
-kg/day.
+Both $`BAC`$ and $`FAC`$ express the probability that a fishing unit
+(boat) is active on any given day during the reference period. $`BAC`$
+is estimated from a boat activity survey, whereas $`FAC`$ is estimated
+from fisher interviews.
 
-Horizontal sampling is used to estimate FAC. Vertical sampling is used
-to estimate BAC: - **Horizontal sampling**. The easiest way to collect
-information on the average number of fishing days is to include a
-question on this in the landing survey. The fishers know how many days
-they went out in the previous week, so simply asking them how many days
-they went fishing in the previous week will suffice. This is called
-horizontal sampling for fishing effort. - **Vertical sampling**. In
-vertical sampling, a separate fishing effort data collection system is
-designed. At the landing sites, throughout the month, on a daily basis,
-the total number of vessels and the vessels that go fishing is
-registered. This system is slightly more complicated and a little
-costlier, but it may be needed in cases of high migration of vessels and
-where fishing activities are influenced by the lunar cycle, e.g. light
-fishing for sardinellas.
+#### 4.2 Number of active vessels: Estimation of the raising factor expressing the total number of active fishing units ($`F`$)
+
+The raising factor $`F`$ represents the number of boats that are active
+within the fishing fleet and are therefore potentially capable of
+fishing during the sampling period.
+
+Depending on how the fleet is managed, $`F`$ can be estimated from:
+
+- a frame survey, when boats are not registered;
+- a vessel registry, when registration with the fisheries or maritime
+  administration is mandatory.
+
+Other data sources may also be considered and are currently being
+explored, such as household surveys for small-scale fisheries.
+
+For stratum $`i`$ and fishing unit $`j`$, $`F`$ is calculated as the sum
+of the number of boats belonging to fishing unit $`j`$ across all sites
+included in the stratum:
+
+``` math
+F_{i,j}
+=
+\sum_{k=1}^{q} x_{i,j,k}
+```
+
+Where:
+
+- $`x_{i,j,k}`$ is the number of potentially active vessels of fishing
+  unit $`j`$ at site $`k`$ within stratum $`i`$.
+- $`k`$ is the site index, ranging from $`1`$ to $`q`$. *(to complete if
+  required)*
+- $`q`$ is the total number of sites within stratum $`i`$.
+- $`F_{i,j}`$ is the raising factor for stratum $`i`$ and fishing unit
+  $`j`$.
+
+#### 4.3 Number of active days: Estimation of the time raising factor ($`D`$)
+
+The time raising factor $`D`$ represents the total number of days during
+the reference period that are considered normal fishing days. It is
+obtained by starting from the total number of calendar days and
+subtracting days during which fishing is not expected to occur
+(e.g. weekends, public holidays, or bad weather).
+
+The value of $`D`$ is estimated for a given estimation context
+(reference period, geographical stratum, and fishing unit). The target
+population therefore corresponds to all calendar days within the
+reference period.
+
+For stratum $`i`$ and fishing unit $`j`$, $`D`$ can be calculated as:
+
+``` math
+D_{i,j}
+=
+\text{Number of days in the month}
+-
+\text{Number of non-potentially fishing days}
+```
+
+**Table 2.** Example template for the active days survey.
+
+| Minor strata | Fishing unit (FU) | Number of non-potentially fishing days | Remarks |
+|:---|:---|---:|:---|
+| Strata 1 | FU 1 | 8 | No fishing during Saturday and Sunday |
+|  | FU 2 | 9 | No fishing on Sunday + 5 bad weather days |
+|  | … | … | … |
+|  | FU p | 4 | No fishing on Sunday |
+| Strata 2 | … | … | … |
+| … |  |  |  |
+| Strata n |  |  |  |
+
+For example, in Table 2, for Strata 1 and Fishing Unit 2:
+
+``` math
+D = 31 - 9 = 22
+```
+
+When several sites belong to the same stratum, $`D`$ is calculated as
+the weighted mean of the site-specific values, using the number of boats
+as weights.
+
+``` math
+D_{i,j}
+=
+\frac{\sum_{m=1}^{t} D_{i,j,m}\times x_{i,j,m}}
+{\sum_{m=1}^{t} x_{i,j,m}}
+```
+
+Where:
+
+- $`m`$ is the site index, ranging from $`1`$ to $`t`$.
+- $`t`$ is the total number of sampled sites.
+- $`x_{i,j,m}`$ is the number of active boats at site $`m`$ in stratum
+  $`i`$ for fishing unit $`j`$.
+- $`D_{i,j,m}`$ is the estimated number of active fishing days at site
+  $`m`$ in stratum $`i`$ for fishing unit $`j`$.
+
+#### 4.4 Activity coefficient: Estimation of the boat activity coefficient ($`BAC`$) or fishing activity coefficient ($`FAC`$)
+
+##### 4.4.1 Difference between $`BAC`$ and $`FAC`$
+
+The activity coefficient accounts for the variability in fishing
+activity among boats by estimating the probability that a fishing unit
+is active on a given day.
+
+Fishing activity can be estimated either through the boat activity
+coefficient ($`BAC`$), based on vertical sampling, or through the
+fishing activity coefficient ($`FAC`$), based on horizontal sampling.
+
+The total fishing effort is therefore estimated as:
+
+``` math
+\mathrm{Effort}
+=
+F \times D \times BAC
+```
+
+or
+
+``` math
+\mathrm{Effort}
+=
+F \times D \times FAC
+```
+
+The effort is expressed in boat-days when CPUE is expressed in kg/day.
+
+- **Horizontal sampling.** Information on fishing activity is collected
+  by interviewing fishers during the landing survey. A typical question
+  asks how many days they have fished during a fixed reference period
+  (e.g. the previous 5 or 30 days). This approach is used to estimate
+  $`FAC`$.
+
+- **Vertical sampling.** Fishing activity is estimated by counting, at
+  regular intervals, the total number of boats present at landing sites
+  and the number of boats that actually went fishing. This approach is
+  more demanding but may be preferable where boat movements are
+  important or fishing activity is influenced by seasonal or lunar
+  cycles (e.g. light fishing for sardinellas). This approach is used to
+  estimate $`BAC`$.
 
 ##### 4.4.2 Boat activity coefficient
 
-For the stratum i and the fishing unit j, BAC is calculating by dividing
-the total number of boats out for fishing by the total number of boats
-of the sampled sites (given by the registry or the frame survey):
+For stratum $`i`$ and fishing unit $`j`$, $`BAC`$ is calculated by
+dividing the total number of boats that went fishing by the total number
+of boats observed (from either the frame survey or the vessel registry):
 
-(insert formula)
+``` math
+BAC_{i,j,m}
+=
+\frac{\sum_{e=1}^{E} BoatsOut_{i,j,m,e}}
+{\sum_{e=1}^{E} Boats_{i,j,m,e}}
+```
 
-Where: m is the number of the mth sampled sites. m goes from 1 to t t is
-the total number of sampled sites e is the eth sampled day at the site
-m. d goes from 1 to E E is the number of sampled days Boatsi,j,m,d can
-be either the number of boats in the frame survey or the number of boats
-sampled at site m (which is int the stratum i) for the fishing unit j
-Boats outi,j,m,d is the total number of boats that went fishing the day
-d at site m (which is int the stratum i) for the fishing unit j
+Where:
 
-In case we use the frame survey, the formula becomes: (insert formula)
-Where: xi,j,m is the number of boats at site m (in the strata i) for the
-fishing unit j
+- $`m`$ is the site index, ranging from $`1`$ to $`t`$.
+- $`t`$ is the total number of sampled sites.
+- $`e`$ is the sampled day index, ranging from $`1`$ to $`E`$.
+- $`E`$ is the total number of sampled days.
+- $`Boats_{i,j,m,e}`$ is the number of boats recorded at site $`m`$ in
+  stratum $`i`$ for fishing unit $`j`$.
+- $`BoatsOut_{i,j,m,e}`$ is the number of boats that went fishing on day
+  $`e`$ at site $`m`$ in stratum $`i`$ for fishing unit $`j`$.
 
-#### 4.4.3 Fishing activity coefficient
+When the frame survey is used, the formula becomes:
 
-A simple question can be added in the landing form during the interview
-of the fisher that can help to determine the activity per fishing unit
-(Table 3).
+*(Formula to be completed.)*
 
-Table 3: Example of vertical survey template (insert table)
+Where:
 
-When fishers do one-day trip, 5 or 7 days before is sufficient. When
-fishing trip are longer (ie. 2 or 3 weeks), it is more relevant to
-interview about the last 30 days. A simpler way to question is then “How
-many days have you been on land during the last 30 days?”. A fix
-reference period is defined for each specific fishing unit.
+- $`x_{i,j,m}`$ is the number of boats at site $`m`$ in stratum $`i`$
+  for fishing unit $`j`$.
 
-For the stratum i and the fishing unit j, FAC is calculating by dividing
-the total number of days where fishers were active by the total number
-of days of the reference periods:
+##### 4.4.3 Fishing activity coefficient
 
-(insert formula)
+A simple question can be added to the landing survey questionnaire to
+estimate fishing activity for each fishing unit:
 
-Where: b is the number of bth interview z is the total number of
-interviews DaysActivei,j is the number of days where the fisher went out
-for fishing during the reference period of the interview DaysSelectedi,j
-is the number of days of the reference period of the interview RefTime
-is the reference period of the interview (i.e., 5 days, 30 days…)
+**How many days have you fished over the last 5 days?**
+\_\_\_\_\_\_\_\_\_\_
+
+For one-day fishing trips, a reference period of 5 to 7 days is
+generally sufficient. For longer fishing trips (e.g. two or three
+weeks), it is more appropriate to use a 30-day reference period. In this
+case, the question may be reformulated as:
+
+*“How many days have you been on land during the last 30 days?”*
+
+The reference period should be defined separately for each fishing unit.
+
+For stratum $`i`$ and fishing unit $`j`$, $`FAC`$ is calculated as:
+
+``` math
+FAC_{i,j}
+=
+\frac{\sum_{b=1}^{z} DaysActive_{i,j,b}}
+{z \times RefTime}
+```
+
+Where:
+
+- $`b`$ is the interview index, ranging from $`1`$ to $`z`$.
+- $`z`$ is the total number of interviews.
+- $`DaysActive_{i,j,b}`$ is the number of days the interviewed fisher
+  was active during the reference period.
+- $`RefTime`$ is the duration of the reference period (e.g. 5 or 30
+  days).
+- $`DaysSelected_{i,j}`$*(to check: not used in the current formula).*
 
 ## 5. Total catch estimation and catch per species
 
 ### 5.1 Catch per species per stratum
 
-Once the total catch has been estimated, species composition is computed
-by means of the following simple formula: (insert formula schema)
+Once the total catch has been estimated, the catch of each species is
+obtained using the following relationship:
 
-Where: Species (catch): is the estimated catch for each species within
-the estimating context described earlier SP: is a fraction of the total
-catch corresponding to a species and is formulated from the proportion
-of a species found in the samples. Catch: is the estimated total catch
-discussed earlier
+``` math
+SpeciesCatch
+=
+SP \times Catch
+```
 
-From catch by species and using the estimated effort, it is also
-possible to compute species-specific CPUEs.
+Where:
+
+- $`SpeciesCatch`$ is the estimated catch of a given species within the
+  estimation context.
+- $`SP`$ is the proportion of the total catch represented by the species
+  in the sampled landings.
+- $`Catch`$ is the estimated total catch within the estimation context.
+
+Using the estimated fishing effort, species-specific CPUE values can
+also be calculated.
 
 ### 5.2 Total catch estimation
 
-Total catch per month is calculating by summing all strata estimates
-(all fishing units, from all strata major and minor strata if existed).
-(insert fomula)
+The total catch for a given reference period is obtained by summing the
+estimated catches across all strata (all fishing units and all major and
+minor strata, when applicable).
 
-### 6. Estimation quality control
+``` math
+TotalCatch
+=
+\sum_{i=1}^{S} Catch_i
+```
 
-Quality control is given by the different accuracies that are calculated
-by the system.
+Where:
 
-The two parallel accuracy approaches are used for the spatial accuracy
-only (sufficiency of samples), the reason being that for the temporal
-accuracy the population is always small (number of calendar days). The
-system is compiling algebraic and probabilistic approaches for CPUE and
-AC estimates. In the end the procedure will furnish the following
-results: - Spatial accuracy for AC. - Temporal accuracy for the AC
-(always be 1 and need not be computed). - Spatial accuracy for the
-CPUE. - Temporal accuracy for the CPUE.
+- $`i`$ is the stratum index, corresponding to a unique combination of
+  reference period, geographical stratum, and fishing unit.
+- $`S`$ is the total number of strata. *(to complete)*
 
-The overall sampling accuracy will be the minimum of (a), (b), (c) and
-(d). It should be review first and if low (\<80%), the detailed accuracy
-can be used to find where the hight variability come from.
+## 6. Estimation quality control
+
+The quality of the estimates is assessed using the different accuracy
+indicators calculated by the ARTFISH methodology.
+
+Two complementary approaches are used to assess **spatial accuracy**,
+which reflects the adequacy of the sampling effort. Temporal accuracy is
+not estimated because the temporal population (calendar days within the
+reference period) is considered to be fully defined.
+
+The methodology combines algebraic and probabilistic approaches to
+evaluate the accuracy of both CPUE and activity coefficient ($`AC`$)
+estimates.
+
+The following indicators are produced:
+
+- Spatial accuracy of the activity coefficient ($`AC`$);
+- Temporal accuracy of the activity coefficient ($`AC`$), which is
+  always equal to 1 and therefore does not require estimation;
+- Spatial accuracy of CPUE;
+- Temporal accuracy of CPUE.
+
+The overall sampling accuracy is defined as the minimum of these four
+indicators. It should be examined first. If the overall accuracy is low
+(e.g. below 80%), the individual accuracy indicators can then be used to
+identify the source of the highest variability.
+
+### 7 References
+
+Stamatopoulos, C. (2002). *Sample based fishery surveys: A technical
+handbook*. FAO Fisheries Technical Paper No. 425. Rome: Food and
+Agriculture Organization of the United Nations. 132 pp. Available at:
+<https://www.fao.org/3/y2790e/y2790e.pdf>

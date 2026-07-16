@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Artfish visualisations • artfishr</title>
+<title>ARTFISH visualisations • artfishr</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Artfish visualisations">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="ARTFISH visualisations">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -48,7 +48,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Artfish visualisations</h1>
+      <h1>ARTFISH visualisations</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/vignettes/05_artfish-visualisations.Rmd" class="external-link"><code>vignettes/05_artfish-visualisations.Rmd</code></a></small>
@@ -80,15 +80,15 @@ specific fishing units.</p>
 <p>In the top-left section of the interface, a date range selector
 allows the user to define the analysis period. In the top-right section
 is a drop-down menu to select specific fishing units.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_dash_clipped.jpg"></p>
+<p><img src="figures/catch_effort_dash_clipped.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>By default, all fishing units are selected in the drop-down menu,
 meaning that all available data are aggregated. To isolate specific
 fishing units for detailed analysis, uncheck the units you wish to
 exclude from the list.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_units_menu.jpg"></p>
+<p><img src="figures/fishing_units_menu.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Below these filters are summary indicators displaying the total catch
 and effort for the selected period and fishing unit(s).</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_indicators.jpg"></p>
+<p><img src="figures/catch_effort_indicators.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Five standardized graph boxes are displayed below the summary
 indicators. Each box contains a chart summarizing one of the following
 metrics:</p>
@@ -103,21 +103,20 @@ metrics:</p>
 automatically updated when a new fishing unit or different reporting
 period is selected.</p>
 <p>The first chart displays the total catch estimation (kg) by selected
-fishing unit(s) for the selected time period.
-<img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_total_catch_plot.jpg"></p>
+fishing unit(s) for the selected time period.</p>
+<p><img src="figures/catch_effort_total_catch_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The second chart displays the ranking of all available species for
 the selected reporting period and fishing unit(s), with tooltips
 providing the absolute values and their relative contribution to the
 total.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_species_rank_plot.jpg"></p>
+<p><img src="figures/catch_effort_species_rank_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The next row of two charts displays the total nominal effort (days)
 and the number of active vessels by selected fishing unit(s) for the
 selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_nominal_effort_plot.jpg"></p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_active_vessels_plot.jpg"></p>
+<p><img src="figures/catch_effort_nominal_effort_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"><img src="figures/catch_effort_active_vessels_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The final chart displays the catch per unit effort (kg/day) by the
 selected fishing unit(s) for the selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/catch_effort_cpue_plot.jpg"></p>
+<p><img src="figures/catch_effort_cpue_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="artfish---catch-and-effort-by-fishing-unit">Artfish - Catch and Effort by Fishing Unit<a class="anchor" aria-label="anchor" href="#artfish---catch-and-effort-by-fishing-unit"></a>
@@ -129,12 +128,12 @@ on individual fishing units.</p>
 section of the dashboard is used to set the analysis period. A drop-down
 menu in the top-right section allows the user to select one or more
 fishing units.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_dash_clipped.jpg"></p>
+<p><img src="figures/fishing_unit_dash_clipped.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Below these filters are summary indicators displaying the
 <strong>total catch</strong>, <strong>total effort</strong>, and
 <strong>number of active vessels</strong> for the selected reporting
 period and fishing unit(s).</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_indicators.jpg"></p>
+<p><img src="figures/fishing_unit_indicators.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Seven standardized graph boxes are displayed below the summary
 indicators. Each box contains a chart summarizing one of the following
 metrics:</p>
@@ -150,27 +149,27 @@ metrics:</p>
 <p>The first chart displays the ranking of all available species for the
 selected reporting period and fishing unit(s). In this example, three
 fishing units were selected.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_species_rank_plot.jpg"></p>
+<p><img src="figures/fishing_unit_species_rank_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The second chart ranks the fishing units by catch quantity for the
 selected reporting period, with both charts containing tooltips that
 provide the absolute values and their relative contribution to the
 total.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_fishing_units_rank_plot.jpg"></p>
+<p><img src="figures/fishing_unit_fishing_units_rank_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The third chart displays the total catch estimation (kg) by fishing
 unit for the selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_catch_plot.jpg"></p>
+<p><img src="figures/fishing_unit_catch_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The fourth chart displays the catch per unit effort (CPUE) by fishing
 unit for the selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_CPUE_plot.jpg"></p>
+<p><img src="figures/fishing_unit_CPUE_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The fifth chart displays the total nominal effort (days) by fishing
 unit for the selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_nominal_effort_plot.jpg"></p>
+<p><img src="figures/fishing_unit_nominal_effort_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The sixth chart displays the activity coefficient by fishing unit for
 the selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_activity_coefficient_plot.jpg"></p>
+<p><img src="figures/fishing_unit_activity_coefficient_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The final chart displays the number of active vessels by fishing unit
 for the selected reporting period.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/fishing_unit_active_vessels_plot.jpg"></p>
+<p><img src="figures/fishing_unit_active_vessels_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="artfish---catch-and-effort-by-species">Artfish - Catch and Effort by Species<a class="anchor" aria-label="anchor" href="#artfish---catch-and-effort-by-species"></a>
@@ -179,23 +178,23 @@ for the selected reporting period.</p>
 species-oriented workspace for exploring Artfish results. The initial
 view displays a species selector containing all available species in the
 database.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_selector_menu.jpg"></p>
+<p><img src="figures/species_selector_menu.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Once a species has been selected, the rest of the module becomes
 visible. Directly below the species selector is a date range selector to
 define the analysis period. Below this is a fishing unit drop-down menu
 that allows the user to further refine the analysis.</p>
 <p>By default, data from all fishing units are displayed, but the user
 may also restrict the view to a single fishing unit.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_dash_clipped.jpg"></p>
+<p><img src="figures/species_dash_clipped.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>The upper right panel contains two charts. To the left, a donut chart
 displays the distribution of total catch for the selected species and
 reporting period across the fishing units.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_fishing_unit_plot.jpg"></p>
+<p><img src="figures/species_fishing_unit_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>To the right, a ranking chart displays the position of the selected
 species (in orange) relative to all other species, based on the total
 catch quantity. Tooltips within the chart provide additional insights
 into absolute values and relative proportions.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_rank_plot.jpg"></p>
+<p><img src="figures/species_rank_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Below these visualisations are four indicator boxes summarising key
 metrics for the selected species:</p>
 <ul>
@@ -204,7 +203,7 @@ metrics for the selected species:</p>
 <li>Total Effort</li>
 <li>Average Species Ratio</li>
 </ul>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_indicators_bar.jpg"></p>
+<p><img src="figures/species_indicators_bar.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Below the indicator boxes, three standardized graph boxes are
 displayed in this module. Each box contains a chart summarizing one of
 the following metrics:</p>
@@ -216,7 +215,7 @@ the following metrics:</p>
 <p>The charts displayed in this module are similar to those described in
 the <strong>Total Catch and Effort</strong> module, but from a single
 species perspective.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_total_catch_plot.jpg"><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_CPUE_plot.jpg"><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/species_nominal_effort_plot.jpg"></p>
+<p><img src="figures/species_total_catch_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"><img src="figures/species_CPUE_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"><img src="figures/species_nominal_effort_plot.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div class="section level2">
@@ -297,7 +296,7 @@ view when zoomed in.</li>
 </h4>
 <p>An additional set of action buttons is located in the top-right
 corner of the plot area itself.</p>
-<p><img src="https://github.com/fdiwg/artfishr/raw/3-prepare-vignette-for-introduction-to-artfishr/inst/extdata/vignette_images/plot_feature_buttons.jpg"></p>
+<p><img src="figures/plot_feature_buttons.jpg" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>From left to right, these include:</p>
 <ul>
 <li>

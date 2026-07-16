@@ -57,13 +57,14 @@
 
     
     
-<p>This vignette shows how to use <a href="https://github.com/fdiwg/artfishr" class="external-link">artfishr</a> R package.</p>
+<p>This vignette provides a general introduction to the <a href="https://github.com/fdiwg/artfishr" class="external-link">artfishr</a> package and guides
+users through the available documentation.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>The R <a href="https://github.com/fdiwg/artfishr" class="external-link">artfishr</a> can be
-installed from Github.</p>
-<p>As prequirements, packages <code>remotes</code> and
+installed from <strong>Github</strong>.</p>
+<p>As prerequisites, packages <code>remotes</code> and
 <code>vrule</code> should be installed.</p>
 <ul>
 <li>Package <code>remotes</code> can be installed from CRAN using:</li>
@@ -76,28 +77,36 @@ installed from GitHub using <code>remotes</code>:</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdiwg/vrule"</span><span class="op">)</span></span></code></pre></div>
-<p>Once packages <code>remotes</code> and <code>vrule</code>, R package
-<code>artfishr</code> can be installed using:</p>
+<p>Once the <code>remotes</code> and <code>vrule</code> packages have
+been installed, the <code>artfishr</code> package can be installed
+using:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fdiwg/artfishr"</span><span class="op">)</span></span></code></pre></div>
 <p>Once installed, <code>artfishr</code> can be loaded using
-<code><a href="https://github.com/fdiwg/artfishr" class="external-link">library(artfishr)</a></code> or `require(artfishr)``</p>
+<code><a href="https://github.com/fdiwg/artfishr" class="external-link">library(artfishr)</a></code> or <code><a href="https://github.com/fdiwg/artfishr" class="external-link">require(artfishr)</a></code></p>
 </div>
 <div class="section level2">
-<h2 id="data-requirements">Data requirements<a class="anchor" aria-label="anchor" href="#data-requirements"></a>
+<h2 id="data-requirements-and-validation">Data Requirements and Validation<a class="anchor" aria-label="anchor" href="#data-requirements-and-validation"></a>
 </h2>
-<p>See the full guide:
+<p>For detailed information on the required input datasets and
+validation procedures, see:
 <code><a href="../articles/02_data-requirements-validation.html">vignette("02_data-requirements-validation")</a></code></p>
 </div>
 <div class="section level2">
-<h2 id="how-to-run-artfish-with-artfishr">How to run Artfish with <code>artfishr</code><a class="anchor" aria-label="anchor" href="#how-to-run-artfish-with-artfishr"></a>
+<h2 id="using-artfishr-for-small-scale-fisheries-estimation">Using <code>artfishr</code> for Small-Scale Fisheries
+Estimation<a class="anchor" aria-label="anchor" href="#using-artfishr-for-small-scale-fisheries-estimation"></a>
 </h2>
 <p>Full tutorial: <code><a href="../articles/03_artfishr-workflow.html">vignette("03_artfishr-workflow")</a></code></p>
 </div>
 <div class="section level2">
-<h2 id="the-artfish-methodology---summary">The Artfish methodology - summary<a class="anchor" aria-label="anchor" href="#the-artfish-methodology---summary"></a>
+<h2 id="statistical-framework-of-the-artfish-methodology">Statistical framework of the ARTFISH methodology<a class="anchor" aria-label="anchor" href="#statistical-framework-of-the-artfish-methodology"></a>
 </h2>
 <p>See: <code><a href="../articles/04_artfish-methodology.html">vignette("04_artfish-methodology")</a></code></p>
+</div>
+<div class="section level2">
+<h2 id="artfish-visualisations">Artfish visualisations<a class="anchor" aria-label="anchor" href="#artfish-visualisations"></a>
+</h2>
+<p>See: <code><a href="../articles/05_artfish-visualisations.html">vignette("05_artfish-visualisations")</a></code></p>
 </div>
 <div class="section level2">
 <h2 id="exemple-of-use">Exemple of use<a class="anchor" aria-label="anchor" href="#exemple-of-use"></a>
@@ -130,7 +139,7 @@ installed from GitHub using <code>remotes</code>:</li>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#See result</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">report</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">report</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

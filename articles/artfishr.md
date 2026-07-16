@@ -1,14 +1,15 @@
 # Introduction to artfishr package
 
-This vignette shows how to use
-[artfishr](https://github.com/fdiwg/artfishr) R package.
+This vignette provides a general introduction to the
+[artfishr](https://github.com/fdiwg/artfishr) package and guides users
+through the available documentation.
 
 ## Installation
 
 The R [artfishr](https://github.com/fdiwg/artfishr) can be installed
-from Github.
+from **Github**.
 
-As prequirements, packages `remotes` and `vrule` should be installed.
+As prerequisites, packages `remotes` and `vrule` should be installed.
 
 - Package `remotes` can be installed from CRAN using:
 
@@ -25,8 +26,8 @@ install.packages("remotes", repos = "https://cloud.r-project.org")
 remotes::install_github("fdiwg/vrule")
 ```
 
-Once packages `remotes` and `vrule`, R package `artfishr` can be
-installed using:
+Once the `remotes` and `vrule` packages have been installed, the
+`artfishr` package can be installed using:
 
 ``` r
 
@@ -35,22 +36,28 @@ remotes::install_github("fdiwg/artfishr")
 
 Once installed, `artfishr` can be loaded using
 [`library(artfishr)`](https://github.com/fdiwg/artfishr) or
-\`require(artfishr)\`\`
+[`require(artfishr)`](https://github.com/fdiwg/artfishr)
 
-## Data requirements
+## Data Requirements and Validation
 
-See the full guide:
+For detailed information on the required input datasets and validation
+procedures, see:
 [`vignette("02_data-requirements-validation")`](https://fdiwg.github.io/artfishr/articles/02_data-requirements-validation.md)
 
-## How to run Artfish with `artfishr`
+## Using `artfishr` for Small-Scale Fisheries Estimation
 
 Full tutorial:
 [`vignette("03_artfishr-workflow")`](https://fdiwg.github.io/artfishr/articles/03_artfishr-workflow.md)
 
-## The Artfish methodology - summary
+## Statistical framework of the ARTFISH methodology
 
 See:
 [`vignette("04_artfish-methodology")`](https://fdiwg.github.io/artfishr/articles/04_artfish-methodology.md)
+
+## Artfish visualisations
+
+See:
+[`vignette("05_artfish-visualisations")`](https://fdiwg.github.io/artfishr/articles/05_artfish-visualisations.md)
 
 ## Exemple of use
 
@@ -83,5 +90,5 @@ report <- artfishr::compute_report(
 )
 
 #See result
-head(report)
+str(report, max.level = 1)
 ```

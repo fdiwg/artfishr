@@ -3,8 +3,8 @@
 ## 1. Introduction
 
 The R package `artfishr` implements tools for producing catch and effort
-estimates from sample-based survey data of small-scales fisheries data
-following the *FAO Artfish extrapolation methodology*.  
+estimates from sample-based survey data from small-scales fisheries data
+following the *FAO ARTFISH extrapolation methodology*.  
 To ensure consistency and interoperability, input datasets must comply
 with standardized formats and validation rules.
 
@@ -27,7 +27,7 @@ Four core datasets are supported:
 
 ------------------------------------------------------------------------
 
-## 2. Overview of ArtFish data formats
+## 2. Overview of ARTFISH data formats
 
 Each dataset type follows a standardized structure defined by a JSON
 specification file.  
@@ -53,10 +53,10 @@ Preview the structure:
 
 ``` r
 
-read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr")) |>  head()
+readr::read_csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr")) |>  head()
 ```
 
-The template first tab describes the fields and precise the mandatory
+The specification file describes each field and the required data
 structure.
 
 ------------------------------------------------------------------------
@@ -70,19 +70,19 @@ Effort data can be collected under two distinct monitoring approaches:
 
 1.  **Fisher interviews (`effort_source = "fisher_interview"`)**
     - Data obtained directly from fishers with questionnaires  
-    - The template x is required (number of days fished within the
-      period of reference)
-    - In that case, the active days survey is not necessary. Total
+    - The template `effort.csv` is required (number of days fished
+      within the period of reference)
+    - In this case, the active days survey is not necessary. Total
       number of days in the month is used by default.
 2.  **Boat counting (`effort_source = "boat_counting"`)**
     - Data collected via registers or direct observation
-    - Template y is required (number of boats out in comparison of total
-      potentially active boat)
+    - Template **y (to complete)** is required (number of boats out in
+      comparison of total potentially active boat)
     - The number of active days in the month must be provided. It can
       come from the active days survey or from estimation based on
       fisheries knowledge.
 
-Both formats are supported in artfishr and can be validated using the
+Both formats are supported by `artfishr` and can be validated using the
 same validation interface.
 
 ------------------------------------------------------------------------
@@ -92,9 +92,9 @@ same validation interface.
 `artfishr` allows users to programmatically generate empty templates for
 each dataset, based on their JSON specification.
 
-The package provide a generic method
+The package provides a generic method
 [`create_artfish_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_template.md)
-to generate template using name describe in 1.
+to generate templates using the dataset names listed above.
 
 ``` r
 
@@ -105,10 +105,10 @@ You can also export the template for use with the argument `save_as`:
 
 ``` r
 
-create_artfish_template("artfish_A_active_vessels",save_as="acive_vessels.csv")
+create_artfish_template("artfish_A_active_vessels",save_as="active_vessels.csv")
 ```
 
-Or use dedicated function by dataset :
+Or use dedicated functions by dataset :
 
 ``` r
 
@@ -125,7 +125,7 @@ create_active_days_template()
 `artfishr` includes validation utilities to ensure all datasets comply
 with the expected structure and logical rules.
 
-Currently, a **global validator** is provided:
+A **global validator** is provided:
 
 ``` r
 
@@ -139,17 +139,17 @@ validate_input_datasets(
 ```
 
 This function: - checks required fields for each dataset and flags
-missing or unexpected columns, - ensures consistency with their
-content, - and ensures consistency between them.
+missing or unexpected columns, - checks that field values satisfy the
+validation rules, - and ensures consistency between them.
 
 Example:
 
 ``` r
 
 # Load sample datasets
-active_vessels <- read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
-effort <- read.csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
-landings <- read.csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
+active_vessels <- readr::read_csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
+effort <- readr::read_csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
+landings <- readr::read_csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
 
 # Validate all datasets
 validate_input_datasets(
@@ -163,16 +163,16 @@ validate_input_datasets(
 The function returns a structured report with validation results and
 messages.
 
-`artfishr` include also **specific validators** to allow running checks
+`artfishr` also includes **specific validators** to allow running checks
 per dataset type.
 
 ``` r
 
 # Load sample datasets
-active_vessels <- read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
-effort <- read.csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
-landings <- read.csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
-active_days <- read.csv(system.file("extdata/samples/active_days.csv", package = "artfishr"))
+active_vessels <- readr::read_csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
+effort <- readr::read_csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
+landings <- readr::read_csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
+active_days <- readr::read_csv(system.file("extdata/samples/active_days.csv", package = "artfishr"))
 
 validate_active_vessels_template(active_vessels)
 validate_effort_template(effort,effort_source ="boat_counting") # or "fisher_interview"
@@ -187,8 +187,8 @@ validate_active_days_template(active_days)
 - Use the provided JSON specs and templates to ensure data
   consistency.  
 - Always validate your datasets before running analyses.  
-- Choose the appropriate *effort* format according to your monitoring
-  method.  
+- Choose the appropriate *effort survey format* according to your
+  monitoring method.  
 - Keep datasets synchronized on mandatory fields (e.g., year, fishing
   unit, landing site).  
 - Extend or customize validation rules where necessary for national
@@ -198,4 +198,13 @@ validate_active_days_template(active_days)
 
 ## 7. References
 
-(To add)
+de Graaf, G. J., Nunoo, F., Ofori-Danson, P., Wiafe, G., Lamptey, E., &
+Bannerman, P. (2015). *International training course in fisheries
+statistics and data collection*. FAO Fisheries and Aquaculture Circular
+No. 1091. Rome: Food and Agriculture Organization of the United Nations.
+134 pp. Available at: <https://www.fao.org/3/i3639e/i3639e.pdf>
+
+Stamatopoulos, C. (2002). *Sample based fishery surveys: A technical
+handbook*. FAO Fisheries Technical Paper No. 425. Rome: Food and
+Agriculture Organization of the United Nations. 132 pp. Available at:
+<https://www.fao.org/3/y2790e/y2790e.pdf>

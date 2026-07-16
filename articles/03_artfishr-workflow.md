@@ -1,11 +1,11 @@
-# Using ArtFishR for Small-Scale Fisheries Estimation
+# Using artfishr for Small-Scale Fisheries Estimation
 
 ## Introduction
 
 This vignette demonstrates how to apply the **ARTFISH methodology** for
 estimating fisheries catch and effort, and related indicators using the
 `artfishr` R package. This methodology aims to extrapolate sample-based
-data to produce total estimates for each stratum of the sample.
+observations to produce total estimates for each stratum of the sample.
 
 The vignette walks through each computation step and shows how to use
 the unified workflow function `artfish_compute_report()`, which
@@ -70,19 +70,19 @@ landings <- readr::read_csv(
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
-Following data are required to produce the estimates: - Active vessels:
-number of active vessels per stratum (or per landing site) - Active
-days: number of days in the moth recording a fishing actity - Effort
-survey data: fisher interviews or boat counting - Landings data: catch
-per species for observed fishing trip For more information on the data
-structure, refer to the example and to the data validation requirements.
+The Following datasets are required to produce the estimates: - **Active
+vessels:** number of active vessels per stratum (or per landing site) -
+**Active days:** number of days in the month recording a fishing
+activity - **Effort survey data:** fisher interviews or boat counting -
+**Landings data:** catch by species for each observed fishing trip For
+more information on the data structure, refer to the example datasets
+and to the data validation requirements.
 
 ## Identify data collection strategy
 
-(to complete with different cases, identify different sources of
-information and setting linked + point on strata)
+(to complete with different cases + schema)
 
-Different cases are listed below, depending on the different data
+Different cases are listed above, depending on the different data
 sources. The effort survey type (fisher interview or boat counting) must
 be indicated in the function to use the correct computation. In case of
 boat counting, the dataset active_days is mandatory.
@@ -93,14 +93,14 @@ Below is the detailed workflow showing each function used by `artfishr`
 to compute the various ARTFISH components.
 
 Indicators are computed for each stratum of the sampling plan. Major and
-minor strata must be indicated in the function to define the level of
+minor strata must be specified in the function to define the level of
 aggregation.
 
 ### 1. Effort Activity Coefficient
 
-Activity coefficient represents the probability that a certain boat is
-out on a certain day. It is obtained with the effort survey that can be
-either fisher interview or boat counting.
+The activity coefficient represents the probability that a certain boat
+is out on a certain day. It is obtained with the effort survey using
+either fisher interviews or boat counts.
 
 ``` r
 
@@ -113,9 +113,15 @@ activity_coefficient <- artfishr::compute_effort_activity_coefficient(
 
 ### 2. Effort Estimate
 
-Effort estimate calculation is based on the 3 components active vessel,
-active days and activity coefficient. Effort = Active vessels x Active
-days X Activity coefficient
+Effort estimate calculation is based on the three components active
+vessels, active days and activity coefficient.
+
+``` math
+Effort =
+ActiveVessels \times
+ActiveDays \times
+ActivityCoefficient
+```
 
 ``` r
 
@@ -133,7 +139,7 @@ effort_estimate <- artfishr::compute_effort_estimate(
 
 ### 3. Catch per Unit of Effort (CPUE)
 
-CPUE are calculated with the landing survey data. For each stratum, the
+CPUE is calculated with the landing survey data. For each stratum, the
 overall average CPUE is calculated.
 
 ``` r
@@ -146,8 +152,11 @@ cpue <- artfishr::compute_cpue(
 
 ### 4. Catch Estimate
 
-Catch estimate calculation is based on the formula: Catch = CPUE x
-Effort.
+Catch estimate calculation is based on the formula:
+
+``` math
+Catch = CPUE \times Effort
+```
 
 ``` r
 
@@ -160,8 +169,9 @@ catch_estimate <- artfishr::compute_catch_estimate(
 
 ### 5. Catch Estimate by Species
 
-For the calculation the catch estimate by species, the catch composition
-is used to distribute the proportion of species in each stratum.
+Catch estimates by species are obtained by distributing the estimated
+total catch according to the observed species composition within each
+stratum.
 
 ``` r
 
@@ -204,12 +214,36 @@ Each component of the output can be inspected individually:
 
 ``` r
 
-head(report$effort_estimate)
-#> Warning: Unknown or uninitialised column: `effort_estimate`.
-#> NULL
-head(report$catch_estimate_by_species)
-#> Warning: Unknown or uninitialised column: `catch_estimate_by_species`.
-#> NULL
+head(effort_estimate)
+#> # A tibble: 6 × 11
+#>    year month fishing_unit            minor_stratum effort_sample_size
+#>   <dbl> <dbl> <chr>                           <dbl>              <int>
+#> 1  2025     1 Artisanal 0-6m trap                 1                 20
+#> 2  2025     1 Artisanal 0-6m trap                 2                 19
+#> 3  2025     1 Artisanal 6-12m gillnet             1                 12
+#> 4  2025     1 Artisanal 6-12m gillnet             2                 49
+#> 5  2025     1 Artisanal 6-12m trawl               1                 25
+#> 6  2025     1 Artisanal 6-12m trawl               2                 39
+#> # ℹ 6 more variables: effort_coefficient_variation <dbl>,
+#> #   effort_total_fishing_duration <dbl>, effort_activity_coefficient <dbl>,
+#> #   fleet_engagement_number <dbl>, effort_fishable_duration <int>,
+#> #   effort_nominal <dbl>
+head(catch_estimate_by_species)
+#> # A tibble: 6 × 18
+#>    year month fishing_unit minor_stratum species catch_number effort_sample_size
+#>   <dbl> <dbl> <chr>                <dbl> <chr>          <dbl>              <int>
+#> 1  2025     1 Artisanal 0…             1 Crab             248                 20
+#> 2  2025     1 Artisanal 0…             1 Grouper          485                 20
+#> 3  2025     1 Artisanal 0…             1 Lobster          630                 20
+#> 4  2025     1 Artisanal 0…             1 Parrot…          902                 20
+#> 5  2025     1 Artisanal 0…             1 Snapper          534                 20
+#> 6  2025     1 Artisanal 0…             2 Crab             268                 19
+#> # ℹ 11 more variables: effort_coefficient_variation <dbl>,
+#> #   effort_total_fishing_duration <dbl>, catch_sample_size <int>,
+#> #   catch_coefficient_variation <dbl>, catch_cpue <dbl>,
+#> #   catch_number_species <int>, catch_species_ratio <dbl>,
+#> #   catch_nominal_landed <dbl>, trade_price <dbl>, trade_value <dbl>,
+#> #   catch_fish_average_weight <dbl>
 ```
 
 ## Summary
