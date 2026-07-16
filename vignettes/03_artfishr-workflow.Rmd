@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 2
 vignette: >
-  %\VignetteIndexEntry{Using ArtFishR for Small-Scale Fisheries Estimation}
+  %\VignetteIndexEntry{Using artfishr for Small-Scale Fisheries Estimation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

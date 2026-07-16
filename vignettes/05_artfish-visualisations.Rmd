@@ -6,7 +6,7 @@ output:
     number_sections: true
     toc_depth: 2
 vignette: >
-  %\VignetteIndexEntry{Artfish visualisations}
+  %\VignetteIndexEntry{ARTFISH visualisations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
