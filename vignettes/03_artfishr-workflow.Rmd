@@ -1,11 +1,11 @@
 ---
-title: "Using ArtFishR for Small-Scale Fisheries Estimation"
+title: "Using artfishr for Small-Scale Fisheries Estimation"
 output:
   rmarkdown::html_vignette:
     toc: true
     toc_depth: 2
 vignette: >
-  %\VignetteIndexEntry{Using ArtFishR for Small-Scale Fisheries Estimation}
+  %\VignetteIndexEntry{Using artfishr for Small-Scale Fisheries Estimation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ library(artfishr)
 
 # Introduction
 
-This vignette demonstrates how to apply the **ARTFISH methodology** for estimating fisheries catch and effort, and related indicators using the `artfishr` R package. This methodology aims to extrapolate sample-based data to produce total estimates for each stratum of the sample.
+This vignette demonstrates how to apply the **ARTFISH methodology** for estimating fisheries catch and effort, and related indicators using the `artfishr` R package. This methodology aims to extrapolate sample-based observations to produce total estimates for each stratum of the sample.
 
 The vignette walks through each computation step and shows how to use the unified workflow function `artfish_compute_report()`, which automates the full estimation process.
 
@@ -49,29 +49,29 @@ landings <- readr::read_csv(
 )
 ```
 
-Following data are required to produce the estimates:
-  -	Active vessels: number of active vessels per stratum (or per landing site)
-  -	Active days: number of days in the moth recording a fishing actity
-  -	Effort survey data: fisher interviews or boat counting
-  -	Landings data: catch per species for observed fishing trip
-For more information on the data structure, refer to the example and to the data validation requirements.
+The Following datasets are required to produce the estimates:
+  -	**Active vessels:** number of active vessels per stratum (or per landing site)
+  -	**Active days:** number of days in the month recording a fishing activity
+  -	**Effort survey data:** fisher interviews or boat counting
+  -	**Landings data:** catch by species for each observed fishing trip
+For more information on the data structure, refer to the example datasets and to the data validation requirements.
 
 
 # Identify data collection strategy
 
-(to complete with different cases, identify different sources of information and setting linked + point on strata)
+(to complete with different cases + schema)
 
-Different cases are listed below, depending on the different data sources. The effort survey type (fisher interview or boat counting) must be indicated in the function to use the correct computation. In case of boat counting, the dataset active_days is mandatory.
+Different cases are listed above, depending on the different data sources. The effort survey type (fisher interview or boat counting) must be indicated in the function to use the correct computation. In case of boat counting, the dataset active_days is mandatory.
 
 # Step-by-step ARTFISH workflow
 
 Below is the detailed workflow showing each function used by `artfishr` to compute the various ARTFISH components.
 
-Indicators are computed for each stratum of the sampling plan. Major and minor strata must be indicated in the function to define the level of aggregation.
+Indicators are computed for each stratum of the sampling plan. Major and minor strata must be specified in the function to define the level of aggregation.
 
 ## 1. Effort Activity Coefficient
 
-Activity coefficient represents the probability that a certain boat is out on a certain day. It is obtained with the effort survey that can be either fisher interview or boat counting. 
+The activity coefficient represents the probability that a certain boat is out on a certain day. It is obtained with the effort survey using either fisher interviews or boat counts. 
 
 ```{r activity-coeff}
 activity_coefficient <- artfishr::compute_effort_activity_coefficient(
@@ -83,8 +83,14 @@ activity_coefficient <- artfishr::compute_effort_activity_coefficient(
 
 ## 2. Effort Estimate
 
-Effort estimate calculation is based on the 3 components active vessel, active days and activity coefficient.
-Effort = Active vessels x Active days X Activity coefficient
+Effort estimate calculation is based on the three components active vessels, active days and activity coefficient.
+
+$$
+Effort =
+ActiveVessels \times
+ActiveDays \times
+ActivityCoefficient
+$$
 
 ```{r effort-estimate}
 effort_estimate <- artfishr::compute_effort_estimate(
@@ -100,7 +106,7 @@ effort_estimate <- artfishr::compute_effort_estimate(
 
 ## 3. Catch per Unit of Effort (CPUE)
 
-CPUE are calculated with the landing survey data. For each stratum, the overall average CPUE is calculated.
+CPUE is calculated with the landing survey data. For each stratum, the overall average CPUE is calculated.
 
 ```{r cpue}
 cpue <- artfishr::compute_cpue(
@@ -111,7 +117,11 @@ cpue <- artfishr::compute_cpue(
 
 ## 4. Catch Estimate
 
-Catch estimate calculation is based on the formula: Catch = CPUE x Effort.
+Catch estimate calculation is based on the formula: 
+
+$$
+Catch = CPUE \times Effort
+$$
 
 ```{r catch-estimate}
 catch_estimate <- artfishr::compute_catch_estimate(
@@ -123,7 +133,7 @@ catch_estimate <- artfishr::compute_catch_estimate(
 
 ## 5. Catch Estimate by Species
 
-For the calculation the catch estimate by species, the catch composition is used to distribute the proportion of species in each stratum.
+Catch estimates by species are obtained by distributing the estimated total catch according to the observed species composition within each stratum.
 
 ```{r catch-by-species}
 catch_estimate_by_species <- artfishr::compute_catch_estimates_by_species(
@@ -159,8 +169,8 @@ str(report, max.level = 1)
 Each component of the output can be inspected individually:
 
 ```{r view-results}
-head(report$effort_estimate)
-head(report$catch_estimate_by_species)
+head(effort_estimate)
+head(catch_estimate_by_species)
 ```
 
 # Summary
