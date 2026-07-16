@@ -109,7 +109,7 @@ The sample size for each stratum can be determined using preliminary data. When 
 CPUE is calculated from data collected during the landing survey and is expressed as the weight of catch (kg or lbs) per day.
 
 ```{r fig-cpue-principle, echo=FALSE, out.width="80%", fig.align="center"}
-knitr::include_graphics(vignette_img("artfish_cpue_schema.png"))
+knitr::include_graphics(vignette_img("artfish_CPUE_schema.png"))
 ```
 **Figure 2.** CPUE estimation principle.
 
