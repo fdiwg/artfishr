@@ -71,7 +71,7 @@ Where:
 - **CPUE** (estimated from the sample) is the average catch per unit of effort. It represents the average quantity of fish (all species combined) caught per unit of effort within the same estimation context.
 - **Effort** (estimated from the sample) is expressed as the total number of boat-days within the same estimation context.
 
-CPUE and fishing effort are estimated from sample data. The data sources may vary depending on the information available in each country and the survey design implemented.
+CPUE and effort are estimated from sample data. The data sources may vary depending on the information available in each country and the survey design implemented.
 
 Figure 1 illustrates the estimation process when sampling is performed in both time and space, that is, when only a subset of sampling days and landing sites is surveyed.
 
@@ -116,7 +116,7 @@ knitr::include_graphics(vignette_img("artfish_cpue_schema.png"))
 To estimate CPUE, the following variables must be collected:
 
 - the fishing unit (as defined in the sampling plan);
-- the total catch weight (all species combined, and by species when species-specific estimates are required);
+- the total catch weight (all species combined, and detailed by species for estimation per species);
 - the fishing trip duration (i.e. time spent fishing).
 
 CPUE is calculated for each stratum (defined by the combination of a reference period, major and/or minor strata, and fishing unit) using the following formula:
@@ -186,7 +186,7 @@ When sampling is performed in both time and space, the estimation of fishing eff
 knitr::include_graphics(vignette_img("artfish_effort_schema.png"))
 ```
 
-Figure 3. Effort estimation principle.
+**Figure 3.** Effort estimation principle.
 
 Where:
 
@@ -312,11 +312,11 @@ $$
 F \times D \times FAC
 $$
 
-The fishing effort is expressed in boat-days when CPUE is expressed in kg/day.
+The effort is expressed in boat-days when CPUE is expressed in kg/day.
 
 - **Horizontal sampling.** Information on fishing activity is collected by interviewing fishers during the landing survey. A typical question asks how many days they have fished during a fixed reference period (e.g. the previous 5 or 30 days). This approach is used to estimate $FAC$.
 
-- **Vertical sampling.** Fishing activity is estimated by counting, at regular intervals, the total number of boats present at landing sites and the number of boats that actually went fishing. This approach is more demanding but may be preferable where boat movements are important or fishing activity is influenced by seasonal or lunar cycles. This approach is used to estimate $BAC$.
+- **Vertical sampling.** Fishing activity is estimated by counting, at regular intervals, the total number of boats present at landing sites and the number of boats that actually went fishing. This approach is more demanding but may be preferable where boat movements are important or fishing activity is influenced by seasonal or lunar cycles (e.g. light fishing for sardinellas). This approach is used to estimate $BAC$.
 
 #### 4.4.2 Boat activity coefficient
 
@@ -373,7 +373,7 @@ Where:
 - $z$ is the total number of interviews.
 - $DaysActive_{i,j,b}$ is the number of days the interviewed fisher was active during the reference period.
 - $RefTime$ is the duration of the reference period (e.g. 5 or 30 days).
-- $DaysSelected_{i,j}$ *(to complete: not used in the current formula).*
+- $DaysSelected_{i,j}$ *(to check: not used in the current formula).*
 
 # 5. Total catch estimation and catch per species
 

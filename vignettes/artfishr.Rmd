@@ -1,10 +1,13 @@
 ---
 title: Introduction to artfishr package
-output: rmarkdown::html_vignette
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
 vignette: >
   %\VignetteIndexEntry{Introduction to artfishr}
   %\VignetteEngine{knitr::knitr}
-  \usepackage[utf8]{inputenc}
+
 ---
 
 
@@ -18,13 +21,13 @@ knitr::opts_chunk$set(
 library(artfishr)
 ```
 
-This vignette shows how to use [artfishr](https://github.com/fdiwg/artfishr) R package.
+This vignette provides a general introduction to the [artfishr](https://github.com/fdiwg/artfishr) package and guides users through the available documentation.
 
 ## Installation
 
-The R [artfishr](https://github.com/fdiwg/artfishr) can be installed from Github. 
+The R [artfishr](https://github.com/fdiwg/artfishr) can be installed from **Github**. 
 
-As prequirements, packages `remotes` and `vrule` should be installed.
+As prerequisites, packages `remotes` and `vrule` should be installed.
 
 * Package `remotes` can be installed from CRAN using:
 
@@ -38,24 +41,28 @@ install.packages("remotes", repos = "https://cloud.r-project.org")
 remotes::install_github("fdiwg/vrule")
 ```
 
-Once packages `remotes` and `vrule`, R package `artfishr` can be installed using:
+Once the `remotes` and `vrule` packages have been installed, the `artfishr` package can be installed using:
 
 ```{r, eval=FALSE}
 remotes::install_github("fdiwg/artfishr")
 ```
 
-Once installed, `artfishr` can be loaded using `library(artfishr)` or `require(artfishr)``
+Once installed, `artfishr` can be loaded using `library(artfishr)` or `require(artfishr)`
 
-## Data requirements
+## Data Requirements and Validation
 
-See the full guide: `vignette("02_data-requirements-validation")`
+For detailed information on the required input datasets and validation procedures, see:
+`vignette("02_data-requirements-validation")`
 
-## How to run Artfish with `artfishr`
+## Using `artfishr` for Small-Scale Fisheries Estimation
 
 Full tutorial: `vignette("03_artfishr-workflow")`
 
-## The Artfish methodology - summary
+## Statistical framework of the ARTFISH methodology
 See: `vignette("04_artfish-methodology")`
+
+## Artfish visualisations
+See: `vignette("05_artfish-visualisations")`
 
 ## Exemple of use
 
@@ -87,6 +94,6 @@ report <- artfishr::compute_report(
 )
 
 #See result
-head(report)
+str(report, max.level = 1)
 
 ```
