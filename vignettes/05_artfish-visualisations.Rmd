@@ -19,22 +19,6 @@ knitr::opts_chunk$set(
   message = FALSE
 )
 library(artfishr)
-
-vignette_img <- function(file) {
-
-  pkg_path <- system.file(
-    "extdata",
-    "vignette_images",
-    file,
-    package = "artfishr"
-  )
-
-  if (nzchar(pkg_path)) {
-    return(pkg_path)
-  }
-
-  file.path("..", "inst", "extdata", "vignette_images", file)
-}
 ```
 
 # Introduction
@@ -54,19 +38,19 @@ The **Total Catch and Effort** module provides visualisations of key aggregated 
 In the top-left section of the interface, a date range selector allows the user to define the analysis period. In the top-right section is a drop-down menu to select specific fishing units.
 
 ```{r fig-artfish-ui-1, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_dash_clipped.jpg"))
+knitr::include_graphics("figures/catch_effort_dash_clipped.jpg")
 ```
 
 By default, all fishing units are selected in the drop-down menu, meaning that all available data are aggregated. To isolate specific fishing units for detailed analysis, uncheck the units you wish to exclude from the list.
 
 ```{r fig-artfish-ui-2, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_units_menu.jpg"))
+knitr::include_graphics("figures/fishing_units_menu.jpg")
 ```
 
 Below these filters are summary indicators displaying the total catch and effort for the selected period and fishing unit(s).
 
 ```{r fig-artfish-ui-3, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_indicators.jpg"))
+knitr::include_graphics("figures/catch_effort_indicators.jpg")
 ```
 
 Five standardized graph boxes are displayed below the summary indicators. Each box contains a chart summarizing one of the following metrics:
@@ -82,28 +66,28 @@ These charts are shown by default when the module is loaded and are automaticall
 The first chart displays the total catch estimation (kg) by selected fishing unit(s) for the selected time period. 
 
 ```{r fig-artfish-ui-4, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_total_catch_plot.jpg"))
+knitr::include_graphics("figures/catch_effort_total_catch_plot.jpg")
 ```
 
 The second chart displays the ranking of all available species for the selected reporting period and fishing unit(s), with tooltips providing the absolute values and their relative contribution to the total.
 
 ```{r fig-artfish-ui-5, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_species_rank_plot.jpg"))
+knitr::include_graphics("figures/catch_effort_species_rank_plot.jpg")
 ```
 
 The next row of two charts displays the total nominal effort (days) and the number of active vessels by selected fishing unit(s) for the selected reporting period.
 
 ```{r fig-artfish-ui-6, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_nominal_effort_plot.jpg"))
+knitr::include_graphics("figures/catch_effort_nominal_effort_plot.jpg")
 ```
 ```{r fig-artfish-ui-7, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_active_vessels_plot.jpg"))
+knitr::include_graphics("figures/catch_effort_active_vessels_plot.jpg")
 ```
 
 The final chart displays the catch per unit effort (kg/day) by the selected fishing unit(s) for the selected reporting period.
 
 ```{r fig-artfish-ui-8, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("catch_effort_cpue_plot.jpg"))
+knitr::include_graphics("figures/catch_effort_cpue_plot.jpg")
 ```
 
 ## Artfish - Catch and Effort by Fishing Unit
@@ -113,13 +97,13 @@ The **Catch and Effort by Fishing Unit** module provides a dedicated workspace f
 Similar to the previous module, a date range selector in the top-left section of the dashboard is used to set the analysis period. A drop-down menu in the top-right section allows the user to select one or more fishing units.
 
 ```{r fig-artfish-ui-9, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_dash_clipped.jpg"))
+knitr::include_graphics("figures/fishing_unit_dash_clipped.jpg")
 ```
 
 Below these filters are summary indicators displaying the **total catch**, **total effort**, and **number of active vessels** for the selected reporting period and fishing unit(s).
 
 ```{r fig-artfish-ui-10, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_indicators.jpg"))
+knitr::include_graphics("figures/fishing_unit_indicators.jpg")
 ```
 
 Seven standardized graph boxes are displayed below the summary indicators. Each box contains a chart summarizing one of the following metrics:
@@ -135,43 +119,43 @@ Seven standardized graph boxes are displayed below the summary indicators. Each 
 The first chart displays the ranking of all available species for the selected reporting period and fishing unit(s). In this example, three fishing units were selected.
 
 ```{r fig-artfish-ui-11, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_species_rank_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_species_rank_plot.jpg")
 ```
 
 The second chart ranks the fishing units by catch quantity for the selected reporting period, with both charts containing tooltips that provide the absolute values and their relative contribution to the total.
 
 ```{r fig-artfish-ui-12, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_fishing_units_rank_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_fishing_units_rank_plot.jpg")
 ```
 
 The third chart displays the total catch estimation (kg) by fishing unit for the selected reporting period.
 
 ```{r fig-artfish-ui-13, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_catch_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_catch_plot.jpg")
 ```
 
 The fourth chart displays the catch per unit effort (CPUE) by fishing unit for the selected reporting period.
 
 ```{r fig-artfish-ui-14, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_CPUE_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_CPUE_plot.jpg")
 ```
 
 The fifth chart displays the total nominal effort (days) by fishing unit for the selected reporting period.
 
 ```{r fig-artfish-ui-15, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_nominal_effort_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_nominal_effort_plot.jpg")
 ```
 
 The sixth chart displays the activity coefficient by fishing unit for the selected reporting period.
 
 ```{r fig-artfish-ui-16, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_activity_coefficient_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_activity_coefficient_plot.jpg")
 ```
 
 The final chart displays the number of active vessels by fishing unit for the selected reporting period.
 
 ```{r fig-artfish-ui-17, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("fishing_unit_active_vessels_plot.jpg"))
+knitr::include_graphics("figures/fishing_unit_active_vessels_plot.jpg")
 ```
 
 ## Artfish - Catch and Effort by Species
@@ -179,7 +163,7 @@ knitr::include_graphics(vignette_img("fishing_unit_active_vessels_plot.jpg"))
 The **Catch and Effort by Species** module provides a species-oriented workspace for exploring Artfish results. The initial view displays a species selector containing all available species in the database.
 
 ```{r fig-artfish-ui-18, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_selector_menu.jpg"))
+knitr::include_graphics("figures/species_selector_menu.jpg")
 ```
 
 Once a species has been selected, the rest of the module becomes visible. Directly below the species selector is a date range selector to define the analysis period. Below this is a fishing unit drop-down menu that allows the user to further refine the analysis. 
@@ -187,19 +171,19 @@ Once a species has been selected, the rest of the module becomes visible. Direct
 By default, data from all fishing units are displayed, but the user may also restrict the view to a single fishing unit.
 
 ```{r fig-artfish-ui-19, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_dash_clipped.jpg"))
+knitr::include_graphics("figures/species_dash_clipped.jpg")
 ```
 
 The upper right panel contains two charts. To the left, a donut chart displays the distribution of total catch for the selected species and reporting period across the fishing units. 
 
 ```{r fig-artfish-ui-20, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_fishing_unit_plot.jpg"))
+knitr::include_graphics("figures/species_fishing_unit_plot.jpg")
 ```
 
 To the right, a ranking chart displays the position of the selected species (in orange) relative to all other species, based on the total catch quantity. Tooltips within the chart provide additional insights into absolute values and relative proportions.
 
 ```{r fig-artfish-ui-21, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_rank_plot.jpg"))
+knitr::include_graphics("figures/species_rank_plot.jpg")
 ```
 
 Below these visualisations are four indicator boxes summarising key metrics for the selected species:
@@ -210,7 +194,7 @@ Below these visualisations are four indicator boxes summarising key metrics for 
 * Average Species Ratio
 
 ```{r fig-artfish-ui-22, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_indicators_bar.jpg"))
+knitr::include_graphics("figures/species_indicators_bar.jpg")
 ```
 
 Below the indicator boxes, three standardized graph boxes are displayed in this module. Each box contains a chart summarizing one of the following metrics:
@@ -222,13 +206,13 @@ Below the indicator boxes, three standardized graph boxes are displayed in this 
 The charts displayed in this module are similar to those described in the **Total Catch and Effort** module, but from a single species perspective.
 
 ```{r fig-artfish-ui-23, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_total_catch_plot.jpg"))
+knitr::include_graphics("figures/species_total_catch_plot.jpg")
 ```
 ```{r fig-artfish-ui-24, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_CPUE_plot.jpg"))
+knitr::include_graphics("figures/species_CPUE_plot.jpg")
 ```
 ```{r fig-artfish-ui-25, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("species_nominal_effort_plot.jpg"))
+knitr::include_graphics("figures/species_nominal_effort_plot.jpg")
 ```
 
 # Summary
@@ -266,7 +250,7 @@ Each chart is presented within a **figure box**. The interface is broken down in
 An additional set of action buttons is located in the top-right corner of the plot area itself. 
 
 ```{r fig-artfish-ui-26, echo=FALSE, out.width="100%", fig.align="center"}
-knitr::include_graphics(vignette_img("plot_feature_buttons.jpg"))
+knitr::include_graphics("figures/plot_feature_buttons.jpg")
 ```
 
 From left to right, these include:

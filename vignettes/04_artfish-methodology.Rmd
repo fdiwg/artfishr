@@ -20,22 +20,6 @@ knitr::opts_chunk$set(
   message = FALSE
 )
 library(artfishr)
-
-vignette_img <- function(file) {
-
-  pkg_path <- system.file(
-    "extdata",
-    "vignette_images",
-    file,
-    package = "artfishr"
-  )
-
-  if (nzchar(pkg_path)) {
-    return(pkg_path)
-  }
-
-  file.path("..", "inst", "extdata", "vignette_images", file)
-}
 ```
 
 ## 1. Introduction
@@ -76,7 +60,7 @@ CPUE and effort are estimated from sample data. The data sources may vary depend
 Figure 1 illustrates the estimation process when sampling is performed in both time and space, that is, when only a subset of sampling days and landing sites is surveyed.
 
 ```{r fig-artfish-concept, echo=FALSE, out.width="80%", fig.align="center"}
-knitr::include_graphics(vignette_img("artfish_schema.png"))
+knitr::include_graphics("figures/artfish_schema.png")
 ```
 **Figure 1.** ARTFISH conceptual framework.
 
@@ -109,7 +93,7 @@ The sample size for each stratum can be determined using preliminary data. When 
 CPUE is calculated from data collected during the landing survey and is expressed as the weight of catch (kg or lbs) per day.
 
 ```{r fig-cpue-principle, echo=FALSE, out.width="80%", fig.align="center"}
-knitr::include_graphics(vignette_img("artfish_CPUE_schema.png"))
+knitr::include_graphics("figures/artfish_CPUE_schema.png")
 ```
 **Figure 2.** CPUE estimation principle.
 
@@ -183,7 +167,7 @@ $$
 When sampling is performed in both time and space, the estimation of fishing effort requires three components.
 
 ```{r fig-effort-principle, echo=FALSE, out.width="80%", fig.align="center"}
-knitr::include_graphics(vignette_img("artfish_effort_schema.png"))
+knitr::include_graphics("figures/artfish_effort_schema.png")
 ```
 
 **Figure 3.** Effort estimation principle.
