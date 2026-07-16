@@ -79,7 +79,7 @@ Effort data can be collected under two distinct monitoring approaches:
 
 1. **Fisher interviews (`effort_source = "fisher_interview"`)**  
    - Data obtained directly from fishers with questionnaires    
-   - The template **x (to complete)** is required (number of days fished within the period of reference)
+   - The template `effort.csv` is required (number of days fished within the period of reference)
    - In this case, the active days survey is not necessary. Total number of days in the month is used by default.
   
 
