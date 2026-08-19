@@ -21,6 +21,7 @@ Imports:
   lubridate,
   vrule,
   ggplot2,
+  patchwork,
   shiny,
   shiny.i18n,
   shinyWidgets,
