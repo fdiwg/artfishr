@@ -1,7 +1,7 @@
 testthat::test_that("artfishr",{
   
   active_vessels = readr::read_csv(system.file("extdata/samples", "active_vessels.csv", package = "artfishr"))
-  effort = readr::read_csv(system.file("extdata/samples", "effort.csv", package = "artfishr"))
+  effort = readr::read_csv(system.file("extdata/samples", "effort_fisher_interview.csv", package = "artfishr"))
   active_days = readr::read_csv(system.file("extdata/samples", "active_days.csv", package = "artfishr"))
   landings = readr::read_csv(system.file("extdata/samples", "landings.csv", package = "artfishr"))
   
