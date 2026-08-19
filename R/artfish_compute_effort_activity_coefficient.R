@@ -40,8 +40,7 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
     }
   }
   
-  strata = c("year", "month", "fishing_unit")
-  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   
   out <- switch(effort_source,
     "fisher_interview" = {

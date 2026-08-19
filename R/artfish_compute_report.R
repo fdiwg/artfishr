@@ -116,7 +116,7 @@ compute_report <- function(
   
   #global report
   if(!is.null(progress_fn)) progress_fn("Computing final report")
-  strata = c("year", "month", "fishing_unit", minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   result = catch_estimate_by_species
   if(!is.null(activity_coefficient)) result <- catch_estimate_by_species |>
     left_join(activity_coefficient[,c(strata, setdiff(names(activity_coefficient), names(catch_estimate_by_species)))], by = strata)

@@ -11,8 +11,7 @@ compute_catch_estimates_by_species = function(landings, catch_estimate, minor_st
   catch_estimate$effort_activity_coefficient_temporal_accuracy = NULL
   catch_estimate$cpue = NULL
 
-  strata = c("year", "month", "fishing_unit")
-  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   
   species_compo <- landings |>
     dplyr::group_by_at(c(strata, "species")) |>
