@@ -77,14 +77,15 @@ Additional levels of stratification can be defined when required:
 - **Fishing units**, representing the lowest level of stratification. Fishing units are defined to describe the structure of the fisheries sector within the country.
 
 Major and minor strata are optional and should only be defined when justified by the local context or logistical constraints.
+Fishing unit is the minimal stratification that must be definied.
 
 > **Important**
 >
-> Population parameters are always estimated at the lowest level of stratification. Estimates at higher levels are obtained by aggregating the corresponding lower-level estimates.
+> Population parameters are always estimated at the lowest level of stratification (by stratum, so by year/month/(major straum)/(minor stratum)/fishing unit). Estimates at higher levels are obtained by aggregating the corresponding lower-level estimates.
 
 The sample size for each stratum can be determined using preliminary data. When no prior information is available, the following sampling effort is recommended:
 
-- 8 to 12 sampling days per month;
+- 8 to 12 sampling days per month homogeously distributed (if possible week and weenkend days);
 - at least 30 landing surveys;
 - at least 70 effort surveys.
 
@@ -176,7 +177,7 @@ Where:
 
 - $D$ is the raising factor expressing the total number of days with fishing activity during the reference period. It is estimated from an active days survey.
 - $F$ is the raising factor expressing the total number of fishing units potentially operating across all fishing sites within the stratum. It is estimated from a frame survey or a vessel registry.
-- $AC$ is the activity coefficient. Fishing unit activity can be estimated either through the boat activity coefficient ($BAC$), using vertical sampling (boat counts), or through the fishing activity coefficient ($FAC$), using horizontal sampling (fisher interviews).
+- $AC$ is the activity coefficient. There are two main ways to calculate the activity coefficient that will impact the design of the survey. Fishing unit activity can be estimated either through the boat activity coefficient ($BAC$), using vertical sampling (boat counts), or through the fishing activity coefficient ($FAC$), using horizontal sampling (fisher interviews).
 
 The total fishing effort is therefore estimated as:
 
@@ -278,7 +279,7 @@ Where:
 
 The activity coefficient accounts for the variability in fishing activity among boats by estimating the probability that a fishing unit is active on a given day.
 
-Fishing activity can be estimated either through the boat activity coefficient ($BAC$), based on vertical sampling, or through the fishing activity coefficient ($FAC$), based on horizontal sampling.
+Fishing activity can be estimated either through the boat activity coefficient ($BAC$), based on vertical sampling, or through the fishing activity coefficient ($FAC$), based on horizontal sampling. These two options are possible, but the fisher interview is easier to implement (as it can be include in the landing survey) and usually gives more reliable estimates.
 
 The total fishing effort is therefore estimated as:
 
@@ -298,9 +299,9 @@ $$
 
 The effort is expressed in boat-days when CPUE is expressed in kg/day.
 
-- **Horizontal sampling.** Information on fishing activity is collected by interviewing fishers during the landing survey. A typical question asks how many days they have fished during a fixed reference period (e.g. the previous 5 or 30 days). This approach is used to estimate $FAC$.
+- **Fishing activity coefficient (fisher interview)** Information on fishing activity is collected by interviewing fishers during the landing survey. A typical question asks how many days they have fished during a fixed reference period (e.g. the previous 5 or 30 days). This approach is used to estimate $FAC$. In case of fisher interview, the active days survey is not necessary, by default the total number of days in the moth is used.
 
-- **Vertical sampling.** Fishing activity is estimated by counting, at regular intervals, the total number of boats present at landing sites and the number of boats that actually went fishing. This approach is more demanding but may be preferable where boat movements are important or fishing activity is influenced by seasonal or lunar cycles (e.g. light fishing for sardinellas). This approach is used to estimate $BAC$.
+- **Boat activity coefficient (boat counting)** Fishing activity is estimated by counting, at regular intervals, the total number of boats present at landing sites and the number of boats that actually went fishing. This approach is more demanding but may be preferable where boat movements are important or fishing activity is influenced by seasonal or lunar cycles (e.g. light fishing for sardinellas). This approach is used to estimate $BAC$. The boat counting must be compemented by the active days survey (or at least an estimation of tha active days per month) for each stratum.
 
 #### 4.4.2 Boat activity coefficient
 
