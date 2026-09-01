@@ -29,7 +29,7 @@ Imports:
 Remotes:
   fdiwg/vrule,
   fdiwg/fdishinyr
-Suggests: testthat, knitr
+Suggests: testthat, knitr, rmarkdown
 Description: Set of functions in support of ArtFish implementation.
 License: MIT + file LICENSE
 URL: https://github.com/fdiwg/artfishr, https://fdiwg.github.io/artfishr/
