@@ -50,8 +50,8 @@ These schemas describe the column names, units, and validation rules.
 | Dataset | Specification | Sample data |
 |----------|----------------|--------------|
 | Active vessels | `inst/extdata/format_specs/artfish_A_active_vessels.json` | `inst/extdata/samples/active_vessels.csv` |
-| Effort (fisher interviews) | `inst/extdata/format_specs/artfish_B1_effort.json` | `inst/extdata/samples/effort.csv` |
-| Effort (boat counting) | `inst/extdata/format_specs/artfish_B2_effort.json` | `(To add)` |
+| Effort (fisher interviews) | `inst/extdata/format_specs/artfish_B1_effort.json` | `inst/extdata/samples/effort_fisher_interview.csv` |
+| Effort (boat counting) | `inst/extdata/format_specs/artfish_B2_effort.json` | `inst/extdata/samples/effort_boat_counting.csv` |
 | Active days | `inst/extdata/format_specs/artfish_C_active_days.json` | `inst/extdata/samples/active_days.csv` |
 | Landings | `inst/extdata/format_specs/artfish_D_landings.json` | `inst/extdata/samples/landings.csv` |
 
@@ -86,13 +86,12 @@ The two distinct monitoring approaches are:
 
 1. **Fisher interviews (`effort_source = "fisher_interview"`)**  
    - Data obtained directly from fishers with questionnaires with the question "How many days have you been fishing duting the last x days?" (x is the reference period in days)
-   - The template `effort.csv` is required (number of days fished within the period of reference) corresponding to the tab B1. Effort (fisher interviews) of the Excel template
+   - The template `effort_fisher_interview.csv` is required (number of days fished within the period of reference) corresponding to the tab B1. Effort (fisher interviews) of the Excel template
    - In this case, the active days survey is not necessary. Total number of days in the month is used by default as the question already icluded this compoment. active_day is NULL then and will automatically generatied by the system.
-  
 
 2. **Boat counting (`effort_source = "boat_counting"`)**  
    - Data is obtained by direct observation on sampled days. Data collectors count how many boats per fishing unit went at sea on sampled day.
-   - Template `effort.csv` is required (number of boats out in comparison of total potentially active boat) corresponding to the tab B2. Effoet (boat counting) of the Excel template
+   - Template `effort_boat_counting.csv` is required (number of boats out in comparison of total potentially active boat) corresponding to the tab B2. Effoet (boat counting) of the Excel template
    - The number of active days in the month must be provided. It can come from the active days survey or from estimation based on fisheries knowledge.
 
 Both formats are supported by `artfishr` and can be validated using the same validation interface.
