@@ -71,21 +71,27 @@ The specification file describes each field and the required data structure.
 
 ---
 
-## 3. Identify your sampling strategy
+## 3. Identify your sampling strategy for calculate the effort
 
-(Text to improve including effort type and cases where active_days is need or not)
+The effort is obtained by multiplying the total number of active vessels by the number of actives days and the activity coefficient.
+The number of active vessels is given by the frama survey (census of vessel )or by the vessels or fishing licenses registries (when reliable).
+The number of active days is the number of days in the month with a fishing activity.
+To calculate the activity coefficient there are two different survey types in the method described by Stamatopoulos that can be used (boat counting or fisher interview). One or the other method must be chossen during the data collection design.
 
-Effort data can be collected under two distinct monitoring approaches:
+The first one consist in counting the number of boat that have been out on sampled days.
+The second consist in interviewing the fisher to record the number of days with a fishing activity during the last reference period (7 days for instance).
+In both method, we calculate the activity coefficent which the probability that a boat have been at sea on a certain day.
+
+The two distinct monitoring approaches are:
 
 1. **Fisher interviews (`effort_source = "fisher_interview"`)**  
-   - Data obtained directly from fishers with questionnaires    
-   - The template `effort_fisher_interview.csv` is required (number of days fished within the period of reference)
-   - In this case, the active days survey is not necessary. Total number of days in the month is used by default.
-  
+   - Data obtained directly from fishers with questionnaires with the question "How many days have you been fishing duting the last x days?" (x is the reference period in days)
+   - The template `effort_fisher_interview.csv` is required (number of days fished within the period of reference) corresponding to the tab B1. Effort (fisher interviews) of the Excel template
+   - In this case, the active days survey is not necessary. Total number of days in the month is used by default as the question already icluded this compoment. active_day is NULL then and will automatically generatied by the system.
 
 2. **Boat counting (`effort_source = "boat_counting"`)**  
-   - Data collected via registers or direct observation
-   - Template `effort_boat_counting.csv` is required (number of boats out in comparison of total potentially active boat)
+   - Data is obtained by direct observation on sampled days. Data collectors count how many boats per fishing unit went at sea on sampled day.
+   - Template `effort_boat_counting.csv` is required (number of boats out in comparison of total potentially active boat) corresponding to the tab B2. Effoet (boat counting) of the Excel template
    - The number of active days in the month must be provided. It can come from the active days survey or from estimation based on fisheries knowledge.
 
 Both formats are supported by `artfishr` and can be validated using the same validation interface.
