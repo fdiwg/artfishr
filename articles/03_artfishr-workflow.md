@@ -34,7 +34,7 @@ active_vessels <- readr::read_csv(
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 effort <- readr::read_csv(
-  system.file("extdata/samples", "effort.csv", package = "artfishr")
+  system.file("extdata/samples", "effort_fisher_interview.csv", package = "artfishr")
 )
 #> Rows: 164 Columns: 9
 #> ── Column specification ────────────────────────────────────────────────────────

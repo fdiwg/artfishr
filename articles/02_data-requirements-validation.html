@@ -120,12 +120,12 @@ rules.</p>
 <tr class="even">
 <td>Effort (fisher interviews)</td>
 <td><code>inst/extdata/format_specs/artfish_B1_effort.json</code></td>
-<td><code>inst/extdata/samples/effort.csv</code></td>
+<td><code>inst/extdata/samples/effort_fisher_interview.csv</code></td>
 </tr>
 <tr class="odd">
 <td>Effort (boat counting)</td>
 <td><code>inst/extdata/format_specs/artfish_B2_effort.json</code></td>
-<td><code>(To add)</code></td>
+<td><code>inst/extdata/samples/effort_boat_counting.csv</code></td>
 </tr>
 <tr class="even">
 <td>Active days</td>
@@ -177,9 +177,9 @@ on a certain day.</p>
 <li>Data obtained directly from fishers with questionnaires with the
 question “How many days have you been fishing duting the last x days?”
 (x is the reference period in days)</li>
-<li>The template <code>effort.csv</code> is required (number of days
-fished within the period of reference) corresponding to the tab B1.
-Effort (fisher interviews) of the Excel template</li>
+<li>The template <code>effort_fisher_interview.csv</code> is required
+(number of days fished within the period of reference) corresponding to
+the tab B1. Effort (fisher interviews) of the Excel template</li>
 <li>In this case, the active days survey is not necessary. Total number
 of days in the month is used by default as the question already icluded
 this compoment. active_day is NULL then and will automatically
@@ -193,9 +193,10 @@ generatied by the system.</li>
 <li>Data is obtained by direct observation on sampled days. Data
 collectors count how many boats per fishing unit went at sea on sampled
 day.</li>
-<li>Template <code>effort.csv</code> is required (number of boats out in
-comparison of total potentially active boat) corresponding to the tab
-B2. Effoet (boat counting) of the Excel template</li>
+<li>Template <code>effort_boat_counting.csv</code> is required (number
+of boats out in comparison of total potentially active boat)
+corresponding to the tab B2. Effoet (boat counting) of the Excel
+template</li>
 <li>The number of active days in the month must be provided. It can come
 from the active days survey or from estimation based on fisheries
 knowledge.</li>
