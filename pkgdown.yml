@@ -2,12 +2,12 @@ pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
-  02_data-requirements-validation: 02_data-requirements-validation.html
-  03_artfishr-workflow: 03_artfishr-workflow.html
-  04_artfish-methodology: 04_artfish-methodology.html
-  05_artfish-visualisations: 05_artfish-visualisations.html
-  artfishr: artfishr.html
-last_built: 2026-09-01T17:04Z
+  artfishr_01_intro: artfishr_01_intro.html
+  artfishr_02_data-requirements-validation: artfishr_02_data-requirements-validation.html
+  artfishr_03_workflow: artfishr_03_workflow.html
+  artfishr_04_methodology: artfishr_04_methodology.html
+  artfishr_05_visualisation: artfishr_05_visualisation.html
+last_built: 2026-09-02T09:35Z
 urls:
   reference: https://fdiwg.github.io/artfishr/reference
   article: https://fdiwg.github.io/artfishr/articles
