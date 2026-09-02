@@ -6,7 +6,8 @@ output:
     toc_depth: 2
 vignette: >
   %\VignetteIndexEntry{Introduction to artfishr}
-  %\VignetteEngine{knitr::knitr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 
 ---
 
