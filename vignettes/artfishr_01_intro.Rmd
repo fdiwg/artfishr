@@ -52,24 +52,26 @@ Once installed, `artfishr` can be loaded using `library(artfishr)` or `require(a
 ## Data Requirements and Validation
 
 For detailed information on the required input datasets and validation procedures, see:
-`vignette("02_data-requirements-validation")`
+`vignette("artfishr_02_data-requirements-validation")`
 
 ## Using `artfishr` for Small-Scale Fisheries Estimation
 
-Full tutorial: `vignette("03_artfishr-workflow")`
+Full tutorial: `vignette("artfishr_03_workflow")`
 
 ## Statistical framework of the ARTFISH methodology
-See: `vignette("04_artfish-methodology")`
+
+See: `vignette("artfishr_04_methodology")`
 
 ## Artfish visualisations
-See: `vignette("05_artfish-visualisations")`
+
+See: `vignette("artfishr_05_visualisation")`
 
 ## Exemple of use
 
 ```{r, eval=FALSE}
 # Load sample datasets
 active_vessels <- read.csv(system.file("extdata/samples/active_vessels.csv", package = "artfishr"))
-effort <- read.csv(system.file("extdata/samples/effort.csv", package = "artfishr"))
+effort <- read.csv(system.file("extdata/samples/effort_fisher_interview.csv", package = "artfishr"))
 landings <- read.csv(system.file("extdata/samples/landings.csv", package = "artfishr"))
 active_days <- read.csv(system.file("extdata/samples/active_days.csv", package = "artfishr"))
 

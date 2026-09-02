@@ -37,7 +37,7 @@ active_vessels <- readr::read_csv(
 )
 
 effort <- readr::read_csv(
-  system.file("extdata/samples", "effort_fisher_interview.csv", package = "artfishr")
+  system.file("extdata/samples", "effort.csv", package = "artfishr")
 )
 
 active_days <- readr::read_csv(
