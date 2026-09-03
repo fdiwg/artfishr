@@ -7,8 +7,7 @@
 #'@export
 compute_catch_estimate = function(effort_estimate, landings, minor_strata = NULL){
   
-  strata = c("year", "month", "fishing_unit")
-  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   
   cpue = artfishr::compute_cpue(landings, minor_strata=minor_strata)
   cpue$catch_nominal_landed_sampled = NULL

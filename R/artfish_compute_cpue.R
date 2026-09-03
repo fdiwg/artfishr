@@ -22,8 +22,7 @@
 #'@export
 compute_cpue = function(landings, minor_strata = NULL){
   
-  strata = c("year", "month", "fishing_unit")
-  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   
   out = landings |>
     dplyr::group_by_at(c(strata, "fishing_trip", "effort_fishing_duration")) |>

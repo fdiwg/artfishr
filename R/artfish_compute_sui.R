@@ -10,8 +10,7 @@
 #'@export
 compute_sui = function(effort,landings, minor_strata = NULL){
   
-  strata = c("year", "month", "fishing_unit")
-  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   
   landings_r = landings |>
     dplyr::select(c(strata),day,fishing_trip) |>

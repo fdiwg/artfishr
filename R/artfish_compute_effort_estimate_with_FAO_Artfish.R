@@ -59,8 +59,7 @@ compute_effort_estimate_with_FAO_Artfish = function(
   active_vessels_strategy = match.arg(active_vessels_strategy)
   effort_source = match.arg(effort_source)
   
-  strata = c("fishing_unit")
-  if(!is.null(minor_strata)) strata = c(strata, minor_strata)
+  strata = c("year", "month", minor_strata, "fishing_unit")
   
   #complete active days by eventually filling missing or zero values for 'effort_fishable_duration'
   if(effort_source == "fisher_interview"){
