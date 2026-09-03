@@ -9,8 +9,8 @@
 #' @import tidyr
 #' @import jsonlite
 #' @import tibble
-#' @import lubridate
-#' @import ggplot2
+#' @importFrom lubridate wday second isoweek yday hour year month week isoyear minute mday quarter
+#' @importFrom ggplot2 ggplot aes geom_line geom_point geom_segment geom_text labs
 #' @import shiny
 #' @import shiny.i18n
 #' @import shinyWidgets
