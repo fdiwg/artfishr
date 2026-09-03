@@ -19,6 +19,8 @@ compute_accuracy(
 
 \item{cpue}{cpue}
 
+\item{sui}{sui}
+
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{

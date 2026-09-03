@@ -1,6 +1,6 @@
 Package: artfishr
-Version: 0.1.20260716
-Date: 2026-07-16
+Version: 0.1.20260903
+Date: 2026-09-03
 Title: ArtFish for R
 Authors@R: c(
   person("Johanna", "Herfaut", role = c("aut")),
@@ -13,10 +13,12 @@ Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Depends: R (>= 4.1)
 Imports:
   methods,
+  rlang,
   dplyr,
   tidyr,
+  jsonlite,
+  tibble,
   readr,
-  data.table,
   DT,
   lubridate,
   vrule,
@@ -24,15 +26,18 @@ Imports:
   shiny,
   shiny.i18n,
   shinyWidgets,
+  shinycssloaders,
   bs4Dash,
+  plotly,
   fdishinyr (>= 0.1.20260415)
 Remotes:
   fdiwg/vrule,
   fdiwg/fdishinyr
-Suggests: testthat, knitr
+Suggests: testthat, knitr, rmarkdown
 Description: Set of functions in support of ArtFish implementation.
 License: MIT + file LICENSE
 URL: https://github.com/fdiwg/artfishr, https://fdiwg.github.io/artfishr/
 BugReports: https://github.com/fdiwg/artfishr/issues
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr
+Encoding: UTF-8

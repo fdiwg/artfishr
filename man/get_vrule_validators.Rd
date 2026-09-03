@@ -7,7 +7,7 @@
 get_vrule_validators()
 }
 \value{
-the list of internal data validators as objects of class \link{format_spec}
+the list of internal data validators as objects of class \link[vrule]{format_spec}
 }
 \description{
 Get data validators powered by \pkg{vrule}

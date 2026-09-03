@@ -16,6 +16,25 @@ compute_effort_estimate(
   progress_fn = NULL
 )
 }
+\arguments{
+\item{effort}{effort}
+
+\item{effort_source}{effort_source}
+
+\item{landings}{landings}
+
+\item{active_days}{active_days}
+
+\item{active_vessels}{active_vessels}
+
+\item{active_vessels_strategy}{active_vessels_strategy}
+
+\item{census_typology}{census_typology}
+
+\item{minor_strata}{minor_strata}
+
+\item{progress_fn}{progress_fn}
+}
 \description{
 Computes nominal effort estimate
 }

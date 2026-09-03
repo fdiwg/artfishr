@@ -96,7 +96,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
 
       output$month_selector<-renderUI({
 
-        choices <- unique(subset(estimate,year==input$year)$month)
+        choices <- unique(estimate[estimate$year==input$year,]$month)
 
         selectizeInput(ns("month"),paste0(i18n("REPORT_SELECT_INPUT_TITLE_MONTH")," :"),choices=choices[order(choices)],multiple = F,selected=NULL,
                        options = list(
@@ -113,10 +113,12 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       req(!is.null(input$month)&input$month!="")
       todisplay(FALSE)
 
-      selection<-subset(estimate,year==input$year&month==input$month)
+      selection <- estimate[estimate$year==input$year & estimate$month==input$month,]
       target_period(selection)
       
-      ref_fu <- selection|>select(fishing_unit,fishing_unit_label)|>distinct()
+      ref_fu <- selection |>
+        dplyr::select("fishing_unit","fishing_unit_label") |>
+        dplyr::distinct()
       choices <- setNames(ref_fu$fishing_unit, ref_fu$fishing_unit_label)
 
       output$fishing_unit_selector<-renderUI({
@@ -131,7 +133,9 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       req(!is.null(minor_strata))
       if(minor_strata=="landing_site"){
 
-        ref_ls <- selection|>select(landing_site,landing_site_label)|>distinct()
+        ref_ls <- selection |> 
+          dplyr::select("landing_site","landing_site_label") |> 
+          dplyr::distinct()
         choices <- setNames(ref_ls$landing_site, ref_ls$landing_site_label)
 
         output$minor_strata_selector<-renderUI({
@@ -153,14 +157,14 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
     #filter fishing unit
     observeEvent(c(input$fishing_unit,input$minor_strata),{
       req(!is.null(input$fishing_unit)&input$fishing_unit!="")
-      subdata<-target_period()
+      subdata <- target_period()
 
 
-      subdata<-subset(subdata,fishing_unit==input$fishing_unit)
+      subdata<-subdata[subdata$fishing_unit==input$fishing_unit,]
 
       if(!is.null(minor_strata)){
-        if(minor_strata=="landing_site"){
-          subdata<-subset(subdata,landing_site==input$minor_strata)
+        if(minor_strata == "landing_site"){
+          subdata <- subdata[subdata$landing_site==input$minor_strata,]
         }
       }
 
@@ -191,13 +195,13 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       # ===== Graphic and stylized view =====
       
       #accuracy gauge
-      output$accuracy<-renderPlotly({
+      output$accuracy <- plotly::renderPlotly({
 
         accuracy<-data$overall_accuracy*100
         req(!is.null(accuracy))
         req(!is.na(accuracy))
 
-        plot_ly(
+        plotly::plot_ly(
           domain = list(x = c(0.20, 0.80), y = c(0, 0.90)),
           value = accuracy,
           title = list(text = paste0(i18n("REPORT_GAUGE_TITLE")," (%)")),
@@ -210,7 +214,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
               list(range = c(0, 90), color = "#ffc163"),
               list(range = c(90, 100), color = "#cbe261"))
           )) |>
-          layout(height=200,
+          plotly::layout(height=200,
                  margin = list(l=20,r=30,0,0),
                  plot_bgcolor  = "rgba(0, 0, 0, 0)",
                  paper_bgcolor = "rgba(0, 0, 0, 0)")
@@ -219,7 +223,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       
       output$accuracy_wrapper<-renderUI({
         req(todisplay())
-        plotlyOutput(ns("accuracy"), height = 200)
+        plotly::plotlyOutput(ns("accuracy"), height = 200)
       })
 
       #data status and effort source
@@ -408,7 +412,7 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
       #species details info
       output$species<- DT::renderDT(server = FALSE, {
 
-        species<-subset(data,select=c(species_label,catch_nominal_landed,catch_cpue,trade_price,trade_value,catch_fish_average_weight ))
+        species<-data[,c("species_label","catch_nominal_landed","catch_cpue","trade_price","trade_value","catch_fish_average_weight")]
 
         DT::datatable(
           species,
@@ -435,15 +439,15 @@ artfish_shiny_report_server <- function(id, lang = NULL,estimate, effort_source,
         req(todisplay())
         tagList(
           p(i18n("REPORT_LABEL_EFFORT")),
-          DTOutput(ns("effort"))|>withSpinner(type = 4),
+          DTOutput(ns("effort")) |> shinycssloaders::withSpinner(type = 4),
           br(),
           p(i18n("REPORT_LABEL_LANDINGS")),
-          DTOutput(ns("landing"))|>withSpinner(type = 4),
+          DTOutput(ns("landing")) |> shinycssloaders::withSpinner(type = 4),
           br(),
-          DTOutput(ns("OvAcc"))|>withSpinner(type = 4),
+          DTOutput(ns("OvAcc")) |> shinycssloaders::withSpinner(type = 4),
           br(),
           p(i18n("REPORT_LABEL_ESTIMATED_BY_SPECIES")),
-          DTOutput(ns("species"))|>withSpinner(type = 4),
+          DTOutput(ns("species")) |> shinycssloaders::withSpinner(type = 4),
         )
       })
     })

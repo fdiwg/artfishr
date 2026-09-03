@@ -19,7 +19,7 @@ sample_size_plot<-function(sample=NULL,population, sample.mean,sample.sd,alpha=0
     
     }))
   
-  plot<-ggplot(data=data, aes(x=x, y=y, group=1)) +
+  plot<-ggplot(data=data, aes(x = .data$x, y = .data$y, group=1)) +
     geom_line()
   
   if(!is.null(sample)){
@@ -27,7 +27,7 @@ sample_size_plot<-function(sample=NULL,population, sample.mean,sample.sd,alpha=0
       
       data$target<-ifelse(data$x==sample,"sample","")
       
-      sub<-subset(data,target=="sample")
+      sub <- data[data$target=="sample",]
       
       plot<-plot+
         geom_point(aes(x=sub$x, y=sub$y, group=1, color="red"),show.legend=FALSE)+
@@ -41,10 +41,10 @@ sample_size_plot<-function(sample=NULL,population, sample.mean,sample.sd,alpha=0
     }
   }else{
     
-    nearest<-min(subset(data,y>=10)$y)
+    nearest<-min(data$y[data$y>=10])
     data$target<-ifelse(data$y==nearest,"sample","")
     
-    sub<-subset(data,target=="sample")
+    sub <- data[data$target=="sample",]
     
     plot<-plot+
       geom_point(aes(x=sub$x, y=sub$y, group=1, color="red"),show.legend=FALSE)+

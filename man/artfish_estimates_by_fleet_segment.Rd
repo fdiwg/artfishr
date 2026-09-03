@@ -21,6 +21,10 @@ artfish_estimates_by_fleet_segment(
 \item{ref_fishingunits}{fishing units reference dataset}
 
 \item{ref_species}{species reference dataset}
+
+\item{year}{year}
+
+\item{month}{month}
 }
 \value{
 the result of Artfish

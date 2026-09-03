@@ -11,9 +11,24 @@ compute_effort_estimate_with_IRD_Pechart(
   landings,
   active_days,
   census_typology,
-  minor_stratum = NULL,
+  minor_strata = NULL,
   progress_fn = NULL
 )
+}
+\arguments{
+\item{effort}{effort}
+
+\item{effort_source}{effort_source}
+
+\item{landings}{landings}
+
+\item{active_days}{active_days}
+
+\item{census_typology}{census_typology}
+
+\item{minor_strata}{minor_strata}
+
+\item{progress_fn}{progress_fn}
 }
 \description{
 TBD

@@ -127,7 +127,9 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
     #fishing_unit selector UI
     output$fishing_unit_selector <- renderUI({
       
-      ref_bg_sp <- estimate()|>select(fishing_unit,fishing_unit_label)|>distinct()
+      ref_bg_sp <- estimate() |> 
+        dplyr::select("fishing_unit","fishing_unit_label") |> 
+        dplyr::distinct()
       choices <- setNames(ref_bg_sp$fishing_unit, ref_bg_sp$fishing_unit_label)
       
       shinyWidgets::pickerInput(
@@ -165,8 +167,8 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       
       req(!is.null(estimate()))
       
-      data<-estimate()|>
-        filter(
+      data <- estimate()|>
+        dplyr::filter(
           date >= input$time[1],
           date <= input$time[2]
         )
@@ -174,10 +176,7 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       if (length(input$fishing_unit) == 0) {
         selection <- data[0, ]
       } else {
-        selection <- subset(
-          data,
-          fishing_unit %in% input$fishing_unit
-        )
+        selection <- data[data$fishing_unit %in% input$fishing_unit,]
       }
       
       selection_cols = c(
@@ -217,19 +216,21 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
         ungroup()
       
       data_effort_cols = c("date","fishing_unit","fishing_unit_label","effort_nominal","fleet_engagement_number","effort_activity_coefficient","effort_total_fishing_duration")
-      data_effort<-data|>
-        select(any_of(data_effort_cols)) |>
-        distinct() |>
-        ungroup()
+      data_effort <- data|>
+        dplyr::select(dplyr::any_of(data_effort_cols)) |>
+        dplyr::distinct() |>
+        dplyr::ungroup()
       
-      total_effort<-data_effort|>
-        summarise(effort_nominal=sum(effort_nominal,na.rm=T),
-                  fleet_engagement_number=sum(fleet_engagement_number,na.rm=T)
+      total_effort <- data_effort |>
+        dplyr::summarise(
+          effort_nominal = sum(.data$effort_nominal,na.rm=T),
+          fleet_engagement_number = sum(.data$fleet_engagement_number,na.rm=T)
         )
       
-      total_catch<-data|>
-        summarise(catch_nominal_landed=sum(catch_nominal_landed,na.rm=T),
-                  trade_value=sum(trade_value,na.rm=T)
+      total_catch <- data |>
+        dplyr::summarise(
+          catch_nominal_landed = sum(.data$catch_nominal_landed,na.rm=T),
+          trade_value=sum(.data$trade_value,na.rm=T)
         )
       
       # ===== UI Indicators (KPI) =====

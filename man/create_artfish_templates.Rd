@@ -20,6 +20,13 @@ create_effort_template(
   save_as = NULL
 )
 }
+\arguments{
+\item{include_meta}{include_meta}
+
+\item{save_as}{save_as}
+
+\item{effort_source}{effort_source}
+}
 \description{
 Family of functions to create empty templates for artfishr dataset types.
 }

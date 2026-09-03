@@ -2,7 +2,7 @@
 % Please edit documentation in R/artfish_active_days.R
 \name{generate_active_days_by_period}
 \alias{generate_active_days_by_period}
-\title{Generates a \link{tibble} of active days.}
+\title{Generates a \link[tibble]{tibble} of active days.}
 \usage{
 generate_active_days_by_period(
   year,
@@ -30,7 +30,7 @@ generate_active_days_by_period(
 \item{minor_strata}{minor strata. Default is \code{NULL}}
 }
 \value{
-an object of class \link{tibble} give active days
+an object of class \link[tibble]{tibble} give active days
 }
 \description{
 Function that generates a table of active days by year/month. The unique list

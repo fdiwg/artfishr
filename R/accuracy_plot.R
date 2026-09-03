@@ -8,7 +8,7 @@ accuracy_plot<-function(sample=NULL,population,method="higher"){
 
 data<-do.call("rbind",lapply(1:population,function(i){data.frame(x=i,y=artfish_accuracy(n=i,N=population,method=method))}))
 
-plot<-ggplot(data=data, aes(x=x, y=y, group=1)) +
+plot<-ggplot(data=data, aes(x = .data$x, y = .data$y, group=1)) +
   geom_line()
 
 if(!is.null(sample)){
@@ -28,7 +28,7 @@ if(!is.null(sample)){
     labs(x="Sample size",y="Accuracy")
   }
 }else{
-  nearest<-min(subset(data,y>=0.9)$y)
+  nearest <- min(data$y[data$y >= 0.9])
   data$target<-ifelse(data$y==nearest,"sample","")
   
   target<-subset(data,target=="sample")

@@ -7,10 +7,11 @@
 compute_report(
   effort,
   effort_source = c("fisher_interview", "boat_counting", "household_interview"),
+  landings,
+  active_days = NULL,
   active_vessels = NULL,
   active_vessels_strategy = NULL,
-  active_days,
-  landings,
+  census_typology = NULL,
   minor_strata = NULL,
   validate = FALSE,
   progress_fn = NULL
@@ -21,13 +22,15 @@ compute_report(
 
 \item{effort_source}{effort_source}
 
+\item{landings}{landings}
+
+\item{active_days}{active_days}
+
 \item{active_vessels}{active_vessels}
 
 \item{active_vessels_strategy}{active_vessels_strategy}
 
-\item{active_days}{active_days}
-
-\item{landings}{landings}
+\item{census_typology}{census_typology}
 
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
 

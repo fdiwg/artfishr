@@ -60,7 +60,7 @@ artfish_shiny_accuracy_server <- function(id, lang = NULL){
     
     reactiveData<- reactiveVal()
     Day1 <- paste0(i18n("ACCURACY_DAY_LABEL"),'1')
-    table<-data.table(Day1=1)
+    table<-data.frame(Day1=1)
     row.names(table)<- i18n("ACCURACY_SAMPLES_LABEL")
     reactiveData(table)
     

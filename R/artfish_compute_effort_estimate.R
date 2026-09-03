@@ -1,5 +1,14 @@
 #'@name compute_effort_estimate
 #'@title Computes nominal effort estimate
+#'@param effort effort
+#'@param effort_source effort_source
+#'@param landings landings
+#'@param active_days active_days
+#'@param active_vessels active_vessels
+#'@param active_vessels_strategy active_vessels_strategy
+#'@param census_typology census_typology
+#'@param minor_strata minor_strata
+#'@param progress_fn progress_fn
 #'@export
 compute_effort_estimate = function(
     effort, effort_source = c("fisher_interview", "boat_counting", "household_interview"), 

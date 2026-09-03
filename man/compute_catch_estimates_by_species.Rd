@@ -18,7 +18,7 @@ compute_catch_estimates_by_species(
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
-a \link{tibble}
+a \link[tibble]{tibble}
 }
 \description{
 Computes catch estimates by species

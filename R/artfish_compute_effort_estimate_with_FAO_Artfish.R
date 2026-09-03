@@ -123,8 +123,8 @@ compute_effort_estimate_with_FAO_Artfish = function(
         #group by strata
         av_year_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] |>
           dplyr::group_by_at(strata) |>
-          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) |>
-          dplylr::ungroup()
+          dplyr::summarize(fleet_engagement_number = sum(.data$fleet_engagement_number)) |>
+          dplyr::ungroup()
         
         #in case of boat_counting and the presence of landing site in active_days table
         #we first compute the weighted mean of active_days (weighted by number of vessels)
@@ -137,9 +137,9 @@ compute_effort_estimate_with_FAO_Artfish = function(
           ad_selection = ad_selection |> dplyr::left_join(av_selection, by = join_strata)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection |>
-            dplyr::group_by_at(main_strata) |>
+            dplyr::group_by(dplyr::across(dplyr::all_of(main_strata))) |>
             dplyr::summarise(
-              effort_fishable_duration = sum(effort_fishable_duration * fleet_engagement_number) / sum(fleet_engagement_number)
+              effort_fishable_duration = sum(.data$effort_fishable_duration * .data$fleet_engagement_number) / sum(.data$fleet_engagement_number)
             )
         }
         
@@ -175,8 +175,8 @@ compute_effort_estimate_with_FAO_Artfish = function(
         
         #group by strata
         av_period_by_strata = av_selection[!is.na(av_selection$fleet_engagement_number),] |>
-          dplyr::group_by_at(strata) |>
-          dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) |>
+          dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
+          dplyr::summarize(fleet_engagement_number = sum(.data$fleet_engagement_number)) |>
           dplyr::ungroup()
         
         #in case of boat_counting and the presence of landing site in active_days table
@@ -191,9 +191,9 @@ compute_effort_estimate_with_FAO_Artfish = function(
           ad_selection = ad_selection |> dplyr::left_join(av_selection, by = join_strata)
           ad_selection = ad_selection[!is.na(ad_selection$fleet_engagement_number),]
           ad_selection = ad_selection |>
-            dplyr::group_by_at(main_strata) |>
+            dplyr::group_by(dplyr::across(dplyr::all_of(main_strata))) |>
             dplyr::summarise(
-              effort_fishable_duration = sum(effort_fishable_duration * fleet_engagement_number) / sum(fleet_engagement_number)
+              effort_fishable_duration = sum(.data$effort_fishable_duration * .data$fleet_engagement_number) / sum(.data$fleet_engagement_number)
             )
         }
         
@@ -218,8 +218,8 @@ compute_effort_estimate_with_FAO_Artfish = function(
   }else{
     #temporary patch in case active_vessels has no year/month
     active_vessels_by_strata = active_vessels[!is.na(active_vessels$fleet_engagement_number),] |>
-      dplyr::group_by_at(strata) |>
-      dplyr::summarize(fleet_engagement_number = sum(fleet_engagement_number)) |>
+      dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
+      dplyr::summarize(fleet_engagement_number = sum(.data$fleet_engagement_number)) |>
       dplyr::ungroup()
     
     #in case of boat_counting and the presence of landing site in active_days table
@@ -232,9 +232,9 @@ compute_effort_estimate_with_FAO_Artfish = function(
       active_days = active_days |> dplyr::left_join(active_vessels, by = join_strata)
       active_days = active_days[!is.na(active_days$fleet_engagement_number),]
       active_days = active_days |>
-        dplyr::group_by_at(main_strata) |>
+        dplyr::group_by(dplyr::across(dplyr::all_of(main_strata))) |>
         dplyr::summarise(
-           effort_fishable_duration = sum(effort_fishable_duration * fleet_engagement_number) / sum(fleet_engagement_number)
+           effort_fishable_duration = sum(.data$effort_fishable_duration * .data$fleet_engagement_number) / sum(.data$fleet_engagement_number)
         )
     }
     
