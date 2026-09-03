@@ -9,7 +9,7 @@
 decode_artfish_schema <- function(json_path, include_meta = FALSE) {
   if (!file.exists(json_path)) stop("File not found: ", json_path, call. = FALSE)
   
-  spec <- jsonlite::fromJSON(json_path)
+  spec <- jsonlite::read_json(json_path)
   if (is.null(spec$column_specs) || !is.data.frame(spec$column_specs))
     stop("Invalid schema: missing 'column_specs'.", call. = FALSE)
   

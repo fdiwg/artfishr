@@ -7,18 +7,17 @@
 #' @importFrom rlang .data .env
 #' @import dplyr
 #' @import tidyr
-#' @import jsonlite
+#' @importFrom jsonlite read_json 
 #' @import tibble
 #' @importFrom lubridate wday second isoweek yday hour year month week isoyear minute mday quarter
 #' @importFrom ggplot2 ggplot aes geom_line geom_point geom_segment geom_text labs
-#' @import shiny
+#' @rawNamespace import(shiny, except = tabsetPanel)
 #' @import shiny.i18n
-#' @import shinyWidgets
+#' @importFrom shinyWidgets pickerInput numericInputIcon
 #' @importFrom shinycssloaders withSpinner
-#' @import bs4Dash
+#' @importFrom bs4Dash dashboardPage dashboardHeader dashboardBrand dashboardSidebar dashboardBody tabsetPanel box
 #' @import plotly
-#' @import data.table
-#' @import DT
+#' @importFrom DT datatable renderDT
 #'
 #' @import vrule
 #' @import fdishinyr
