@@ -18,7 +18,7 @@
 #'the closest vessel data (ie 2012), assuming it betters characterizes the fleet engagement for the year considered.
 #'
 #'@param periods periods, list of unique years or year/month periods
-#'@param active_vessels active vessels object of class \link{tibble}
+#'@param active_vessels active vessels object of class \link[tibble]{tibble}
 #'@param active_vessels_strategy The strategy to associate the active vessels to
 #' the effort based on time. Active vessels period does not match necessarily the 
 #' periods of data (effort, landings), and can be reported either by year or by year/month. 

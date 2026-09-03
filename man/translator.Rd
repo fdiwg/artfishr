@@ -7,7 +7,7 @@
 translator()
 }
 \value{
-the translator, object of class \link[shiny.18n]{Translator}
+the translator, object of class \link[shiny.i18n]{Translator}
 }
 \description{
 Get translator

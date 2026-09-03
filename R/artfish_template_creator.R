@@ -74,24 +74,33 @@ NULL
 
 
 #' @rdname create_artfish_templates
+#' @param include_meta include_meta
+#' @param save_as save_as
 #' @export
 create_active_vessels_template <- function(include_meta = FALSE, save_as = NULL) {
   create_artfish_template("artfish_A_active_vessels", include_meta = include_meta, save_as = save_as)
 }
 
 #' @rdname create_artfish_templates
+#' @param include_meta include_meta
+#' @param save_as save_as
 #' @export
 create_active_days_template <- function(include_meta = FALSE, save_as = NULL) {
   create_artfish_template("artfish_C_active_days", include_meta = include_meta, save_as = save_as)
 }
 
 #' @rdname create_artfish_templates
+#' @param include_meta include_meta
+#' @param save_as save_as
 #' @export
 create_landings_template <- function(include_meta = FALSE, save_as = NULL) {
   create_artfish_template("artfish_D_landings", include_meta = include_meta, save_as = save_as)
 }
 
 #' @rdname create_artfish_templates
+#' @param effort_source effort_source
+#' @param include_meta include_meta
+#' @param save_as save_as
 #' @export
 create_effort_template <- function(effort_source = c("boat_counting", "fisher_interview"),
                                    include_meta = FALSE, save_as = NULL) {

@@ -13,8 +13,11 @@ Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Depends: R (>= 4.1)
 Imports:
   methods,
+  rlang,
   dplyr,
   tidyr,
+  jsonlite,
+  tibble,
   readr,
   data.table,
   DT,
@@ -24,7 +27,9 @@ Imports:
   shiny,
   shiny.i18n,
   shinyWidgets,
+  shinycssloaders,
   bs4Dash,
+  plotly,
   fdishinyr (>= 0.1.20260415)
 Remotes:
   fdiwg/vrule,
@@ -36,3 +41,4 @@ URL: https://github.com/fdiwg/artfishr, https://fdiwg.github.io/artfishr/
 BugReports: https://github.com/fdiwg/artfishr/issues
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr
+Encoding: UTF-8

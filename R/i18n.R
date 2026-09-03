@@ -11,7 +11,7 @@ set_translation_language <- function(lang){
 #'@name translator
 #'@title Get translator
 #'@description Get translator
-#'@return the translator, object of class \link[shiny.18n]{Translator}
+#'@return the translator, object of class \link[shiny.i18n]{Translator}
 #'@export
 translator <- function(){
   return(.artfishr$translator)

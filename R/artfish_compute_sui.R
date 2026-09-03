@@ -14,21 +14,21 @@ compute_sui = function(effort,landings, minor_strata = NULL){
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
   landings_r = landings |>
-    dplyr::select(c(strata),day,fishing_trip) |>
+    dplyr::select(c(strata,"day","fishing_trip")) |>
     dplyr::distinct() |>
-    dplyr::group_by_at(strata) |>
+    dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
     dplyr::summarise(
-      catch_number_sampled_days=length(unique(day)),
-      catch_sui=unif_index(day)
+      catch_number_sampled_days = length(unique(.data$day)),
+      catch_sui=unif_index(.data$day)
     ) |>
     dplyr::ungroup()
   
   out_r = effort |>
-    dplyr::select(c(strata),day) |>
-    dplyr::group_by_at(strata) |>
+    dplyr::select(c(strata,"day")) |>
+    dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
     dplyr::summarise(
-      effort_number_sampled_days=length(unique(day)),
-      effort_sui=unif_index(day)) |>
+      effort_number_sampled_days = length(unique(.data$day)),
+      effort_sui = unif_index(.data$day)) |>
     dplyr::ungroup()
   out = out_r |>
     dplyr::left_join(

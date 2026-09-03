@@ -14,7 +14,7 @@ compute_catch_estimate(effort_estimate, landings, minor_strata = NULL)
 \item{minor_strata}{minor_strata. Default is \code{NULL}}
 }
 \value{
-a \link{tibble} giving the estimated catch by strata
+a \link[tibble]{tibble} giving the estimated catch by strata
 }
 \description{
 Computes catch estimate

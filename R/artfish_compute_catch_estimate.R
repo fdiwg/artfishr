@@ -3,14 +3,14 @@
 #'@param effort_estimate effort estimate computed with \link{compute_effort_estimate}
 #'@param landings landings
 #'@param minor_strata minor_strata. Default is \code{NULL}
-#'@return a \link{tibble} giving the estimated catch by strata
+#'@return a \link[tibble]{tibble} giving the estimated catch by strata
 #'@export
 compute_catch_estimate = function(effort_estimate, landings, minor_strata = NULL){
   
   strata = c("year", "month", "fishing_unit")
   if(!is.null(minor_strata)) strata = c(strata, minor_strata)
   
-  cpue = artfishr::compute_cpue(landings, minor_strata=minor_strata)
+  cpue = artfishr::compute_cpue(landings, minor_strata = minor_strata)
   cpue$catch_nominal_landed_sampled = NULL
   cpue$effort_fishing_duration = NULL
   out = effort_estimate |>
@@ -20,18 +20,18 @@ compute_catch_estimate = function(effort_estimate, landings, minor_strata = NULL
   out$effort_fishable_duration = NULL
   out$fleet_engagement_number = NULL
   
-  landings_r = landings|>
-    dplyr::group_by_at(strata) |>
+  landings_r = landings |>
+    dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
     dplyr::summarize(
-      catch_number_species=length(unique(species))
+      catch_number_species=length(unique(.data$species))
     ) |>
     dplyr::ungroup() |>
     dplyr::select(
       all_of(strata),
       all_of(minor_strata),
-      catch_number_species
+      "catch_number_species"
     )
-  out<-out|>
+  out <- out |>
   dplyr::left_join(
     landings_r,
     by = join_guess_by(out, landings_r)

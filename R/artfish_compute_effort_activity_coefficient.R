@@ -25,18 +25,18 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
   
   if(effort_source == "fisher_interview") if(any(is.na(effort$effort_fishing_duration))){
     #TODO warnings here to be reported (to investigate how)
-    effort<-subset(effort,!is.na(effort_fishing_duration))
+    effort <- effort[!is.na(effort$effort_fishing_duration),]
   }
   if(effort_source == "boat_counting"){
     if(any(is.na(effort$fleet_engagement_max))){
       #TODO warnings here to be reported (to investigate how)
       WARN("Effort data include missing value(s). Removing NAs...")
-      effort<-subset(effort,!is.na(fleet_engagement_max))
+      effort <- effort[!is.na(effort$fleet_engagement_max),]
     }
     if(any(effort$fleet_engagement_max < effort$fleet_engagement_number)){
       #TODO warnings here. What do do if fleet_engagement_max < fleet_engagement_number
       WARN("Some values for 'fleet_engagement_number' are greater than 'fleet_engagement_max'. Normalizing data...")
-      effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_number = fleet_engagement_max
+      effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_number = effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_max
     }
   }
   
@@ -46,13 +46,13 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
   out <- switch(effort_source,
     "fisher_interview" = {
       out_fisher = effort |>
-        dplyr::group_by_at(strata) |>
+        dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
         dplyr::summarize(
           effort_sample_size = n(),
-          effort_coefficient_variation = (sd(effort_fishing_duration,na.rm=T)/sqrt(effort_sample_size))/mean(effort_fishing_duration,na.rm=T),
-          effort_total_fishing_duration = sum(effort_fishing_duration),
-          effort_total_fishing_reference_period = sum(effort_fishing_reference_period),
-          effort_fishing_reference_period = unique(effort_fishing_reference_period)
+          effort_coefficient_variation = (stats::sd(.data$effort_fishing_duration,na.rm=T)/sqrt(.data$effort_sample_size))/mean(.data$effort_fishing_duration,na.rm=T),
+          effort_total_fishing_duration = sum(.data$effort_fishing_duration),
+          effort_total_fishing_reference_period = sum(.data$effort_fishing_reference_period),
+          effort_fishing_reference_period = unique(.data$effort_fishing_reference_period)
         ) |>
         dplyr::ungroup()
       out_fisher$effort_activity_coefficient = out_fisher$effort_total_fishing_duration / out_fisher$effort_total_fishing_reference_period
@@ -60,12 +60,12 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
     },
     "boat_counting" = {
       out_boat = effort |>
-        dplyr::group_by_at(strata) |>
+        dplyr::group_by(dplyr::across(dplyr::all_of(strata))) |>
         dplyr::summarize(
           effort_sample_size = n(),
-          effort_coefficient_variation = (sd(fleet_engagement_number,na.rm=T)/sqrt(effort_sample_size))/mean(fleet_engagement_number,na.rm=T),
-          fleet_engagement_number = sum(fleet_engagement_number), 
-          fleet_engagement_max = sum(fleet_engagement_max),
+          effort_coefficient_variation = (stats::sd(.data$fleet_engagement_number,na.rm=T)/sqrt(.data$effort_sample_size))/mean(.data$fleet_engagement_number,na.rm=T),
+          fleet_engagement_number = sum(.data$fleet_engagement_number), 
+          fleet_engagement_max = sum(.data$fleet_engagement_max),
           effort_fishing_reference_period = 30
         ) |>
         dplyr::ungroup()

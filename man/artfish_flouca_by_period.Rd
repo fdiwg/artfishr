@@ -17,6 +17,10 @@ artfish_flouca_by_period(
 )
 }
 \arguments{
+\item{year}{year}
+
+\item{month}{month}
+
 \item{active_vessels}{active vessels}
 
 \item{effort}{effort}
@@ -29,6 +33,8 @@ or registry -B2- (boat counting)}
 \item{landings}{landings}
 
 \item{minor_strata}{minor_strata (to investigate further later)}
+
+\item{validate}{validate}
 }
 \value{
 the result of Artfish for a given year/month

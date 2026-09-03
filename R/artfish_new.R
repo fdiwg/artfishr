@@ -26,6 +26,8 @@ artfish_new <- function(
 #'@name artfish_new_by_period
 #'@title artfish_new_by_period
 #'
+#'@param year year
+#'@param month month
 #'@param active_vessels active vessels
 #'@param effort effort
 #'@param effort_source effort source whether it's derived from -B1- (fishers interviews) 
@@ -33,6 +35,7 @@ artfish_new <- function(
 #'@param active_days active days
 #'@param landings landings
 #'@param minor_strata minor_strata (to investigate further later)
+#'@param validate validate
 #'
 #'@return the result of Artfish for a given year/month
 #'@export

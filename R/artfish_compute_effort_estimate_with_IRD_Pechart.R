@@ -1,6 +1,13 @@
 #'@name compute_effort_estimate_with_IRD_Pechart
 #'@title Computes nominal effort estimate
 #'@description TBD
+#'@param effort effort
+#'@param effort_source effort_source
+#'@param landings landings
+#'@param active_days active_days
+#'@param census_typology census_typology
+#'@param minor_strata minor_strata
+#'@param progress_fn progress_fn
 #'@author Johanna Herfaut
 #'@export
 compute_effort_estimate_with_IRD_Pechart <- function(
@@ -32,8 +39,8 @@ compute_effort_estimate_with_IRD_Pechart <- function(
   
   # Number of households in the census per province
   hh_typo_minor_stratum <- census_typology |>
-    dplyr::group_by_at(strata_1) |> #by year/month/(minor_strata)/household_type
-    dplyr::summarise(household_number = sum(household_number)) |>
+    dplyr::group_by_at(dplyr::across(dplyr::all_of(strata_1))) |> #by year/month/(minor_strata)/household_type
+    dplyr::summarise(household_number = sum(.data$household_number)) |>
     dplyr::ungroup()
   
   #___________________________________________________________________________________________________________________________________________________________
@@ -45,8 +52,8 @@ compute_effort_estimate_with_IRD_Pechart <- function(
   
   # Number of households selected in the sample per category per province
   hh_typo_sample <- hh_effort |>
-    dplyr::group_by_at(strata_1) |> #by year/month/(minor_strata)/household_type
-    dplyr::summarise(household_sample_size = dplyr::n_distinct(household_id)) |>
+    dplyr::group_by(dplyr::across(dplyr::all_of(strata_1))) |> #by year/month/(minor_strata)/household_type
+    dplyr::summarise(household_sample_size = dplyr::n_distinct(.data$household_id)) |>
     dplyr::ungroup()
   
   #___________________________________________________________________________________________________________________________________________________________
@@ -60,13 +67,13 @@ compute_effort_estimate_with_IRD_Pechart <- function(
   )
   
   sampled_days_number<-hh_effort |>
-    dplyr::group_by_at(strata_2) |> #by year/month/(minor_strata)/household_id
-    dplyr::summarise(sampled_days_number = dplyr::n_distinct(interview_date)) |>
+    dplyr::group_by_at(dplyr::across(dplyr::all_of(strata_2))) |> #by year/month/(minor_strata)/household_id
+    dplyr::summarise(sampled_days_number = dplyr::n_distinct(.data$interview_date)) |>
     dplyr::ungroup()
   
   sampled_days_number <- sampled_days_number |>
-    dplyr::group_by_at(strata_0) |> #by year/month/(minor_strata)
-    dplyr::summarise(sampled_days_number = max(sampled_days_number)) |>
+    dplyr::group_by_at(dplyr::across(dplyr::all_of(strata_0))) |> #by year/month/(minor_strata)
+    dplyr::summarise(sampled_days_number = max(.data$sampled_days_number)) |>
     dplyr::ungroup()
   
   #___________________________________________________________________________________________________________________________________________________________
@@ -90,10 +97,11 @@ compute_effort_estimate_with_IRD_Pechart <- function(
   
   # aggregated data per fihsing unit
   day_at_sea <- hh_effort |>
-    dplyr::group_by_at(strata_3) |> #by year/month/fishing_unit/(minor_strata)/household_type
-    dplyr::summarise(effort_sample_size = dplyr::n_distinct(interview_date, household_id),
-              effort_coefficient_variation= sd(effort_fishing_duration, na.rm=TRUE)/ mean(effort_fishing_duration, na.rm=TRUE)*100,
-              effort_fishing_duration = sum(effort_fishing_duration))|>
+    dplyr::group_by_at(dplyr::across(dplyr::all_of(strata_3))) |> #by year/month/fishing_unit/(minor_strata)/household_type
+    dplyr::summarise(
+      effort_sample_size = dplyr::n_distinct(.data$interview_date, .data$household_id),
+      effort_coefficient_variation= stats::sd(.data$effort_fishing_duration, na.rm=TRUE)/ mean(.data$effort_fishing_duration, na.rm=TRUE)*100,
+      effort_fishing_duration = sum(.data$effort_fishing_duration))|>
     dplyr::ungroup()
   
   #___________________________________________________________________________________________________________________________________________________________
@@ -114,11 +122,11 @@ compute_effort_estimate_with_IRD_Pechart <- function(
   
   
   effort_estimate <- day_at_sea |>
-    dplyr::group_by_at(c(strata_4, "effort_sample_size", "effort_coefficient_variation", "effort_fishable_duration")) |>
-    dplyr::summarise(effort_nominal = sum(effort, na.rm = TRUE)) |>
+    dplyr::group_by(dplyr::across(dplyr::all_of(c(strata_4, "effort_sample_size", "effort_coefficient_variation", "effort_fishable_duration")))) |>
+    dplyr::summarise(effort_nominal = sum(.data$effort, na.rm = TRUE)) |>
     dplyr::ungroup()
   effort_estimate$effort_activity_coefficient <- NA
-  effort_estimatefleet_engagement_number <- NA
+  effort_estimate$fleet_engagement_number <- NA
   
   # effort_estimate: year, month, minor_stratum, fishing_unit, effort_sample_size, effort_coefficient_variation, effort_activity_coefficient, fleet_engagement_number, effort_fishable_duration, effort_nominal
   return(effort_estimate)

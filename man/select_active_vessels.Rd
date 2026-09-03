@@ -13,7 +13,7 @@ select_active_vessels(
 \arguments{
 \item{periods}{periods, list of unique years or year/month periods}
 
-\item{active_vessels}{active vessels object of class \link{tibble}}
+\item{active_vessels}{active vessels object of class \link[tibble]{tibble}}
 
 \item{active_vessels_strategy}{The strategy to associate the active vessels to
 the effort based on time. Active vessels period does not match necessarily the 

@@ -5,6 +5,7 @@
 #'@param effort_source effort_source
 #'@param active_vessels active_vessels
 #'@param active_vessels_strategy active_vessels_strategy
+#'@param census_typology census_typology
 #'@param active_days active_days
 #'@param landings landings
 #'@param minor_strata minor_strata. Default is \code{NULL}
@@ -124,11 +125,11 @@ compute_report <- function(
   result <- result |>  
     left_join(effort_estimate[,c(strata, setdiff(names(effort_estimate), names(result)))], by = strata)
   
-  cpue_formatted = cpue |> select(-effort_fishing_duration) |> rename(catch_total_cpue=catch_cpue)
+  cpue_formatted = cpue |> select(-"effort_fishing_duration") |> rename(catch_total_cpue = "catch_cpue")
   result <- result |>
     left_join(cpue_formatted[,c(strata, setdiff(names(cpue_formatted), names(result)))], by = strata)
   
-  catch_estimate_formatted = catch_estimate |> select(-catch_cpue)
+  catch_estimate_formatted = catch_estimate |> select(-"catch_cpue")
   result <- result |>
     left_join(catch_estimate_formatted[,c(strata, setdiff(names(catch_estimate_formatted), names(result)))], by = strata)
   

@@ -6,10 +6,13 @@
 \usage{
 join_guess_by(x, y)
 }
+\arguments{
+\item{x}{a \link{data.frame} or \link[tibble]{tibble}}
+
+\item{y}{a \link{data.frame} or \link[tibble]{tibble}}
+}
 \description{
 Gives the common column names between two tables. Util to be used
 in \pkg{dplyr} \code{*_join} calls \code{by} argument to avoid explicit messages
 triggered by \pkg{dplyr} when guessing the columns (in case \code{by} is not specified)
-param x a \link{data.frame} or \link[tibble]{tibble}
-param y a \link{data.frame} or \link[tibble]{tibble}
 }
