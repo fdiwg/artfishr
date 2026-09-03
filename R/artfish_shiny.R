@@ -1,5 +1,8 @@
 #'@name artfishr_shiny_server
 #'@title Artfishr shiny server function
+#'@param input input
+#'@param output output
+#'@param session session
 artfish_shiny_server <- function(input, output, session) {
   
   output$app_language <- renderUI({
@@ -8,7 +11,7 @@ artfish_shiny_server <- function(input, output, session) {
         "selected_language", label = NULL,
         choices = setNames(
           artfishr::translator()$get_languages()[-1],
-          c("العربية", "English", "Español", "Français","Русский","中文")
+          c("\u0627\u0644\u0639\u0631\u0628\u064A\u0629", "English", "Espa\u00F1ol", "Fran\u00E7ais", "Portugu\u00eas", "\u0420\u0443\u0441\u0441\u043A\u0438\u0439","\u4e2d\u6587")
         ),
         selected = fdishinyr::translator()$get_translation_language(),
         width = "110px",
@@ -29,6 +32,7 @@ artfish_shiny_server <- function(input, output, session) {
 
 #'@name artfishr_shiny_ui
 #'@title Artfishr shiny ui function
+#'@param id id
 artfish_shiny_ui <- function(id){
   
   bs4Dash::dashboardPage(
@@ -58,6 +62,7 @@ artfish_shiny_ui <- function(id){
 
 #'@name run_artfishr_shiny
 #'@title Runs a Artfishr Shiny application
+#'@param ... any optional args to pass to \link[shiny]{shinyApp}
 #'@export
 run_artfish_shiny <- function(...){
   shiny::shinyApp(

@@ -7,6 +7,9 @@
 \usage{
 artfish_shiny_ui(id)
 }
+\arguments{
+\item{id}{id}
+}
 \description{
 Artfishr shiny ui function
 }

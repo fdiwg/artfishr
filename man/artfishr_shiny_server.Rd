@@ -7,6 +7,13 @@
 \usage{
 artfish_shiny_server(input, output, session)
 }
+\arguments{
+\item{input}{input}
+
+\item{output}{output}
+
+\item{session}{session}
+}
 \description{
 Artfishr shiny server function
 }

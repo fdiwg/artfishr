@@ -7,6 +7,9 @@
 \usage{
 run_artfish_shiny(...)
 }
+\arguments{
+\item{...}{any optional args to pass to \link[shiny]{shinyApp}}
+}
 \description{
 Runs a Artfishr Shiny application
 }
