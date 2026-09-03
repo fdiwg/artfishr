@@ -29,6 +29,10 @@ compute_accuracy(
 
   cpue
 
+- sui:
+
+  sui
+
 - minor_strata:
 
   minor_strata. Default is `NULL`

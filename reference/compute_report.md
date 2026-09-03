@@ -8,10 +8,11 @@ compute_report
 compute_report(
   effort,
   effort_source = c("fisher_interview", "boat_counting", "household_interview"),
+  landings,
+  active_days = NULL,
   active_vessels = NULL,
   active_vessels_strategy = NULL,
-  active_days,
-  landings,
+  census_typology = NULL,
   minor_strata = NULL,
   validate = FALSE,
   progress_fn = NULL
@@ -28,6 +29,14 @@ compute_report(
 
   effort_source
 
+- landings:
+
+  landings
+
+- active_days:
+
+  active_days
+
 - active_vessels:
 
   active_vessels
@@ -36,13 +45,9 @@ compute_report(
 
   active_vessels_strategy
 
-- active_days:
+- census_typology:
 
-  active_days
-
-- landings:
-
-  landings
+  census_typology
 
 - minor_strata:
 

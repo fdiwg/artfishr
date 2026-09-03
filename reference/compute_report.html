@@ -41,10 +41,11 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compute_report</span><span class="op">(</span></span>
 <span>  <span class="va">effort</span>,</span>
 <span>  effort_source <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fisher_interview"</span>, <span class="st">"boat_counting"</span>, <span class="st">"household_interview"</span><span class="op">)</span>,</span>
+<span>  <span class="va">landings</span>,</span>
+<span>  active_days <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  active_vessels <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  active_vessels_strategy <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  <span class="va">active_days</span>,</span>
-<span>  <span class="va">landings</span>,</span>
+<span>  census_typology <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  validate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  progress_fn <span class="op">=</span> <span class="cn">NULL</span></span>
@@ -63,6 +64,14 @@
 <dd><p>effort_source</p></dd>
 
 
+<dt id="arg-landings">landings<a class="anchor" aria-label="anchor" href="#arg-landings"></a></dt>
+<dd><p>landings</p></dd>
+
+
+<dt id="arg-active-days">active_days<a class="anchor" aria-label="anchor" href="#arg-active-days"></a></dt>
+<dd><p>active_days</p></dd>
+
+
 <dt id="arg-active-vessels">active_vessels<a class="anchor" aria-label="anchor" href="#arg-active-vessels"></a></dt>
 <dd><p>active_vessels</p></dd>
 
@@ -71,12 +80,8 @@
 <dd><p>active_vessels_strategy</p></dd>
 
 
-<dt id="arg-active-days">active_days<a class="anchor" aria-label="anchor" href="#arg-active-days"></a></dt>
-<dd><p>active_days</p></dd>
-
-
-<dt id="arg-landings">landings<a class="anchor" aria-label="anchor" href="#arg-landings"></a></dt>
-<dd><p>landings</p></dd>
+<dt id="arg-census-typology">census_typology<a class="anchor" aria-label="anchor" href="#arg-census-typology"></a></dt>
+<dd><p>census_typology</p></dd>
 
 
 <dt id="arg-minor-strata">minor_strata<a class="anchor" aria-label="anchor" href="#arg-minor-strata"></a></dt>

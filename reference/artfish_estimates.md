@@ -33,6 +33,14 @@ artfish_estimates(
 
   species reference dataset
 
+- year:
+
+  year
+
+- month:
+
+  month
+
 ## Value
 
 the result of Artfish

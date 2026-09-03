@@ -19,6 +19,20 @@ create_effort_template(
 )
 ```
 
+## Arguments
+
+- include_meta:
+
+  include_meta
+
+- save_as:
+
+  save_as
+
+- effort_source:
+
+  effort_source
+
 ## Details
 
 These functions are convenience wrappers around

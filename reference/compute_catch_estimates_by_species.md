@@ -29,4 +29,4 @@ compute_catch_estimates_by_species(
 
 ## Value
 
-a tibble
+a [tibble](https://tibble.tidyverse.org/reference/tibble.html)

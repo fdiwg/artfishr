@@ -17,3 +17,41 @@ compute_effort_estimate(
   progress_fn = NULL
 )
 ```
+
+## Arguments
+
+- effort:
+
+  effort
+
+- effort_source:
+
+  effort_source
+
+- landings:
+
+  landings
+
+- active_days:
+
+  active_days
+
+- active_vessels:
+
+  active_vessels
+
+- active_vessels_strategy:
+
+  active_vessels_strategy
+
+- census_typology:
+
+  census_typology
+
+- minor_strata:
+
+  minor_strata
+
+- progress_fn:
+
+  progress_fn

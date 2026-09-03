@@ -1,4 +1,4 @@
-# Generates a tibble of active days.
+# Generates a [tibble](https://tibble.tidyverse.org/reference/tibble.html) of active days.
 
 Function that generates a table of active days by year/month. The unique
 list of fishing units are inherited from available tables (effort,
@@ -52,4 +52,6 @@ generate_active_days_by_period(
 
 ## Value
 
-an object of class tibble give active days
+an object of class
+[tibble](https://tibble.tidyverse.org/reference/tibble.html) give active
+days
