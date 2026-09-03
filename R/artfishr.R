@@ -15,7 +15,7 @@
 #' @import shiny.i18n
 #' @importFrom shinyWidgets pickerInput numericInputIcon
 #' @importFrom shinycssloaders withSpinner
-#' @importFrom bs4Dash dashboardPage dashboardHeader dashboardBrand dashboardSidebar dashboardBody tabsetPanel box
+#' @importFrom bs4Dash dashboardPage dashboardHeader dashboardBrand dashboardSidebar dashboardBody tabsetPanel box bs4InfoBox
 #' @import plotly
 #' @importFrom DT datatable renderDT
 #'
