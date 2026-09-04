@@ -44,4 +44,5 @@ jobs:
       - name: Check R package
         uses: r-lib/actions/check-r-package@v2
         with:
+          error-on: '"note"'
           artifact-name: artfishr_r-${{ matrix.config.r }}_${{ matrix.config.os }}-results
