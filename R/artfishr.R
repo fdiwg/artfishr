@@ -11,13 +11,13 @@
 #' @import tibble
 #' @importFrom lubridate wday second isoweek yday hour year month week isoyear minute mday quarter
 #' @importFrom ggplot2 ggplot aes geom_line geom_point geom_segment geom_text labs
-#' @rawNamespace import(shiny, except = tabsetPanel)
+#' @rawNamespace import(shiny, except = c(tabsetPanel,column))
 #' @import shiny.i18n
 #' @importFrom shinyWidgets pickerInput numericInputIcon
 #' @importFrom shinycssloaders withSpinner
-#' @importFrom bs4Dash dashboardPage dashboardHeader dashboardBrand dashboardSidebar dashboardBody tabsetPanel box bs4InfoBox
+#' @importFrom bs4Dash dashboardPage dashboardHeader dashboardBrand dashboardSidebar dashboardControlbar dashboardBody tabsetPanel box bs4InfoBox valueBox column
 #' @import plotly
-#' @importFrom DT datatable renderDT
+#' @importFrom DT datatable renderDT DTOutput formatRound
 #'
 #' @import vrule
 #' @import fdishinyr
