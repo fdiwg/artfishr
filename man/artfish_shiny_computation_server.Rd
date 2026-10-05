@@ -11,6 +11,7 @@ artfish_shiny_computation_server(
   effort_source,
   active_vessels,
   active_vessels_strategy,
+  census_typology,
   active_days,
   landings,
   minor_strata = NULL,
@@ -29,6 +30,8 @@ artfish_shiny_computation_server(
 \item{active_vessels}{active vessels data}
 
 \item{active_vessels_strategy}{active vessels strategy}
+
+\item{census_typology}{census typology}
 
 \item{active_days}{active days}
 
