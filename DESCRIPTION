@@ -29,7 +29,7 @@ Imports:
   shinycssloaders,
   bs4Dash,
   plotly,
-  fdishinyr (>= 0.1.20260415)
+  fdishinyr (>= 0.1.20260911)
 Remotes:
   fdiwg/vrule,
   fdiwg/fdishinyr
