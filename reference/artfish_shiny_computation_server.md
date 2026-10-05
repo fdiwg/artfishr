@@ -12,6 +12,7 @@ artfish_shiny_computation_server(
   effort_source,
   active_vessels,
   active_vessels_strategy,
+  census_typology,
   active_days,
   landings,
   minor_strata = NULL,
@@ -44,6 +45,10 @@ artfish_shiny_computation_server(
 - active_vessels_strategy:
 
   active vessels strategy
+
+- census_typology:
+
+  census typology
 
 - active_days:
 
