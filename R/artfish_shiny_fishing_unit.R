@@ -199,7 +199,6 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
         #no effort_total_fishing_duration
         selection_cols = selection_cols[selection_cols != "effort_total_fishing_duration"]
       }
-      
       selection <- selection[, selection_cols]
       
       data_bg(selection)
@@ -214,6 +213,9 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       req(!is.null(data_bg()))
       data <- data_bg()|>
         ungroup()
+      
+      print("DEBUG")
+      print(colnames(data))
       
       data_effort_cols = c("date","fishing_unit","fishing_unit_label","effort_nominal","fleet_engagement_number","effort_activity_coefficient","effort_total_fishing_duration")
       data_effort <- data|>
