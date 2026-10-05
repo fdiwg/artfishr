@@ -215,6 +215,9 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
         ungroup()
       
       data_effort_cols = c("date","fishing_unit","fishing_unit_label","effort_nominal","fleet_engagement_number","effort_activity_coefficient","effort_total_fishing_duration")
+      if(effort_source() %in% c("boat_counting","household_interview")){
+        data_effort_cols = data_effort_cols[data_effort_cols != "effort_total_fishing_duration"]
+      }
       data_effort <- data|>
         dplyr::select(dplyr::any_of(data_effort_cols)) |>
         dplyr::distinct() |>
