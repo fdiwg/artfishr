@@ -393,7 +393,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
           uiOutput(ns("results"))
         )
       }else{
-        tags$span("NO_RESULTS")
+        tags$span(i18n("NO_RESULTS"))
       }
       })
     
