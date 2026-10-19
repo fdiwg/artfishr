@@ -2,6 +2,7 @@ key,en
 TABLE_LANGUAGE,//cdn.datatables.net/plug-ins/1.10.11/i18n/English.json
 WELCOME,Welcome artfishr user!
 WELCOME_PARAGRAPH,This is an example of shiny multi-lingual module provided by the artfishr library
+NO_RESULTS,No result to be displayed
 ACCURACY_TITLE,Estimate accuracy and uniformity of sampling strategy
 ACCURACY_TABPANEL_ACCURACY,Accuracy
 ACCURACY_GLOBAL_BOX_TITLE,Global
@@ -27,7 +28,6 @@ ACCURACY_DAY_LABEL,Day
 ACCURACY_SAMPLES_LABEL,samples
 OVERVIEW_TITLE,Total catch and effort
 OVERVIEW_SUBTITLE,Statistics at country level
-OVERVIEW_NO_RELEASE,No released indicators available for Artfish estimates
 OVERVIEW_TIME_SLIDER_LABEL,Period
 OVERVIEW_FISHING_UNIT_SELECTOR_LABEL,Fishing unit
 OVERVIEW_FISHING_UNIT_SELECTOR_SELECT_ALL,select all
@@ -63,7 +63,6 @@ OVERVIEW_PLOT_CPUE_GROUP_LABEL,Fishing Unit
 OVERVIEW_PLOT_CPUE_VALUE_LABEL,CPUE (kg/day)
 FISHING_UNIT_TITLE,Catch and effort
 FISHING_UNIT_SUBTITLE,Detailed by fishing unit
-FISHING_UNIT_NO_RELEASE,No released indicators available for Artfish estimates
 FISHING_UNIT_TIME_SLIDER_LABEL,Period
 FISHING_UNIT_FU_SELECTOR_LABEL,Fishing unit
 FISHING_UNIT_FU_SELECTOR_SELECT_ALL,select all
@@ -107,7 +106,6 @@ FISHING_UNIT_PLOT_CPUE_GROUP_LABEL,Fishing Unit
 FISHING_UNIT_PLOT_CPUE_VALUE_LABEL,CPUE (kg/day)
 SPECIES_TITLE,Catch and effort
 SPECIES_SUBTITLE,Detailed by species
-SPECIES_NO_RELEASE,No released indicators available for Artfish estimates
 SPECIES_SPECIES_SELECTOR_LABEL,Species
 SPECIES_SPECIES_SELECTOR_PLACEHOLDER,Select a species
 SPECIES_TIME_SLIDER_LABEL,Period

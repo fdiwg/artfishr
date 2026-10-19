@@ -1,3 +1,4 @@
 key,zh
 WELCOME,欢迎 artfishr 用户！
 WELCOME_PARAGRAPH,这是由 artfishr 库提供的 Shiny 多语言模块示例。
+NO_RESULTS,没有可显示的结果

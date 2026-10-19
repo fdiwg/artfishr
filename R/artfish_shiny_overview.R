@@ -86,13 +86,13 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     # -------------------------------------------------------------------------
     # Case if no data to display
     # -------------------------------------------------------------------------
-    #UI to indicate if there is no release
-    output$no_release<-renderUI({
+    #UI to indicate if there is no result to be displayed
+    output$no_results <- renderUI({
       div(
-        if(nrow(estimate())>0){
+        if(!is.null(estimate())){
           NULL
         }else{
-          p(i18n("OVERVIEW_NO_RELEASE"))
+          p(i18n("NO_RESULTS"))
         }
       )
     })
@@ -402,7 +402,7 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
               tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
             )
           ),
-          uiOutput(ns("no_release")),
+          uiOutput(ns("no_results")),
           uiOutput(ns("filter_selectors")),
           uiOutput(ns("indicators")),
           uiOutput(ns("results"))

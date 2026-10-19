@@ -2,6 +2,7 @@ key,pt
 TABLE_LANGUAGE,//cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese.json
 WELCOME,Bem-vindo utilizador do artfishr!
 WELCOME_PARAGRAPH,Este é um exemplo de módulo multilíngue shiny fornecido pela biblioteca artfishr
+NO_RESULTS,Nenhum resultado a ser exibido
 ACCURACY_TITLE,Estimativa da precisão e uniformidade da estratégia de amostragem
 ACCURACY_TABPANEL_ACCURACY,Precisão
 ACCURACY_GLOBAL_BOX_TITLE,Global

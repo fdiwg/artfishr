@@ -89,13 +89,13 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
     # -------------------------------------------------------------------------
     # Case if no data to display
     # -------------------------------------------------------------------------
-    #UI to indicate if there is no release
-    output$no_release<-renderUI({
+    #UI to indicate if there is no result to be displayed
+    output$no_results <- renderUI({
       div(
-        if(nrow(estimate())>0){
+        if(!is.null(estimate())){
           NULL
         }else{
-          p(i18n("FISHING_UNIT_NO_RELEASE"))
+          p(i18n("NO_RESULTS"))
         }
       )
     })

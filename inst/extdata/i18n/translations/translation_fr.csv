@@ -1,6 +1,7 @@
 key,fr
 WELCOME,Bienvenu utilisateur de artfishr!
 WELCOME_PARAGRAPH,Ceci est un exemple de module Shiny multi-langue fourni par la librairie artfishr
+NO_RESULTS,Aucun résultat à afficher
 ACCURACY_TITLE,Précision de l’estimation et uniformité de la stratégie d’échantillonnage
 ACCURACY_TABPANEL_ACCURACY,Précision
 ACCURACY_GLOBAL_BOX_TITLE,Global
@@ -26,7 +27,6 @@ ACCURACY_DAY_LABEL,Jour
 ACCURACY_SAMPLES_LABEL,échantillons
 OVERVIEW_TITLE,Captures et effort totaux
 OVERVIEW_SUBTITLE,Statistiques au niveau national
-OVERVIEW_NO_RELEASE,Aucun indicateur validé disponible pour les estimations Artfish
 OVERVIEW_TIME_SLIDER_LABEL,Période
 OVERVIEW_FISHING_UNIT_SELECTOR_LABEL,Unité de pêche
 OVERVIEW_FISHING_UNIT_SELECTOR_SELECT_ALL,tout sélectionner
