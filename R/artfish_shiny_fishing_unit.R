@@ -85,21 +85,7 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
       req(estimate())
       sum(estimate()$total_value, na.rm = TRUE) > 0
     }) 
-    
-    # -------------------------------------------------------------------------
-    # Case if no data to display
-    # -------------------------------------------------------------------------
-    #UI to indicate if there is no result to be displayed
-    output$no_results <- renderUI({
-      div(
-        if(!is.null(estimate())){
-          NULL
-        }else{
-          p(i18n("NO_RESULTS"))
-        }
-      )
-    })
-    
+
     observe({
       req(nrow(estimate()) > 0)
       data_bg(estimate())
@@ -430,20 +416,23 @@ artfish_shiny_fishing_unit_server <- function(id, lang = NULL, estimate, effort_
     
     #main UI
     output$main <- renderUI({
-      tagList(
-        fluidRow(
-          column(
-            width = 12, style = "margin:12px;",
-            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
-            tags$h2(i18n("FISHING_UNIT_TITLE")),
-            tags$h3(class = "text-muted", i18n("FISHING_UNIT_SUBTITLE"))
-          )
-        ),
-        uiOutput(ns("no_release")),
-        uiOutput(ns("filter_selectors")),
-        uiOutput(ns("indicators")),
-        uiOutput(ns("results"))
-      )
+      if(!is.null(estimate())){
+        tagList(
+          fluidRow(
+            column(
+              width = 12, style = "margin:12px;",
+              if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
+              tags$h2(i18n("FISHING_UNIT_TITLE")),
+              tags$h3(class = "text-muted", i18n("FISHING_UNIT_SUBTITLE"))
+            )
+          ),
+          uiOutput(ns("filter_selectors")),
+          uiOutput(ns("indicators")),
+          uiOutput(ns("results"))
+        )
+      }else{
+        tags$span(i18n("NO_RESULTS"))
+      }
     })
     
   })

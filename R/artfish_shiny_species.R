@@ -89,20 +89,6 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
       sum(estimate()$total_value, na.rm = TRUE) > 0
     })  
     
-    # -------------------------------------------------------------------------
-    # Case if no data to display
-    # -------------------------------------------------------------------------
-    #UI to indicate if there is no result to be displayed
-    output$no_results <- renderUI({
-      div(
-        if(!is.null(estimate())){
-          NULL
-        }else{
-          p(i18n("NO_RESULTS"))
-        }
-      )
-    })
-    
     observe({
       req(nrow(estimate())>0)
     })
@@ -454,34 +440,37 @@ artfish_shiny_species_server <- function(id, lang = NULL, estimate, effort_sourc
     #main UI
     output$main <- renderUI({
       
-      tagList(
-        fluidRow(
-          column(
-            width = 12, style = "margin:12px;",
-            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
-            tags$h2(i18n("SPECIES_TITLE")),
-            tags$h3(class = "text-muted", i18n("SPECIES_SUBTITLE"))
-          )
-        ),            
-        div(class="row",
-            column(3,
-                   uiOutput(ns("no_results")),
-                   uiOutput(ns("species_selector")),
-                   uiOutput(ns("time_selector")),
-                   uiOutput(ns("fishing_unit_selector"))
-            ),
-            column(5,
-                   uiOutput(ns("donut_wrapper"))
-                   
-            ),
-            column(4,
-                   uiOutput(ns("rank_wrapper"))        
-                   
+      if(!is.null(estimate())){
+        tagList(
+          fluidRow(
+            column(
+              width = 12, style = "margin:12px;",
+              if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
+              tags$h2(i18n("SPECIES_TITLE")),
+              tags$h3(class = "text-muted", i18n("SPECIES_SUBTITLE"))
             )
-            ,height=200),
-        uiOutput(ns("indicators")),
-        uiOutput(ns("results"))
-      )
+          ),            
+          div(class="row",
+              column(3,
+                     uiOutput(ns("species_selector")),
+                     uiOutput(ns("time_selector")),
+                     uiOutput(ns("fishing_unit_selector"))
+              ),
+              column(5,
+                     uiOutput(ns("donut_wrapper"))
+                     
+              ),
+              column(4,
+                     uiOutput(ns("rank_wrapper"))        
+                     
+              )
+              ,height=200),
+          uiOutput(ns("indicators")),
+          uiOutput(ns("results"))
+        )
+      }else{
+        tags$span(i18n("NO_RESULTS"))
+      }
     })
     
   })

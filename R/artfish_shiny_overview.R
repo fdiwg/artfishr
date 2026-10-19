@@ -83,20 +83,6 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
       sum(estimate()$total_value, na.rm = TRUE) > 0
     }) 
     
-    # -------------------------------------------------------------------------
-    # Case if no data to display
-    # -------------------------------------------------------------------------
-    #UI to indicate if there is no result to be displayed
-    output$no_results <- renderUI({
-      div(
-        if(!is.null(estimate())){
-          NULL
-        }else{
-          p(i18n("NO_RESULTS"))
-        }
-      )
-    })
-    
     observe({
       req(nrow(estimate()) > 0)
       data_bg(estimate())
@@ -402,13 +388,12 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
               tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
             )
           ),
-          uiOutput(ns("no_results")),
           uiOutput(ns("filter_selectors")),
           uiOutput(ns("indicators")),
           uiOutput(ns("results"))
         )
       }else{
-        tags$span("No results yet")
+        tags$span("NO_RESULTS")
       }
       })
     
