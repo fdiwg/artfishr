@@ -392,23 +392,27 @@ artfish_shiny_overview_server <- function(id, lang = NULL, estimate, effort_sour
     
     #main UI
     output$main <- renderUI({
-      tagList(
-        fluidRow(
-          column(
-            width = 12, style = "margin:12px;",
-            if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
-            tags$h2(i18n("OVERVIEW_TITLE")),
-            tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
-          )
-        ),
-        uiOutput(ns("no_release")),
-        uiOutput(ns("filter_selectors")),
-        uiOutput(ns("indicators")),
-        uiOutput(ns("results"))
-      )
+      if(!is.null(estimate())){
+        tagList(
+          fluidRow(
+            column(
+              width = 12, style = "margin:12px;",
+              if(!is.null(opts$refresh_ui)){ tags$div(opts$refresh_ui, style = "float:right;") },
+              tags$h2(i18n("OVERVIEW_TITLE")),
+              tags$h3(class = "text-muted", i18n("OVERVIEW_SUBTITLE"))
+            )
+          ),
+          uiOutput(ns("no_release")),
+          uiOutput(ns("filter_selectors")),
+          uiOutput(ns("indicators")),
+          uiOutput(ns("results"))
+        )
+      }else{
+        tags$span("No results yet")
+      }
       })
     
-    INFO("End - Artfish siny Overview server Module")
+    INFO("End - Artfish shiny Overview server Module")
   })
   
 }
