@@ -28,7 +28,6 @@ ACCURACY_DAY_LABEL,Dia
 ACCURACY_SAMPLES_LABEL,amostras
 OVERVIEW_TITLE,Captura total e esforço
 OVERVIEW_SUBTITLE,Estatísticas a nível nacional
-OVERVIEW_NO_RELEASE,Não existem indicadores publicados disponíveis para estimativas Artfish
 OVERVIEW_TIME_SLIDER_LABEL,Período
 OVERVIEW_FISHING_UNIT_SELECTOR_LABEL,Unidade de pesca
 OVERVIEW_FISHING_UNIT_SELECTOR_SELECT_ALL,selecionar tudo
@@ -64,7 +63,6 @@ OVERVIEW_PLOT_CPUE_GROUP_LABEL,Unidade de pesca
 OVERVIEW_PLOT_CPUE_VALUE_LABEL,CPUE (kg/dia)
 FISHING_UNIT_TITLE,Captura e esforço
 FISHING_UNIT_SUBTITLE,Detalhado por unidade de pesca
-FISHING_UNIT_NO_RELEASE,Não existem indicadores publicados disponíveis para estimativas Artfish
 FISHING_UNIT_TIME_SLIDER_LABEL,Período
 FISHING_UNIT_FU_SELECTOR_LABEL,Unidade de pesca
 FISHING_UNIT_FU_SELECTOR_SELECT_ALL,selecionar tudo
@@ -108,7 +106,6 @@ FISHING_UNIT_PLOT_CPUE_GROUP_LABEL,Unidade de pesca
 FISHING_UNIT_PLOT_CPUE_VALUE_LABEL,CPUE (kg/dia)
 SPECIES_TITLE,Captura e esforço
 SPECIES_SUBTITLE,Detalhado por espécie
-SPECIES_NO_RELEASE,Não existem indicadores publicados disponíveis para estimativas Artfish
 SPECIES_SPECIES_SELECTOR_LABEL,Espécie
 SPECIES_SPECIES_SELECTOR_PLACEHOLDER,Selecione uma espécie
 SPECIES_TIME_SLIDER_LABEL,Período

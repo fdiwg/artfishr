@@ -28,7 +28,6 @@ ACCURACY_DAY_LABEL,Día
 ACCURACY_SAMPLES_LABEL,muestras
 OVERVIEW_TITLE,Captura total y esfuerzo
 OVERVIEW_SUBTITLE,Estadísticas a nivel país
-OVERVIEW_NO_RELEASE,No hay indicadores publicados disponibles para las estimaciones Artfish
 OVERVIEW_TIME_SLIDER_LABEL,Periodo
 OVERVIEW_FISHING_UNIT_SELECTOR_LABEL,Unidad de pesca
 OVERVIEW_FISHING_UNIT_SELECTOR_SELECT_ALL,seleccionar todo
@@ -64,7 +63,6 @@ OVERVIEW_PLOT_CPUE_GROUP_LABEL,Unidad de pesca
 OVERVIEW_PLOT_CPUE_VALUE_LABEL,CPUE (kg/día)
 FISHING_UNIT_TITLE,Captura y esfuerzo
 FISHING_UNIT_SUBTITLE,Detalle por unidad de pesca
-FISHING_UNIT_NO_RELEASE,No hay indicadores publicados disponibles para las estimaciones Artfish
 FISHING_UNIT_TIME_SLIDER_LABEL,Periodo
 FISHING_UNIT_FU_SELECTOR_LABEL,Unidad de pesca
 FISHING_UNIT_FU_SELECTOR_SELECT_ALL,seleccionar todo
@@ -108,7 +106,6 @@ FISHING_UNIT_PLOT_CPUE_GROUP_LABEL,Unidad de pesca
 FISHING_UNIT_PLOT_CPUE_VALUE_LABEL,CPUE (kg/día)
 SPECIES_TITLE,Captura y esfuerzo
 SPECIES_SUBTITLE,Detalle por especie
-SPECIES_NO_RELEASE,No hay indicadores publicados disponibles para las estimaciones Artfish
 SPECIES_SPECIES_SELECTOR_LABEL,Especie
 SPECIES_SPECIES_SELECTOR_PLACEHOLDER,Selecciona una especie
 SPECIES_TIME_SLIDER_LABEL,Periodo
