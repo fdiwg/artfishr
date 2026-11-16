@@ -13,7 +13,7 @@ columns available in data."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">artfishr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20260528</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.20261116</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,11 +21,10 @@ columns available in data."></head><body>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/artfishr.html">Get started</a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/artfishr.html"><span class="fa fas fa-rocket"></span> Get started</a></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-      </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/fdiwg/artfishr/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/index.html">Articles</a></li>
+      </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://github.com/fdiwg/artfishr"><span class="fa fab fa-github"></span></a></li>
       </ul></div>
 
 
@@ -34,8 +33,8 @@ columns available in data."></head><body>
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Generates a tibble of active days.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/0.1.20260528_patch_for_calipseo-shiny-2.3.2/R/artfish_active_days.R" class="external-link"><code>R/artfish_active_days.R</code></a></small>
+      <h1>Generates a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a> of active days.</h1>
+      <small class="dont-index">Source: <a href="https://github.com/fdiwg/artfishr/blob/main/R/artfish_active_days.R" class="external-link"><code>R/artfish_active_days.R</code></a></small>
       <div class="d-none name"><code>generate_active_days.Rd</code></div>
     </div>
 
@@ -49,10 +48,10 @@ columns available in data.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate_active_days</span><span class="op">(</span></span>
-<span>  <span class="va">active_vessels</span>,</span>
 <span>  <span class="va">effort</span>,</span>
-<span>  <span class="va">effort_source</span>,</span>
+<span>  effort_source <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fisher_interview"</span>, <span class="st">"boat_counting"</span>, <span class="st">"household_interview"</span><span class="op">)</span>,</span>
 <span>  <span class="va">landings</span>,</span>
+<span>  active_vessels <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  minor_strata <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -61,11 +60,7 @@ columns available in data.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-active-vessels">active_vessels<a class="anchor" aria-label="anchor" href="#arg-active-vessels"></a></dt>
-<dd><p>active vessels table</p></dd>
-
-
-<dt id="arg-effort">effort<a class="anchor" aria-label="anchor" href="#arg-effort"></a></dt>
+<dl><dt id="arg-effort">effort<a class="anchor" aria-label="anchor" href="#arg-effort"></a></dt>
 <dd><p>effort table</p></dd>
 
 
@@ -77,13 +72,17 @@ columns available in data.</p>
 <dd><p>landings table</p></dd>
 
 
+<dt id="arg-active-vessels">active_vessels<a class="anchor" aria-label="anchor" href="#arg-active-vessels"></a></dt>
+<dd><p>active vessels table</p></dd>
+
+
 <dt id="arg-minor-strata">minor_strata<a class="anchor" aria-label="anchor" href="#arg-minor-strata"></a></dt>
 <dd><p>minor strata. Default is <code>NULL</code></p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>an object of class tibble give active days</p>
+    <p>an object of class <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a> give active days</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -91,7 +90,7 @@ columns available in data.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Emmanuel Blondel, Alexandre Bennici, Johanna Herfaut.</p>
+  <p>Developed by Johanna Herfaut, Yann Laurent, Emmanuel Blondel, Alexandre Bennici.</p>
 </div>
 
 <div class="pkgdown-footer-right">

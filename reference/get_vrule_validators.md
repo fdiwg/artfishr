@@ -10,4 +10,5 @@ get_vrule_validators()
 
 ## Value
 
-the list of internal data validators as objects of class format_spec
+the list of internal data validators as objects of class
+[format_spec](https://fdiwg.github.io/vrule/reference/format_spec.html)

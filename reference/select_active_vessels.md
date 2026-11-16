@@ -41,7 +41,8 @@ select_active_vessels(
 
 - active_vessels:
 
-  active vessels object of class tibble
+  active vessels object of class
+  [tibble](https://tibble.tidyverse.org/reference/tibble.html)
 
 - active_vessels_strategy:
 

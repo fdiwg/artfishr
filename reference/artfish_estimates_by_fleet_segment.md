@@ -33,6 +33,14 @@ artfish_estimates_by_fleet_segment(
 
   species reference dataset
 
+- year:
+
+  year
+
+- month:
+
+  month
+
 ## Value
 
 the result of Artfish
