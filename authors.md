@@ -17,7 +17,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/fdiwg/artfishr/blob/0.1.20261019/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/fdiwg/artfishr/blob/0.1.20260528_patch_for_calipseo-shiny-2.3.2/DESCRIPTION)
 
 Herfaut J, Laurent Y, Blondel E, Bennici A (2026). *artfishr: ArtFish
 for R*. R package version 0.1.20261019,
