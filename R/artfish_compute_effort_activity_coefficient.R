@@ -36,7 +36,7 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
     if(any(effort$fleet_engagement_max < effort$fleet_engagement_number)){
       #TODO warnings here. What do do if fleet_engagement_max < fleet_engagement_number
       WARN("Some values for 'fleet_engagement_number' are greater than 'fleet_engagement_max'. Normalizing data...")
-      effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_number = fleet_engagement_max
+      effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_number = effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_max
     }
   }
   
