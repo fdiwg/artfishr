@@ -30,8 +30,13 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
   if(effort_source == "boat_counting"){
     if(any(is.na(effort$fleet_engagement_max))){
       #TODO warnings here to be reported (to investigate how)
-      WARN("Effort data include missing value(s). Removing NAs...")
+      WARN("Effort data include 'fleet_engagement_max' missing value(s). Removing NAs...")
       effort <- effort[!is.na(effort$fleet_engagement_max),]
+    }
+    if(any(is.na(effort$fleet_engagement_number))){
+      #TODO warnings here to be reported (to investigate how)
+      WARN("Effort data include 'fleet_engagement_number' missing value(s). Removing NAs...")
+      effort <- effort[!is.na(effort$fleet_engagement_number),]
     }
     if(any(effort$fleet_engagement_max < effort$fleet_engagement_number)){
       #TODO warnings here. What do do if fleet_engagement_max < fleet_engagement_number

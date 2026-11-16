@@ -1,6 +1,6 @@
 Package: artfishr
-Version: 0.1.20261019
-Date: 2026-10-19
+Version: 0.1.20261116
+Date: 2026-11-16
 Title: ArtFish for R
 Authors@R: c(
   person("Johanna", "Herfaut", role = c("aut")),
