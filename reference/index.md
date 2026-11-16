@@ -102,43 +102,17 @@
 - [`compute_effort_estimate()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate.md)
   : Computes nominal effort estimate
 
-- [`compute_effort_estimate_with_FAO_Artfish()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate_with_FAO_Artfish.md)
-  : Computes nominal effort estimate
-
-- [`compute_effort_estimate_with_IRD_Pechart()`](https://fdiwg.github.io/artfishr/reference/compute_effort_estimate_with_IRD_Pechart.md)
-  : Computes nominal effort estimate
-
 - [`compute_report()`](https://fdiwg.github.io/artfishr/reference/compute_report.md)
   : compute_report
 
 - [`compute_sui()`](https://fdiwg.github.io/artfishr/reference/compute_sui.md)
   : Computes sui
 
-- [`create_artfish_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_template.md)
-  : Create an empty artfishr data template
-
-- [`create_active_vessels_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
-  [`create_active_days_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
-  [`create_landings_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
-  [`create_effort_template()`](https://fdiwg.github.io/artfishr/reference/create_artfish_templates.md)
-  : Wrapper functions for creating ArtFishR templates
-
-- [`decode_artfish_schema()`](https://fdiwg.github.io/artfishr/reference/decode_artfish_schema.md)
-  : Decode an artfishr JSON schema
-
 - [`generate_active_days()`](https://fdiwg.github.io/artfishr/reference/generate_active_days.md)
-  :
-
-  Generates a
-  [tibble](https://tibble.tidyverse.org/reference/tibble.html) of active
-  days.
+  : Generates a tibble of active days.
 
 - [`generate_active_days_by_period()`](https://fdiwg.github.io/artfishr/reference/generate_active_days_by_period.md)
-  :
-
-  Generates a
-  [tibble](https://tibble.tidyverse.org/reference/tibble.html) of active
-  days.
+  : Generates a tibble of active days.
 
 - [`get_fdi_terms()`](https://fdiwg.github.io/artfishr/reference/get_fdi_terms.md)
   : Select get_fdi_terms vessels
@@ -177,17 +151,5 @@
 - [`unif_index()`](https://fdiwg.github.io/artfishr/reference/unif_index.md)
   : unif_index
 
-- [`validate_active_days()`](https://fdiwg.github.io/artfishr/reference/validate_active_days.md)
-  : Validator for active days data
-
-- [`validate_active_vessels()`](https://fdiwg.github.io/artfishr/reference/validate_active_vessels.md)
-  : Validator for active vessels data
-
-- [`validate_effort()`](https://fdiwg.github.io/artfishr/reference/validate_effort.md)
-  : Validator for effort data
-
 - [`validate_input_datasets()`](https://fdiwg.github.io/artfishr/reference/validate_input_datasets.md)
   : Validate input datasets
-
-- [`validate_landings()`](https://fdiwg.github.io/artfishr/reference/validate_landings.md)
-  : Validator for landings data

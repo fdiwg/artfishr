@@ -1,9 +1,9 @@
-# Generates a [tibble](https://tibble.tidyverse.org/reference/tibble.html) of active days.
+# Generates a tibble of active days.
 
 Function that generates a table of active days by year/month. The unique
-list of fishing units are inherited from available tables (effort,
-landings + eventually active_vessels). In the same way, the list of
-minor strata values will be inherited based on the minor_strata columns
+list of fishing units are inherited from available tables
+(active_vessels, effort, landings). In the same way, the list of minor
+strata values will be inherited based on the minor_strata columns
 available in data.
 
 ## Usage
@@ -12,10 +12,10 @@ available in data.
 generate_active_days_by_period(
   year,
   month,
+  active_vessels,
   effort,
-  effort_source = c("fisher_interview", "boat_counting", "household_interview"),
+  effort_source = c("fisher_interview", "boat_counting"),
   landings,
-  active_vessels = NULL,
   minor_strata = NULL
 )
 ```
@@ -30,6 +30,10 @@ generate_active_days_by_period(
 
   month
 
+- active_vessels:
+
+  active vessels table
+
 - effort:
 
   effort table
@@ -42,16 +46,10 @@ generate_active_days_by_period(
 
   landings table
 
-- active_vessels:
-
-  active vessels table
-
 - minor_strata:
 
   minor strata. Default is `NULL`
 
 ## Value
 
-an object of class
-[tibble](https://tibble.tidyverse.org/reference/tibble.html) give active
-days
+an object of class tibble give active days

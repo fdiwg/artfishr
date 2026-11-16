@@ -25,5 +25,4 @@ compute_catch_estimate(effort_estimate, landings, minor_strata = NULL)
 
 ## Value
 
-a [tibble](https://tibble.tidyverse.org/reference/tibble.html) giving
-the estimated catch by strata
+a tibble giving the estimated catch by strata

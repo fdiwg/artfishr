@@ -7,9 +7,3 @@ Artfishr shiny ui function
 ``` r
 artfish_shiny_ui(id)
 ```
-
-## Arguments
-
-- id:
-
-  id

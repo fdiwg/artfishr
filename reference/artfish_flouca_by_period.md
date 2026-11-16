@@ -20,14 +20,6 @@ artfish_flouca_by_period(
 
 ## Arguments
 
-- year:
-
-  year
-
-- month:
-
-  month
-
 - active_vessels:
 
   active vessels
@@ -52,10 +44,6 @@ artfish_flouca_by_period(
 - minor_strata:
 
   minor_strata (to investigate further later)
-
-- validate:
-
-  validate
 
 ## Value
 

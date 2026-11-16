@@ -1,11 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://fdiwg.github.io/artfishr/404.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/LICENSE-text.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/articles/artfishr_01_intro.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/articles/artfishr_02_data-requirements-validation.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/articles/artfishr_03_workflow.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/articles/artfishr_04_methodology.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/articles/artfishr_05_visualisation.html</loc></url>
+<url><loc>https://fdiwg.github.io/artfishr/articles/artfishr.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/articles/index.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/authors.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/index.html</loc></url>
@@ -42,13 +37,8 @@
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_cpue.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_effort_activity_coefficient.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_effort_estimate.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/compute_effort_estimate_with_FAO_Artfish.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/compute_effort_estimate_with_IRD_Pechart.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_report.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/compute_sui.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/create_artfish_template.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/create_artfish_templates.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/decode_artfish_schema.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/generate_active_days.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/generate_active_days_by_period.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/get_fdi_terms.html</loc></url>
@@ -63,10 +53,6 @@
 <url><loc>https://fdiwg.github.io/artfishr/reference/set_vrule_validators.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/translator.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/unif_index.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/validate_active_days.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/validate_active_vessels.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/validate_effort.html</loc></url>
 <url><loc>https://fdiwg.github.io/artfishr/reference/validate_input_datasets.html</loc></url>
-<url><loc>https://fdiwg.github.io/artfishr/reference/validate_landings.html</loc></url>
 </urlset>
 

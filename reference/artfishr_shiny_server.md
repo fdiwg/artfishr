@@ -7,17 +7,3 @@ Artfishr shiny server function
 ``` r
 artfish_shiny_server(input, output, session)
 ```
-
-## Arguments
-
-- input:
-
-  input
-
-- output:
-
-  output
-
-- session:
-
-  session
