@@ -43,6 +43,17 @@ compute_effort_activity_coefficient = function(effort, effort_source = c("fisher
       WARN("Some values for 'fleet_engagement_number' are greater than 'fleet_engagement_max'. Normalizing data...")
       effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_number = effort[effort$fleet_engagement_max < effort$fleet_engagement_number,]$fleet_engagement_max
     }
+    if(any(effort$fleet_engagement_number == 0)){
+      #TODO further brainstorming with @jherfaut on different typologies of boat_counting effort sources
+      #Through effort_source = "boat_counting", we can distinguish 4 configurations:
+      #1/ Full coverage for both landing sites / all month days
+      #2/ Partial coverage for landing sites / full coverage of days
+      #3/ Full coverage for landing sites / partial coverage of days
+      #4/ Partial coverage for both landing sites / days
+      #For now situations faced are configurations 1 and 4, in both cases zero values should be removed before computation
+      WARN("Effort data include 'fleet_engagement_number' with zero value(s). Removing zeros...")
+      effort <- effort[effort$fleet_engagement_number > 0,]
+    }
   }
   
   strata = c("year", "month", "fishing_unit")
