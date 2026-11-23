@@ -17,16 +17,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/fdiwg/artfishr/blob/v0.1.20261116/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/fdiwg/artfishr/blob/main/DESCRIPTION)
 
 Herfaut J, Laurent Y, Blondel E, Bennici A (2026). *artfishr: ArtFish
-for R*. R package version 0.1.20261116,
+for R*. R package version 0.1.20261123,
 <https://github.com/fdiwg/artfishr>.
 
     @Manual{,
       title = {artfishr: ArtFish for R},
       author = {Johanna Herfaut and Yann Laurent and Emmanuel Blondel and Alexandre Bennici},
       year = {2026},
-      note = {R package version 0.1.20261116},
+      note = {R package version 0.1.20261123},
       url = {https://github.com/fdiwg/artfishr},
     }
